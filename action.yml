@@ -1,0 +1,16 @@
+# Copyright (c) 2019 Luca Cappa
+# Released under the term specified in file LICENSE.txt
+# SPDX short identifier: MIT
+
+name: 'get-cmake'
+description: 'Get latest version of CMake installed onto GitHub runners.'
+author: 'Luca Cappa https://github.com/lukka'
+# inputs:
+# no inputs, no outputs!
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'terminal'  
+  color: 'green'
