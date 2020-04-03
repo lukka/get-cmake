@@ -22,7 +22,8 @@ jobs:
         npm install
         npm run test
       name: build and test
-    - uses: lukka/get-cmake@master
+    - uses: lukka/get-cmake@dev/caching
+      name: validation test by running get-cmake
     - run: |
         which cmake
         cmake --version

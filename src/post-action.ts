@@ -5,11 +5,18 @@
 
 import * as core from '@actions/core'
 import * as getter from './get-cmake'
+import * as cp from 'child_process'
 
 async function main(): Promise<void> {
   try {
-    const cmakeGetter: getter.CMakeGetter = new getter.CMakeGetter();
-    await cmakeGetter.run();
+    const pathToCache = core.getState(getter.CMakeGetter.INPUT_PATH);
+    process.env.INPUT_PATH = pathToCache;
+    const options: cp.ExecSyncOptions = {
+      env: process.env,
+      stdio: "inherit",
+    };
+    console.log(cp.execSync(`node "./dist/save/index.js"`, options)?.toString());
+
     core.info('get-cmake action execution succeeded');
     process.exitCode = 0;
   } catch (err) {

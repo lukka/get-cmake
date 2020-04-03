@@ -25,7 +25,9 @@ var build = function () {
 }
 
 var eslinter = function () {
-  return gulp.src(['**/*.ts'])
+  // Linting only files of this action, avoid any linting of the embedded actions/cache
+  // in the git subtree.
+  return gulp.src(['src/**/*.ts'])
     // eslint() attaches the lint output to the "eslint" property
     // of the file object so it can be used by other modules.
     .pipe(eslint())
@@ -41,15 +43,27 @@ var eslinter = function () {
 var test = function () {
   return gulp.src('__tests__').pipe(jest({
     "preprocessorIgnorePatterns": [
-      "<rootDir>/dist/", "<rootDir>/node_modules/"
+      "<rootDir>/dist/", 
+      "<rootDir>/node_modules/"
+    ],
+    "testPathIgnorePatterns" : [
+      "<rootDir>/actions/" 
     ],
     "automock": false
   }));
 }
 
+var copyCacheAction = function () {
+  return gulp.src(
+    ['./actions/cache/dist/**/index.js'])
+    .pipe(gulp.dest('./dist/'));
+}
+
 gulp.task('test', test);
+gulp.task('copyCacheAction', copyCacheAction);
 gulp.task('eslint', eslinter);
 gulp.task('build', build);
 gulp.task('installPackages', installPackages);
-gulp.task('default', gulp.series('installPackages', 'eslint', 'build'));
+// 'test' must not be part of the 'default' target, as it is started explicitly *after* ncc has been run by the package.json run script.
+gulp.task('default', gulp.series('installPackages', 'eslint', 'build', 'copyCacheAction'));
 
