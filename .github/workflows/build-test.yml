@@ -23,6 +23,7 @@ jobs:
         npm run test
       name: build and test
     - uses: lukka/get-cmake@master
+      name: validation test by running get-cmake
     - run: |
         which cmake
         cmake --version
