@@ -2079,14 +2079,18 @@ const tools = __webpack_require__(533);
 const core = __webpack_require__(470);
 const path = __webpack_require__(622);
 const cp = __webpack_require__(129);
-function hashCode(str) {
-    let hash = 1;
-    if (str.length != 0) {
-        let i = 0;
-        for (i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash = hash & hash;
+const fs = __webpack_require__(747);
+/**
+ * Compute an unique number given some text.
+ * @param {string} text
+ * @returns {string}
+ */
+function hashCode(text) {
+    let hash = 42;
+    if (text.length != 0) {
+        for (let i = 0; i < text.length; i++) {
+            const char = text.charCodeAt(i);
+            hash = ((hash << 5) + hash) ^ char;
         }
     }
     return hash.toString();
@@ -2113,27 +2117,15 @@ class CMakeGetter {
                 stdio: "inherit",
             };
             console.log(`Running restore-cache: ${(_a = cp.execSync(`node "./dist/restore/index.js"`, options)) === null || _a === void 0 ? void 0 : _a.toString()}`);
-            let extractedPath;
-            const downloaded = yield tools.downloadTool(data.url);
-            let suffixToDrop;
-            if (data.url.endsWith(".zip")) {
-                extractedPath = yield tools.extractZip(downloaded, outPath);
-                suffixToDrop = ".zip";
+            if (!fs.existsSync(outPath)) {
+                const downloaded = yield tools.downloadTool(data.url);
+                yield data.extractFn(downloaded, outPath);
             }
-            else if (data.url.endsWith("tar.gz")) {
-                extractedPath = yield tools.extractTar(downloaded, outPath);
-                suffixToDrop = ".tar.gz";
-            }
-            else if (data.url.endsWith("7z")) {
-                extractedPath = yield tools.extract7z(downloaded, outPath);
-                suffixToDrop = ".7z";
-            }
-            else
-                throw new Error(`Unsupported archive format: ${data.url}`);
+            // Add to PATH env var the cmake executable.
             const addr = new URL(data.url);
             const dirName = path.basename(addr.pathname);
-            core.addPath(path.join(extractedPath, dirName.replace(suffixToDrop, ''), data.binPath));
-            return extractedPath;
+            core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+            return outPath;
         });
     }
     getOutputPath(subDir) {
@@ -2149,9 +2141,9 @@ CMakeGetter.win_x64 = 'https://github.com/Kitware/CMake/releases/download/v3.17.
 CMakeGetter.macos = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz";
 CMakeGetter.Version = '3.17.0';
 CMakeGetter.packagesMap = {
-    "linux": { url: CMakeGetter.linux_x64, binPath: 'bin/' },
-    "win32": { url: CMakeGetter.win_x64, binPath: 'bin/' },
-    "darwin": { url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/" }
+    "linux": { url: CMakeGetter.linux_x64, binPath: 'bin/', extractFn: tools.extractTar, dropSuffix: ".tar.gz" },
+    "win32": { url: CMakeGetter.win_x64, binPath: 'bin/', extractFn: tools.extractZip, dropSuffix: ".zip" },
+    "darwin": { url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/", extractFn: tools.extractTar, dropSuffix: '.tar.gz' }
 };
 CMakeGetter.INPUT_PATH = "INPUT_PATH";
 

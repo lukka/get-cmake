@@ -6,20 +6,26 @@ import * as tools from '@actions/tool-cache'
 import * as core from '@actions/core'
 import * as path from 'path';
 import * as cp from 'child_process';
+import * as fs from 'fs'
 
 interface PackageInfo {
   url: string;
   binPath: string;
+  extractFn: { (url: string, s: string): Promise<string> };
+  dropSuffix: string;
 }
 
-function hashCode(str: string): string {
-  let hash = 1;
-  if (str.length != 0) {
-    let i = 0;
-    for (i = 0; i < str.length; i++) {
-      const char: number = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
+/**
+ * Compute an unique number given some text.
+ * @param {string} text
+ * @returns {string}
+ */
+function hashCode(text: string): string {
+  let hash = 42;
+  if (text.length != 0) {
+    for (let i = 0; i < text.length; i++) {
+      const char: number = text.charCodeAt(i);
+      hash = ((hash << 5) + hash) ^ char;
     }
   }
 
@@ -32,9 +38,9 @@ export class CMakeGetter {
   private static readonly macos: string = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz";
   private static readonly Version = '3.17.0';
   private static readonly packagesMap: { [key: string]: PackageInfo } = {
-    "linux": { url: CMakeGetter.linux_x64, binPath: 'bin/' },
-    "win32": { url: CMakeGetter.win_x64, binPath: 'bin/' },
-    "darwin": { url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/" }
+    "linux": { url: CMakeGetter.linux_x64, binPath: 'bin/', extractFn: tools.extractTar, dropSuffix: ".tar.gz" },
+    "win32": { url: CMakeGetter.win_x64, binPath: 'bin/', extractFn: tools.extractZip, dropSuffix: ".zip" },
+    "darwin": { url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/", extractFn: tools.extractTar, dropSuffix: '.tar.gz' }
   };
 
   public static INPUT_PATH = "INPUT_PATH";
@@ -58,28 +64,17 @@ export class CMakeGetter {
       stdio: "inherit",
     };
     console.log(`Running restore-cache: ${cp.execSync(`node "./dist/restore/index.js"`, options)?.toString()}`);
-    let extractedPath: string;
-    const downloaded = await tools.downloadTool(data.url);
-    let suffixToDrop: string;
-    if (data.url.endsWith(".zip")) {
-      extractedPath = await tools.extractZip(downloaded, outPath);
-      suffixToDrop = ".zip";
-    }
-    else if (data.url.endsWith("tar.gz")) {
-      extractedPath = await tools.extractTar(downloaded, outPath);
-      suffixToDrop = ".tar.gz";
-    }
-    else if (data.url.endsWith("7z")) {
-      extractedPath = await tools.extract7z(downloaded, outPath);
-      suffixToDrop = ".7z";
-    }
-    else
-      throw new Error(`Unsupported archive format: ${data.url}`);
 
+    if (!fs.existsSync(outPath)) {
+      const downloaded = await tools.downloadTool(data.url);
+      await data.extractFn(downloaded, outPath);
+    }
+
+    // Add to PATH env var the cmake executable.
     const addr = new URL(data.url);
     const dirName = path.basename(addr.pathname);
-    core.addPath(path.join(extractedPath, dirName.replace(suffixToDrop, ''), data.binPath));
-    return extractedPath;
+    core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+    return outPath;
   }
 
   private getOutputPath(subDir: string): string {
