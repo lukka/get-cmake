@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Luca Cappa
+# Copyright (c) 2020 Luca Cappa
 # Released under the term specified in file LICENSE.txt
 # SPDX short identifier: MIT
 
@@ -10,6 +10,8 @@ author: 'Luca Cappa https://github.com/lukka'
 runs:
   using: 'node12'
   main: 'dist/index.js'
+  post: 'dist/post/index.js'
+  post-if: 'success()'
 
 branding:
   icon: 'terminal'  

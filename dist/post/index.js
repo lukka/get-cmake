@@ -34,7 +34,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(195);
+/******/ 		return __webpack_require__(762);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -398,51 +398,6 @@ if (process.env.NODE_DEBUG && /\btunnel\b/.test(process.env.NODE_DEBUG)) {
   debug = function() {};
 }
 exports.debug = debug; // for test
-
-
-/***/ }),
-
-/***/ 195:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-// Copyright (c) 2020 Luca Cappa
-// Released under the term specified in file LICENSE.txt
-// SPDX short identifier: MIT
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core = __webpack_require__(470);
-const getter = __webpack_require__(357);
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const cmakeGetter = new getter.CMakeGetter();
-            yield cmakeGetter.run();
-            core.info('get-cmake action execution succeeded');
-            process.exitCode = 0;
-        }
-        catch (err) {
-            const errorAsString = (err !== null && err !== void 0 ? err : "undefined error").toString();
-            core.debug('Error: ' + errorAsString);
-            core.error(errorAsString);
-            core.setFailed('get-cmake action execution failed');
-            process.exitCode = -1000;
-        }
-    });
-}
-// Main entry point of the task.
-main().catch(error => console.error("main() failed!", error));
-
-//# sourceMappingURL=action.js.map
 
 
 /***/ }),
@@ -3864,6 +3819,60 @@ module.exports = bytesToUuid;
 /***/ (function(module) {
 
 module.exports = require("fs");
+
+/***/ }),
+
+/***/ 762:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+// Copyright (c) 2020 Luca Cappa
+// Released under the term specified in file LICENSE.txt
+// SPDX short identifier: MIT
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core = __webpack_require__(470);
+const getter = __webpack_require__(357);
+const cp = __webpack_require__(129);
+const path = __webpack_require__(622);
+function main() {
+    var _a;
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const pathToCache = core.getState(getter.CMakeGetter.INPUT_PATH);
+            process.env.INPUT_PATH = pathToCache;
+            const options = {
+                env: process.env,
+                stdio: "inherit",
+            };
+            const scriptPath = path.join(path.dirname(__dirname), 'save/index.js');
+            console.log((_a = cp.execSync(`node ${scriptPath}`, options)) === null || _a === void 0 ? void 0 : _a.toString());
+            core.info('get-cmake post action execution succeeded');
+            process.exitCode = 0;
+        }
+        catch (err) {
+            const errorAsString = (err !== null && err !== void 0 ? err : "undefined error").toString();
+            core.debug('Error: ' + errorAsString);
+            core.error(errorAsString);
+            core.setFailed('get-cmake post action execution failed');
+            process.exitCode = -1000;
+        }
+    });
+}
+// Main entry point of the task.
+main().catch(error => console.error("main() failed!", error));
+
+//# sourceMappingURL=post-action.js.map
+
 
 /***/ }),
 
