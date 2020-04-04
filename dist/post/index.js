@@ -2054,7 +2054,6 @@ class CMakeGetter {
     run() {
         return __awaiter(this, void 0, void 0, function* () {
             const data = CMakeGetter.packagesMap[process.platform];
-            //const outPath = path.join(process.env.RUNNER_TEMP!, hashCode(data.url));
             const cmakePath = yield this.get(data);
             yield tools.cacheDir(cmakePath, 'cmake', CMakeGetter.Version);
         });
@@ -2062,8 +2061,10 @@ class CMakeGetter {
     get(data) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            // Get an unique output directory name from the URL.
             const key = hashCode(data.url);
             const outPath = this.getOutputPath(key);
+            // Use the embedded actions/cache to cache the downloaded CMake binaries.
             process.env.INPUT_KEY = key;
             process.env.INPUT_PATH = outPath;
             core.saveState(CMakeGetter.INPUT_PATH, outPath);
@@ -2074,9 +2075,9 @@ class CMakeGetter {
             console.log(`Running restore-cache: ${(_a = cp.execSync(`node "./dist/restore/index.js"`, options)) === null || _a === void 0 ? void 0 : _a.toString()}`);
             if (!fs.existsSync(outPath)) {
                 const downloaded = yield tools.downloadTool(data.url);
-                yield data.extractFn(downloaded, outPath);
+                yield data.extractFunction(downloaded, outPath);
             }
-            // Add to PATH env var the cmake executable.
+            // Add to PATH env var the CMake executable.
             const addr = new URL(data.url);
             const dirName = path.basename(addr.pathname);
             core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
@@ -2085,20 +2086,30 @@ class CMakeGetter {
     }
     getOutputPath(subDir) {
         if (!process.env.RUNNER_TEMP)
-            throw new Error("Env var process.env.RUNNER_TEMP must be set, it is used as destination directory of the cache tools");
+            throw new Error("Environment variable process.env.RUNNER_TEMP must be set, it is used as destination directory of the cache");
         return path.join(process.env.RUNNER_TEMP, subDir);
         ;
     }
 }
 exports.CMakeGetter = CMakeGetter;
+CMakeGetter.Version = '3.17.0';
+// Predefined URL for CMake 
 CMakeGetter.linux_x64 = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz";
 CMakeGetter.win_x64 = 'https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-win64-x64.zip';
 CMakeGetter.macos = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz";
-CMakeGetter.Version = '3.17.0';
 CMakeGetter.packagesMap = {
-    "linux": { url: CMakeGetter.linux_x64, binPath: 'bin/', extractFn: tools.extractTar, dropSuffix: ".tar.gz" },
-    "win32": { url: CMakeGetter.win_x64, binPath: 'bin/', extractFn: tools.extractZip, dropSuffix: ".zip" },
-    "darwin": { url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/", extractFn: tools.extractTar, dropSuffix: '.tar.gz' }
+    "linux": {
+        url: CMakeGetter.linux_x64, binPath: 'bin/',
+        extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
+    },
+    "win32": {
+        url: CMakeGetter.win_x64, binPath: 'bin/',
+        extractFunction: tools.extractZip, dropSuffix: ".zip"
+    },
+    "darwin": {
+        url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/",
+        extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
+    }
 };
 CMakeGetter.INPUT_PATH = "INPUT_PATH";
 
@@ -3842,14 +3853,14 @@ function main() {
                 stdio: "inherit",
             };
             console.log((_a = cp.execSync(`node "./dist/save/index.js"`, options)) === null || _a === void 0 ? void 0 : _a.toString());
-            core.info('get-cmake action execution succeeded');
+            core.info('get-cmake post action execution succeeded');
             process.exitCode = 0;
         }
         catch (err) {
             const errorAsString = (err !== null && err !== void 0 ? err : "undefined error").toString();
             core.debug('Error: ' + errorAsString);
             core.error(errorAsString);
-            core.setFailed('get-cmake action execution failed');
+            core.setFailed('get-cmake post action execution failed');
             process.exitCode = -1000;
         }
     });

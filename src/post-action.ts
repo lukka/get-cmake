@@ -17,13 +17,13 @@ async function main(): Promise<void> {
     };
     console.log(cp.execSync(`node "./dist/save/index.js"`, options)?.toString());
 
-    core.info('get-cmake action execution succeeded');
+    core.info('get-cmake post action execution succeeded');
     process.exitCode = 0;
   } catch (err) {
     const errorAsString = (err ?? "undefined error").toString();
     core.debug('Error: ' + errorAsString);
     core.error(errorAsString);
-    core.setFailed('get-cmake action execution failed');
+    core.setFailed('get-cmake post action execution failed');
     process.exitCode = -1000;
   }
 }

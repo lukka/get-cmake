@@ -11,7 +11,7 @@ import * as fs from 'fs'
 interface PackageInfo {
   url: string;
   binPath: string;
-  extractFn: { (url: string, s: string): Promise<string> };
+  extractFunction: { (url: string, outputPath: string): Promise<string> };
   dropSuffix: string;
 }
 
@@ -33,29 +33,42 @@ function hashCode(text: string): string {
 }
 
 export class CMakeGetter {
+  private static readonly Version = '3.17.0';
+
+  // Predefined URL for CMake 
   private static readonly linux_x64: string = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz";
   private static readonly win_x64: string = 'https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-win64-x64.zip';
   private static readonly macos: string = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz";
-  private static readonly Version = '3.17.0';
+
   private static readonly packagesMap: { [key: string]: PackageInfo } = {
-    "linux": { url: CMakeGetter.linux_x64, binPath: 'bin/', extractFn: tools.extractTar, dropSuffix: ".tar.gz" },
-    "win32": { url: CMakeGetter.win_x64, binPath: 'bin/', extractFn: tools.extractZip, dropSuffix: ".zip" },
-    "darwin": { url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/", extractFn: tools.extractTar, dropSuffix: '.tar.gz' }
+    "linux": {
+      url: CMakeGetter.linux_x64, binPath: 'bin/',
+      extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
+    },
+    "win32": {
+      url: CMakeGetter.win_x64, binPath: 'bin/',
+      extractFunction: tools.extractZip, dropSuffix: ".zip"
+    },
+    "darwin": {
+      url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/",
+      extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
+    }
   };
 
   public static INPUT_PATH = "INPUT_PATH";
 
   public async run(): Promise<void> {
     const data = CMakeGetter.packagesMap[process.platform];
-    //const outPath = path.join(process.env.RUNNER_TEMP!, hashCode(data.url));
     const cmakePath = await this.get(data);
     await tools.cacheDir(cmakePath, 'cmake', CMakeGetter.Version);
   }
 
   private async get(data: PackageInfo): Promise<string> {
+    // Get an unique output directory name from the URL.
     const key: string = hashCode(data.url);
     const outPath = this.getOutputPath(key);
 
+    // Use the embedded actions/cache to cache the downloaded CMake binaries.
     process.env.INPUT_KEY = key;
     process.env.INPUT_PATH = outPath;
     core.saveState(CMakeGetter.INPUT_PATH, outPath);
@@ -67,10 +80,10 @@ export class CMakeGetter {
 
     if (!fs.existsSync(outPath)) {
       const downloaded = await tools.downloadTool(data.url);
-      await data.extractFn(downloaded, outPath);
+      await data.extractFunction(downloaded, outPath);
     }
 
-    // Add to PATH env var the cmake executable.
+    // Add to PATH env var the CMake executable.
     const addr = new URL(data.url);
     const dirName = path.basename(addr.pathname);
     core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
@@ -79,7 +92,7 @@ export class CMakeGetter {
 
   private getOutputPath(subDir: string): string {
     if (!process.env.RUNNER_TEMP)
-      throw new Error("Env var process.env.RUNNER_TEMP must be set, it is used as destination directory of the cache tools");
+      throw new Error("Environment variable process.env.RUNNER_TEMP must be set, it is used as destination directory of the cache");
     return path.join(process.env.RUNNER_TEMP, subDir);;
   }
 }
