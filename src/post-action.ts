@@ -5,18 +5,25 @@
 
 import * as core from '@actions/core'
 import * as getter from './get-cmake'
+import * as cp from 'child_process'
 
 async function main(): Promise<void> {
   try {
-    const cmakeGetter: getter.CMakeGetter = new getter.CMakeGetter();
-    await cmakeGetter.run();
-    core.info('get-cmake action execution succeeded');
+    const pathToCache = core.getState(getter.CMakeGetter.INPUT_PATH);
+    process.env.INPUT_PATH = pathToCache;
+    const options: cp.ExecSyncOptions = {
+      env: process.env,
+      stdio: "inherit",
+    };
+    console.log(cp.execSync(`node "./dist/save/index.js"`, options)?.toString());
+
+    core.info('get-cmake post action execution succeeded');
     process.exitCode = 0;
   } catch (err) {
     const errorAsString = (err ?? "undefined error").toString();
     core.debug('Error: ' + errorAsString);
     core.error(errorAsString);
-    core.setFailed('get-cmake action execution failed');
+    core.setFailed('get-cmake post action execution failed');
     process.exitCode = -1000;
   }
 }

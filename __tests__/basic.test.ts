@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 Luca Cappa
+// Copyright (c) 2020 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
@@ -7,7 +7,7 @@ import * as cp from 'child_process'
 import * as path from 'path'
 import * as io from '@actions/io'
 
-const tempDirectory = path.join(__dirname, "temp Directory");
+const tempDirectory = path.join(__dirname, "tempDirectory");
 const testScript = path.join(__dirname, '..', 'dist', 'index.js');;
 
 jest.setTimeout(15 * 1000)
@@ -34,7 +34,7 @@ describe('get-cmake tests', () => {
         }
     }, 100000);
 
-    test('basic test for CMakeListsTxtBasic', () => {
+    test('basic test for get-cmake', () => {
         const options: cp.ExecSyncOptions = {
             env: process.env,
             stdio: "inherit"
