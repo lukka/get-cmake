@@ -1,13 +1,14 @@
 [![Action Status](https://github.com/lukka/get-cmake/workflows/build-test/badge.svg)](https://github.com/lukka/get-cmake/actions)
 
-# [The **get-cmake** action for downloading and caching CMake on GitHub runners](https://github.com/marketplace/actions/run-cmake)
+# [The **get-cmake** action for downloading and caching CMake binaries](https://github.com/marketplace/actions/run-cmake)
 
-Download and **cache** CMake, it supports various Linux/macOS/Windows.
+Restores from cache, or downloads and caches CMake binaries **v3.17.1**.
+Works for x64 on Linux/macOS/Windows.
 
-Briefly:
-  1. Download CMake;
-  2. **cache** it automatically for you with GitHub's [actions/cache](https://github.com/actions/cache);
-  3. CMake is added to the PATH environment variable;
+Flowchart of `get-cmake`:
+  1. Restores CMake from cache;
+  1. If cache miss occurred, download and install CMake, then **cache it automatically** with GitHub's [actions/cache](https://github.com/actions/cache);
+  1. Adds to PATH the CMake executables;
 
 ## <a id='quickstart'>Quickstart</a>
 
@@ -15,8 +16,14 @@ Briefly:
     # - uses: actions/cache@v1  <-----= YOU DO NOT NEED THIS
     #   key: <key>              <-----= YOU DO NOT NEED THIS
     #   path: <path>            <-----= YOU DO NOT NEED THIS
+
     - name: Get latest CMake
-      uses: lukka/get-cmake@v1   ⟸ THIS IS THE ONE LINER YOU NEED
+      # Using v2 branch, the latest CMake is installed.
+      uses: lukka/get-cmake@v2        ⟸ THIS IS THE ONE LINER YOU NEED
+          
+    # If you need to pin your workflow to specific version you can use the 'tag'.
+    - name: Get specific version CMake
+      uses: lukka/get-cmake@v3.17.1   ⟸ THIS IS THE ONE LINER YOU NEED
 ```
 
  ## Developer Manual

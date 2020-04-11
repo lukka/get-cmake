@@ -33,12 +33,12 @@ function hashCode(text: string): string {
 }
 
 export class CMakeGetter {
-  private static readonly Version = '3.17.0';
+  private static readonly Version = '3.17.1';
 
   // Predefined URL for CMake 
-  private static readonly linux_x64: string = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz";
-  private static readonly win_x64: string = 'https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-win64-x64.zip';
-  private static readonly macos: string = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz";
+  private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Linux-x86_64.tar.gz`;
+  private static readonly win_x64: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-win64-x64.zip`;
+  private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Darwin-x86_64.tar.gz`;
 
   private static readonly packagesMap: { [key: string]: PackageInfo } = {
     "linux": {

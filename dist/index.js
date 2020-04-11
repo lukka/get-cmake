@@ -2138,11 +2138,11 @@ class CMakeGetter {
     }
 }
 exports.CMakeGetter = CMakeGetter;
-CMakeGetter.Version = '3.17.0';
+CMakeGetter.Version = '3.17.1';
 // Predefined URL for CMake 
-CMakeGetter.linux_x64 = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz";
-CMakeGetter.win_x64 = 'https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-win64-x64.zip';
-CMakeGetter.macos = "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz";
+CMakeGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Linux-x86_64.tar.gz`;
+CMakeGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-win64-x64.zip`;
+CMakeGetter.macos = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Darwin-x86_64.tar.gz`;
 CMakeGetter.packagesMap = {
     "linux": {
         url: CMakeGetter.linux_x64, binPath: 'bin/',
