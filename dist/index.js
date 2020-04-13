@@ -2104,29 +2104,42 @@ class CMakeGetter {
         });
     }
     get(data) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             // Get an unique output directory name from the URL.
             const key = hashCode(data.url);
             const outPath = this.getOutputPath(key);
-            // Use the embedded actions/cache to cache the downloaded CMake binaries.
-            process.env.INPUT_KEY = key;
-            process.env.INPUT_PATH = outPath;
-            core.saveState(CMakeGetter.INPUT_PATH, outPath);
-            const options = {
-                env: process.env,
-                stdio: "inherit",
-            };
-            const scriptPath = path.join(__dirname, '../actions/cache/dist/restore/index.js');
-            console.log(`Running restore-cache: ${(_a = cp.execSync(`node ${scriptPath}`, options)) === null || _a === void 0 ? void 0 : _a.toString()}`);
-            if (!fs.existsSync(outPath)) {
-                const downloaded = yield tools.downloadTool(data.url);
-                yield data.extractFunction(downloaded, outPath);
+            try {
+                core.startGroup(`Restore from cache`);
+                // Use the embedded actions/cache to cache the downloaded CMake binaries.
+                process.env.INPUT_KEY = key;
+                process.env.INPUT_PATH = outPath;
+                core.saveState(CMakeGetter.INPUT_PATH, outPath);
+                const options = {
+                    env: process.env,
+                    stdio: "inherit",
+                };
+                const scriptPath = path.join(__dirname, '../actions/cache/dist/restore/index.js');
+                cp.execSync(`node ${scriptPath}`, options);
             }
-            // Add to PATH env var the CMake executable.
-            const addr = new URL(data.url);
-            const dirName = path.basename(addr.pathname);
-            core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+            finally {
+                core.endGroup();
+            }
+            if (!fs.existsSync(outPath)) {
+                yield core.group("Download and extract CMake", () => __awaiter(this, void 0, void 0, function* () {
+                    const downloaded = yield tools.downloadTool(data.url);
+                    yield data.extractFunction(downloaded, outPath);
+                }));
+            }
+            try {
+                core.startGroup(`Add CMake to PATH`);
+                // Add to PATH env var the CMake executable.
+                const addr = new URL(data.url);
+                const dirName = path.basename(addr.pathname);
+                core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+            }
+            finally {
+                core.endGroup();
+            }
             return outPath;
         });
     }
