@@ -10,6 +10,7 @@ import * as path from 'path'
 
 async function main(): Promise<void> {
   try {
+    core.startGroup('Save to cache');
     const pathToCache = core.getState(getter.CMakeGetter.INPUT_PATH);
     process.env.INPUT_PATH = pathToCache;
     const options: cp.ExecSyncOptions = {
@@ -17,7 +18,7 @@ async function main(): Promise<void> {
       stdio: "inherit",
     };
     const scriptPath = path.join(path.dirname(path.dirname(__dirname)), 'actions/cache/dist/save/index.js');
-    console.log(cp.execSync(`node ${scriptPath}`, options)?.toString());
+    cp.execSync(`node ${scriptPath}`, options);
 
     core.info('get-cmake post action execution succeeded');
     process.exitCode = 0;
@@ -27,6 +28,8 @@ async function main(): Promise<void> {
     core.error(errorAsString);
     core.setFailed('get-cmake post action execution failed');
     process.exitCode = -1000;
+  } finally {
+    core.endGroup();
   }
 }
 

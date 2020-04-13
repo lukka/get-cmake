@@ -67,27 +67,39 @@ export class CMakeGetter {
     // Get an unique output directory name from the URL.
     const key: string = hashCode(data.url);
     const outPath = this.getOutputPath(key);
-
-    // Use the embedded actions/cache to cache the downloaded CMake binaries.
-    process.env.INPUT_KEY = key;
-    process.env.INPUT_PATH = outPath;
-    core.saveState(CMakeGetter.INPUT_PATH, outPath);
-    const options: cp.ExecSyncOptions = {
-      env: process.env,
-      stdio: "inherit",
-    };
-    const scriptPath = path.join(__dirname, '../actions/cache/dist/restore/index.js');
-    console.log(`Running restore-cache: ${cp.execSync(`node ${scriptPath}`, options)?.toString()}`);
-
-    if (!fs.existsSync(outPath)) {
-      const downloaded = await tools.downloadTool(data.url);
-      await data.extractFunction(downloaded, outPath);
+    try {
+      core.startGroup(`Restore from cache`);
+      // Use the embedded actions/cache to cache the downloaded CMake binaries.
+      process.env.INPUT_KEY = key;
+      process.env.INPUT_PATH = outPath;
+      core.saveState(CMakeGetter.INPUT_PATH, outPath);
+      const options: cp.ExecSyncOptions = {
+        env: process.env,
+        stdio: "inherit",
+      };
+      const scriptPath = path.join(__dirname, '../actions/cache/dist/restore/index.js');
+      cp.execSync(`node ${scriptPath}`, options);
+    } finally {
+      core.endGroup();
     }
 
-    // Add to PATH env var the CMake executable.
-    const addr = new URL(data.url);
-    const dirName = path.basename(addr.pathname);
-    core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+    if (!fs.existsSync(outPath)) {
+      await core.group("Download and extract CMake", async () => {
+        const downloaded = await tools.downloadTool(data.url);
+        await data.extractFunction(downloaded, outPath);
+      });
+    }
+
+    try {
+      core.startGroup(`Add CMake to PATH`);
+      // Add to PATH env var the CMake executable.
+      const addr = new URL(data.url);
+      const dirName = path.basename(addr.pathname);
+      core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+    } finally {
+      core.endGroup();
+    }
+
     return outPath;
   }
 
