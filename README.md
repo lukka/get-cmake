@@ -18,8 +18,8 @@ Flowchart of `get-cmake`:
     #   path: <path>            <-----= YOU DO NOT NEED THIS
 
     - name: Get latest CMake
-      # Using v2 branch, the latest CMake is installed.
-      uses: lukka/get-cmake@v2        ⟸ THIS IS THE ONE LINER YOU NEED
+      # Using 'latest' branch, the latest CMake is installed.
+      uses: lukka/get-cmake@latest        ⟸ THIS IS THE ONE LINER YOU NEED
           
     # If you need to pin your workflow to specific version you can use the 'tag'.
     - name: Get specific version CMake
