@@ -2,7 +2,7 @@
 
 # [The **get-cmake** action for downloading and caching CMake binaries](https://github.com/marketplace/actions/run-cmake)
 
-Restores from cache, or downloads and caches CMake binaries **v3.17.1**.
+Restores from cache, or downloads and caches CMake binaries **v3.17.2**.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
@@ -23,7 +23,7 @@ Flowchart of `get-cmake`:
           
     # If you need to pin your workflow to specific version you can use the 'tag'.
     - name: Get specific version CMake
-      uses: lukka/get-cmake@v3.17.1   ⟸ THIS IS THE ONE LINER YOU NEED
+      uses: lukka/get-cmake@v3.17.2   ⟸ THIS IS THE ONE LINER YOU NEED
 ```
 
  ## Developer Manual

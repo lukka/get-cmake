@@ -11,5 +11,3 @@ token.txt
 build
 __tests__/build Directory
 __tests__/b
-dist/restore
-dist/save
