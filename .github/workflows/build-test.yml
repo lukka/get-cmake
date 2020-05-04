@@ -22,14 +22,14 @@ jobs:
         npm install
         npm run test
       name: build and test
-    - uses: lukka/get-cmake@master
+    - uses: lukka/get-cmake@dev/3.17.2
       name: validation test by running get-cmake
     - run: |
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.17.1".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.17.1, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"3.17.2".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.17.2, found: "
           echo "$CMAKE_VER"
           exit -1
         fi
