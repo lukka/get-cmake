@@ -2,7 +2,7 @@
 
 # [The **get-cmake** action for downloading and caching CMake binaries](https://github.com/marketplace/actions/run-cmake)
 
-Restores from cache, or downloads and caches CMake binaries **v3.17.2**.
+Restores from cache, or downloads and caches CMake binaries **v3.17.3**.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
