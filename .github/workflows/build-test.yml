@@ -22,17 +22,15 @@ jobs:
         npm install
         npm run test
       name: build and test
-      # Ideally instead of '@master' there should be either the target PR branch merged, or this branch.
-    - uses: lukka/get-cmake@master
+    - uses: ./
       name: validation test by running get-cmake
     - run: |
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.17.2".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.17.2, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"3.17.3".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.17.3, found: "
           echo "$CMAKE_VER"
           exit -1
         fi
       shell: bash
-
