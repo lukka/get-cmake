@@ -33,7 +33,7 @@ function hashCode(text: string): string {
 }
 
 export class CMakeGetter {
-  private static readonly Version = '3.17.3';
+  private static readonly Version = '3.18.0';
 
   // Predefined URL for CMake 
   private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Linux-x86_64.tar.gz`;
