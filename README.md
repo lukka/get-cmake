@@ -1,8 +1,10 @@
 [![Action Status](https://github.com/lukka/get-cmake/workflows/build-test/badge.svg)](https://github.com/lukka/get-cmake/actions)
 
+[![Coverage Status](https://coveralls.io/repos/github/lukka/get-cmake/badge.svg?branch=master)](https://coveralls.io/github/lukka/get-cmake?branch=master)
+
 # [The **get-cmake** action for downloading and caching CMake binaries](https://github.com/marketplace/actions/run-cmake)
 
-Restores from cache, or downloads and caches CMake binaries **v3.18.0**.
+Restores from cache, or downloads and caches CMake binaries **v3.18.2**.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
@@ -23,7 +25,7 @@ Flowchart of `get-cmake`:
           
     # If you need to pin your workflow to specific version you can use the 'tag'.
     - name: Get specific version CMake
-      uses: lukka/get-cmake@v3.17.2   ⟸ THIS IS THE ONE LINER YOU NEED
+      uses: lukka/get-cmake@v3.18.2   ⟸ THIS IS THE ONE LINER YOU NEED
 ```
 
  ## Developer Manual
@@ -74,12 +76,7 @@ To build, pack and test:
 The software is provided as is, there is no warranty of any kind. All users are encouraged to improve the [source code](https://github.com/lukka/get-cmake) with fixes and new features.
 
 # License
-All the content, except for the `actions/cache directory and its content` in this repository is licensed under the [MIT License](LICENSE.txt).
+All the content in this repository is licensed under the [MIT License](LICENSE.txt).
 
 Copyright (c) 2020 Luca Cappa
 
-<hr>
-
-All content under [actions/cache](./actions/cache) directory is subject to this [LICENSE](./actions/cache/LICENSE)
-
-Copyright (c) 2018 GitHub, Inc. and contributors
