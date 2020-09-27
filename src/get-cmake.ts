@@ -2,11 +2,11 @@
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
-import * as tools from '@actions/tool-cache'
-import * as core from '@actions/core'
+import * as cache from '@actions/cache';
+import * as core from '@actions/core';
+import * as tools from '@actions/tool-cache';
+import * as fs from 'fs';
 import * as path from 'path';
-import * as cp from 'child_process';
-import * as fs from 'fs'
 
 interface PackageInfo {
   url: string;
@@ -33,7 +33,7 @@ function hashCode(text: string): string {
 }
 
 export class CMakeGetter {
-  private static readonly Version = '3.18.0';
+  private static readonly Version = '3.18.2';
 
   // Predefined URL for CMake 
   private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Linux-x86_64.tar.gz`;
@@ -55,11 +55,11 @@ export class CMakeGetter {
     }
   };
 
-  public static INPUT_PATH = "INPUT_PATH";
-
   public async run(): Promise<void> {
     const data = CMakeGetter.packagesMap[process.platform];
     const cmakePath = await this.get(data);
+
+    // Cache the tool also locally on the agent for eventual subsequent usages.
     await tools.cacheDir(cmakePath, 'cmake', CMakeGetter.Version);
   }
 
@@ -67,23 +67,15 @@ export class CMakeGetter {
     // Get an unique output directory name from the URL.
     const key: string = hashCode(data.url);
     const outPath = this.getOutputPath(key);
+    let hitKey: string | undefined;
     try {
       core.startGroup(`Restore from cache`);
-      // Use the embedded actions/cache to cache the downloaded CMake binaries.
-      process.env.INPUT_KEY = key;
-      process.env.INPUT_PATH = outPath;
-      core.saveState(CMakeGetter.INPUT_PATH, outPath);
-      const options: cp.ExecSyncOptions = {
-        env: process.env,
-        stdio: "inherit",
-      };
-      const scriptPath = path.join(__dirname, '../actions/cache/dist/restore/index.js');
-      cp.execSync(`node ${scriptPath}`, options);
+      hitKey = await cache.restoreCache([outPath], key);
     } finally {
       core.endGroup();
     }
 
-    if (!fs.existsSync(outPath)) {
+    if (hitKey === undefined || !fs.existsSync(outPath)) {
       await core.group("Download and extract CMake", async () => {
         const downloaded = await tools.downloadTool(data.url);
         await data.extractFunction(downloaded, outPath);
@@ -100,6 +92,17 @@ export class CMakeGetter {
       core.endGroup();
     }
 
+    try {
+      core.startGroup('Save to cache');
+      if (hitKey === undefined) {
+        await cache.saveCache([outPath], key);
+      } else {
+        core.info("Skipping as cache hit.");
+      }
+    } finally {
+      core.endGroup();
+    }
+
     return outPath;
   }
 
@@ -107,5 +110,23 @@ export class CMakeGetter {
     if (!process.env.RUNNER_TEMP)
       throw new Error("Environment variable process.env.RUNNER_TEMP must be set, it is used as destination directory of the cache");
     return path.join(process.env.RUNNER_TEMP, subDir);;
+  }
+}
+
+export async function main(): Promise<void> {
+  try {
+    const cmakeGetter: CMakeGetter = new CMakeGetter();
+    await cmakeGetter.run();
+    core.info('get-cmake action execution succeeded');
+    process.exitCode = 0;
+  } catch (err) {
+    const error: Error = err as Error;
+    if (error?.stack) {
+      core.info(error.stack);
+    }
+    const errorAsString = (err ?? "undefined error").toString();
+    core.setFailed(`get-cmake action execution failed: '${errorAsString}'`);
+    process.exitCode = -1000;
+
   }
 }

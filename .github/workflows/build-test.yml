@@ -28,9 +28,14 @@ jobs:
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.18.0".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.18.0, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"3.18.2".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.18.2, found: "
           echo "$CMAKE_VER"
           exit -1
         fi
       shell: bash
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
