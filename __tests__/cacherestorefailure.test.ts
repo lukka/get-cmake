@@ -5,7 +5,7 @@
 import * as process from 'process';
 import * as os from 'os';
 import * as path from 'path';
-import { CMakeGetter } from '../src/get-cmake';
+import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
 
 jest.setTimeout(15 * 1000)
@@ -21,8 +21,8 @@ jest.spyOn(cache, 'restoreCache').mockImplementation(() => {
 }
 );
 
-test('testing get-cache with restoreCache failure', async () => {
+test('testing get-cmake with restoreCache failure', async () => {
     process.env.RUNNER_TEMP = os.tmpdir();
-    const getter: CMakeGetter = new CMakeGetter();
+    const getter: ToolsGetter = new ToolsGetter();
     await expect(getter.run()).rejects.toThrowError();
 });

@@ -1,7 +1,7 @@
 {
   "name": "get-cmake-action",
   "version": "0.0.1",
-  "description": "GitHub action to get CMake installed on the runner.",
+  "description": "GitHub action to get CMake and ninja installed and cached on the GitHub runner.",
   "repository": {
     "type": "git",
     "url": "https://github.com/lukka/run-cmake-action"

@@ -2,12 +2,8 @@
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
-import * as path from 'path';
-import { CMakeGetter } from '../src/get-cmake';
+import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
-
-const tempDirectory = path.join(__dirname, "tempDirectory");
-const testScript = path.join(__dirname, '..', 'dist', 'index.js');;
 
 jest.setTimeout(15 * 1000)
 
@@ -22,8 +18,8 @@ jest.spyOn(cache, 'restoreCache').mockImplementation(() => {
 }
 );
 
-test('testing get-cache with no temporary directory failure', async () => {
+test('testing get-cmake with no temporary directory failure', async () => {
     delete process.env.RUNNER_TEMP;
-    const getter: CMakeGetter = new CMakeGetter();
+    const getter: ToolsGetter = new ToolsGetter();
     await expect(getter.run()).rejects.toThrowError();
 });

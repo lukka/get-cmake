@@ -5,7 +5,6 @@
 import * as cache from '@actions/cache';
 import * as core from '@actions/core';
 import * as tools from '@actions/tool-cache';
-import * as fs from 'fs';
 import * as path from 'path';
 
 interface PackageInfo {
@@ -32,40 +31,65 @@ function hashCode(text: string): string {
   return hash.toString();
 }
 
-export class CMakeGetter {
-  private static readonly Version = '3.18.2';
+export class ToolsGetter {
+  private static readonly CMakeVersion = '3.18.3';
+  private static readonly NinjaVersion = '1.10.1';
 
   // Predefined URL for CMake 
-  private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Linux-x86_64.tar.gz`;
-  private static readonly win_x64: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-win64-x64.zip`;
-  private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Darwin-x86_64.tar.gz`;
+  private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Linux-x86_64.tar.gz`;
+  private static readonly win_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-win64-x64.zip`;
+  private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Darwin-x86_64.tar.gz`;
 
-  private static readonly packagesMap: { [key: string]: PackageInfo } = {
+  // Predefined URL for ninja
+  private static readonly ninja_linux_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-linux.zip`;
+  private static readonly ninja_macos_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-mac.zip`;
+  private static readonly ninja_windows_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-win.zip`;
+
+  private static readonly cmakePackagesMap: { [key: string]: PackageInfo } = {
     "linux": {
-      url: CMakeGetter.linux_x64, binPath: 'bin/',
+      url: ToolsGetter.linux_x64,
+      binPath: 'bin/',
       extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
     },
     "win32": {
-      url: CMakeGetter.win_x64, binPath: 'bin/',
+      url: ToolsGetter.win_x64,
+      binPath: 'bin/',
       extractFunction: tools.extractZip, dropSuffix: ".zip"
     },
     "darwin": {
-      url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/",
+      url: ToolsGetter.macos,
+      binPath: "CMake.app/Contents/bin/",
       extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
     }
   };
 
-  public async run(): Promise<void> {
-    const data = CMakeGetter.packagesMap[process.platform];
-    const cmakePath = await this.get(data);
+  private static readonly ninjaPackagesMap: { [key: string]: PackageInfo } = {
+    "linux": {
+      url: ToolsGetter.ninja_linux_x64,
+      binPath: '',
+      extractFunction: tools.extractZip, dropSuffix: ".zip"
+    },
+    "win32": {
+      url: ToolsGetter.ninja_windows_x64,
+      binPath: '',
+      extractFunction: tools.extractZip, dropSuffix: ".zip"
+    },
+    "darwin": {
+      url: ToolsGetter.ninja_macos_x64,
+      binPath: '',
+      extractFunction: tools.extractZip, dropSuffix: '.zip'
+    }
+  };
 
-    // Cache the tool also locally on the agent for eventual subsequent usages.
-    await tools.cacheDir(cmakePath, 'cmake', CMakeGetter.Version);
+  public async run(): Promise<void> {
+    const cmakeData = ToolsGetter.cmakePackagesMap[process.platform];
+    const ninjaData = ToolsGetter.ninjaPackagesMap[process.platform];
+    await this.get(cmakeData, ninjaData);
   }
 
-  private async get(data: PackageInfo): Promise<string> {
+  private async get(cmakeData: PackageInfo, ninjaData: PackageInfo): Promise<void> {
     // Get an unique output directory name from the URL.
-    const key: string = hashCode(data.url);
+    const key: string = hashCode(`${cmakeData.url}${ninjaData.url}`);
     const outPath = this.getOutputPath(key);
     let hitKey: string | undefined;
     try {
@@ -75,19 +99,24 @@ export class CMakeGetter {
       core.endGroup();
     }
 
-    if (hitKey === undefined || !fs.existsSync(outPath)) {
+    if (hitKey === undefined) {
       await core.group("Download and extract CMake", async () => {
-        const downloaded = await tools.downloadTool(data.url);
-        await data.extractFunction(downloaded, outPath);
+        const downloaded = await tools.downloadTool(cmakeData.url);
+        await cmakeData.extractFunction(downloaded, outPath);
+      });
+
+      await core.group("Download and extract ninja", async () => {
+        const downloaded = await tools.downloadTool(ninjaData.url);
+        await ninjaData.extractFunction(downloaded, outPath);
       });
     }
 
     try {
-      core.startGroup(`Add CMake to PATH`);
-      // Add to PATH env var the CMake executable.
-      const addr = new URL(data.url);
+      core.startGroup(`Add CMake and ninja to PATH`);
+      const addr = new URL(cmakeData.url);
       const dirName = path.basename(addr.pathname);
-      core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+      core.addPath(path.join(outPath, dirName.replace(cmakeData.dropSuffix, ''), cmakeData.binPath));
+      core.addPath(outPath);
     } finally {
       core.endGroup();
     }
@@ -102,8 +131,6 @@ export class CMakeGetter {
     } finally {
       core.endGroup();
     }
-
-    return outPath;
   }
 
   private getOutputPath(subDir: string): string {
@@ -115,7 +142,7 @@ export class CMakeGetter {
 
 export async function main(): Promise<void> {
   try {
-    const cmakeGetter: CMakeGetter = new CMakeGetter();
+    const cmakeGetter: ToolsGetter = new ToolsGetter();
     await cmakeGetter.run();
     core.info('get-cmake action execution succeeded');
     process.exitCode = 0;
