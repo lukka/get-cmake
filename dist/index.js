@@ -2278,11 +2278,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.main = exports.CMakeGetter = void 0;
+exports.main = exports.ToolsGetter = void 0;
 const cache = __webpack_require__(692);
 const core = __webpack_require__(470);
 const tools = __webpack_require__(533);
-const fs = __webpack_require__(747);
 const path = __webpack_require__(622);
 /**
  * Compute an unique number given some text.
@@ -2299,19 +2298,18 @@ function hashCode(text) {
     }
     return hash.toString();
 }
-class CMakeGetter {
+class ToolsGetter {
     run() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = CMakeGetter.packagesMap[process.platform];
-            const cmakePath = yield this.get(data);
-            // Cache the tool also locally on the agent for eventual subsequent usages.
-            yield tools.cacheDir(cmakePath, 'cmake', CMakeGetter.Version);
+            const cmakeData = ToolsGetter.cmakePackagesMap[process.platform];
+            const ninjaData = ToolsGetter.ninjaPackagesMap[process.platform];
+            yield this.get(cmakeData, ninjaData);
         });
     }
-    get(data) {
+    get(cmakeData, ninjaData) {
         return __awaiter(this, void 0, void 0, function* () {
             // Get an unique output directory name from the URL.
-            const key = hashCode(data.url);
+            const key = hashCode(`${cmakeData.url}${ninjaData.url}`);
             const outPath = this.getOutputPath(key);
             let hitKey;
             try {
@@ -2321,18 +2319,22 @@ class CMakeGetter {
             finally {
                 core.endGroup();
             }
-            if (hitKey === undefined || !fs.existsSync(outPath)) {
+            if (hitKey === undefined) {
                 yield core.group("Download and extract CMake", () => __awaiter(this, void 0, void 0, function* () {
-                    const downloaded = yield tools.downloadTool(data.url);
-                    yield data.extractFunction(downloaded, outPath);
+                    const downloaded = yield tools.downloadTool(cmakeData.url);
+                    yield cmakeData.extractFunction(downloaded, outPath);
+                }));
+                yield core.group("Download and extract ninja", () => __awaiter(this, void 0, void 0, function* () {
+                    const downloaded = yield tools.downloadTool(ninjaData.url);
+                    yield ninjaData.extractFunction(downloaded, outPath);
                 }));
             }
             try {
-                core.startGroup(`Add CMake to PATH`);
-                // Add to PATH env var the CMake executable.
-                const addr = new URL(data.url);
+                core.startGroup(`Add CMake and ninja to PATH`);
+                const addr = new URL(cmakeData.url);
                 const dirName = path.basename(addr.pathname);
-                core.addPath(path.join(outPath, dirName.replace(data.dropSuffix, ''), data.binPath));
+                core.addPath(path.join(outPath, dirName.replace(cmakeData.dropSuffix, ''), cmakeData.binPath));
+                core.addPath(outPath);
             }
             finally {
                 core.endGroup();
@@ -2349,7 +2351,6 @@ class CMakeGetter {
             finally {
                 core.endGroup();
             }
-            return outPath;
         });
     }
     getOutputPath(subDir) {
@@ -2359,30 +2360,55 @@ class CMakeGetter {
         ;
     }
 }
-exports.CMakeGetter = CMakeGetter;
-CMakeGetter.Version = '3.18.2';
+exports.ToolsGetter = ToolsGetter;
+ToolsGetter.CMakeVersion = '3.18.3';
+ToolsGetter.NinjaVersion = '1.10.1';
 // Predefined URL for CMake 
-CMakeGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Linux-x86_64.tar.gz`;
-CMakeGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-win64-x64.zip`;
-CMakeGetter.macos = `https://github.com/Kitware/CMake/releases/download/v${CMakeGetter.Version}/cmake-${CMakeGetter.Version}-Darwin-x86_64.tar.gz`;
-CMakeGetter.packagesMap = {
+ToolsGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Linux-x86_64.tar.gz`;
+ToolsGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-win64-x64.zip`;
+ToolsGetter.macos = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Darwin-x86_64.tar.gz`;
+// Predefined URL for ninja
+ToolsGetter.ninja_linux_x64 = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-linux.zip`;
+ToolsGetter.ninja_macos_x64 = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-mac.zip`;
+ToolsGetter.ninja_windows_x64 = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-win.zip`;
+ToolsGetter.cmakePackagesMap = {
     "linux": {
-        url: CMakeGetter.linux_x64, binPath: 'bin/',
+        url: ToolsGetter.linux_x64,
+        binPath: 'bin/',
         extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
     },
     "win32": {
-        url: CMakeGetter.win_x64, binPath: 'bin/',
+        url: ToolsGetter.win_x64,
+        binPath: 'bin/',
         extractFunction: tools.extractZip, dropSuffix: ".zip"
     },
     "darwin": {
-        url: CMakeGetter.macos, binPath: "CMake.app/Contents/bin/",
+        url: ToolsGetter.macos,
+        binPath: "CMake.app/Contents/bin/",
         extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
+    }
+};
+ToolsGetter.ninjaPackagesMap = {
+    "linux": {
+        url: ToolsGetter.ninja_linux_x64,
+        binPath: '',
+        extractFunction: tools.extractZip, dropSuffix: ".zip"
+    },
+    "win32": {
+        url: ToolsGetter.ninja_windows_x64,
+        binPath: '',
+        extractFunction: tools.extractZip, dropSuffix: ".zip"
+    },
+    "darwin": {
+        url: ToolsGetter.ninja_macos_x64,
+        binPath: '',
+        extractFunction: tools.extractZip, dropSuffix: '.zip'
     }
 };
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const cmakeGetter = new CMakeGetter();
+            const cmakeGetter = new ToolsGetter();
             yield cmakeGetter.run();
             core.info('get-cmake action execution succeeded');
             process.exitCode = 0;

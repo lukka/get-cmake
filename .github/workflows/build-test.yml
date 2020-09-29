@@ -24,13 +24,25 @@ jobs:
       name: build and test
     - uses: ./
       name: validation test by running get-cmake
-    - run: |
+    - name: CMake version check
+      run: |
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.18.2".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.18.2, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"3.18.3".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.18.3, found: "
           echo "$CMAKE_VER"
+          exit -1
+        fi
+      shell: bash
+    - name: ninja version check
+      run: |
+        which ninja
+        ninja --version
+        NINJA_VER="$(ninja --version)"
+        if ! [[ "$NINJA_VER" =~ .*"1.10.1".* ]]; then
+          echo "ASSERTION FAILED! Instead of 1.10.1, found: "
+          echo "$NINJA_VER"
           exit -1
         fi
       shell: bash

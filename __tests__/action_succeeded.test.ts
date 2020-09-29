@@ -3,7 +3,6 @@
 // SPDX short identifier: MIT
 
 import * as os from 'os';
-import * as path from 'path';
 import * as getcmake from '../src/get-cmake';
 import * as cache from '@actions/cache';
 import * as toolcache from '@actions/tool-cache';
@@ -30,5 +29,4 @@ test('testing get-cmake action success', async () => {
     await getcmake.main();
     expect(coreSetFailed).toBeCalledTimes(0);
     expect(coreError).toBeCalledTimes(0);
-    expect(toolsCacheDir).toBeCalledTimes(1);
 });
