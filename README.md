@@ -1,14 +1,14 @@
 [![Action Status](https://github.com/lukka/get-cmake/workflows/build-test/badge.svg)](https://github.com/lukka/get-cmake/actions)
 
-[![Coverage Status](https://coveralls.io/repos/github/lukka/get-cmake/badge.svg?branch=master)](https://coveralls.io/github/lukka/get-cmake?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/lukka/get-cmake/badge.svg?branch=main)](https://coveralls.io/github/lukka/get-cmake?branch=main)
 
-# [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/run-cmake) on the GitHub agents.
+# [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake) on the GitHub agents.
 
-Restores from cache, or downloads and caches CMake **v3.18.2** and Ninja **v1.10.1**.
+Restores from cache, or downloads and caches CMake **v3.18.3** and Ninja **v1.10.1**.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
-  1. If cache hit occurs, CMake and ninja are restored in less than 1 second from cache;
+  1. If cache hit occurs, CMake and ninja are restored from cache in less than 1 second;
   1. If cache miss occurs, the action downloads and installs CMake and ninja, then **caches both automatically** with GitHub's [@actions/cache](https://www.npmjs.com/package/@actions/cache) APIs;
   1. Adds to PATH the CMake and ninja executables;
 
@@ -40,7 +40,7 @@ Flowchart of `get-cmake`:
 
 There are no inputs, nor outputs.
 
-[action.yml](https://github.com/lukka/get-cmake/blob/master/action.yml)
+[action.yml](https://github.com/lukka/get-cmake/blob/main/action.yml)
 
 # Developers information
 

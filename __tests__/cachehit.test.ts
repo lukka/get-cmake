@@ -4,12 +4,8 @@
 
 import * as process from 'process';
 import * as os from 'os';
-import * as path from 'path';
 import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
-import * as core from '@actions/core';
-import * as tools from '@actions/tool-cache'
-
 
 jest.setTimeout(15 * 1000)
 

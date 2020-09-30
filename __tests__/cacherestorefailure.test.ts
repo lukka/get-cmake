@@ -4,7 +4,6 @@
 
 import * as process from 'process';
 import * as os from 'os';
-import * as path from 'path';
 import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
 
