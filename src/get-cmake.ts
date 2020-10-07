@@ -89,11 +89,13 @@ export class ToolsGetter {
 
   private async get(cmakeData: PackageInfo, ninjaData: PackageInfo): Promise<void> {
     // Get an unique output directory name from the URL.
-    const key: string = hashCode(`${cmakeData.url}${ninjaData.url}`);
+    const inputHash = `${cmakeData.url}${ninjaData.url}`;
+    const key: string = hashCode(inputHash);
+    core.debug(`hash('${inputHash}') === '${key}'`);
     const outPath = this.getOutputPath(key);
-    let hitKey: string | undefined;
+    let hitKey: string | undefined = undefined;
     try {
-      core.startGroup(`Restore from cache`);
+      core.startGroup(`Restore from cache into ${outPath}`);
       hitKey = await cache.restoreCache([outPath], key);
     } finally {
       core.endGroup();
@@ -122,9 +124,9 @@ export class ToolsGetter {
     }
 
     try {
-      core.startGroup('Save to cache');
+      core.startGroup(`Save to cache into ${outPath}`);
       if (hitKey === undefined) {
-        await cache.saveCache([outPath], key);
+        await this.saveCache([outPath], key);
       } else {
         core.info("Skipping as cache hit.");
       }
@@ -138,7 +140,23 @@ export class ToolsGetter {
       throw new Error("Environment variable process.env.RUNNER_TEMP must be set, it is used as destination directory of the cache");
     return path.join(process.env.RUNNER_TEMP, subDir);;
   }
+
+  private async saveCache(paths: string[], key: string): Promise<number | undefined> {
+    try {
+      return await cache.saveCache(paths, key);
+    }
+    catch (error) {
+      if (error.name === cache.ValidationError.name) {
+        throw error;
+      } else if (error.name === cache.ReserveCacheError.name) {
+        core.info(error.message);
+      } else {
+        core.warning(error.message);
+      }
+    }
+  }
 }
+
 
 export async function main(): Promise<void> {
   try {
