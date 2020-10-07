@@ -2339,7 +2339,7 @@ class ToolsGetter {
             const outPath = this.getOutputPath(key);
             let hitKey = undefined;
             try {
-                core.startGroup(`Restore from cache into ${outPath}`);
+                core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
                 hitKey = yield cache.restoreCache([outPath], key);
             }
             finally {
@@ -2366,7 +2366,7 @@ class ToolsGetter {
                 core.endGroup();
             }
             try {
-                core.startGroup(`Save to cache into ${outPath}`);
+                core.startGroup(`Save to cache using key '${key}' into ${outPath}`);
                 if (hitKey === undefined) {
                     yield this.saveCache([outPath], key);
                 }
