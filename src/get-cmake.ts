@@ -95,7 +95,7 @@ export class ToolsGetter {
     const outPath = this.getOutputPath(key);
     let hitKey: string | undefined = undefined;
     try {
-      core.startGroup(`Restore from cache into ${outPath}`);
+      core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
       hitKey = await cache.restoreCache([outPath], key);
     } finally {
       core.endGroup();
@@ -124,7 +124,7 @@ export class ToolsGetter {
     }
 
     try {
-      core.startGroup(`Save to cache into ${outPath}`);
+      core.startGroup(`Save to cache using key '${key}' into ${outPath}`);
       if (hitKey === undefined) {
         await this.saveCache([outPath], key);
       } else {
