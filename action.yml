@@ -3,7 +3,7 @@
 # SPDX short identifier: MIT
 
 name: 'get-cmake'
-description: 'Get latest version of CMake installed onto GitHub runners.'
+description: 'Installs (and caches) CMake and ninja onto GitHub runners.'
 author: 'Luca Cappa https://github.com/lukka'
 # inputs:
 # no inputs, no outputs!
