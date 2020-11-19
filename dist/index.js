@@ -2405,7 +2405,7 @@ class ToolsGetter {
     }
 }
 exports.ToolsGetter = ToolsGetter;
-ToolsGetter.CMakeVersion = '3.18.3';
+ToolsGetter.CMakeVersion = '3.19.0';
 ToolsGetter.NinjaVersion = '1.10.1';
 // Predefined URL for CMake 
 ToolsGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Linux-x86_64.tar.gz`;
