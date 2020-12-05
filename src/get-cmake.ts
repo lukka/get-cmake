@@ -32,8 +32,8 @@ function hashCode(text: string): string {
 }
 
 export class ToolsGetter {
-  private static readonly CMakeVersion = '3.19.0';
-  private static readonly NinjaVersion = '1.10.1';
+  private static readonly CMakeVersion = '3.19.1';
+  private static readonly NinjaVersion = '1.10.2';
 
   // Predefined URL for CMake 
   private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Linux-x86_64.tar.gz`;
@@ -41,9 +41,9 @@ export class ToolsGetter {
   private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Darwin-x86_64.tar.gz`;
 
   // Predefined URL for ninja
-  private static readonly ninja_linux_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-linux.zip`;
-  private static readonly ninja_macos_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-mac.zip`;
-  private static readonly ninja_windows_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-win.zip`;
+  private static readonly ninja_linux_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip`;
+  private static readonly ninja_macos_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-mac.zip`;
+  private static readonly ninja_windows_x64: string = `https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip`;
 
   private static readonly cmakePackagesMap: { [key: string]: PackageInfo } = {
     "linux": {
