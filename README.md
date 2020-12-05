@@ -4,7 +4,7 @@
 
 # [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake) on the GitHub agents.
 
-Restores from cache, or downloads and caches CMake **v3.19.0** and Ninja **v1.10.1**.
+Restores from cache, or downloads and caches CMake **v3.19.1** and Ninja **v1.10.2**.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
@@ -20,12 +20,12 @@ Flowchart of `get-cmake`:
     #   path: <path>            <-----= YOU DO NOT NEED THIS
 
     - name: Get latest CMake and ninja
-      # Using 'latest' branch, the latest CMake and ninja are installed.
+      # Using 'latest' branch, the most recent CMake and ninja are installed.
       uses: lukka/get-cmake@latest        ⟸ THIS IS THE ONE LINER YOU NEED
           
     # If you need to pin your workflow to specific CMake version you can use the 'tag' to select the version.
-    - name: Get specific version CMake, v3.19
-      uses: lukka/get-cmake@v3.19   ⟸ THIS IS THE ONE LINER YOU NEED
+    - name: Get specific version CMake, v3.19.1
+      uses: lukka/get-cmake@v3.19.1   ⟸ THIS IS THE ONE LINER YOU NEED
 ```
 
  ## Developer Manual
