@@ -38,7 +38,7 @@ export class ToolsGetter {
   // Predefined URL for CMake 
   private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Linux-x86_64.tar.gz`;
   private static readonly win_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-win64-x64.zip`;
-  private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Darwin-x86_64.tar.gz`;
+  private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-macos-universal.tar.gz`;
 
   // Predefined URL for ninja
   private static readonly ninja_linux_x64: string = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-linux.zip`;
