@@ -2289,7 +2289,7 @@ module.exports = v1;
 
 "use strict";
 
-// Copyright (c) 2020 Luca Cappa
+// Copyright (c) 2020-2021 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -2313,7 +2313,7 @@ const path = __webpack_require__(622);
  * @returns {string}
  */
 function hashCode(text) {
-    let hash = 42;
+    let hash = 41;
     if (text.length != 0) {
         for (let i = 0; i < text.length; i++) {
             const char = text.charCodeAt(i);
@@ -2359,7 +2359,10 @@ class ToolsGetter {
                 core.startGroup(`Add CMake and ninja to PATH`);
                 const addr = new URL(cmakeData.url);
                 const dirName = path.basename(addr.pathname);
-                core.addPath(path.join(outPath, dirName.replace(cmakeData.dropSuffix, ''), cmakeData.binPath));
+                const cmakePath = path.join(outPath, dirName.replace(cmakeData.dropSuffix, ''), cmakeData.binPath);
+                core.debug(`CMake path: ${cmakePath}`);
+                core.addPath(cmakePath);
+                core.debug(`Ninja path: ${outPath}`);
                 core.addPath(outPath);
             }
             finally {
@@ -2405,11 +2408,11 @@ class ToolsGetter {
     }
 }
 exports.ToolsGetter = ToolsGetter;
-ToolsGetter.CMakeVersion = '3.19.2';
+ToolsGetter.CMakeVersion = '3.20.1';
 ToolsGetter.NinjaVersion = '1.10.2';
 // Predefined URL for CMake 
-ToolsGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-Linux-x86_64.tar.gz`;
-ToolsGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-win64-x64.zip`;
+ToolsGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-x86_64.tar.gz`;
+ToolsGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-windows-x86_64.zip`;
 ToolsGetter.macos = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-macos-universal.tar.gz`;
 // Predefined URL for ninja
 ToolsGetter.ninja_linux_x64 = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-linux.zip`;
@@ -5388,7 +5391,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 "use strict";
 
-// Copyright (c) 2020 Luca Cappa
+// Copyright (c) 2020-2021 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 Object.defineProperty(exports, "__esModule", { value: true });
