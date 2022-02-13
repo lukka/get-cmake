@@ -13,3 +13,4 @@ __tests__/build Directory
 __tests__/b
 .npmrc
 coverage
+.DS_Store

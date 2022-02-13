@@ -32,7 +32,7 @@ function hashCode(text: string): string {
 }
 
 export class ToolsGetter {
-  private static readonly CMakeVersion = '3.21.2';
+  private static readonly CMakeVersion = '3.22.2';
   private static readonly NinjaVersion = '1.10.2';
 
   // Predefined URL for CMake 
@@ -148,7 +148,7 @@ export class ToolsGetter {
     try {
       return await cache.saveCache(paths, key);
     }
-    catch (error) {
+    catch (error: any) {
       if (error.name === cache.ValidationError.name) {
         throw error;
       } else if (error.name === cache.ReserveCacheError.name) {
