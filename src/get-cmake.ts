@@ -32,7 +32,7 @@ function hashCode(text: string): string {
 }
 
 export class ToolsGetter {
-  private static readonly CMakeVersion = '3.22.2';
+  private static readonly CMakeVersion = '3.23.0';
   private static readonly NinjaVersion = '1.10.2';
 
   // Predefined URL for CMake 
