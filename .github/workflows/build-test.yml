@@ -34,8 +34,8 @@ jobs:
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.22.2".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.22.2, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"3.23.0".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.23.0, found: "
           echo "$CMAKE_VER"
           exit -1
         fi
