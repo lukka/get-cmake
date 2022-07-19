@@ -34,8 +34,8 @@ jobs:
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.23.0".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.23.0, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"3.23.2".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.23.2, found: "
           echo "$CMAKE_VER"
           exit -1
         fi
@@ -45,8 +45,8 @@ jobs:
         which ninja
         ninja --version
         NINJA_VER="$(ninja --version)"
-        if ! [[ "$NINJA_VER" =~ .*"1.10.2".* ]]; then
-          echo "ASSERTION FAILED! Instead of 1.10.2, found: "
+        if ! [[ "$NINJA_VER" =~ .*"1.11.0".* ]]; then
+          echo "ASSERTION FAILED! Instead of 1.11.0, found: "
           echo "$NINJA_VER"
           exit -1
         fi
