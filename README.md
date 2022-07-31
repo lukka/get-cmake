@@ -2,6 +2,20 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/lukka/get-cmake/badge.svg?branch=main)](https://coveralls.io/github/lukka/get-cmake?branch=main)
 
+- [The **get-cmake** action for downloading and caching CMake and ninja binaries on the GitHub agents.](#the-get-cmake-action-for-downloading-and-caching-cmake-and-ninja-binaries-on-the-github-agents)
+  - [<a id='quickstart'>Quickstart</a>](#quickstart)
+  - [<a id='reference'>Action reference: all input/output parameters</a>](#action-reference-all-inputoutput-parameters)
+  - [Who is using `get-cmake`](#who-is-using-get-cmake)
+- [Developers information](#developers-information)
+  - [Prerequisites](#prerequisites)
+  - [Build and lint](#build-and-lint)
+  - [Packaging](#packaging)
+  - [Testing](#testing)
+  - [<a id='contributing'>Contributing</a>](#contributing)
+- [License](#license)
+
+<br>
+
 # [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake) on the GitHub agents.
 
 Restores from cache, or downloads and caches CMake **v3.23.2** and Ninja **v1.11.0**.
@@ -27,20 +41,21 @@ Flowchart of `get-cmake`:
     - name: Get specific version CMake, v3.23.2
       uses: lukka/get-cmake@v3.23.2   ⟸ THIS IS THE ONE LINER YOU NEED
 ```
+<br>
 
- ## Developer Manual
- * [Developers information](#developers-information)
-   * [Prerequisites](#prerequisites)
-   * [Packaging](#packaging)
-   * [Testing](#testing)
-  * [Contributing](#contributing)
-  * [License](#license)
-
-### <a id='reference'>Action reference: all input/output parameters</a>
+## <a id='reference'>Action reference: all input/output parameters</a>
 
 There are no inputs, nor outputs.
 
 [action.yml](https://github.com/lukka/get-cmake/blob/main/action.yml)
+
+<br>
+
+## Who is using `get-cmake`
+
+[This graph](https://lukka.github.io/graph/graph.html) shows the list of public repositories with more than 25 stars using `get-cmake`.
+
+<br>
 
 # Developers information
 
