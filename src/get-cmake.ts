@@ -118,6 +118,11 @@ export class ToolsGetter {
       const addr = new URL(cmakeData.url);
       const dirName = path.basename(addr.pathname);
       core.addPath(path.join(outPath, dirName.replace(cmakeData.dropSuffix, ''), cmakeData.binPath));
+      
+      addr = new URL(cmakeData.url);
+      dirName = path.basename(addr.pathname);
+      core.addPath(path.join(outPath, dirName.replace(ninjaData.dropSuffix, ''), ninjaData.binPath));
+ 
       core.addPath(outPath);
     } finally {
       core.endGroup();
