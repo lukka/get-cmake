@@ -8,7 +8,7 @@ author: 'Luca Cappa https://github.com/lukka'
 # inputs:
 # no inputs, no outputs!
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 
 branding:
