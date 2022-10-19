@@ -32,8 +32,8 @@ function hashCode(text: string): string {
 }
 
 export class ToolsGetter {
-  private static readonly CMakeVersion = '3.23.2';
-  private static readonly NinjaVersion = '1.11.0';
+  private static readonly CMakeVersion = '3.24.2';
+  private static readonly NinjaVersion = '1.11.1';
 
   // Predefined URL for CMake 
   private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-x86_64.tar.gz`;
