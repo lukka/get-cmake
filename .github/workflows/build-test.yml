@@ -17,10 +17,10 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
         submodules: true
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v3
       with:
         node-version: '16.x'
     - run: |
@@ -51,8 +51,49 @@ jobs:
           exit -1
         fi
       shell: bash
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
+
+  # TODO templatize the tests iterating on the versions.
+  test_user_provided_version:
+    name: '${{ matrix.os }}: functional test'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v3
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        submodules: true
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+
+    - uses: ./
+      name: validation test by running get-cmake
+      with:
+        cmakeVersion: 3.22.6
+        ninjaVersion: 1.10.0
+    - name: CMake version check v3.22.6
+      run: |
+        which cmake
+        cmake --version
+        CMAKE_VER="$(cmake --version)"
+        if ! [[ "$CMAKE_VER" =~ .*"3.22.6".* ]]; then
+          echo "ASSERTION FAILED! Instead of 3.22.6, found: "
+          echo "$CMAKE_VER"
+          exit -1
+        fi
+      shell: bash
+    - name: ninja version check v1.10.0
+      run: |
+        which ninja
+        ninja --version
+        NINJA_VER="$(ninja --version)"
+        if ! [[ "$NINJA_VER" =~ .*"1.10.0".* ]]; then
+          echo "ASSERTION FAILED! Instead of 1.10.0, found: "
+          echo "$NINJA_VER"
+          exit -1
+        fi
+      shell: bash
 

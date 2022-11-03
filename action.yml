@@ -11,6 +11,14 @@ runs:
   using: 'node16'
   main: 'dist/index.js'
 
+inputs:
+  cmakeVersion:
+    required: false
+    description: "Optional CMake version, e.g. '2.8.4'"
+  ninjaVersion:
+    required: false
+    description: "Optional Ninja version, e.g. '1.0.0'"
+
 branding:
   icon: 'terminal'  
   color: 'green'
