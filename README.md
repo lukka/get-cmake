@@ -56,7 +56,7 @@ Flowchart of `get-cmake`:
 
 ## Action reference: all input/output parameters
 
-Please read [actions.yml](./action.yml).
+Please read [action.yml](./action.yml).
 
 <br>
 
