@@ -7,6 +7,10 @@ on:
     - cron: '0 1 * * SUN'
   workflow_dispatch:
 
+env:
+  CMAKE_LATEST: 3.24.2
+  NINJA_LATEST: 1.11.1
+
 jobs:
   build_and_test:
     name: '${{ matrix.os }}: build and test'
@@ -17,10 +21,10 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
         submodules: true
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v3
       with:
         node-version: '16.x'
     - run: |
@@ -34,8 +38,8 @@ jobs:
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"3.24.2".* ]]; then
-          echo "ASSERTION FAILED! Instead of 3.24.2, found: "
+        if ! [[ "$CMAKE_VER" =~ .*"${CMAKE_LATEST}".* ]]; then
+          echo "ASSERTION FAILED! Instead of ${CMAKE_LATEST}, found: "
           echo "$CMAKE_VER"
           exit -1
         fi
@@ -45,14 +49,61 @@ jobs:
         which ninja
         ninja --version
         NINJA_VER="$(ninja --version)"
-        if ! [[ "$NINJA_VER" =~ .*"1.11.1".* ]]; then
-          echo "ASSERTION FAILED! Instead of 1.11.1, found: "
+        if ! [[ "$NINJA_VER" =~ .*"${NINJA_LATEST}".* ]]; then
+          echo "ASSERTION FAILED! Instead of ${NINJA_LATEST}, found: "
           echo "$NINJA_VER"
           exit -1
         fi
       shell: bash
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
+
+  # TODO templatize the tests iterating on the versions.
+  test_user_provided_version:
+    name: '${{ matrix.os }}: functional test (${{ matrix.cmake }}, ${{ matrix.ninja }})'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        cmake: ["", "3.22.6"]
+        ninja: ["", "1.11.0"]
+
+    steps:
+    - uses: actions/checkout@v3
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        submodules: true
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+
+    - uses: ./
+      name: validation test by running get-cmake
+      with:
+        cmakeVersion: ${{ matrix.cmake }}
+        ninjaVersion: ${{ matrix.ninja }}
+    - name: CMake version check ${{ matrix.cmake }}
+      run: |
+        which cmake
+        cmake --version
+        CMAKE_VER="$(cmake --version)"
+        EXPECTED_CMAKE_VER="${{ matrix.cmake }}"
+        [ -z "${EXPECTED_CMAKE_VER}" ] && EXPECTED_CMAKE_VER="${{ env.CMAKE_LATEST}}"
+        if ! [[ "$CMAKE_VER" =~ .*"${EXPECTED_CMAKE_VER}".* ]]; then
+          echo "ASSERTION FAILED! Instead of ${EXPECTED_CMAKE_VER}, found: "
+          echo "$CMAKE_VER"
+          exit -1
+        fi
+      shell: bash
+    - name: ninja version check ${{ matrix.ninja }}
+      run: |
+        which ninja
+        ninja --version
+        NINJA_VER="$(ninja --version)"
+        EXPECTED_NINJA_VER="${{ matrix.ninja }}"
+        [ -z "$EXPECTED_NINJA_VER" ] && EXPECTED_NINJA_VER="${{ env.NINJA_LATEST}}"
+        if ! [[ "$NINJA_VER" =~ .*"${{ matrix.ninja }}".* ]]; then
+          echo "ASSERTION FAILED! Instead of $EXPECTED_NINJA_VER, found: "
+          echo "$NINJA_VER"
+          exit -1
+        fi
+      shell: bash
 

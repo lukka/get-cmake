@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2021 Luca Cappa
+// Copyright (c) 2020-2021-2022 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
@@ -32,59 +32,67 @@ function hashCode(text: string): string {
 }
 
 export class ToolsGetter {
-  private static readonly CMakeVersion = '3.24.2';
-  private static readonly NinjaVersion = '1.11.1';
+  private static readonly CMakeDefaultVersion = '3.24.2';
+  private static readonly NinjaDefaultVersion = '1.11.1';
+  private cmakeVersion: string | undefined;
+  private ninjaVersion: string | undefined;
 
-  // Predefined URL for CMake 
-  private static readonly linux_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-x86_64.tar.gz`;
-  private static readonly win_x64: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-windows-x86_64.zip`;
-  private static readonly macos: string = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-macos-universal.tar.gz`;
-
-  // Predefined URL for ninja
-  private static readonly ninja_linux_x64: string = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-linux.zip`;
-  private static readonly ninja_macos_x64: string = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-mac.zip`;
-  private static readonly ninja_windows_x64: string = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-win.zip`;
-
-  private static readonly cmakePackagesMap: { [key: string]: PackageInfo } = {
-    "linux": {
-      url: ToolsGetter.linux_x64,
-      binPath: 'bin/',
-      extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
-    },
-    "win32": {
-      url: ToolsGetter.win_x64,
-      binPath: 'bin/',
-      extractFunction: tools.extractZip, dropSuffix: ".zip"
-    },
-    "darwin": {
-      url: ToolsGetter.macos,
-      binPath: "CMake.app/Contents/bin/",
-      extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
-    }
-  };
-
-  private static readonly ninjaPackagesMap: { [key: string]: PackageInfo } = {
-    "linux": {
-      url: ToolsGetter.ninja_linux_x64,
-      binPath: '',
-      extractFunction: tools.extractZip, dropSuffix: ".zip"
-    },
-    "win32": {
-      url: ToolsGetter.ninja_windows_x64,
-      binPath: '',
-      extractFunction: tools.extractZip, dropSuffix: ".zip"
-    },
-    "darwin": {
-      url: ToolsGetter.ninja_macos_x64,
-      binPath: '',
-      extractFunction: tools.extractZip, dropSuffix: '.zip'
-    }
-  };
+  constructor(private cmakeOverride?: string, private ninjaOverride?: string) {
+    this.cmakeVersion = cmakeOverride || ToolsGetter.CMakeDefaultVersion;
+    core.debug(`user defined cmake version:${this.cmakeVersion}`);
+    this.ninjaVersion = ninjaOverride || ToolsGetter.NinjaDefaultVersion;
+    core.debug(`user defined ninja version:${this.ninjaVersion}`);
+  }
 
   public async run(): Promise<void> {
-    const cmakeData = ToolsGetter.cmakePackagesMap[process.platform];
-    const ninjaData = ToolsGetter.ninjaPackagesMap[process.platform];
-    await this.get(cmakeData, ninjaData);
+
+    // Predefined URL for CMake 
+    const LinuxX64 = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-linux-x86_64.tar.gz`;
+    const WinX64 = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-windows-x86_64.zip`;
+    const MacOs = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-macos-universal.tar.gz`;
+
+    // Predefined URL for ninja
+    const NinjaLinuxX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-linux.zip`;
+    const NinjaMacosX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-mac.zip`;
+    const NinjaWindowsX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-win.zip`;
+
+    const cmakePackagesMap: { [key: string]: PackageInfo } = {
+      "linux": {
+        url: LinuxX64,
+        binPath: 'bin/',
+        extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
+      },
+      "win32": {
+        url: WinX64,
+        binPath: 'bin/',
+        extractFunction: tools.extractZip, dropSuffix: ".zip"
+      },
+      "darwin": {
+        url: MacOs,
+        binPath: "CMake.app/Contents/bin/",
+        extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
+      }
+    };
+
+    const ninjaPackagesMap: { [key: string]: PackageInfo } = {
+      "linux": {
+        url: NinjaLinuxX64,
+        binPath: '',
+        extractFunction: tools.extractZip, dropSuffix: ".zip"
+      },
+      "win32": {
+        url: NinjaWindowsX64,
+        binPath: '',
+        extractFunction: tools.extractZip, dropSuffix: ".zip"
+      },
+      "darwin": {
+        url: NinjaMacosX64,
+        binPath: '',
+        extractFunction: tools.extractZip, dropSuffix: '.zip'
+      }
+    };
+
+    await this.get(cmakePackagesMap[process.platform], ninjaPackagesMap[process.platform]);
   }
 
   private async get(cmakeData: PackageInfo, ninjaData: PackageInfo): Promise<void> {
@@ -163,7 +171,7 @@ export class ToolsGetter {
 
 export async function main(): Promise<void> {
   try {
-    const cmakeGetter: ToolsGetter = new ToolsGetter();
+    const cmakeGetter: ToolsGetter = new ToolsGetter(core.getInput('cmakeVersion'), core.getInput('ninjaVersion'));
     await cmakeGetter.run();
     core.info('get-cmake action execution succeeded');
     process.exitCode = 0;

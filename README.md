@@ -3,15 +3,15 @@
 [![Coverage Status](https://coveralls.io/repos/github/lukka/get-cmake/badge.svg?branch=main)](https://coveralls.io/github/lukka/get-cmake?branch=main)
 
 - [The **get-cmake** action for downloading and caching CMake and ninja binaries on the GitHub agents.](#the-get-cmake-action-for-downloading-and-caching-cmake-and-ninja-binaries-on-the-github-agents)
-  - [<a id='quickstart'>Quickstart</a>](#quickstart)
-  - [<a id='reference'>Action reference: all input/output parameters</a>](#action-reference-all-inputoutput-parameters)
+  - [Quickstart](#quickstart)
+  - [Action reference: all input/output parameters](#action-reference-all-inputoutput-parameters)
   - [Who is using `get-cmake`](#who-is-using-get-cmake)
 - [Developers information](#developers-information)
   - [Prerequisites](#prerequisites)
   - [Build and lint](#build-and-lint)
   - [Packaging](#packaging)
   - [Testing](#testing)
-  - [<a id='contributing'>Contributing</a>](#contributing)
+  - [Contributing](#contributing)
 - [License](#license)
 
 <br>
@@ -26,28 +26,37 @@ Flowchart of `get-cmake`:
   1. If cache miss occurs, the action downloads and installs CMake and ninja, then **caches both automatically** with GitHub's [@actions/cache](https://www.npmjs.com/package/@actions/cache) APIs;
   1. Adds to PATH the CMake and ninja executables;
 
-## <a id='quickstart'>Quickstart</a>
+## Quickstart
 
 ```yaml
     # - uses: actions/cache@v1  <-----= YOU DO NOT NEED THIS
     #   key: <key>              <-----= YOU DO NOT NEED THIS
     #   path: <path>            <-----= YOU DO NOT NEED THIS
 
-    - name: Get latest CMake and ninja
+   - name: Get latest CMake and ninja
       # Using 'latest' branch, the most recent CMake and ninja are installed.
       uses: lukka/get-cmake@latest        ⟸ THIS IS THE ONE LINER YOU NEED
-          
-    # If you need to pin your workflow to specific CMake version you can use the 'tag' to select the version.
+
+
+    # If you need to _pin_ your workflow to specific CMake/ninja versions you have TWO options:
+
+    # Option 1: specify in a input parameter the desired version (using multiple lines).
+    - name: Get specific version CMake, v3.24.2, and ninja v1.11.1
+      uses: lukka/get-cmake@latest
+      with:
+        cmakeVersion: 3.24.2
+        ninjaVersion: 1.11.1
+
+    # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
+    # but note that you can only use one of the existing tags, create a PR to add more tags!
     - name: Get specific version CMake, v3.24.2
       uses: lukka/get-cmake@v3.24.2   ⟸ THIS IS THE ONE LINER YOU NEED
 ```
 <br>
 
-## <a id='reference'>Action reference: all input/output parameters</a>
+## Action reference: all input/output parameters
 
-There are no inputs, nor outputs.
-
-[action.yml](https://github.com/lukka/get-cmake/blob/main/action.yml)
+Please read [actions.yml](./actions.yml).
 
 <br>
 
@@ -86,7 +95,7 @@ To build, pack and test:
  
  > jest
 
-## <a id='contributing'>Contributing</a>
+## Contributing
 
 The software is provided as is, there is no warranty of any kind. All users are encouraged to improve the [source code](https://github.com/lukka/get-cmake) with fixes and new features.
 

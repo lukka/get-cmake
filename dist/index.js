@@ -6,7 +6,7 @@
 
 "use strict";
 
-// Copyright (c) 2020-2021 Luca Cappa
+// Copyright (c) 2020-2021-2022 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -40,11 +40,59 @@ function hashCode(text) {
     return hash.toString();
 }
 class ToolsGetter {
+    constructor(cmakeOverride, ninjaOverride) {
+        this.cmakeOverride = cmakeOverride;
+        this.ninjaOverride = ninjaOverride;
+        this.cmakeVersion = cmakeOverride || ToolsGetter.CMakeDefaultVersion;
+        core.debug(`user defined cmake version:${this.cmakeVersion}`);
+        this.ninjaVersion = ninjaOverride || ToolsGetter.NinjaDefaultVersion;
+        core.debug(`user defined ninja version:${this.ninjaVersion}`);
+    }
     run() {
         return __awaiter(this, void 0, void 0, function* () {
-            const cmakeData = ToolsGetter.cmakePackagesMap[process.platform];
-            const ninjaData = ToolsGetter.ninjaPackagesMap[process.platform];
-            yield this.get(cmakeData, ninjaData);
+            // Predefined URL for CMake 
+            const LinuxX64 = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-linux-x86_64.tar.gz`;
+            const WinX64 = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-windows-x86_64.zip`;
+            const MacOs = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-macos-universal.tar.gz`;
+            // Predefined URL for ninja
+            const NinjaLinuxX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-linux.zip`;
+            const NinjaMacosX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-mac.zip`;
+            const NinjaWindowsX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-win.zip`;
+            const cmakePackagesMap = {
+                "linux": {
+                    url: LinuxX64,
+                    binPath: 'bin/',
+                    extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
+                },
+                "win32": {
+                    url: WinX64,
+                    binPath: 'bin/',
+                    extractFunction: tools.extractZip, dropSuffix: ".zip"
+                },
+                "darwin": {
+                    url: MacOs,
+                    binPath: "CMake.app/Contents/bin/",
+                    extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
+                }
+            };
+            const ninjaPackagesMap = {
+                "linux": {
+                    url: NinjaLinuxX64,
+                    binPath: '',
+                    extractFunction: tools.extractZip, dropSuffix: ".zip"
+                },
+                "win32": {
+                    url: NinjaWindowsX64,
+                    binPath: '',
+                    extractFunction: tools.extractZip, dropSuffix: ".zip"
+                },
+                "darwin": {
+                    url: NinjaMacosX64,
+                    binPath: '',
+                    extractFunction: tools.extractZip, dropSuffix: '.zip'
+                }
+            };
+            yield this.get(cmakePackagesMap[process.platform], ninjaPackagesMap[process.platform]);
         });
     }
     get(cmakeData, ninjaData) {
@@ -125,54 +173,12 @@ class ToolsGetter {
     }
 }
 exports.ToolsGetter = ToolsGetter;
-ToolsGetter.CMakeVersion = '3.24.2';
-ToolsGetter.NinjaVersion = '1.11.1';
-// Predefined URL for CMake 
-ToolsGetter.linux_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-linux-x86_64.tar.gz`;
-ToolsGetter.win_x64 = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-windows-x86_64.zip`;
-ToolsGetter.macos = `https://github.com/Kitware/CMake/releases/download/v${ToolsGetter.CMakeVersion}/cmake-${ToolsGetter.CMakeVersion}-macos-universal.tar.gz`;
-// Predefined URL for ninja
-ToolsGetter.ninja_linux_x64 = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-linux.zip`;
-ToolsGetter.ninja_macos_x64 = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-mac.zip`;
-ToolsGetter.ninja_windows_x64 = `https://github.com/ninja-build/ninja/releases/download/v${ToolsGetter.NinjaVersion}/ninja-win.zip`;
-ToolsGetter.cmakePackagesMap = {
-    "linux": {
-        url: ToolsGetter.linux_x64,
-        binPath: 'bin/',
-        extractFunction: tools.extractTar, dropSuffix: ".tar.gz"
-    },
-    "win32": {
-        url: ToolsGetter.win_x64,
-        binPath: 'bin/',
-        extractFunction: tools.extractZip, dropSuffix: ".zip"
-    },
-    "darwin": {
-        url: ToolsGetter.macos,
-        binPath: "CMake.app/Contents/bin/",
-        extractFunction: tools.extractTar, dropSuffix: '.tar.gz'
-    }
-};
-ToolsGetter.ninjaPackagesMap = {
-    "linux": {
-        url: ToolsGetter.ninja_linux_x64,
-        binPath: '',
-        extractFunction: tools.extractZip, dropSuffix: ".zip"
-    },
-    "win32": {
-        url: ToolsGetter.ninja_windows_x64,
-        binPath: '',
-        extractFunction: tools.extractZip, dropSuffix: ".zip"
-    },
-    "darwin": {
-        url: ToolsGetter.ninja_macos_x64,
-        binPath: '',
-        extractFunction: tools.extractZip, dropSuffix: '.zip'
-    }
-};
+ToolsGetter.CMakeDefaultVersion = '3.24.2';
+ToolsGetter.NinjaDefaultVersion = '1.11.1';
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const cmakeGetter = new ToolsGetter();
+            const cmakeGetter = new ToolsGetter(core.getInput('cmakeVersion'), core.getInput('ninjaVersion'));
             yield cmakeGetter.run();
             core.info('get-cmake action execution succeeded');
             process.exitCode = 0;
@@ -63679,7 +63685,7 @@ var __webpack_exports__ = {};
 "use strict";
 var exports = __webpack_exports__;
 
-// Copyright (c) 2020-2021 Luca Cappa
+// Copyright (c) 2020-2021-2022 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 Object.defineProperty(exports, "__esModule", ({ value: true }));
