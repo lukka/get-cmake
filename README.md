@@ -18,7 +18,7 @@
 
 # [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake) on the GitHub agents.
 
-Restores from cache, or downloads and caches CMake **v3.24.2** and Ninja **v1.11.1**.
+Restores from cache, or downloads and caches CMake **v3.24.3** and Ninja **v1.11.1**.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
@@ -29,28 +29,28 @@ Flowchart of `get-cmake`:
 ## Quickstart
 
 ```yaml
-    # - uses: actions/cache@v1  <-----= YOU DO NOT NEED THIS
-    #   key: <key>              <-----= YOU DO NOT NEED THIS
-    #   path: <path>            <-----= YOU DO NOT NEED THIS
+    # - uses: actions/cache@v1           <-----= YOU DO NOT NEED THIS
+    #   key: <key>                       <-----= YOU DO NOT NEED THIS
+    #   path: <path>                     <-----= YOU DO NOT NEED THIS
 
    - name: Get latest CMake and ninja
       # Using 'latest' branch, the most recent CMake and ninja are installed.
-      uses: lukka/get-cmake@latest        ⟸ THIS IS THE ONE LINER YOU NEED
+      uses: lukka/get-cmake@latest       # <--= THIS IS THE ONE LINER YOU NEED
 
 
     # If you need to _pin_ your workflow to specific CMake/ninja versions you have TWO options:
 
     # Option 1: specify in a input parameter the desired version (using multiple lines).
-    - name: Get specific version CMake, v3.24.2, and ninja v1.11.1
+    - name: Get specific version CMake, v3.24.3, and ninja v1.11.1
       uses: lukka/get-cmake@latest
       with:
-        cmakeVersion: 3.24.2
-        ninjaVersion: 1.11.1
+        cmakeVersion: 3.24.3             # <--= optional, overrides the _latest_ version of CMake
+        ninjaVersion: 1.11.1             # <--= optional, overrides the _latest_ version of Ninja
 
     # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
     # but note that you can only use one of the existing tags, create a PR to add more tags!
-    - name: Get specific version CMake, v3.24.2
-      uses: lukka/get-cmake@v3.24.2   ⟸ THIS IS THE ONE LINER YOU NEED
+    - name: Get specific version CMake, v3.24.3
+      uses: lukka/get-cmake@v3.24.3      # <- THIS IS THE ONE LINER YOU NEED
 ```
 <br>
 

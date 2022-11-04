@@ -173,7 +173,7 @@ class ToolsGetter {
     }
 }
 exports.ToolsGetter = ToolsGetter;
-ToolsGetter.CMakeDefaultVersion = '3.24.2';
+ToolsGetter.CMakeDefaultVersion = '3.24.3';
 ToolsGetter.NinjaDefaultVersion = '1.11.1';
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
