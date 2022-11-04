@@ -18,13 +18,13 @@
 
 # [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake) on the GitHub agents.
 
-Restores from cache, or downloads and caches CMake **v3.24.3** and Ninja **v1.11.1**.
+Restores from cache, or downloads and caches CMake and Ninja. You can select desired version of each, or by default resp. **v3.24.3** and **v1.11.1** are installed.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
   1. If cache hit occurs, CMake and ninja are restored from cache in less than 1 second;
-  1. If cache miss occurs, the action downloads and installs CMake and ninja, then **caches both automatically** with GitHub's [@actions/cache](https://www.npmjs.com/package/@actions/cache) APIs;
-  1. Adds to PATH the CMake and ninja executables;
+  2. If cache miss occurs, the action downloads and installs CMake and ninja, then **caches both automatically** with GitHub's [@actions/cache](https://www.npmjs.com/package/@actions/cache) APIs;
+  3. Adds to PATH the CMake and ninja executables;
 
 ## Quickstart
 
@@ -56,7 +56,7 @@ Flowchart of `get-cmake`:
 
 ## Action reference: all input/output parameters
 
-Please read [actions.yml](./actions.yml).
+Please read [actions.yml](./action.yml).
 
 <br>
 
