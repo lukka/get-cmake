@@ -27,4 +27,5 @@ test('testing get-cmake with cache-miss...', async () => {
     await getter.run();
     expect(cacheSaveCache).toBeCalledTimes(1);
     expect(cacheRestoreCache).toBeCalledTimes(1);
+    expect(coreSetFailed).toBeCalledTimes(0);
 });

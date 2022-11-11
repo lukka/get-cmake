@@ -4,8 +4,10 @@
 
 import * as cache from '@actions/cache';
 import * as core from '@actions/core';
+import * as io from '@actions/io';
 import * as tools from '@actions/tool-cache';
 import * as path from 'path';
+import * as semver from 'semver'
 
 interface PackageInfo {
   url: string;
@@ -34,22 +36,32 @@ function hashCode(text: string): string {
 export class ToolsGetter {
   private static readonly CMakeDefaultVersion = '3.24.3';
   private static readonly NinjaDefaultVersion = '1.11.1';
-  private cmakeVersion: string | undefined;
-  private ninjaVersion: string | undefined;
+  private cmakeVersion: string;
+  private ninjaVersion: string;
 
   constructor(private cmakeOverride?: string, private ninjaOverride?: string) {
+    core.info(`user defined cmake version:${this.cmakeOverride}`);
+    core.info(`user defined ninja version:${this.ninjaOverride}`);
+
     this.cmakeVersion = cmakeOverride || ToolsGetter.CMakeDefaultVersion;
-    core.debug(`user defined cmake version:${this.cmakeVersion}`);
     this.ninjaVersion = ninjaOverride || ToolsGetter.NinjaDefaultVersion;
-    core.debug(`user defined ninja version:${this.ninjaVersion}`);
+
+    core.info(`cmake version:${this.cmakeVersion}`);
+    core.info(`ninja version:${this.ninjaVersion}`);
   }
 
   public async run(): Promise<void> {
 
     // Predefined URL for CMake 
     const LinuxX64 = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-linux-x86_64.tar.gz`;
-    const WinX64 = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-windows-x86_64.zip`;
-    const MacOs = `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-macos-universal.tar.gz`;
+    const WinX64 = semver.gtr(this.cmakeVersion, "3.19.8") ?
+      `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-windows-x86_64.zip`
+      : semver.gtr(this.cmakeVersion, "3.19.8") ?
+        `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-win64-x64.zip`
+        : `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-win32-x86.zip`
+    const MacOs = semver.gtr(this.cmakeVersion, "3.19.1") ?
+      `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-macos-universal.tar.gz`
+      : `https://github.com/Kitware/CMake/releases/download/v${this.cmakeVersion}/cmake-${this.cmakeVersion}-darwin-x86_64.tar.gz`;
 
     // Predefined URL for ninja
     const NinjaLinuxX64 = `https://github.com/ninja-build/ninja/releases/download/v${this.ninjaVersion}/ninja-linux.zip`;
@@ -105,6 +117,7 @@ export class ToolsGetter {
     try {
       core.startGroup(`Restore from cache using key '${key}' into ${outPath}`);
       hitKey = await cache.restoreCache([outPath], key);
+      core.info(hitKey === undefined ? "Cache miss." : "Cache hit.");
     } finally {
       core.endGroup();
     }
@@ -126,16 +139,28 @@ export class ToolsGetter {
       const addr = new URL(cmakeData.url);
       const dirName = path.basename(addr.pathname);
       const cmakePath = path.join(outPath, dirName.replace(cmakeData.dropSuffix, ''), cmakeData.binPath)
-      core.debug(`CMake path: ${cmakePath}`);
+
+      core.info(`CMake path: ${cmakePath}`);
       core.addPath(cmakePath);
-      core.debug(`Ninja path: ${outPath}`);
+      core.info(`Ninja path: ${outPath}`);
       core.addPath(outPath);
+
+      try {
+        core.startGroup(`Validation of installed CMake and ninja`);
+        const cmakeWhichPath: string = await io.which('cmake', true);
+        const ninjaWhichPath: string = await io.which('ninja', true);
+        core.info(`CMake actual path is: ${cmakeWhichPath}`);
+        core.info(`ninja actual path is: ${ninjaWhichPath}`);
+      } finally {
+        core.endGroup();
+      }
     } finally {
       core.endGroup();
     }
 
+
     try {
-      core.startGroup(`Save to cache using key '${key}' into ${outPath}`);
+      core.startGroup(`Save to cache using key '${key}': '${outPath}'`);
       if (hitKey === undefined) {
         await this.saveCache([outPath], key);
       } else {
