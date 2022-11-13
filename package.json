@@ -21,6 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "@vercel/ncc": "^0.34.0",
+    "dotenv": "^16.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-jest": "^22.21.0",
     "gulp": "^4.0.2",
@@ -41,9 +42,13 @@
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.2",
     "@actions/tool-cache": "^2.0.1",
+    "@octokit/core": "^4.1.0",
+    "@octokit/plugin-paginate-rest": "^5.0.1",
     "@types/jest": "^29.2.0",
+    "install": "^0.13.0",
     "jest-cli": "^29.2.1",
     "node-notifier": ">=8.0.1",
+    "octokit": "^2.0.10",
     "semver": "^7.3.8"
   }
 }

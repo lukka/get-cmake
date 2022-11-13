@@ -43,15 +43,15 @@ var eslinter = function () {
 var test = function () {
   return gulp.src('__tests__').pipe(jest({
     "preprocessorIgnorePatterns": [
-      "<rootDir>/dist/", 
+      "<rootDir>/dist/",
       "<rootDir>/node_modules/"
     ],
-    "testPathIgnorePatterns" : [
-      "<rootDir>/actions/" 
+    "testPathIgnorePatterns": [
+      "<rootDir>/actions/"
     ],
     "automock": false
   }));
-}
+};
 
 gulp.task('test', test);
 gulp.task('eslint', eslinter);

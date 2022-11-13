@@ -8,8 +8,7 @@ import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
 import * as core from '@actions/core';
 
-jest.setTimeout(15 * 1000)
-jest.mock('@actions/tool-cache');
+jest.setTimeout(60 * 1000)
 
 var coreSetFailed = jest.spyOn(core, 'setFailed');
 

@@ -2,7 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/lukka/get-cmake/badge.svg?branch=main)](https://coveralls.io/github/lukka/get-cmake?branch=main)
 
-- [The **get-cmake** action for downloading and caching CMake and ninja binaries on the GitHub agents.](#the-get-cmake-action-for-downloading-and-caching-cmake-and-ninja-binaries-on-the-github-agents)
+- [The **get-cmake** action ensures the installation of your desired versions the CMake and ninja binaries.](#the-get-cmake-action-ensures-the-installation-of-your-desired-versions-the-cmake-and-ninja-binaries)
   - [Quickstart](#quickstart)
   - [Action reference: all input/output parameters](#action-reference-all-inputoutput-parameters)
   - [Who is using `get-cmake`](#who-is-using-get-cmake)
@@ -11,14 +11,15 @@
   - [Build and lint](#build-and-lint)
   - [Packaging](#packaging)
   - [Testing](#testing)
+  - [Generate the catalog of CMake versions](#generate-the-catalog-of-cmake-versions)
   - [Contributing](#contributing)
 - [License](#license)
 
 <br>
 
-# [The **get-cmake** action for downloading and caching CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake) on the GitHub agents.
+# [The **get-cmake** action ensures the installation of your desired versions the CMake and ninja binaries](https://github.com/marketplace/actions/get-cmake).
 
-Restores from cache, or downloads and caches CMake and Ninja. You can select desired version of each, or by default resp. **v3.24.3** and **v1.11.1** are installed.
+It restores from cache, or downloads and caches CMake and Ninja. You can select desired version of each, or by default resp. **v3.24.3** and **v1.11.1** are installed.
 Works for x64 on Linux/macOS/Windows.
 
 Flowchart of `get-cmake`:
@@ -81,19 +82,32 @@ Launch `lint` by:
  > npm run lint
 
 ## Packaging
+
 To build, lint validate and package the extension for release purpose, run:
 
   > npm run pack
 
 ## Testing
 
-To build, pack and test:
+To build, pack and run all tests:
  
  > npm run test
 
- To run test directly:
+ To run all tests:
  
- > jest
+ > npx jest
+
+ or
+
+ > npx jest -- -t "<regex to match the describe clause>"
+
+## Generate the catalog of CMake versions
+
+To generate the catalog of CMake versions, run a special test with this command:
+
+ > npx jest --config=./jest.config-generate-catalog.js  
+
+Then embed the new catalog by packaging the action.
 
 ## Contributing
 
