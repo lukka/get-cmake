@@ -63,7 +63,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        cmake: ["", "3.22.6", "3.5.2"]
+        cmake: ["", "3.22.6", "3.5.2", "3.25.0-rc4", "3.25.0-rc3"]
         ninja: ["", "1.11.0"]
 
     steps:
