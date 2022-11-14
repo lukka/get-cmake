@@ -14,3 +14,4 @@ __tests__/b
 .npmrc
 coverage
 .DS_Store
+.env

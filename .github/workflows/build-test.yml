@@ -56,7 +56,6 @@ jobs:
         fi
       shell: bash
 
-  # TODO templatize the tests iterating on the versions.
   test_user_provided_version:
     name: '${{ matrix.os }}: functional test (${{ matrix.cmake }}, ${{ matrix.ninja }})'
     runs-on: ${{ matrix.os }}
@@ -64,7 +63,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        cmake: ["", "3.22.6"]
+        cmake: ["", "3.22.6", "3.5.2"]
         ninja: ["", "1.11.0"]
 
     steps:

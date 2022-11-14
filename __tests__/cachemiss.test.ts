@@ -8,8 +8,7 @@ import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
 import * as core from '@actions/core';
 
-jest.setTimeout(15 * 1000)
-jest.mock('@actions/tool-cache');
+jest.setTimeout(60 * 1000)
 
 var coreSetFailed = jest.spyOn(core, 'setFailed');
 
@@ -27,4 +26,5 @@ test('testing get-cmake with cache-miss...', async () => {
     await getter.run();
     expect(cacheSaveCache).toBeCalledTimes(1);
     expect(cacheRestoreCache).toBeCalledTimes(1);
+    expect(coreSetFailed).toBeCalledTimes(0);
 });
