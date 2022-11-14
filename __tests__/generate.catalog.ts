@@ -83,11 +83,9 @@ test.only('generate catalog of all CMake releases ...', async () => {
                             if (asset.name.trim().toLowerCase().endsWith(filter.suffix.toLowerCase())) {
                                 try {
                                     const version = semver.parse(rel.tag_name);
-                                    if (version && (version.prerelease.length === 0)) {
-                                        let plats = releasesMap[`${version.major}.${version.minor}.${version.patch}`];
-                                        if (!plats)
-                                            releasesMap[`${version.major}.${version.minor}.${version.patch}`] = {};
-                                        releasesMap[`${version.major}.${version.minor}.${version.patch}`][filter.platform] =
+                                    if (version) {
+                                        releasesMap[`${version.version}`] ?? (releasesMap[`${version.version}`] = {});
+                                        releasesMap[`${version.version}`][filter.platform] =
                                         {
                                             url: asset.browser_download_url,
                                             fileName: asset.name,

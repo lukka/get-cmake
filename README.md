@@ -9,9 +9,9 @@
 - [Developers information](#developers-information)
   - [Prerequisites](#prerequisites)
   - [Build and lint](#build-and-lint)
+  - [Generate the catalog of CMake versions](#generate-the-catalog-of-cmake-versions)
   - [Packaging](#packaging)
   - [Testing](#testing)
-  - [Generate the catalog of CMake versions](#generate-the-catalog-of-cmake-versions)
   - [Contributing](#contributing)
 - [License](#license)
 
@@ -83,8 +83,19 @@ Launch `lint` by:
 
  > npm run lint
 
+<br>
+
+## Generate the catalog of CMake versions
+To generate the catalog of CMake versions, run a special test with this command:
+
+ > npx jest --config=./jest.config-generate-catalog.js  
+
+Then embed the new catalog by packaging the action.
+
+<br>
+
 ## Packaging
-To build, lint validate and package the extension for release purpose, run:
+To build, lint validate and package the extension (and embed the release catalog) for release purpose, run:
 
   > npm run pack
 
@@ -102,15 +113,6 @@ To build, pack and run all tests:
  or
 
  > npx jest -- -t "<regex to match the describe clause>"
-
-<br>
-
-## Generate the catalog of CMake versions
-To generate the catalog of CMake versions, run a special test with this command:
-
- > npx jest --config=./jest.config-generate-catalog.js  
-
-Then embed the new catalog by packaging the action.
 
 <br>
 

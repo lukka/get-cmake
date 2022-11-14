@@ -39,7 +39,7 @@ test('testing get-cmake action success with default cmake', async () => {
 });
 
 test('testing get-cmake action success with specific cmake versions', async () => {
-    for (var version of ["3.19.8", "3.18.3", "3.16.1", "3.5.2", "3.3.0", "3.1.2"]) {
+    for (var version of ["3.19.8", "3.18.3", "3.16.1", "3.5.2", "3.3.0", "3.1.2", "3.25.0-rc4", "3.25.0-rc3"]) {
         process.env.RUNNER_TEMP = os.tmpdir();
         process.env["CUSTOM_CMAKE_VERSION"] = version;
         await getcmake.main();
