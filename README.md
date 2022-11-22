@@ -9,7 +9,7 @@
 - [Developers information](#developers-information)
   - [Prerequisites](#prerequisites)
   - [Build and lint](#build-and-lint)
-  - [Generate the catalog of CMake versions](#generate-the-catalog-of-cmake-versions)
+  - [Generate the catalog of CMake releases](#generate-the-catalog-of-cmake-releases)
   - [Packaging](#packaging)
   - [Testing](#testing)
   - [Contributing](#contributing)
@@ -85,8 +85,8 @@ Launch `lint` by:
 
 <br>
 
-## Generate the catalog of CMake versions
-To generate the catalog of CMake versions, run a special test with this command:
+## Generate the catalog of CMake releases
+To generate the catalog of CMake releases, run a special test with this command:
 
  > npx jest --config=./jest.config-generate-catalog.js  
 
@@ -112,7 +112,7 @@ To build, pack and run all tests:
 
  or
 
- > npx jest -- -t "<regex to match the describe clause>"
+ > npx jest -- -t "&lt;regex to match the describe clause&gt;"
 
 <br>
 
