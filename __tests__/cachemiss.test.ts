@@ -8,7 +8,8 @@ import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
 import * as core from '@actions/core';
 
-jest.setTimeout(60 * 1000)
+// 10 minutes
+jest.setTimeout(10 * 60 * 1000)
 
 var coreSetFailed = jest.spyOn(core, 'setFailed');
 

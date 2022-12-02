@@ -4,108 +4,109 @@
 
 import * as process from 'process';
 import * as dotenv from 'dotenv';
-import * as semver from 'semver';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ReleaseFilter, ReleasesCatalogFileName, CatalogType } from '../src/shared'
+import * as rc from '../src/releases-collector'
 
 const { Octokit } = require("@octokit/core");
 import { paginateRest } from "@octokit/plugin-paginate-rest";
-jest.setTimeout(60 * 1000)
+import { throttling } from '@octokit/plugin-throttling';
+import { retry } from '@octokit/plugin-retry';
+import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
 
+// 1 hour in milliseconds.
+jest.setTimeout(60 * 60 * 1000)
 
-test.only('generate catalog of all CMake releases ...', async () => {
-    console.log('generate release db ...');
-    if (!process.env.GITHUB_TOKEN) {
+function writeLatestToFile(map: rc.MostRecentReleases, releaseName: string, platform: string, filename: string) {
+    const value = map.get(releaseName)?.get(platform)?.mostRecentVersion?.version;
+    if (!value)
+        throw new Error(`Cannot get the '${releaseName}' for ${platform}`);
+    fs.writeFileSync(filename, value);
+}
+
+test.only('generate catalog of all CMake and Ninja releases ...', async () => {
+    console.log('generate release catalog ...');
+    if (!process.env['GITHUB_TOKEN']) {
         const result = dotenv.config();
         if (result.error) {
             throw result.error;
         }
     }
 
-    const releasesMap: CatalogType = {};
-    const MyOctokit = Octokit.plugin(paginateRest);
-    const octokit = new MyOctokit();
+    const MyOctokit = Octokit.plugin(throttling, retry, restEndpointMethods, paginateRest);
+    const octokit = new MyOctokit({
+        throttle: {
+            onRateLimit: (retryAfter: any, options: any, octokit: any, retryCount: any) => {
+                octokit.log.warn(`Request quota exhausted for request ${options.method} ${options.url}`);
+
+                if (retryCount < 5) {
+                    octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+                    return true;
+                }
+            },
+            onSecondaryRateLimit: (retryAfter: any, options: any, octokit: any) => {
+                octokit.log.warn(`SecondaryRateLimit detected for request ${options.method} ${options.url}`);
+                return true;
+            },
+        }
+    });
     // TODO: if needed, usage of a TOKEN could be enabled by passing the following 
     // instance to the MyOctokit() ctor: { auth: process.env.GITHUB_TOKEN! });
     if (!octokit) {
         throw new Error('cannot get Octokit client');
     }
+
+    const cmakeReleasesMap: rc.CatalogType = {};
+    const cmakeMostRecentRelease: rc.MostRecentReleases = new Map();
+    const cmakeCollector: rc.ReleasesCollector = new rc.ReleasesCollector(cmakeReleasesMap, cmakeMostRecentRelease, rc.CMakeFilters.allFilters);
+
+    const ninjaReleasesMap: rc.CatalogType = {};
+    const ninjaMostRecentRelease: rc.MostRecentReleases = new Map();
+    const ninjaCollector: rc.ReleasesCollector = new rc.ReleasesCollector(ninjaReleasesMap, ninjaMostRecentRelease, rc.NinjaFilters.allFilters);
     await octokit.paginate('GET /repos/Kitware/CMake/releases', {
         owner: 'Kitware',
         repo: 'CMake',
+        per_page: 100,
+    },
+        (response: any) => {
+            for (const rel of response.data) {
+                try {
+                    const assets = rel.assets as rc.Asset[];
+                    assets.forEach((t) => t.tag_name = rel.tag_name);
+                    cmakeCollector.track(assets);
+                }
+                catch (err: any) {
+                    console.log("Warning: " + err);
+                }
+            }
+        }).catch((err: any) => {
+            console.log(`Failure during HTTP download and parsing of CMake releases: ${err as Error}`);
+            throw err;
+        });
+
+    console.log(`Found ${Object.keys(cmakeReleasesMap).length} releases: `);
+    for (const relVersion in cmakeReleasesMap) {
+        console.log(`${relVersion}: ${JSON.stringify(cmakeReleasesMap[relVersion])}\n`);
+    }
+
+    // Generate the CMake catalog file.
+    fs.writeFileSync(
+        path.join("./src", rc.ReleasesCatalogFileName), "export const cmakeCatalog = " + JSON.stringify(cmakeReleasesMap));
+
+    writeLatestToFile(cmakeMostRecentRelease, 'latest', process.platform, ".latest_cmake_version");
+    writeLatestToFile(cmakeMostRecentRelease, 'latestrc', process.platform, ".latestrc_cmake_version");
+
+    await octokit.paginate('GET /repos/ninja-build/ninja/releases', {
+        owner: 'ninja-build',
+        repo: 'ninja',
         per_page: 30,
     },
         (response: any) => {
-            let releaseHit = false;
             for (const rel of response.data) {
                 try {
-                    if (rel.prerelase)
-                        continue;
-                    const linuxFilters: ReleaseFilter[] = [{
-                        binPath: 'bin/',
-                        dropSuffix: ".tar.gz",
-                        suffix: "linux-x86_64.tar.gz",
-                        platform: "linux",
-                    }];
-                    const windowsFilters: ReleaseFilter[] = [{
-                        binPath: 'bin/',
-                        dropSuffix: ".zip",
-                        suffix: "windows-x86_64.zip",
-                        platform: "win32",
-                    }, {
-                        binPath: 'bin/',
-                        dropSuffix: ".zip",
-                        suffix: "win64-x64.zip",
-                        platform: "win32",
-                    }, {
-                        binPath: 'bin/',
-                        dropSuffix: ".zip",
-                        suffix: "win32-x86.zip",
-                        platform: "win32",
-                    }];
-                    const macosFilters: ReleaseFilter[] = [{
-                        binPath: "CMake.app/Contents/bin/",
-                        dropSuffix: '.tar.gz',
-                        suffix: "macos-universal.tar.gz",
-                        platform: "darwin",
-                    }, {
-                        binPath: "CMake.app/Contents/bin/",
-                        dropSuffix: '.tar.gz',
-                        suffix: "Darwin-x86_64.tar.gz",
-                        platform: "darwin",
-                    }];
-                    const allFilters: ReleaseFilter[] = linuxFilters.concat(macosFilters.concat(windowsFilters));
-                    for (const asset of rel.assets) {
-                        releaseHit = false;
-
-                        for (const filter of allFilters) {
-                            if (asset.name.trim().toLowerCase().endsWith(filter.suffix.toLowerCase())) {
-                                try {
-                                    const version = semver.parse(rel.tag_name);
-                                    if (version) {
-                                        releasesMap[`${version.version}`] ?? (releasesMap[`${version.version}`] = {});
-                                        releasesMap[`${version.version}`][filter.platform] =
-                                        {
-                                            url: asset.browser_download_url,
-                                            fileName: asset.name,
-                                            binPath: filter.binPath,
-                                            dropSuffix: filter.dropSuffix,
-                                        };
-                                        releaseHit = true;
-                                    }
-                                }
-                                catch (err: any) {
-                                    console.log("Warning: " + err);
-                                    continue;
-                                }
-                            }
-                        }
-
-                        if (releaseHit === false) {
-                            console.log(`Skipping ${asset.name}`);
-                        }
-                    }
+                    const assets = rel.assets as rc.Asset[];
+                    assets.forEach((t) => t.tag_name = rel.tag_name);
+                    ninjaCollector.track(assets);
                 }
                 catch (err: any) {
                     console.log("Warning: " + err);
@@ -113,16 +114,18 @@ test.only('generate catalog of all CMake releases ...', async () => {
             }
 
         }).catch((err: any) => {
-            console.log(`Failure during HTTP download and parsing of CMake releases: ${err as Error}`);
+            console.log(`Failure during HTTP download and parsing of Ninja releases: ${err as Error}`);
             throw err;
         });
 
-    console.log(`Found ${Object.keys(releasesMap).length} releases: `);
-    for (const relVersion in releasesMap) {
-        console.log(`${relVersion}: ${JSON.stringify(releasesMap[relVersion])}\n`);
+    console.log(`Found ${Object.keys(ninjaReleasesMap).length} releases: `);
+    for (const relVersion in ninjaReleasesMap) {
+        console.log(`${relVersion}: ${JSON.stringify(ninjaReleasesMap[relVersion])}\n`);
     }
 
-    // Generate the catalog file.
-    fs.writeFileSync(
-        path.join("./src", ReleasesCatalogFileName), "export const cmakeCatalog = " + JSON.stringify(releasesMap));
+    // Generate the Ninja catalog file.
+    fs.appendFileSync(
+        path.join("./src", rc.ReleasesCatalogFileName), "\n\n export const ninjaCatalog = " + JSON.stringify(ninjaReleasesMap));
+
+    writeLatestToFile(ninjaMostRecentRelease, 'latest', process.platform, ".latest_ninja_version");
 });

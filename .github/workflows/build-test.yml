@@ -7,10 +7,6 @@ on:
     - cron: '0 1 * * SUN'
   workflow_dispatch:
 
-env:
-  CMAKE_LATEST: 3.24.3
-  NINJA_LATEST: 1.11.1
-
 jobs:
   build_and_test:
     name: '${{ matrix.os }}: build and test'
@@ -29,7 +25,10 @@ jobs:
         node-version: '16.x'
     - run: |
         npm install
+        npm run generate-catalog
         npm run test
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
       name: build and test
     - uses: ./
       name: validation test by running get-cmake
@@ -37,9 +36,10 @@ jobs:
       run: |
         which cmake
         cmake --version
+        CMAKE_LATEST=`cat .latest_cmake_version`
         CMAKE_VER="$(cmake --version)"
         if ! [[ "$CMAKE_VER" =~ .*"${CMAKE_LATEST}".* ]]; then
-          echo "ASSERTION FAILED! Instead of ${CMAKE_LATEST}, found: "
+          echo "ASSERTION FAILED! Instead of '${CMAKE_LATEST}', found: "
           echo "$CMAKE_VER"
           exit -1
         fi
@@ -48,34 +48,51 @@ jobs:
       run: |
         which ninja
         ninja --version
+        NINJA_LATEST=`cat .latest_ninja_version`
         NINJA_VER="$(ninja --version)"
         if ! [[ "$NINJA_VER" =~ .*"${NINJA_LATEST}".* ]]; then
-          echo "ASSERTION FAILED! Instead of ${NINJA_LATEST}, found: "
+          echo "ASSERTION FAILED! Instead of '${NINJA_LATEST}', found: "
           echo "$NINJA_VER"
           exit -1
         fi
       shell: bash
+    - uses: actions/upload-artifact@v3
+      with:
+        name: catalog
+        path: |
+          .latest_ninja_version
+          .latest_cmake_version
+          src/releases-catalog.ts
 
   test_user_provided_version:
     name: '${{ matrix.os }}: functional test (${{ matrix.cmake }}, ${{ matrix.ninja }})'
     runs-on: ${{ matrix.os }}
+    needs: build_and_test
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        cmake: ["", "3.22.6", "3.5.2", "3.25.0-rc4", "3.25.0-rc3"]
-        ninja: ["", "1.11.0"]
+        cmake: ["", "3.22.6", "3.25.0-rc4", "latest", "latestrc", "~3.25.0"]
+        ninja: ["", "1.11.0", "latest", "~1.11.1"]
 
     steps:
     - uses: actions/checkout@v3
       with:
         submodules: true
+        token: ${{ github.token }}
+    - uses: actions/download-artifact@v3
+      with:
+        name: catalog
     - uses: actions/setup-node@v3
       with:
         node-version: '16.x'
-
+    - run: |
+        npm install
+        npm run test
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
     - uses: ./
-      name: validation test by running get-cmake
+      name: validation test by running get-cmake with specific input
       with:
         cmakeVersion: ${{ matrix.cmake }}
         ninjaVersion: ${{ matrix.ninja }}
@@ -84,10 +101,33 @@ jobs:
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        EXPECTED_CMAKE_VER="${{ matrix.cmake }}"
-        [ -z "${EXPECTED_CMAKE_VER}" ] && EXPECTED_CMAKE_VER="${{ env.CMAKE_LATEST}}"
-        if ! [[ "$CMAKE_VER" =~ .*"${EXPECTED_CMAKE_VER}".* ]]; then
-          echo "ASSERTION FAILED! Instead of ${EXPECTED_CMAKE_VER}, found: "
+        CMAKE_REQUESTED_VER="${{ matrix.cmake }}"
+        case ${CMAKE_REQUESTED_VER} in
+          'latest')
+            EXPECTED_CMAKE_VER=`cat .latest_cmake_version`
+            ;;
+          'latestrc')
+            EXPECTED_CMAKE_VER=`cat .latestrc_cmake_version`
+            ;;
+          \~*)
+            # Drop initial ~
+            CMAKE_REQUESTED_VER=${CMAKE_REQUESTED_VER:1}
+            # Drop ".patch"
+            EXPECTED_CMAKE_VER="${CMAKE_REQUESTED_VER%.*}"
+            ;;
+          \^*)
+            # Drop initial ^
+            CMAKE_REQUESTED_VER=${CMAKE_REQUESTED_VER:1}
+            # Drop ".minor.patch"
+            EXPECTED_CMAKE_VER="${CMAKE_REQUESTED_VER%.*.*}"
+            ;;
+          *)
+            # Expect the required version as is.
+            EXPECTED_CMAKE_VER="${CMAKE_REQUESTED_VER}"
+            ;;
+        esac
+        if ! [[ "$CMAKE_VER" =~ .*${EXPECTED_CMAKE_VER}.* ]]; then
+          echo "ASSERTION FAILED! Instead of '${EXPECTED_CMAKE_VER}', found: "
           echo "$CMAKE_VER"
           exit -1
         fi
@@ -97,12 +137,46 @@ jobs:
         which ninja
         ninja --version
         NINJA_VER="$(ninja --version)"
-        EXPECTED_NINJA_VER="${{ matrix.ninja }}"
-        [ -z "$EXPECTED_NINJA_VER" ] && EXPECTED_NINJA_VER="${{ env.NINJA_LATEST}}"
-        if ! [[ "$NINJA_VER" =~ .*"${{ matrix.ninja }}".* ]]; then
-          echo "ASSERTION FAILED! Instead of $EXPECTED_NINJA_VER, found: "
+        NINJA_REQUESTED_VER="${{ matrix.ninja }}"
+        case ${NINJA_REQUESTED_VER} in
+          'latest')
+            EXPECTED_NINJA_VER=`cat .latest_ninja_version`
+            ;;
+          \~*)
+            # Drop initial ~
+            NINJA_REQUESTED_VER=${NINJA_REQUESTED_VER:1}
+            # Drop ".patch"
+            EXPECTED_NINJA_VER="${NINJA_REQUESTED_VER%.*}"
+            ;;
+          \^*)
+            # Drop initial ~
+            NINJA_REQUESTED_VER=${NINJA_REQUESTED_VER:1}
+            # Drop ".minor.patch"
+            EXPECTED_NINJA_VER="${NINJA_REQUESTED_VER%.*.*}"
+            ;;
+          *)
+            EXPECTED_NINJA_VER="${NINJA_REQUESTED_VER}"
+            ;;
+        esac
+        if ! [[ "$NINJA_VER" =~ .*${EXPECTED_NINJA_VER}.* ]]; then
+          echo "ASSERTION FAILED! Instead of '${EXPECTED_NINJA_VER}', found: "
           echo "$NINJA_VER"
           exit -1
         fi
       shell: bash
-
+    - name: Check for Git modified files
+      if:  ${{ false }} 
+      id: git-check
+      run: echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
+    - name: Commit the catalog of CMake and Ninja releases
+      #steps.git-check.outputs.modified == 'true'
+      if:  ${{ false }} 
+      run: |
+        git config --global user.name 'Luca'
+        git config --global user.email '681992+lukka@users.noreply.github.com'
+        git remote set-url origin https://x-access-token:${{  github.token }}@github.com/${{ github.repository }}
+        git add -A
+        git add -f ./src/releases-catalog.ts .latest_cmake_version .latest_ninja_version
+        git status
+        git commit -m "Automated commit for updating the releases catalog of CMake and Ninja"
+        git push
