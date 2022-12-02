@@ -15,3 +15,5 @@ __tests__/b
 coverage
 .DS_Store
 .env
+!/.latest_cmake_version
+!/.latest_ninja_version

@@ -4,6 +4,8 @@
 
 - [The **get-cmake** action installs as fast as possible your desired versions of CMake and Ninja](#the-get-cmake-action-installs-as-fast-as-possible-your-desired-versions-of-cmake-and-ninja)
   - [Quickstart](#quickstart)
+    - [If you want to use  **latest stable** you can use this one-liner:](#if-you-want-to-use--latest-stable-you-can-use-this-one-liner)
+    - [If you want to **pin** the workflow to **specific range of versions** of CMake and Ninja:](#if-you-want-to-pin-the-workflow-to-specific-range-of-versions-of-cmake-and-ninja)
   - [Action reference: all input/output parameters](#action-reference-all-inputoutput-parameters)
   - [Who is using `get-cmake`](#who-is-using-get-cmake)
 - [Developers information](#developers-information)
@@ -18,7 +20,7 @@
 <br>
 
 # [The **get-cmake** action installs as fast as possible your desired versions of CMake and Ninja](https://github.com/marketplace/actions/get-cmake)
-The action restores from the GitHub cloud based cache, or downloads and caches, both CMake and Ninja. You can select your desired version of each, or by default CMake **v3.24.3** and Ninja **v1.11.1** are installed.
+The action restores from the GitHub cloud based cache, or downloads and caches, both CMake and Ninja. You can select your desired version using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning), and also use `install` or `installrc` special versions to install the latest stable or release candidate.
 Works for Linux/macOS/Windows.
 
 Steps of `get-cmake`:
@@ -31,29 +33,43 @@ Steps of `get-cmake`:
 <br>
 
 ## Quickstart
+### If you want to use  **latest stable** you can use this one-liner:
 ```yaml
-    # - uses: actions/cache@v1           <-----= YOU DO NOT NEED THIS
-    #   key: <key>                       <-----= YOU DO NOT NEED THIS
-    #   path: <path>                     <-----= YOU DO NOT NEED THIS
+      # Option 1: using 'latest' branch, the most recent CMake and ninja are installed.
+        - uses: lukka/get-cmake@latest    # <--= Just this one-liner suffices.
+```
+or there is another option:
+```yaml
+      # Option 2: specify 'latest' or 'latestrc' in the input version arguments:
+        - name: Get latest CMake and Ninja
+          uses: lukka/get-cmake@latest
+          with:
+            cmakeVersion: latestrc     # <--= optional, use the latest release candidate (notice the 'rc' suffix).
+            ninjaVersion: latest       # <--= optional, use the latest release (non candidate).
+```
 
-   - name: Get latest CMake and Ninja
-      # Using 'latest' branch, the most recent CMake and ninja are installed.
-      uses: lukka/get-cmake@latest       # <--= THIS IS THE ONE LINER YOU NEED
+<br>
 
-
-    # If you need to _pin_ your workflow to specific CMake/Ninja versions you have TWO options:
-
-    # Option 1: specify in a input parameter the desired version (using multiple lines).
-    - name: Get specific version CMake, v3.24.3, and Ninja v1.11.1
-      uses: lukka/get-cmake@latest
+### If you want to **pin** the workflow to **specific range of versions** of CMake and Ninja:
+```yaml
+    # Option 1: specify in a input parameter the desired version using ranges.
+    - uses: lukka/get-cmake@latest
       with:
-        cmakeVersion: 3.24.3             # <--= optional, overrides the _latest_ version of CMake
-        ninjaVersion: 1.11.1             # <--= optional, overrides the _latest_ version of Ninja
-
+        cmakeVersion: "~3.25.0"  # <--= optional, use most recent 3.25.x version
+        ninjaVersion: "^1.11.1"  # <--= optional, use most recent 1.x version
+    
+    # or using a specific version (no range)
+    - uses: lukka/get-cmake@latest
+      with:
+        cmakeVersion: 3.25.1     # <--= optional, stick to exactly 3.25.1 version
+        ninjaVersion: 1.11.1     # <--= optional, stick to exactly 1.11.1 version
+```
+or there is another option:
+```yaml
     # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
-    # but note that you can only use one of the existing tags, create a PR to add more tags!
-    - name: Get specific version CMake, v3.24.3
-      uses: lukka/get-cmake@v3.24.3      # <- THIS IS THE ONE LINER YOU NEED
+    # but note that you can only use one of the existing tags, create a PR to add the tag you need!
+    - name: Get specific version CMake, v3.25.1
+      uses: lukka/get-cmake@v3.25.1     # <- this one-liner is all you need.
 ```
 <br>
 
@@ -88,7 +104,7 @@ Launch `lint` by:
 ## Generate the catalog of CMake releases
 To generate the catalog of CMake releases, run a special test with this command:
 
- > npx jest --config=./jest.config-generate-catalog.js  
+ > npm run generate-catalog
 
 Then embed the new catalog by packaging the action.
 
