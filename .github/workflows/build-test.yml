@@ -4,76 +4,38 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 1 * * SUN'
+    - cron: '0 1 * * FRI'
   workflow_dispatch:
 
 jobs:
-  build_and_test:
-    name: '${{ matrix.os }}: build and test'
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+  generate_catalog_build_and_test:
+    uses: ./.github/workflows/build-test-tmpl.yml
+    with:
+      runs-on: "['ubuntu-latest']"
+      generate-catalog: true
+    secrets:
+      token:
+        ${{ github.token }}
 
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: true
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16.x'
-    - run: |
-        npm install
-        npm run generate-catalog
-        npm run test
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      name: build and test
-    - uses: ./
-      name: validation test by running get-cmake
-    - name: CMake version check
-      run: |
-        which cmake
-        cmake --version
-        CMAKE_LATEST=`cat .latest_cmake_version`
-        CMAKE_VER="$(cmake --version)"
-        if ! [[ "$CMAKE_VER" =~ .*"${CMAKE_LATEST}".* ]]; then
-          echo "ASSERTION FAILED! Instead of '${CMAKE_LATEST}', found: "
-          echo "$CMAKE_VER"
-          exit -1
-        fi
-      shell: bash
-    - name: ninja version check
-      run: |
-        which ninja
-        ninja --version
-        NINJA_LATEST=`cat .latest_ninja_version`
-        NINJA_VER="$(ninja --version)"
-        if ! [[ "$NINJA_VER" =~ .*"${NINJA_LATEST}".* ]]; then
-          echo "ASSERTION FAILED! Instead of '${NINJA_LATEST}', found: "
-          echo "$NINJA_VER"
-          exit -1
-        fi
-      shell: bash
-    - uses: actions/upload-artifact@v3
-      with:
-        name: catalog
-        path: |
-          .latest_ninja_version
-          .latest_cmake_version
-          src/releases-catalog.ts
+  build_and_test:
+    needs: generate_catalog_build_and_test
+    uses: ./.github/workflows/build-test-tmpl.yml
+    with:
+      runs-on: "['windows-latest', 'macos-latest']"
+      generate-catalog: false
+    secrets:
+      token:
+        ${{ github.token }}
 
   test_user_provided_version:
-    name: '${{ matrix.os }}: functional test (${{ matrix.cmake }}, ${{ matrix.ninja }})'
+    name: '${{ matrix.os }}: functional test (${{ matrix.cmake }})'
     runs-on: ${{ matrix.os }}
     needs: build_and_test
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        cmake: ["", "3.22.6", "3.25.0-rc4", "latest", "latestrc", "~3.25.0"]
-        ninja: ["", "1.11.0", "latest", "~1.11.1"]
+        cmake: ["{'cmake':'','ninja':''}", "{cmake:'3.22.6', 'ninja':'1.11.0'}", "{'cmake':'3.25.0-rc4','ninja':'latest'}", "{'cmake':'latest','ninja':'~1.11.0'}", "{'cmake':'latestrc','ninja':'^1.11.0'}", "{'cmake':'~3.25.0','ninja':''}", "{'cmake':'^3.1.1','ninja':''}"]
 
     steps:
     - uses: actions/checkout@v3
@@ -94,14 +56,14 @@ jobs:
     - uses: ./
       name: validation test by running get-cmake with specific input
       with:
-        cmakeVersion: ${{ matrix.cmake }}
-        ninjaVersion: ${{ matrix.ninja }}
-    - name: CMake version check ${{ matrix.cmake }}
+        cmakeVersion: ${{ fromJSON(matrix.cmake).cmake }}
+        ninjaVersion: ${{ fromJSON(matrix.cmake).ninja }}
+    - name: CMake version check ${{ fromJSON(matrix.cmake).cmake }}
       run: |
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        CMAKE_REQUESTED_VER="${{ matrix.cmake }}"
+        CMAKE_REQUESTED_VER="${{ fromJSON(matrix.cmake).cmake }}"
         case ${CMAKE_REQUESTED_VER} in
           'latest')
             EXPECTED_CMAKE_VER=`cat .latest_cmake_version`
@@ -132,12 +94,12 @@ jobs:
           exit -1
         fi
       shell: bash
-    - name: ninja version check ${{ matrix.ninja }}
+    - name: ninja version check ${{ fromJSON(matrix.cmake).ninja }}
       run: |
         which ninja
         ninja --version
         NINJA_VER="$(ninja --version)"
-        NINJA_REQUESTED_VER="${{ matrix.ninja }}"
+        NINJA_REQUESTED_VER="${{ fromJSON(matrix.cmake).ninja }}"
         case ${NINJA_REQUESTED_VER} in
           'latest')
             EXPECTED_NINJA_VER=`cat .latest_ninja_version`
