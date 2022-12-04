@@ -1,0 +1,75 @@
+name: Build, test, validate
+
+on:
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+      generate-catalog:
+        required: true
+        type: boolean
+    secrets:
+      token:
+        required: true
+
+jobs:
+  build_and_test:
+    name: '${{ matrix.os }}: build and test'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ fromJson(inputs.runs-on) }}
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - uses: actions/download-artifact@v3
+      with:
+        name: catalog
+      if: inputs.generate-catalog != true
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+    - run: npm install
+    - run: npm run generate-catalog
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      if: inputs.generate-catalog == true
+    - run: npm run test
+    - uses: ./
+      name: validation test by running get-cmake
+    - name: CMake version check
+      run: |
+        which cmake
+        cmake --version
+        CMAKE_LATEST=`cat .latest_cmake_version`
+        CMAKE_VER="$(cmake --version)"
+        if ! [[ "$CMAKE_VER" =~ .*"${CMAKE_LATEST}".* ]]; then
+          echo "ASSERTION FAILED! Instead of '${CMAKE_LATEST}', found: "
+          echo "$CMAKE_VER"
+          exit -1
+        fi
+      shell: bash
+    - name: ninja version check
+      run: |
+        which ninja
+        ninja --version
+        NINJA_LATEST=`cat .latest_ninja_version`
+        NINJA_VER="$(ninja --version)"
+        if ! [[ "$NINJA_VER" =~ .*"${NINJA_LATEST}".* ]]; then
+          echo "ASSERTION FAILED! Instead of '${NINJA_LATEST}', found: "
+          echo "$NINJA_VER"
+          exit -1
+        fi
+      shell: bash
+    - uses: actions/upload-artifact@v3
+      with:
+        name: catalog
+        path: |
+          .latest_ninja_version
+          .latest_cmake_version
+          src/releases-catalog.ts
+      if: inputs.generate-catalog == true
