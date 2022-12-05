@@ -36,41 +36,41 @@ Steps of `get-cmake`:
 ## Quickstart
 ### If you want to use  **latest stable** you can use this one-liner:
 ```yaml
-      # Option 1: using 'latest' branch, the most recent CMake and ninja are installed.
-        - uses: lukka/get-cmake@latest    # <--= Just this one-liner suffices.
+  # Option 1: using 'latest' branch, the most recent CMake and ninja are installed.
+    - uses: lukka/get-cmake@latest    # <--= Just this one-liner suffices.
 ```
 or there is another option:
 ```yaml
-      # Option 2: specify 'latest' or 'latestrc' in the input version arguments:
-        - name: Get latest CMake and Ninja
-          uses: lukka/get-cmake@latest
-          with:
-            cmakeVersion: latestrc     # <--= optional, use the latest release candidate (notice the 'rc' suffix).
-            ninjaVersion: latest       # <--= optional, use the latest release (non candidate).
+  # Option 2: specify 'latest' or 'latestrc' in the input version arguments:
+    - name: Get latest CMake and Ninja
+      uses: lukka/get-cmake@latest
+      with:
+        cmakeVersion: latestrc     # <--= optional, use the latest release candidate (notice the 'rc' suffix).
+        ninjaVersion: latest       # <--= optional, use the latest release (non candidate).
 ```
 
 <br>
 
 ### If you want to **pin** the workflow to **specific range of versions** of CMake and Ninja:
 ```yaml
-    # Option 1: specify in a input parameter the desired version using ranges.
-    - uses: lukka/get-cmake@latest
-      with:
-        cmakeVersion: "~3.25.0"  # <--= optional, use most recent 3.25.x version
-        ninjaVersion: "^1.11.1"  # <--= optional, use most recent 1.x version
+  # Option 1: specify in a input parameter the desired version using ranges.
+  - uses: lukka/get-cmake@latest
+    with:
+      cmakeVersion: "~3.25.0"  # <--= optional, use most recent 3.25.x version
+      ninjaVersion: "^1.11.1"  # <--= optional, use most recent 1.x version
     
-    # or using a specific version (no range)
-    - uses: lukka/get-cmake@latest
-      with:
-        cmakeVersion: 3.25.1     # <--= optional, stick to exactly 3.25.1 version
-        ninjaVersion: 1.11.1     # <--= optional, stick to exactly 1.11.1 version
+  # or using a specific version (no range)
+  - uses: lukka/get-cmake@latest
+    with:
+      cmakeVersion: 3.25.1     # <--= optional, stick to exactly 3.25.1 version
+      ninjaVersion: 1.11.1     # <--= optional, stick to exactly 1.11.1 version
 ```
 or there is another option:
 ```yaml
-    # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
-    # but note that you can only use one of the existing tags, create a PR to add the tag you need!
-    - name: Get specific version CMake, v3.25.1
-      uses: lukka/get-cmake@v3.25.1     # <- this one-liner is all you need.
+  # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
+  # but note that you can only use one of the existing tags, create a PR to add the tag you need!
+  - name: Get specific version CMake, v3.25.1
+    uses: lukka/get-cmake@v3.25.1     # <- this one-liner is all you need.
 ```
 <br>
 
