@@ -96,8 +96,8 @@ test.only('generate catalog of all CMake and Ninja releases ...', async () => {
     writeLatestToFile(cmakeMostRecentRelease, 'latest', process.platform, ".latest_cmake_version");
     writeLatestToFile(cmakeMostRecentRelease, 'latestrc', process.platform, ".latestrc_cmake_version");
 
-    await octokit.paginate('GET /repos/ninja-build/ninja/releases', {
-        owner: 'ninja-build',
+    await octokit.paginate('GET /repos/Kitware/ninja/releases', {
+        owner: 'Kitware',
         repo: 'ninja',
         per_page: 30,
     },
@@ -112,7 +112,6 @@ test.only('generate catalog of all CMake and Ninja releases ...', async () => {
                     console.log("Warning: " + err);
                 }
             }
-
         }).catch((err: any) => {
             console.log(`Failure during HTTP download and parsing of Ninja releases: ${err as Error}`);
             throw err;

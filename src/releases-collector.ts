@@ -4,6 +4,20 @@
 
 import * as semver from 'semver'
 
+const windowsPlatform = 'win32';
+const windowsArmPlatform = 'win32-arm64';
+const linuxX64Platform = 'linux';
+const linuxArmPlatform = 'linux-arm64';
+const macosPlatform = 'darwin';
+
+export function getArchitecturePlatform(): string {
+  if (process.platform === 'linux' && process.arch === 'arm64')
+    return linuxArmPlatform;
+  else if (process.platform === 'win32' && process.arch === 'arm64')
+    return windowsArmPlatform;
+  return process.platform;
+}
+
 export interface PackageInfo {
   url: string;
   fileName?: string;
@@ -34,66 +48,86 @@ export type MostRecentReleases = Map<string, Map<string, MostRecentVersion>>;
 export type Asset = { name: string; browser_download_url: string; tag_name: string };
 
 export class NinjaFilters {
+  private static readonly linuxArmFilters: ReleaseFilter[] = [{
+    binPath: '',
+    dropSuffix: ".tar.gz",
+    suffix: "aarch64-linux-gnu.tar.gz",
+    platform: linuxArmPlatform,
+  }];
   private static readonly linuxFilters: ReleaseFilter[] = [{
     binPath: '',
-    dropSuffix: ".zip",
-    suffix: "linux.zip",
-    platform: "linux",
+    dropSuffix: ".tar.gz",
+    suffix: "x86_64-linux-gnu.tar.gz",
+    platform: linuxX64Platform,
   }];
   private static readonly windowsFilters: ReleaseFilter[] = [{
     binPath: '',
     dropSuffix: ".zip",
-    suffix: "win.zip",
-    platform: "win32",
+    suffix: "x86_64-pc-windows-msvc.zip",
+    platform: windowsPlatform,
+  }];
+  private static readonly windowsArmFilters: ReleaseFilter[] = [{
+    binPath: '',
+    dropSuffix: ".zip",
+    suffix: "arm64-pc-windows-msvc.zip",
+    platform: windowsArmPlatform,
   }];
   private static readonly macosFilters: ReleaseFilter[] = [{
     binPath: "",
-    dropSuffix: '.zip',
-    suffix: "mac.zip",
-    platform: "darwin",
+    dropSuffix: '.tar.gz',
+    suffix: "universal-apple-darwin.tar.gz",
+    platform: macosPlatform,
   }];
 
   public static readonly allFilters: ReleaseFilter[] =
-    NinjaFilters.linuxFilters.concat(NinjaFilters.macosFilters.concat(NinjaFilters.windowsFilters));
+    [...NinjaFilters.linuxFilters, ...NinjaFilters.macosFilters, ...NinjaFilters.windowsFilters,
+    ...NinjaFilters.linuxArmFilters, ...NinjaFilters.windowsArmFilters];
 }
 
 export class CMakeFilters {
+  private static readonly linuxArmFilters: ReleaseFilter[] = [{
+    binPath: 'bin/',
+    dropSuffix: ".tar.gz",
+    suffix: "linux-aarch64.tar.gz",
+    platform: linuxArmPlatform,
+  }];
   private static readonly linuxFilters: ReleaseFilter[] = [{
     binPath: 'bin/',
     dropSuffix: ".tar.gz",
     suffix: "linux-x86_64.tar.gz",
-    platform: "linux",
+    platform: linuxX64Platform,
   }];
   private static readonly windowsFilters: ReleaseFilter[] = [{
     binPath: 'bin/',
     dropSuffix: ".zip",
     suffix: "windows-x86_64.zip",
-    platform: "win32",
+    platform: windowsPlatform,
   }, {
     binPath: 'bin/',
     dropSuffix: ".zip",
     suffix: "win64-x64.zip",
-    platform: "win32",
+    platform: windowsPlatform,
   }, {
     binPath: 'bin/',
     dropSuffix: ".zip",
     suffix: "win32-x86.zip",
-    platform: "win32",
+    platform: windowsPlatform,
   }];
   private static readonly macosFilters: ReleaseFilter[] = [{
     binPath: "CMake.app/Contents/bin/",
     dropSuffix: '.tar.gz',
     suffix: "macos-universal.tar.gz",
-    platform: "darwin",
+    platform: macosPlatform,
   }, {
     binPath: "CMake.app/Contents/bin/",
     dropSuffix: '.tar.gz',
     suffix: "Darwin-x86_64.tar.gz",
-    platform: "darwin",
+    platform: macosPlatform,
   }];
 
   public static readonly allFilters: ReleaseFilter[] =
-    CMakeFilters.linuxFilters.concat(CMakeFilters.macosFilters.concat(CMakeFilters.windowsFilters));
+    [...CMakeFilters.linuxFilters, ...CMakeFilters.macosFilters, ...CMakeFilters.windowsFilters,
+    ...CMakeFilters.linuxArmFilters];
 }
 
 export class ReleasesCollector {
@@ -112,7 +146,7 @@ export class ReleasesCollector {
         for (const filter of this.filters) {
           if (asset.name.trim().toLowerCase().endsWith(filter.suffix.toLowerCase())) {
             try {
-              const version = semver.parse(asset.tag_name);
+              const version = semver.parse(asset.tag_name) || semver.coerce(asset.tag_name);
               const release = {
                 url: asset.browser_download_url,
                 fileName: asset.name,
