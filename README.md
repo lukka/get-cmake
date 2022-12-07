@@ -22,7 +22,7 @@
 # [The **get-cmake** action installs as fast as possible your desired versions of CMake and Ninja](https://github.com/marketplace/actions/get-cmake)
 The action restores from the GitHub cloud based cache, or downloads and caches, both CMake and Ninja. You can select your desired version using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning), and also use `install` or `installrc` special versions to install the [latest stable](./.latest_cmake_version) or [release candidate](./.latest_ninja_version).
 
-Works for Linux/macOS/Windows.
+Works for `x64` and `arm64` hosts on Linux, macOS and Windows.
 
 Steps of `get-cmake`:
   1. If a cache hit occurs, CMake and Ninja are restored from cache in less than 1 second.

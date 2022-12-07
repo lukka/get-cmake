@@ -51,15 +51,16 @@ export class ToolsGetter {
   }
 
   public async run(): Promise<void> {
+    const targetArchPlat = shared.getArchitecturePlatform();
     const cmakeVer = ToolsGetter.matchRange(catalog.cmakeCatalog, this.requestedCMakeVersion, "cmake");
     if (!cmakeVer)
       throw Error(`Cannot match CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
     const cmakePackages = (catalog.cmakeCatalog as shared.CatalogType)[cmakeVer]
     if (!cmakePackages)
       throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
-    const cmakePackage = cmakePackages[process.platform];
+    const cmakePackage = cmakePackages[targetArchPlat];
     if (!cmakePackage)
-      throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${process.platform}' platform.`);
+      throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${targetArchPlat}' platform.`);
 
     const ninjaVer = ToolsGetter.matchRange(catalog.ninjaCatalog, this.requestedNinjaVersion, "ninja");
     if (!ninjaVer)
@@ -67,21 +68,22 @@ export class ToolsGetter {
     const ninjaPackages = (catalog.ninjaCatalog as shared.CatalogType)[ninjaVer]
     if (!ninjaPackages)
       throw Error(`Cannot find Ninja version:'${this.requestedNinjaVersion}' in the catalog.`);
-    const ninjaPackage = ninjaPackages[process.platform];
+    const ninjaPackage = ninjaPackages[targetArchPlat];
     if (!ninjaPackage)
-      throw Error(`Cannot find Ninja version:'${this.requestedNinjaVersion}' in the catalog for the '${process.platform}' platform.`);
+      throw Error(`Cannot find Ninja version:'${this.requestedNinjaVersion}' in the catalog for the '${targetArchPlat}' platform.`);
 
     await this.get(cmakePackage, ninjaPackage);
   }
 
   private static matchRange(theCat: shared.CatalogType, range: string, toolName: string): string {
+    const targetArchPlat = shared.getArchitecturePlatform();
     try {
       const packages = theCat[range];
       if (!packages)
         throw Error(`Cannot find version:'${range}' in the catalog.`);
-      const aPackage = packages[process.platform];
+      const aPackage = packages[targetArchPlat];
       if (!aPackage)
-        throw Error(`Cannot find ${toolName} version '${range}' in the catalog for the '${process.platform}' platform.`);
+        throw Error(`Cannot find ${toolName} version '${range}' in the catalog for the '${targetArchPlat}' platform.`);
       // 'range' is a well defined version.
       return range;
     } catch {
@@ -142,14 +144,18 @@ export class ToolsGetter {
       if (!cmakePackage.fileName) {
         throw new Error("The file name of the CMake archive is required but it is missing!");
       }
+      if (!ninjaPackage.fileName) {
+        throw new Error("The file name of the Ninja archive is required but it is missing!");
+      }
 
       core.startGroup(`Add CMake and Ninja to PATH`);
-      const cmakePath = path.join(outPath, cmakePackage.fileName.replace(cmakePackage.dropSuffix, ''), cmakePackage.binPath)
+      const cmakePath = path.join(outPath, cmakePackage.fileName.replace(cmakePackage.dropSuffix, ''), cmakePackage.binPath);
+      const ninjaPath = path.join(outPath, ninjaPackage.fileName.replace(ninjaPackage.dropSuffix, ''));
 
       core.info(`CMake path: ${cmakePath}`);
       core.addPath(cmakePath);
-      core.info(`Ninja path: ${outPath}`);
-      core.addPath(outPath);
+      core.info(`Ninja path: ${ninjaPath}`);
+      core.addPath(ninjaPath);
 
       try {
         core.startGroup(`Validation of the installed CMake and Ninja`);
