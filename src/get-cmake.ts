@@ -7,7 +7,7 @@ import * as core from '@actions/core';
 import * as io from '@actions/io';
 import * as tools from '@actions/tool-cache';
 import * as path from 'path';
-import { SemVer, compare, maxSatisfying } from 'semver';
+import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
 import * as shared from './releases-collector'
 
@@ -36,10 +36,15 @@ function hashCode(text: string): string {
 export class ToolsGetter {
   private static readonly CMakeDefaultVersion = 'latest';
   private static readonly NinjaDefaultVersion = 'latest';
+  private static readonly LocalCacheName = "cmakeninja";
   private requestedCMakeVersion: string;
   private requestedNinjaVersion: string;
 
-  constructor(private cmakeOverride?: string, private ninjaOverride?: string) {
+  public constructor(private cmakeOverride?: string, private ninjaOverride?: string,
+    private useCloudCache: boolean = true, private useLocalCache: boolean = false) {
+    core.info(`useCloudCache:${this.useCloudCache}`);
+    core.info(`useLocalCache:${this.useLocalCache}`);
+
     core.info(`user defined cmake version:${this.cmakeOverride}`);
     core.info(`user defined ninja version:${this.ninjaOverride}`);
 
@@ -55,7 +60,7 @@ export class ToolsGetter {
     const cmakeVer = ToolsGetter.matchRange(catalog.cmakeCatalog, this.requestedCMakeVersion, "cmake");
     if (!cmakeVer)
       throw Error(`Cannot match CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
-    const cmakePackages = (catalog.cmakeCatalog as shared.CatalogType)[cmakeVer]
+    const cmakePackages = (catalog.cmakeCatalog as shared.CatalogType)[cmakeVer];
     if (!cmakePackages)
       throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
     const cmakePackage = cmakePackages[targetArchPlat];
@@ -65,7 +70,7 @@ export class ToolsGetter {
     const ninjaVer = ToolsGetter.matchRange(catalog.ninjaCatalog, this.requestedNinjaVersion, "ninja");
     if (!ninjaVer)
       throw Error(`Cannot match Ninja version:'${this.requestedNinjaVersion}' in the catalog.`);
-    const ninjaPackages = (catalog.ninjaCatalog as shared.CatalogType)[ninjaVer]
+    const ninjaPackages = (catalog.ninjaCatalog as shared.CatalogType)[ninjaVer];
     if (!ninjaPackages)
       throw Error(`Cannot find Ninja version:'${this.requestedNinjaVersion}' in the catalog.`);
     const ninjaPackage = ninjaPackages[targetArchPlat];
@@ -75,22 +80,22 @@ export class ToolsGetter {
     await this.get(cmakePackage, ninjaPackage);
   }
 
-  private static matchRange(theCat: shared.CatalogType, range: string, toolName: string): string {
+  private static matchRange(theCatalog: shared.CatalogType, range: string, toolName: string): string {
     const targetArchPlat = shared.getArchitecturePlatform();
     try {
-      const packages = theCat[range];
+      const packages = theCatalog[range];
       if (!packages)
-        throw Error(`Cannot find version:'${range}' in the catalog.`);
+        throw Error(`Cannot find '${toolName}' version '${range}' in the catalog.`);
       const aPackage = packages[targetArchPlat];
       if (!aPackage)
-        throw Error(`Cannot find ${toolName} version '${range}' in the catalog for the '${targetArchPlat}' platform.`);
-      // 'range' is a well defined version.
+        throw Error(`Cannot find '${toolName}' version '${range}' in the catalog for the '${targetArchPlat}' platform.`);
+      // return 'range' itself, this is the case where it is a well defined version.
       return range;
     } catch {
       // Try to use the range to find the version ...
       core.debug(`Collecting semvers list... `);
       const matches: SemVer[] = [];
-      Object.keys(theCat).forEach(function (release) {
+      Object.keys(theCatalog).forEach(function (release) {
         try {
           matches.push(new SemVer(release));
         } catch {
@@ -107,39 +112,92 @@ export class ToolsGetter {
 
   private async get(cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo): Promise<void> {
     let key: string, outPath: string;
+    let cloudCacheHitKey: string | undefined = undefined;
+    let localCacheHit = false;
+    let localPath: string | undefined = undefined;
+
     try {
-      core.startGroup(`Compute cache key from the download's URLs`);
+      core.startGroup(`Computing cache key from the downloads' URLs`);
       // Get an unique output directory name from the URL.
       const inputHash = `${cmakePackage.url}${ninjaPackage.url}`;
       key = hashCode(inputHash);
       core.info(`Cache key: ${key}`);
       core.debug(`hash('${inputHash}') === '${key}'`);
       outPath = this.getOutputPath(key);
+      core.info(`Local install root: '${outPath}''.`)
     } finally {
       core.endGroup();
     }
 
-    let hitKey: string | undefined = undefined;
-    try {
-      core.startGroup(`Restore from cache using key '${key}' into '${outPath}'`);
-      hitKey = await cache.restoreCache([outPath], key);
-      core.info(hitKey === undefined ? "Cache miss." : "Cache hit.");
-    } finally {
-      core.endGroup();
+    if (this.useLocalCache) {
+      try {
+        core.startGroup(`Restoring from local GitHub runner cache using key '${key}' into '${outPath}'`);
+        localPath = tools.find(ToolsGetter.LocalCacheName, key, process.platform);
+        // Silly tool-cache API does return an empty string in case of cache miss.
+        localCacheHit = localPath ? true : false;
+        core.info(localCacheHit ? "Local cache hit." : "Local cache miss.");
+      } finally {
+        core.endGroup();
+      }
     }
 
-    if (hitKey === undefined) {
-      await core.group("Download and extract CMake", async () => {
-        const downloaded = await tools.downloadTool(cmakePackage.url);
-        await extractFunction[cmakePackage.dropSuffix](downloaded, outPath);
-      });
+    if (!localCacheHit) {
+      if (this.useCloudCache) {
+        try {
+          core.startGroup(`Restoring from GitHub cloud cache using key '${key}' into '${outPath}'`);
+          cloudCacheHitKey = await this.restoreCache(outPath, key);
+          core.info(cloudCacheHitKey === undefined ? "Cloud cache miss." : "Cloud cache hit.");
+        } finally {
+          core.endGroup();
+        }
+      }
 
-      await core.group("Download and extract Ninja", async () => {
-        const downloaded = await tools.downloadTool(ninjaPackage.url);
-        await extractFunction[ninjaPackage.dropSuffix](downloaded, outPath);
-      });
+      if (cloudCacheHitKey === undefined) {
+        await core.group("Downloading and extracting CMake", async () => {
+          const downloaded = await tools.downloadTool(cmakePackage.url);
+          await extractFunction[cmakePackage.dropSuffix](downloaded, outPath);
+        });
+
+        await core.group("Downloading and extracting Ninja", async () => {
+          const downloaded = await tools.downloadTool(ninjaPackage.url);
+          await extractFunction[ninjaPackage.dropSuffix](downloaded, outPath);
+        });
+      }
+
+      await this.addToolsToPath(outPath, cmakePackage, ninjaPackage);
+
+      localPath = outPath;
     }
 
+    if (this.useCloudCache && cloudCacheHitKey === undefined) {
+      try {
+        core.startGroup(`Saving to GitHub cloud cache using key '${key}'`);
+        if (localCacheHit) {
+          core.info("Skipping saving to cloud cache since there was local cache hit for the computed key.");
+        }
+        else if (cloudCacheHitKey === undefined) {
+          await this.saveCache([outPath], key);
+          core.info(`Saved '${outPath}' to the GitHub cache service with key '${key}'.`);
+        } else {
+          core.info("Skipping saving to cloud cache since there was a cache hit for the computed key.");
+        }
+      } finally {
+        core.endGroup();
+      }
+    }
+
+    if (this.useLocalCache && !localCacheHit && localPath) {
+      try {
+        core.startGroup(`Saving to local cache using key '${key}' from '${outPath}'`);
+        await tools.cacheDir(localPath, ToolsGetter.LocalCacheName, key, process.platform);
+        core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${key}'.`);
+      } finally {
+        core.endGroup();
+      }
+    }
+  }
+
+  private async addToolsToPath(outPath: string, cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo): Promise<void> {
     try {
       if (!cmakePackage.fileName) {
         throw new Error("The file name of the CMake archive is required but it is missing!");
@@ -152,31 +210,19 @@ export class ToolsGetter {
       const cmakePath = path.join(outPath, cmakePackage.fileName.replace(cmakePackage.dropSuffix, ''), cmakePackage.binPath);
       const ninjaPath = path.join(outPath, ninjaPackage.fileName.replace(ninjaPackage.dropSuffix, ''));
 
-      core.info(`CMake path: ${cmakePath}`);
+      core.info(`CMake path: '${cmakePath}'`);
       core.addPath(cmakePath);
-      core.info(`Ninja path: ${ninjaPath}`);
+      core.info(`Ninja path: '${ninjaPath}'`);
       core.addPath(ninjaPath);
 
       try {
-        core.startGroup(`Validation of the installed CMake and Ninja`);
+        core.startGroup(`Validating the installed CMake and Ninja`);
         const cmakeWhichPath: string = await io.which('cmake', true);
         const ninjaWhichPath: string = await io.which('ninja', true);
         core.info(`CMake actual path is: '${cmakeWhichPath}'`);
         core.info(`Ninja actual path is: '${ninjaWhichPath}'`);
       } finally {
         core.endGroup();
-      }
-    } finally {
-      core.endGroup();
-    }
-
-    try {
-      core.startGroup(`Save to cache using key '${key}'`);
-      if (hitKey === undefined) {
-        await this.saveCache([outPath], key);
-        core.info(`Save '${outPath}' to the GitHub cache service.`);
-      } else {
-        core.info("Skipping saving cache since there was a cache hit for the computed key.");
       }
     } finally {
       core.endGroup();
@@ -203,11 +249,17 @@ export class ToolsGetter {
       }
     }
   }
+
+  private restoreCache(outPath: string, key: string): Promise<string | undefined> {
+    return cache.restoreCache([outPath], key);
+  }
 }
 
 export async function main(): Promise<void> {
   try {
-    const cmakeGetter: ToolsGetter = new ToolsGetter(core.getInput('cmakeVersion'), core.getInput('ninjaVersion'));
+    const cmakeGetter: ToolsGetter = new ToolsGetter(
+      core.getInput('cmakeVersion'), core.getInput('ninjaVersion'),
+      core.getBooleanInput('useCloudCache'), core.getBooleanInput('useLocalCache'));
     await cmakeGetter.run();
     core.info('get-cmake action execution succeeded');
     process.exitCode = 0;
@@ -219,6 +271,5 @@ export async function main(): Promise<void> {
     const errorAsString = (err ?? "undefined error").toString();
     core.setFailed(`get-cmake action execution failed: '${errorAsString}'`);
     process.exitCode = -1000;
-
   }
 }

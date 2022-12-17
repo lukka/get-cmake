@@ -1,4 +1,5 @@
-// Copyright (c) 2020 Luca Cappa
+// Copyright (c) 2020, 2021, 2022 Luca Cappa
+
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
@@ -16,8 +17,7 @@ jest.spyOn(cache, 'saveCache').mockImplementation(() =>
 
 jest.spyOn(cache, 'restoreCache').mockImplementation(() => {
     throw new Error();
-}
-);
+});
 
 test('testing get-cmake with restoreCache failure', async () => {
     process.env.RUNNER_TEMP = os.tmpdir();

@@ -20,16 +20,28 @@
 <br>
 
 # [The **get-cmake** action installs as fast as possible your desired versions of CMake and Ninja](https://github.com/marketplace/actions/get-cmake)
-The action restores from the GitHub cloud based cache, or downloads and caches, both CMake and Ninja. You can select your desired version using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning), and also use `install` or `installrc` special versions to install the [latest stable](./.latest_cmake_version) or [release candidate](./.latest_ninja_version).
+The action restores from local or cloud based cache both CMake and Ninja. If a `cache-miss` occurs, it downloads and caches the tools right away.
 
 Works for `x64` and `arm64` hosts on Linux, macOS and Windows.
 
+The desired version can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning), and also use `install` or `installrc` special tokens to install resp. the [latest stable](./.latest_cmake_version) or [release candidate](./.latest_ninja_version).
+
+There are two kind of caches:
+- The cloud based [GitHub cache](https://www.npmjs.com/package/@actions/cache). Enabled by default, it can be disabled using the input `useCloudCache:false`. 
+- The local self-hosted runner cache, stored locally using [tool-cache](https://www.npmjs.com/package/@actions/tool-cache). Disabled by default, it can enabled with the input `useLocalCache:true`. 
+
+
 Steps of `get-cmake`:
-  1. If a cache hit occurs, CMake and Ninja are restored from cache in less than 1 second.
-  2. If a cache miss occurs:
+  1. If a `cache-hit` occurs (either local or cloud cache), CMake and Ninja are restored from the cache.
+     1. if both local and cloud are enabled, the local cache check goes first.
+  2. If none of the enabled caches hits (`cache-miss`):
      1. the action downloads and installs the desired versions of CMake and Ninja.
-     2. then it pushes both CMake and Ninja on the [cloud based GitHub cache](https://www.npmjs.com/package/@actions/cache). This is beneficial for the next run of the workflow.
-  3. Adds to the PATH environment variable the paths to CMake and Ninja executables.
+     2. the action stores CMake and Ninja in the enabled caches:
+        1. on the [cloud based GitHub cache](https://www.npmjs.com/package/@actions/cache). This is beneficial for the next run of the workflow especially on _GitHub-hosted runners_.
+        2. on the local GitHub runner cache. This is beneficial for the next run of the workflow on the same _self-hosted runner_.
+        
+        _Note:_ when there is a `cache-hit`, nothing will be stored in any of the caches.
+  3. Adds to the `PATH` environment variable the binary directories for CMake and Ninja.
   
 <br>
 
@@ -37,16 +49,24 @@ Steps of `get-cmake`:
 ### If you want to use  **latest stable** you can use this one-liner:
 ```yaml
   # Option 1: using 'latest' branch, the most recent CMake and ninja are installed.
-    - uses: lukka/get-cmake@latest    # <--= Just this one-liner suffices.
+    - uses: lukka/get-cmake@latest  # <--= Just this one-liner suffices.
 ```
-or there is another option:
+The local and cloud cache can be enabled or disabled, for example:
+```yaml
+    # Suited for self-hosted GH runners where the local cache wins over the cloud.
+    - uses: lukka/get-cmake@latest  
+      with:
+        useLocalCache: true         # <--= Use the local cache (default is 'false').
+        useCloudCache: false        # <--= Ditch the cloud cache (default is 'true').
+```
+And there is a second option:
 ```yaml
   # Option 2: specify 'latest' or 'latestrc' in the input version arguments:
     - name: Get latest CMake and Ninja
       uses: lukka/get-cmake@latest
       with:
-        cmakeVersion: latestrc     # <--= optional, use the latest release candidate (notice the 'rc' suffix).
-        ninjaVersion: latest       # <--= optional, use the latest release (non candidate).
+        cmakeVersion: latestrc      # <--= optional, use the latest release candidate (notice the 'rc' suffix).
+        ninjaVersion: latest        # <--= optional, use the latest release (non candidate).
 ```
 
 <br>
@@ -58,7 +78,7 @@ or there is another option:
     with:
       cmakeVersion: "~3.25.0"  # <--= optional, use most recent 3.25.x version
       ninjaVersion: "^1.11.1"  # <--= optional, use most recent 1.x version
-    
+
   # or using a specific version (no range)
   - uses: lukka/get-cmake@latest
     with:

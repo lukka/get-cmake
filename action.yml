@@ -3,7 +3,7 @@
 # SPDX short identifier: MIT
 
 name: 'get-cmake'
-description: 'Installs (and caches on GitHub cloud cache) CMake and Ninja onto GitHub runners.'
+description: 'Installs CMake and Ninja, and caches them on cloud based GitHub cache, and/or on the local GitHub runner cache.'
 author: 'Luca Cappa https://github.com/lukka'
 runs:
   using: 'node16'
@@ -16,6 +16,14 @@ inputs:
   ninjaVersion:
     required: false
     description: "Optional Ninja version, same syntax as `cmakeVersion` input. If not specified, `latest` is installed"
+  useCloudCache:
+    required: false
+    description: "Optional argument indicating whether to use the cloud based storage of the GitHub cache. Suited for the GitHub-hosted runners."
+    default: true
+  useLocalCache:
+    required: false
+    description: "Optional argument indicating whether to use the local cache on the GitHub runner file system. Suited for the self-hosted GitHub runners."
+    default: false
 
 branding:
   icon: 'terminal'  
