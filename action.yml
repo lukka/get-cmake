@@ -12,7 +12,7 @@ runs:
 inputs:
   cmakeVersion:
     required: false
-    description: "Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25, `ˆ3.25.0` for the most recent 3.x version, or a specific version `3.25.1'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed."
+    description: "Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `ˆ3.25.0` for the most recent 3.x version, or a specific version `3.25.1'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed."
   ninjaVersion:
     required: false
     description: "Optional Ninja version, same syntax as `cmakeVersion` input. If not specified, `latest` is installed"
