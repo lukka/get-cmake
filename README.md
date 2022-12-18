@@ -24,7 +24,7 @@ The action restores from local or cloud based cache both CMake and Ninja. If a `
 
 Works for `x64` and `arm64` hosts on Linux, macOS and Windows.
 
-The desired version can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning), and also use `install` or `installrc` special tokens to install resp. the [latest stable](./.latest_cmake_version) or [release candidate](./.latest_ninja_version).
+The desired version can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning), and also use `install` or `installrc` special tokens to install resp. the [latest stable](./.latest_cmake_version) or [release candidate](./.latestrc_cmake_version).
 
 There are two kind of caches:
 - The cloud based [GitHub cache](https://www.npmjs.com/package/@actions/cache). Enabled by default, it can be disabled using the input `useCloudCache:false`. 
@@ -34,11 +34,11 @@ There are two kind of caches:
 Steps of `get-cmake`:
   1. If a `cache-hit` occurs (either local or cloud cache), CMake and Ninja are restored from the cache.
      1. if both local and cloud are enabled, the local cache check goes first.
-  2. If none of the enabled caches hits (`cache-miss`):
+  2. If a `cache-miss` occurs, i.e. none of the enabled caches hits:
      1. the action downloads and installs the desired versions of CMake and Ninja.
-     2. the action stores CMake and Ninja in the enabled caches:
-        1. on the [cloud based GitHub cache](https://www.npmjs.com/package/@actions/cache). This is beneficial for the next run of the workflow especially on _GitHub-hosted runners_.
-        2. on the local GitHub runner cache. This is beneficial for the next run of the workflow on the same _self-hosted runner_.
+     2. the action stores CMake and Ninja for the enabled caches:
+        1. if enabled, on the [cloud based GitHub cache](https://www.npmjs.com/package/@actions/cache). This is beneficial for the next run of the workflow especially on _GitHub-hosted runners_.
+        2. if enabled, on the local GitHub runner cache. This is beneficial for the next run of the workflow on the same _self-hosted runner_.
         
         _Note:_ when there is a `cache-hit`, nothing will be stored in any of the caches.
   3. Adds to the `PATH` environment variable the binary directories for CMake and Ninja.
