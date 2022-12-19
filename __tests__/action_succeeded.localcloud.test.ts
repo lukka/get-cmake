@@ -43,14 +43,18 @@ var toolsCacheDir = jest.spyOn(toolcache, 'cacheDir');
 var toolsFind = jest.spyOn(toolcache, 'find');
 
 test('testing get-cmake action success with cloud/local cache enabled', async () => {
+    const testId = Math.random();
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
+    process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
+
     for (var matrix of [
         { version: "latest", cloudCache: "true", localCache: "true" },
         { version: "latest", cloudCache: "true", localCache: "false" },
         { version: "latest", cloudCache: "false", localCache: "true" },
         { version: "latest", cloudCache: "false", localCache: "false" }]) {
 
-        process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${process.pid}`);
-        process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${process.pid}-cache`);
+        console.log(`\n\ntesting for: ${JSON.stringify(matrix)}:\n`)
+
         process.env["CUSTOM_CMAKE_VERSION"] = matrix.version;
         process.env[localCacheInput] = matrix.localCache;
         process.env[cloudCacheInput] = matrix.cloudCache;
@@ -58,7 +62,8 @@ test('testing get-cmake action success with cloud/local cache enabled', async ()
         expect(coreSetFailed).toBeCalledTimes(0);
         expect(coreError).toBeCalledTimes(0);
         expect(toolsCacheDir).toBeCalledTimes(matrix.localCache === "true" ? 1 : 0);
-        expect(toolsFind).toBeCalledTimes(matrix.localCache === "true" ? 1 : 0);
+        const toolsFindInvocationCount = matrix.localCache === "true" ? 1 : 0;
+        expect(toolsFind).toBeCalledTimes(toolsFindInvocationCount);
         expect(saveCache).toBeCalledTimes(matrix.cloudCache === "true" ? 1 : 0);
         expect(restoreCache).toBeCalledTimes(matrix.cloudCache === "true" ? 1 : 0);
 
@@ -70,6 +75,10 @@ test('testing get-cmake action success with cloud/local cache enabled', async ()
 });
 
 test('testing get-cmake action success with local or cloud cache hits', async () => {
+    const testId = Math.random();
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
+    process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
+
     for (var matrix of [
         { version: "latest", cloudCache: true, localCache: true, localHit: false, cloudHit: true },
         { version: "latest", cloudCache: false, localCache: true, localHit: false, cloudHit: false },
@@ -87,8 +96,6 @@ test('testing get-cmake action success with local or cloud cache hits', async ()
         });
 
         console.log(`\n\ntesting for: ${JSON.stringify(matrix)}:\n`)
-        process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${process.pid}`);
-        process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${process.pid}-cache`);
         process.env["CUSTOM_CMAKE_VERSION"] = matrix.version;
         process.env[localCacheInput] = String(matrix.localCache);
         process.env[cloudCacheInput] = String(matrix.cloudCache);
@@ -97,9 +104,44 @@ test('testing get-cmake action success with local or cloud cache hits', async ()
         await main();
         expect(coreSetFailed).toBeCalledTimes(0);
         expect(coreError).toBeCalledTimes(0);
-        expect(toolsFind).toBeCalledTimes(matrix.localCache ? 1 : 0);
-        expect(toolsCacheDir).toBeCalledTimes(!matrix.localCache || matrix.localHit ? 0 : 1);
+        const toolsFindInvocationCount = matrix.localCache ? 1 : 0;
+        expect(toolsFind).toBeCalledTimes(toolsFindInvocationCount);
+        const toolsCacheDirInvocationCount: number = !matrix.localCache || matrix.localHit ? 0 : 1;
+        expect(toolsCacheDir).toBeCalledTimes(toolsCacheDirInvocationCount);
+        expect(toolsFind).toHaveNthReturnedWith(1, matrix.localHit ? "hit" : "");
         expect(saveCache).toBeCalledTimes((matrix.cloudHit || !matrix.cloudCache || matrix.localHit) ? 0 : 1);
         expect(restoreCache).toBeCalledTimes((matrix.localHit || !matrix.cloudCache) ? 0 : 1);
+    }
+});
+
+test('testing get-cmake action store and restore local cache', async () => {
+    toolsCacheDir.mockRestore();
+    toolsFind.mockRestore();
+
+    const testId = Math.random();
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
+    process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
+    let downloadMock = undefined;
+
+    for (var matrix of [
+        { version: "latest", cloudCache: false, localCache: true, localHit: false, cloudHit: false },
+        { version: "latest", cloudCache: false, localCache: true, localHit: true, cloudHit: false },
+    ]) {
+        console.log(`\n\ntesting for: ${JSON.stringify(matrix)}:\n`)
+        process.env["CUSTOM_CMAKE_VERSION"] = matrix.version;
+        process.env[localCacheInput] = String(matrix.localCache);
+        process.env[cloudCacheInput] = String(matrix.cloudCache);
+        await main();
+        expect(coreSetFailed).toBeCalledTimes(0);
+        expect(coreError).toBeCalledTimes(0);
+        expect(saveCache).toBeCalledTimes(0);
+        expect(restoreCache).toBeCalledTimes(0);
+        // After cache has been stored once (in the first iteration), it must be fetched from the cache and not downloaded anymore.
+        if (downloadMock) {
+            expect(downloadMock).toBeCalledTimes(0);
+        }
+
+        // Second iteration, check that the download function is not called because the local cache hits.
+        downloadMock = jest.spyOn(ToolsGetter.prototype as any, 'downloadTools');
     }
 });
