@@ -45,7 +45,7 @@ function hashCode(text) {
             hash = ((hash << 5) + hash) ^ char;
         }
     }
-    return hash.toString();
+    return Math.abs(hash);
 }
 class ToolsGetter {
     constructor(cmakeOverride, ninjaOverride, useCloudCache = true, useLocalCache = false) {
@@ -119,7 +119,7 @@ class ToolsGetter {
     }
     get(cmakePackage, ninjaPackage) {
         return __awaiter(this, void 0, void 0, function* () {
-            let key, outPath;
+            let hashedKey, outPath;
             let cloudCacheHitKey = undefined;
             let localCacheHit = false;
             let localPath = undefined;
@@ -127,10 +127,10 @@ class ToolsGetter {
                 core.startGroup(`Computing cache key from the downloads' URLs`);
                 // Get an unique output directory name from the URL.
                 const inputHash = `${cmakePackage.url}${ninjaPackage.url}`;
-                key = hashCode(inputHash);
-                core.info(`Cache key: ${key}`);
-                core.debug(`hash('${inputHash}') === '${key}'`);
-                outPath = this.getOutputPath(key);
+                hashedKey = hashCode(inputHash);
+                core.info(`Cache key: '${hashedKey}'.`);
+                core.debug(`hash('${inputHash}') === '${hashedKey}'`);
+                outPath = this.getOutputPath(hashedKey.toString());
                 core.info(`Local install root: '${outPath}''.`);
             }
             finally {
@@ -138,8 +138,8 @@ class ToolsGetter {
             }
             if (this.useLocalCache) {
                 try {
-                    core.startGroup(`Restoring from local GitHub runner cache using key '${key}' into '${outPath}'`);
-                    localPath = tools.find(ToolsGetter.LocalCacheName, key, process.platform);
+                    core.startGroup(`Restoring from local GitHub runner cache using key '${hashedKey}'`);
+                    localPath = tools.find(ToolsGetter.LocalCacheName, ToolsGetter.hashToFakeSemver(hashedKey), process.platform);
                     // Silly tool-cache API does return an empty string in case of cache miss.
                     localCacheHit = localPath ? true : false;
                     core.info(localCacheHit ? "Local cache hit." : "Local cache miss.");
@@ -151,8 +151,8 @@ class ToolsGetter {
             if (!localCacheHit) {
                 if (this.useCloudCache) {
                     try {
-                        core.startGroup(`Restoring from GitHub cloud cache using key '${key}' into '${outPath}'`);
-                        cloudCacheHitKey = yield this.restoreCache(outPath, key);
+                        core.startGroup(`Restoring from GitHub cloud cache using key '${hashedKey}' into '${outPath}'`);
+                        cloudCacheHitKey = yield this.restoreCache(outPath, hashedKey);
                         core.info(cloudCacheHitKey === undefined ? "Cloud cache miss." : "Cloud cache hit.");
                     }
                     finally {
@@ -160,27 +160,23 @@ class ToolsGetter {
                     }
                 }
                 if (cloudCacheHitKey === undefined) {
-                    yield core.group("Downloading and extracting CMake", () => __awaiter(this, void 0, void 0, function* () {
-                        const downloaded = yield tools.downloadTool(cmakePackage.url);
-                        yield extractFunction[cmakePackage.dropSuffix](downloaded, outPath);
-                    }));
-                    yield core.group("Downloading and extracting Ninja", () => __awaiter(this, void 0, void 0, function* () {
-                        const downloaded = yield tools.downloadTool(ninjaPackage.url);
-                        yield extractFunction[ninjaPackage.dropSuffix](downloaded, outPath);
-                    }));
+                    yield this.downloadTools(cmakePackage, ninjaPackage, outPath);
                 }
-                yield this.addToolsToPath(outPath, cmakePackage, ninjaPackage);
                 localPath = outPath;
             }
+            if (!localPath) {
+                throw new Error(`Unexpectedly the directory of the tools is not defined`);
+            }
+            yield this.addToolsToPath(localPath, cmakePackage, ninjaPackage);
             if (this.useCloudCache && cloudCacheHitKey === undefined) {
                 try {
-                    core.startGroup(`Saving to GitHub cloud cache using key '${key}'`);
+                    core.startGroup(`Saving to GitHub cloud cache using key '${hashedKey}'`);
                     if (localCacheHit) {
                         core.info("Skipping saving to cloud cache since there was local cache hit for the computed key.");
                     }
                     else if (cloudCacheHitKey === undefined) {
-                        yield this.saveCache([outPath], key);
-                        core.info(`Saved '${outPath}' to the GitHub cache service with key '${key}'.`);
+                        yield this.saveCache([outPath], hashedKey);
+                        core.info(`Saved '${outPath}' to the GitHub cache service with key '${hashedKey}'.`);
                     }
                     else {
                         core.info("Skipping saving to cloud cache since there was a cache hit for the computed key.");
@@ -192,9 +188,9 @@ class ToolsGetter {
             }
             if (this.useLocalCache && !localCacheHit && localPath) {
                 try {
-                    core.startGroup(`Saving to local cache using key '${key}' from '${outPath}'`);
-                    yield tools.cacheDir(localPath, ToolsGetter.LocalCacheName, key, process.platform);
-                    core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${key}'.`);
+                    core.startGroup(`Saving to local cache using key '${hashedKey}' from '${outPath}'`);
+                    yield tools.cacheDir(localPath, ToolsGetter.LocalCacheName, ToolsGetter.hashToFakeSemver(hashedKey), process.platform);
+                    core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${hashedKey}'.`);
                 }
                 finally {
                     core.endGroup();
@@ -243,7 +239,7 @@ class ToolsGetter {
     saveCache(paths, key) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield cache.saveCache(paths, key);
+                return yield cache.saveCache(paths, key.toString());
             }
             catch (error) {
                 if (error.name === cache.ValidationError.name) {
@@ -259,7 +255,23 @@ class ToolsGetter {
         });
     }
     restoreCache(outPath, key) {
-        return cache.restoreCache([outPath], key);
+        return cache.restoreCache([outPath], key.toString());
+    }
+    downloadTools(cmakePackage, ninjaPackage, outputPath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let outPath;
+            yield core.group("Downloading and extracting CMake", () => __awaiter(this, void 0, void 0, function* () {
+                const downloaded = yield tools.downloadTool(cmakePackage.url);
+                yield extractFunction[cmakePackage.dropSuffix](downloaded, outputPath);
+            }));
+            yield core.group("Downloading and extracting Ninja", () => __awaiter(this, void 0, void 0, function* () {
+                const downloaded = yield tools.downloadTool(ninjaPackage.url);
+                yield extractFunction[ninjaPackage.dropSuffix](downloaded, outputPath);
+            }));
+        });
+    }
+    static hashToFakeSemver(hashedKey) {
+        return `${hashedKey}.0.0`;
     }
 }
 exports.ToolsGetter = ToolsGetter;

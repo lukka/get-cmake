@@ -30,8 +30,9 @@ var coreError = jest.spyOn(core, 'error');
 var toolsCacheDir = jest.spyOn(toolcache, 'cacheDir');
 
 test('testing get-cmake action failure', async () => {
-    process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${process.pid}`);
-    process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${process.pid}-cache`);
+    const testId = Math.random();
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
+    process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
     await getcmake.main();
     expect(coreSetFailed).toBeCalledTimes(1);
     expect(coreError).toBeCalledTimes(0);

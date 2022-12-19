@@ -21,7 +21,7 @@ const extractFunction: { [key: string]: { (url: string, outputPath: string): Pro
  * @param {string} text
  * @returns {string}
  */
-function hashCode(text: string): string {
+function hashCode(text: string): number {
   let hash = 41;
   if (text.length != 0) {
     for (let i = 0; i < text.length; i++) {
@@ -30,7 +30,7 @@ function hashCode(text: string): string {
     }
   }
 
-  return hash.toString();
+  return Math.abs(hash);
 }
 
 export class ToolsGetter {
@@ -111,7 +111,7 @@ export class ToolsGetter {
   }
 
   private async get(cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo): Promise<void> {
-    let key: string, outPath: string;
+    let hashedKey: number, outPath: string;
     let cloudCacheHitKey: string | undefined = undefined;
     let localCacheHit = false;
     let localPath: string | undefined = undefined;
@@ -120,10 +120,10 @@ export class ToolsGetter {
       core.startGroup(`Computing cache key from the downloads' URLs`);
       // Get an unique output directory name from the URL.
       const inputHash = `${cmakePackage.url}${ninjaPackage.url}`;
-      key = hashCode(inputHash);
-      core.info(`Cache key: ${key}`);
-      core.debug(`hash('${inputHash}') === '${key}'`);
-      outPath = this.getOutputPath(key);
+      hashedKey = hashCode(inputHash);
+      core.info(`Cache key: '${hashedKey}'.`);
+      core.debug(`hash('${inputHash}') === '${hashedKey}'`);
+      outPath = this.getOutputPath(hashedKey.toString());
       core.info(`Local install root: '${outPath}''.`)
     } finally {
       core.endGroup();
@@ -131,8 +131,9 @@ export class ToolsGetter {
 
     if (this.useLocalCache) {
       try {
-        core.startGroup(`Restoring from local GitHub runner cache using key '${key}' into '${outPath}'`);
-        localPath = tools.find(ToolsGetter.LocalCacheName, key, process.platform);
+        core.startGroup(`Restoring from local GitHub runner cache using key '${hashedKey}'`);
+        localPath = tools.find(ToolsGetter.LocalCacheName,
+          ToolsGetter.hashToFakeSemver(hashedKey), process.platform);
         // Silly tool-cache API does return an empty string in case of cache miss.
         localCacheHit = localPath ? true : false;
         core.info(localCacheHit ? "Local cache hit." : "Local cache miss.");
@@ -144,8 +145,8 @@ export class ToolsGetter {
     if (!localCacheHit) {
       if (this.useCloudCache) {
         try {
-          core.startGroup(`Restoring from GitHub cloud cache using key '${key}' into '${outPath}'`);
-          cloudCacheHitKey = await this.restoreCache(outPath, key);
+          core.startGroup(`Restoring from GitHub cloud cache using key '${hashedKey}' into '${outPath}'`);
+          cloudCacheHitKey = await this.restoreCache(outPath, hashedKey);
           core.info(cloudCacheHitKey === undefined ? "Cloud cache miss." : "Cloud cache hit.");
         } finally {
           core.endGroup();
@@ -153,31 +154,27 @@ export class ToolsGetter {
       }
 
       if (cloudCacheHitKey === undefined) {
-        await core.group("Downloading and extracting CMake", async () => {
-          const downloaded = await tools.downloadTool(cmakePackage.url);
-          await extractFunction[cmakePackage.dropSuffix](downloaded, outPath);
-        });
-
-        await core.group("Downloading and extracting Ninja", async () => {
-          const downloaded = await tools.downloadTool(ninjaPackage.url);
-          await extractFunction[ninjaPackage.dropSuffix](downloaded, outPath);
-        });
+        await this.downloadTools(cmakePackage, ninjaPackage, outPath);
       }
-
-      await this.addToolsToPath(outPath, cmakePackage, ninjaPackage);
 
       localPath = outPath;
     }
 
+    if (!localPath) {
+      throw new Error(`Unexpectedly the directory of the tools is not defined`);
+    }
+
+    await this.addToolsToPath(localPath, cmakePackage, ninjaPackage);
+
     if (this.useCloudCache && cloudCacheHitKey === undefined) {
       try {
-        core.startGroup(`Saving to GitHub cloud cache using key '${key}'`);
+        core.startGroup(`Saving to GitHub cloud cache using key '${hashedKey}'`);
         if (localCacheHit) {
           core.info("Skipping saving to cloud cache since there was local cache hit for the computed key.");
         }
         else if (cloudCacheHitKey === undefined) {
-          await this.saveCache([outPath], key);
-          core.info(`Saved '${outPath}' to the GitHub cache service with key '${key}'.`);
+          await this.saveCache([outPath], hashedKey);
+          core.info(`Saved '${outPath}' to the GitHub cache service with key '${hashedKey}'.`);
         } else {
           core.info("Skipping saving to cloud cache since there was a cache hit for the computed key.");
         }
@@ -188,9 +185,10 @@ export class ToolsGetter {
 
     if (this.useLocalCache && !localCacheHit && localPath) {
       try {
-        core.startGroup(`Saving to local cache using key '${key}' from '${outPath}'`);
-        await tools.cacheDir(localPath, ToolsGetter.LocalCacheName, key, process.platform);
-        core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${key}'.`);
+        core.startGroup(`Saving to local cache using key '${hashedKey}' from '${outPath}'`);
+        await tools.cacheDir(localPath, ToolsGetter.LocalCacheName,
+          ToolsGetter.hashToFakeSemver(hashedKey), process.platform);
+        core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${hashedKey}'.`);
       } finally {
         core.endGroup();
       }
@@ -235,9 +233,9 @@ export class ToolsGetter {
     return path.join(process.env.RUNNER_TEMP, subDir);;
   }
 
-  private async saveCache(paths: string[], key: string): Promise<number | undefined> {
+  private async saveCache(paths: string[], key: number): Promise<number | undefined> {
     try {
-      return await cache.saveCache(paths, key);
+      return await cache.saveCache(paths, key.toString());
     }
     catch (error: any) {
       if (error.name === cache.ValidationError.name) {
@@ -250,8 +248,27 @@ export class ToolsGetter {
     }
   }
 
-  private restoreCache(outPath: string, key: string): Promise<string | undefined> {
-    return cache.restoreCache([outPath], key);
+  private restoreCache(outPath: string, key: number): Promise<string | undefined> {
+    return cache.restoreCache([outPath], key.toString());
+  }
+
+  private async downloadTools(
+    cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo,
+    outputPath: string): Promise<void> {
+    let outPath: string;
+    await core.group("Downloading and extracting CMake", async () => {
+      const downloaded = await tools.downloadTool(cmakePackage.url);
+      await extractFunction[cmakePackage.dropSuffix](downloaded, outputPath);
+    });
+
+    await core.group("Downloading and extracting Ninja", async () => {
+      const downloaded = await tools.downloadTool(ninjaPackage.url);
+      await extractFunction[ninjaPackage.dropSuffix](downloaded, outputPath);
+    });
+  }
+
+  private static hashToFakeSemver(hashedKey: number): string {
+    return `${hashedKey}.0.0`;
   }
 }
 
