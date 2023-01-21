@@ -82,15 +82,15 @@ And there is a second option:
   # or using a specific version (no range)
   - uses: lukka/get-cmake@latest
     with:
-      cmakeVersion: 3.25.1     # <--= optional, stick to exactly 3.25.1 version
+      cmakeVersion: 3.25.2     # <--= optional, stick to exactly 3.25.2 version
       ninjaVersion: 1.11.1     # <--= optional, stick to exactly 1.11.1 version
 ```
 or there is another option:
 ```yaml
   # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
   # but note that you can only use one of the existing tags, create a PR to add the tag you need!
-  - name: Get specific version CMake, v3.25.1
-    uses: lukka/get-cmake@v3.25.1     # <- this one-liner is all you need.
+  - name: Get specific version CMake, v3.25.2
+    uses: lukka/get-cmake@v3.25.2     # <- this one-liner is all you need.
 ```
 <br>
 
