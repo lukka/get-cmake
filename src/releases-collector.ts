@@ -7,6 +7,7 @@ import * as semver from 'semver'
 const windowsPlatform = 'win32';
 const windowsArmPlatform = 'win32-arm64';
 const linuxX64Platform = 'linux';
+const linuxX86Platform = "linux";
 const linuxArmPlatform = 'linux-arm64';
 const macosPlatform = 'darwin';
 
@@ -96,6 +97,11 @@ export class CMakeFilters {
     dropSuffix: ".tar.gz",
     suffix: "linux-x86_64.tar.gz",
     platform: linuxX64Platform,
+  }, {
+    binPath: 'bin/',
+    dropSuffix: ".tar.gz",
+    suffix: "Linux-i386.tar.gz",
+    platform: linuxX86Platform,
   }];
   private static readonly windowsFilters: ReleaseFilter[] = [{
     binPath: 'bin/',
@@ -122,6 +128,11 @@ export class CMakeFilters {
     binPath: "CMake.app/Contents/bin/",
     dropSuffix: '.tar.gz',
     suffix: "Darwin-x86_64.tar.gz",
+    platform: macosPlatform,
+  }, {
+    binPath: "CMake.app/Contents/bin/",
+    dropSuffix: '.tar.gz',
+    suffix: "Darwin64-universal.tar.gz",
     platform: macosPlatform,
   }];
 
