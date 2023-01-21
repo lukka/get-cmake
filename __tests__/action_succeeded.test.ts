@@ -55,6 +55,7 @@ test('testing get-cmake action success with default cmake', async () => {
 });
 
 test('testing get-cmake action success with specific cmake versions', async () => {
+    // Versions available on all platforms.
     for (var version of ["latest", "latestrc", "~3.24", "3.x", "3.20.x", "^3.22", "3.19.8",
         "3.25.0-rc4", "3.25.0-rc3"]) {
         process.env.RUNNER_TEMP = os.tmpdir();
