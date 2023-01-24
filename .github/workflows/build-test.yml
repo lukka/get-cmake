@@ -42,6 +42,14 @@ jobs:
     uses: ./.github/workflows/functional-tests-tmpl.yml
     with:
       runs-on: "['ubuntu-latest', 'macos-latest', 'windows-latest']"
+      versions: "[\"{'cmake':'','ninja':''}\",\
+        \"{cmake:'3.22.6', 'ninja':'1.11.1'}\",\
+        \"{'cmake':'3.25.0-rc4','ninja':'latest'}\",\
+        \"{'cmake':'latest','ninja':'~1.11.0'}\",\
+        \"{'cmake':'latestrc','ninja':'^1.11.0'}\",\
+        \"{'cmake':'~3.25.0','ninja':''}\",\
+        \"{'cmake':'^3.1.1','ninja':''}\",\
+        \"{'cmake':'~3.0.0','ninja':''}\"]"
     secrets:
       token:
         ${{ github.token }}
@@ -52,6 +60,13 @@ jobs:
     with:
       runs-on: "['buildjet-2vcpu-ubuntu-2204-arm']"
       experimental: true
+      versions: "[\"{'cmake':'','ninja':''}\",\
+        \"{cmake:'3.22.6', 'ninja':'1.11.1'}\",\
+        \"{'cmake':'3.25.0-rc4','ninja':'latest'}\",\
+        \"{'cmake':'latest','ninja':'~1.11.0'}\",\
+        \"{'cmake':'latestrc','ninja':'^1.11.0'}\",\
+        \"{'cmake':'~3.25.0','ninja':''}\",\
+        \"{'cmake':'^3.1.1','ninja':''}\"]"
     secrets:
       token:
         ${{ github.token }}

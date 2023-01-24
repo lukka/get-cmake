@@ -64,6 +64,7 @@ export class ToolsGetter {
     if (!cmakePackages)
       throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
     const cmakePackage = cmakePackages[targetArchPlat];
+    core.debug(`cmakePackages: ${JSON.stringify(cmakePackages)}`);
     if (!cmakePackage)
       throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${targetArchPlat}' platform.`);
 
