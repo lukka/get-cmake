@@ -65,6 +65,17 @@ test('testing get-cmake action success with specific cmake versions', async () =
         expect(coreError).toBeCalledTimes(0);
     }
 
+    // '~3.0.0' is not avail on Linux ARM/ARM64.
+    if (process.platform !== "linux" && !process.arch.startsWith("arm")) {
+        for (var version of ["~3.0.0"]) {
+            process.env.RUNNER_TEMP = os.tmpdir();
+            process.env["CUSTOM_CMAKE_VERSION"] = version;
+            await getcmake.main();
+            expect(coreSetFailed).toBeCalledTimes(0);
+            expect(coreError).toBeCalledTimes(0);
+        }
+    }
+
     // A Linux ARM build is not available before 3.19.x
     if (process.platform === "linux" && process.arch === "x64") {
         for (var version of ["3.18.3", "3.16.1", "3.5.2", "3.3.0", "3.1.2"]) {
