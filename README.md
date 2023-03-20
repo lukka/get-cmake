@@ -89,8 +89,8 @@ or there is another option:
 ```yaml
   # Option 2: or you can use the Git 'tag' to select the version, and you can have a one-liner statement,
   # but note that you can only use one of the existing tags, create a PR to add the tag you need!
-  - name: Get specific version CMake, v3.25.2
-    uses: lukka/get-cmake@v3.25.2     # <- this one-liner is all you need.
+  - name: Get specific version CMake, v3.26.0
+    uses: lukka/get-cmake@v3.26.0     # <- this one-liner is all you need.
 ```
 <br>
 
