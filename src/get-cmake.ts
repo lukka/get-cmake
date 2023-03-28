@@ -82,6 +82,7 @@ export class ToolsGetter {
   }
 
   private static matchRange(theCatalog: shared.CatalogType, range: string, toolName: string): string {
+    core.debug(`matchRange(${theCatalog}, ${range}, ${toolName})<<`);
     const targetArchPlat = shared.getArchitecturePlatform();
     try {
       const packages = theCatalog[range];
@@ -92,7 +93,8 @@ export class ToolsGetter {
         throw Error(`Cannot find '${toolName}' version '${range}' in the catalog for the '${targetArchPlat}' platform.`);
       // return 'range' itself, this is the case where it is a well defined version.
       return range;
-    } catch {
+    } catch (error: any) {
+      core.debug(error?.message);
       // Try to use the range to find the version ...
       core.debug(`Collecting semvers list... `);
       const matches: SemVer[] = [];
@@ -107,6 +109,7 @@ export class ToolsGetter {
       if (!match || !match.version) {
         throw new Error(`Cannot match '${range}' with any version in the catalog for '${toolName}'.`);
       }
+      core.debug(`matchRange(${theCatalog}, ${range}, ${toolName})>>`);
       return match.version;
     }
   }
