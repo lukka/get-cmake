@@ -53,6 +53,6 @@
     "jest-cli": "^29.2.1",
     "node-notifier": ">=8.0.1",
     "octokit": "^2.0.10",
-    "semver": "^7.3.8"
+    "semver": "^7.5.2"
   }
 }
