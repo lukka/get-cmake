@@ -315,7 +315,7 @@ exports.main = main;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ninjaCatalog = exports.cmakeCatalog = void 0;
-exports.cmakeCatalog = { "3.27.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "latestrc": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.27.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.tar.gz", "fileName": "cmake-3.26.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-x86_64.tar.gz", "fileName": "cmake-3.26.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-macos-universal.tar.gz", "fileName": "cmake-3.26.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-windows-x86_64.zip", "fileName": "cmake-3.26.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "latest": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.tar.gz", "fileName": "cmake-3.26.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-x86_64.tar.gz", "fileName": "cmake-3.26.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-macos-universal.tar.gz", "fileName": "cmake-3.26.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-windows-x86_64.zip", "fileName": "cmake-3.26.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-linux-aarch64.tar.gz", "fileName": "cmake-3.26.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-linux-x86_64.tar.gz", "fileName": "cmake-3.26.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-macos-universal.tar.gz", "fileName": "cmake-3.26.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-windows-x86_64.zip", "fileName": "cmake-3.26.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-linux-aarch64.tar.gz", "fileName": "cmake-3.26.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-linux-x86_64.tar.gz", "fileName": "cmake-3.26.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-macos-universal.tar.gz", "fileName": "cmake-3.26.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-windows-x86_64.zip", "fileName": "cmake-3.26.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-linux-aarch64.tar.gz", "fileName": "cmake-3.26.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-linux-x86_64.tar.gz", "fileName": "cmake-3.26.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-macos-universal.tar.gz", "fileName": "cmake-3.26.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-windows-x86_64.zip", "fileName": "cmake-3.26.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-macos-universal.tar.gz", "fileName": "cmake-3.26.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-windows-x86_64.zip", "fileName": "cmake-3.26.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-aarch64.tar.gz", "fileName": "cmake-3.25.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz", "fileName": "cmake-3.25.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-macos-universal.tar.gz", "fileName": "cmake-3.25.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-windows-x86_64.zip", "fileName": "cmake-3.25.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-aarch64.tar.gz", "fileName": "cmake-3.24.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-x86_64.tar.gz", "fileName": "cmake-3.24.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-macos-universal.tar.gz", "fileName": "cmake-3.24.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-windows-x86_64.zip", "fileName": "cmake-3.24.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-linux-aarch64.tar.gz", "fileName": "cmake-3.25.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-linux-x86_64.tar.gz", "fileName": "cmake-3.25.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-macos-universal.tar.gz", "fileName": "cmake-3.25.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-windows-x86_64.zip", "fileName": "cmake-3.25.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-linux-aarch64.tar.gz", "fileName": "cmake-3.25.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-linux-x86_64.tar.gz", "fileName": "cmake-3.25.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-macos-universal.tar.gz", "fileName": "cmake-3.25.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-windows-x86_64.zip", "fileName": "cmake-3.25.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-macos-universal.tar.gz", "fileName": "cmake-3.25.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-windows-x86_64.zip", "fileName": "cmake-3.25.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-aarch64.tar.gz", "fileName": "cmake-3.24.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-x86_64.tar.gz", "fileName": "cmake-3.24.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-macos-universal.tar.gz", "fileName": "cmake-3.24.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-windows-x86_64.zip", "fileName": "cmake-3.24.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-linux-aarch64.tar.gz", "fileName": "cmake-3.23.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-linux-x86_64.tar.gz", "fileName": "cmake-3.23.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-macos-universal.tar.gz", "fileName": "cmake-3.23.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-windows-x86_64.zip", "fileName": "cmake-3.23.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-linux-aarch64.tar.gz", "fileName": "cmake-3.23.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-linux-x86_64.tar.gz", "fileName": "cmake-3.23.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-macos-universal.tar.gz", "fileName": "cmake-3.23.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-windows-x86_64.zip", "fileName": "cmake-3.23.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-linux-aarch64.tar.gz", "fileName": "cmake-3.24.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-linux-x86_64.tar.gz", "fileName": "cmake-3.24.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-macos-universal.tar.gz", "fileName": "cmake-3.24.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-windows-x86_64.zip", "fileName": "cmake-3.24.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-linux-aarch64.tar.gz", "fileName": "cmake-3.24.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-linux-x86_64.tar.gz", "fileName": "cmake-3.24.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-macos-universal.tar.gz", "fileName": "cmake-3.24.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-windows-x86_64.zip", "fileName": "cmake-3.24.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-macos-universal.tar.gz", "fileName": "cmake-3.24.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-windows-x86_64.zip", "fileName": "cmake-3.24.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-linux-aarch64.tar.gz", "fileName": "cmake-3.23.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-linux-x86_64.tar.gz", "fileName": "cmake-3.23.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-macos-universal.tar.gz", "fileName": "cmake-3.23.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-windows-x86_64.zip", "fileName": "cmake-3.23.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-linux-aarch64.tar.gz", "fileName": "cmake-3.22.6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-linux-x86_64.tar.gz", "fileName": "cmake-3.22.6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-macos-universal.tar.gz", "fileName": "cmake-3.22.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-windows-x86_64.zip", "fileName": "cmake-3.22.6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-linux-aarch64.tar.gz", "fileName": "cmake-3.22.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-linux-x86_64.tar.gz", "fileName": "cmake-3.22.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-macos-universal.tar.gz", "fileName": "cmake-3.22.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-windows-x86_64.zip", "fileName": "cmake-3.22.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.7": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-linux-aarch64.tar.gz", "fileName": "cmake-3.21.7-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-linux-x86_64.tar.gz", "fileName": "cmake-3.21.7-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-macos-universal.tar.gz", "fileName": "cmake-3.21.7-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-windows-x86_64.zip", "fileName": "cmake-3.21.7-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-linux-aarch64.tar.gz", "fileName": "cmake-3.23.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-linux-x86_64.tar.gz", "fileName": "cmake-3.23.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-macos-universal.tar.gz", "fileName": "cmake-3.23.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-windows-x86_64.zip", "fileName": "cmake-3.23.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-linux-aarch64.tar.gz", "fileName": "cmake-3.23.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-linux-x86_64.tar.gz", "fileName": "cmake-3.23.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-macos-universal.tar.gz", "fileName": "cmake-3.23.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-windows-x86_64.zip", "fileName": "cmake-3.23.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-linux-aarch64.tar.gz", "fileName": "cmake-3.22.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-linux-x86_64.tar.gz", "fileName": "cmake-3.22.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-macos-universal.tar.gz", "fileName": "cmake-3.22.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-windows-x86_64.zip", "fileName": "cmake-3.22.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-macos-universal.tar.gz", "fileName": "cmake-3.23.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-windows-x86_64.zip", "fileName": "cmake-3.23.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-linux-aarch64.tar.gz", "fileName": "cmake-3.22.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-linux-x86_64.tar.gz", "fileName": "cmake-3.22.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-macos-universal.tar.gz", "fileName": "cmake-3.22.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-windows-x86_64.zip", "fileName": "cmake-3.22.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-linux-aarch64.tar.gz", "fileName": "cmake-3.21.6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-linux-x86_64.tar.gz", "fileName": "cmake-3.21.6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-macos-universal.tar.gz", "fileName": "cmake-3.21.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-windows-x86_64.zip", "fileName": "cmake-3.21.6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-linux-aarch64.tar.gz", "fileName": "cmake-3.21.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-linux-x86_64.tar.gz", "fileName": "cmake-3.21.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-macos-universal.tar.gz", "fileName": "cmake-3.21.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-windows-x86_64.zip", "fileName": "cmake-3.21.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-aarch64.tar.gz", "fileName": "cmake-3.22.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.tar.gz", "fileName": "cmake-3.22.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz", "fileName": "cmake-3.22.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-windows-x86_64.zip", "fileName": "cmake-3.22.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.tar.gz", "fileName": "cmake-3.22.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-x86_64.tar.gz", "fileName": "cmake-3.22.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-macos-universal.tar.gz", "fileName": "cmake-3.22.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-windows-x86_64.zip", "fileName": "cmake-3.22.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-macos-universal.tar.gz", "fileName": "cmake-3.22.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-windows-x86_64.zip", "fileName": "cmake-3.22.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.22.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.22.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.22.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.22.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz", "fileName": "cmake-3.21.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.tar.gz", "fileName": "cmake-3.21.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz", "fileName": "cmake-3.21.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip", "fileName": "cmake-3.21.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.22.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.22.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-linux-aarch64.tar.gz", "fileName": "cmake-3.21.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-linux-x86_64.tar.gz", "fileName": "cmake-3.21.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-macos-universal.tar.gz", "fileName": "cmake-3.21.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-windows-x86_64.zip", "fileName": "cmake-3.21.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-linux-aarch64.tar.gz", "fileName": "cmake-3.20.6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-linux-x86_64.tar.gz", "fileName": "cmake-3.20.6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-macos-universal.tar.gz", "fileName": "cmake-3.20.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-windows-x86_64.zip", "fileName": "cmake-3.20.6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-linux-aarch64.tar.gz", "fileName": "cmake-3.21.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-linux-x86_64.tar.gz", "fileName": "cmake-3.21.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-macos-universal.tar.gz", "fileName": "cmake-3.21.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-windows-x86_64.zip", "fileName": "cmake-3.21.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-linux-aarch64.tar.gz", "fileName": "cmake-3.21.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-linux-x86_64.tar.gz", "fileName": "cmake-3.21.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-macos-universal.tar.gz", "fileName": "cmake-3.21.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-windows-x86_64.zip", "fileName": "cmake-3.21.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-macos-universal.tar.gz", "fileName": "cmake-3.21.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip", "fileName": "cmake-3.21.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.21.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.21.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.21.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.21.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.21.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.21.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-aarch64.tar.gz", "fileName": "cmake-3.20.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-x86_64.tar.gz", "fileName": "cmake-3.20.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-macos-universal.tar.gz", "fileName": "cmake-3.20.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-windows-x86_64.zip", "fileName": "cmake-3.20.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-linux-aarch64.tar.gz", "fileName": "cmake-3.20.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-linux-x86_64.tar.gz", "fileName": "cmake-3.20.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-macos-universal.tar.gz", "fileName": "cmake-3.20.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-windows-x86_64.zip", "fileName": "cmake-3.20.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-linux-aarch64.tar.gz", "fileName": "cmake-3.20.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-linux-x86_64.tar.gz", "fileName": "cmake-3.20.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-macos-universal.tar.gz", "fileName": "cmake-3.20.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-windows-x86_64.zip", "fileName": "cmake-3.20.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-linux-aarch64.tar.gz", "fileName": "cmake-3.20.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-linux-x86_64.tar.gz", "fileName": "cmake-3.20.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-macos-universal.tar.gz", "fileName": "cmake-3.20.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-windows-x86_64.zip", "fileName": "cmake-3.20.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-aarch64.tar.gz", "fileName": "cmake-3.20.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-x86_64.tar.gz", "fileName": "cmake-3.20.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-macos-universal.tar.gz", "fileName": "cmake-3.20.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-windows-x86_64.zip", "fileName": "cmake-3.20.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.8": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.8-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.8-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-macos-universal.tar.gz", "fileName": "cmake-3.19.8-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-win64-x64.zip", "fileName": "cmake-3.19.8-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-macos-universal.tar.gz", "fileName": "cmake-3.20.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-windows-x86_64.zip", "fileName": "cmake-3.20.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.7": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.7-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-macos-universal.tar.gz", "fileName": "cmake-3.19.7-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-win64-x64.zip", "fileName": "cmake-3.19.7-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.6-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-macos-universal.tar.gz", "fileName": "cmake-3.19.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-win64-x64.zip", "fileName": "cmake-3.19.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.5-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-macos-universal.tar.gz", "fileName": "cmake-3.19.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-win64-x64.zip", "fileName": "cmake-3.19.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.6": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.6/cmake-3.18.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.6/cmake-3.18.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.6/cmake-3.18.6-win64-x64.zip", "fileName": "cmake-3.18.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.4-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-macos-universal.tar.gz", "fileName": "cmake-3.19.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-win64-x64.zip", "fileName": "cmake-3.19.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.3-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-macos-universal.tar.gz", "fileName": "cmake-3.19.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-win64-x64.zip", "fileName": "cmake-3.19.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.2/cmake-3.19.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.2/cmake-3.19.2-macos-universal.tar.gz", "fileName": "cmake-3.19.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.2/cmake-3.19.2-win64-x64.zip", "fileName": "cmake-3.19.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-win64-x64.zip", "fileName": "cmake-3.19.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-win64-x64.zip", "fileName": "cmake-3.19.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.5": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.5/cmake-3.18.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.5/cmake-3.18.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.5/cmake-3.18.5-win64-x64.zip", "fileName": "cmake-3.18.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0-rc3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc3/cmake-3.19.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc3/cmake-3.19.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc3/cmake-3.19.0-rc3-win64-x64.zip", "fileName": "cmake-3.19.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc2/cmake-3.19.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc2/cmake-3.19.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc2/cmake-3.19.0-rc2-win64-x64.zip", "fileName": "cmake-3.19.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0-rc1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc1/cmake-3.19.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc1/cmake-3.19.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc1/cmake-3.19.0-rc1-win64-x64.zip", "fileName": "cmake-3.19.0-rc1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4-win64-x64.zip", "fileName": "cmake-3.18.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-win64-x64.zip", "fileName": "cmake-3.18.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.17.5": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.5/cmake-3.17.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.5/cmake-3.17.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.5/cmake-3.17.5-win64-x64.zip", "fileName": "cmake-3.17.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.9": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.9/cmake-3.16.9-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.9-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.9/cmake-3.16.9-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.9-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.9/cmake-3.16.9-win64-x64.zip", "fileName": "cmake-3.16.9-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-win64-x64.zip", "fileName": "cmake-3.18.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-win64-x64.zip", "fileName": "cmake-3.18.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.17.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.4/cmake-3.17.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.4/cmake-3.17.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.4/cmake-3.17.4-win64-x64.zip", "fileName": "cmake-3.17.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-win64-x64.zip", "fileName": "cmake-3.18.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0-rc4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc4/cmake-3.18.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc4/cmake-3.18.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc4/cmake-3.18.0-rc4-win64-x64.zip", "fileName": "cmake-3.18.0-rc4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0-rc3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc3/cmake-3.18.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc3/cmake-3.18.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc3/cmake-3.18.0-rc3-win64-x64.zip", "fileName": "cmake-3.18.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc2/cmake-3.18.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc2/cmake-3.18.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc2/cmake-3.18.0-rc2-win64-x64.zip", "fileName": "cmake-3.18.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0-rc1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc1/cmake-3.18.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc1/cmake-3.18.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc1/cmake-3.18.0-rc1-win64-x64.zip", "fileName": "cmake-3.18.0-rc1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.8": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.8/cmake-3.16.8-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.8-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.8/cmake-3.16.8-win64-x64.zip", "fileName": "cmake-3.16.8-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.8/cmake-3.16.8-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.8-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.17.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-win32-x86.zip", "fileName": "cmake-3.17.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.7": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.7/cmake-3.16.7-win64-x64.zip", "fileName": "cmake-3.16.7-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.7/cmake-3.16.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.7/cmake-3.16.7-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.7-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-win64-x64.zip", "fileName": "cmake-3.17.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.6": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6-win64-x64.zip", "fileName": "cmake-3.16.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.1/cmake-3.17.1-win64-x64.zip", "fileName": "cmake-3.17.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.1/cmake-3.17.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.1/cmake-3.17.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-win64-x64.zip", "fileName": "cmake-3.17.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.17.0-rc3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc3/cmake-3.17.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc3/cmake-3.17.0-rc3-win64-x64.zip", "fileName": "cmake-3.17.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc3/cmake-3.17.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5-win32-x86.zip", "fileName": "cmake-3.16.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.0-rc2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc2/cmake-3.17.0-rc2-win64-x64.zip", "fileName": "cmake-3.17.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc2/cmake-3.17.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc2/cmake-3.17.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.0-rc1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc1/cmake-3.17.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc1/cmake-3.17.0-rc1-win32-x86.zip", "fileName": "cmake-3.17.0-rc1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc1/cmake-3.17.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4-win64-x64.zip", "fileName": "cmake-3.16.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.7": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-win32-x86.zip", "fileName": "cmake-3.15.7-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.7-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-win32-x86.zip", "fileName": "cmake-3.16.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2-win32-x86.zip", "fileName": "cmake-3.16.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.6": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6-win32-x86.zip", "fileName": "cmake-3.15.6-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-win32-x86.zip", "fileName": "cmake-3.16.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.16.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-win32-x86.zip", "fileName": "cmake-3.16.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.0-rc4": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4-win32-x86.zip", "fileName": "cmake-3.16.0-rc4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.0-rc3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc3/cmake-3.16.0-rc3-win64-x64.zip", "fileName": "cmake-3.16.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc3/cmake-3.16.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc3/cmake-3.16.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-win32-x86.zip", "fileName": "cmake-3.15.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.16.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-win64-x64.zip", "fileName": "cmake-3.16.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.16.0-rc1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc1/cmake-3.16.0-rc1-win32-x86.zip", "fileName": "cmake-3.16.0-rc1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc1/cmake-3.16.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc1/cmake-3.16.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-win32-x86.zip", "fileName": "cmake-3.15.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.7": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.7/cmake-3.14.7-win64-x64.zip", "fileName": "cmake-3.14.7-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.7/cmake-3.14.7-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.7-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.7/cmake-3.14.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3-win32-x86.zip", "fileName": "cmake-3.15.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.15.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-win64-x64.zip", "fileName": "cmake-3.15.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1-win32-x86.zip", "fileName": "cmake-3.15.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-win32-x86.zip", "fileName": "cmake-3.15.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.6": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-win32-x86.zip", "fileName": "cmake-3.14.6-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc4/cmake-3.15.0-rc4-win32-x86.zip", "fileName": "cmake-3.15.0-rc4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc4/cmake-3.15.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc4/cmake-3.15.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc3/cmake-3.15.0-rc3-win64-x64.zip", "fileName": "cmake-3.15.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc3/cmake-3.15.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc3/cmake-3.15.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc2/cmake-3.15.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc2/cmake-3.15.0-rc2-win32-x86.zip", "fileName": "cmake-3.15.0-rc2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc2/cmake-3.15.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-win64-x64.zip", "fileName": "cmake-3.15.0-rc1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.14.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-win64-x64.zip", "fileName": "cmake-3.14.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.4/cmake-3.14.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.4/cmake-3.14.4-win32-x86.zip", "fileName": "cmake-3.14.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.4/cmake-3.14.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.13.5": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.5/cmake-3.13.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.5/cmake-3.13.5-win32-x86.zip", "fileName": "cmake-3.13.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.5/cmake-3.13.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-win64-x64.zip", "fileName": "cmake-3.14.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.14.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-win64-x64.zip", "fileName": "cmake-3.14.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1-win64-x64.zip", "fileName": "cmake-3.14.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-win64-x64.zip", "fileName": "cmake-3.14.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.0-rc4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc4/cmake-3.14.0-rc4-win64-x64.zip", "fileName": "cmake-3.14.0-rc4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc4/cmake-3.14.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc4/cmake-3.14.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.0-rc3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc3/cmake-3.14.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc3/cmake-3.14.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc3/cmake-3.14.0-rc3-win32-x86.zip", "fileName": "cmake-3.14.0-rc3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.14.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc2/cmake-3.14.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc2/cmake-3.14.0-rc2-win64-x64.zip", "fileName": "cmake-3.14.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc2/cmake-3.14.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.0-rc1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-win32-x86.zip", "fileName": "cmake-3.14.0-rc1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.13.4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4-win32-x86.zip", "fileName": "cmake-3.13.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.13.3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3-win64-x64.zip", "fileName": "cmake-3.13.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.13.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.2/cmake-3.13.2-win64-x64.zip", "fileName": "cmake-3.13.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.2/cmake-3.13.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.2/cmake-3.13.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.13.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-win64-x64.zip", "fileName": "cmake-3.13.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.13.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-win64-x64.zip", "fileName": "cmake-3.13.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.12.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.4/cmake-3.12.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.4/cmake-3.12.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.4/cmake-3.12.4-win64-x64.zip", "fileName": "cmake-3.12.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.12.3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.3/cmake-3.12.3-win64-x64.zip", "fileName": "cmake-3.12.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.3/cmake-3.12.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.3/cmake-3.12.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.12.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-win64-x64.zip", "fileName": "cmake-3.12.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.12.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.1/cmake-3.12.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.1/cmake-3.12.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.1/cmake-3.12.1-win32-x86.zip", "fileName": "cmake-3.12.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.12.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-win32-x86.zip", "fileName": "cmake-3.12.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.11.4": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.4/cmake-3.11.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.4/cmake-3.11.4-win32-x86.zip", "fileName": "cmake-3.11.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.4/cmake-3.11.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.11.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.3/cmake-3.11.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.3/cmake-3.11.3-win32-x86.zip", "fileName": "cmake-3.11.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.3/cmake-3.11.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.11.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-win32-x86.zip", "fileName": "cmake-3.11.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.11.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.1/cmake-3.11.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.1/cmake-3.11.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.1/cmake-3.11.1-win64-x64.zip", "fileName": "cmake-3.11.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.11.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0-win32-x86.zip", "fileName": "cmake-3.11.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.10.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3-win32-x86.zip", "fileName": "cmake-3.10.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.10.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.2/cmake-3.10.2-win64-x64.zip", "fileName": "cmake-3.10.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.2/cmake-3.10.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.2/cmake-3.10.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.10.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.1/cmake-3.10.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.1/cmake-3.10.1-win64-x64.zip", "fileName": "cmake-3.10.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.1/cmake-3.10.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.10.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.0/cmake-3.10.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.0/cmake-3.10.0-win32-x86.zip", "fileName": "cmake-3.10.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.0/cmake-3.10.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.6": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.6/cmake-3.9.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.6/cmake-3.9.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.6/cmake-3.9.6-win64-x64.zip", "fileName": "cmake-3.9.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.9.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.5/cmake-3.9.5-win32-x86.zip", "fileName": "cmake-3.9.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.5/cmake-3.9.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.5/cmake-3.9.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.4/cmake-3.9.4-win64-x64.zip", "fileName": "cmake-3.9.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.4/cmake-3.9.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.4/cmake-3.9.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.3/cmake-3.9.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.3/cmake-3.9.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.3/cmake-3.9.3-win64-x64.zip", "fileName": "cmake-3.9.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.9.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.2/cmake-3.9.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.2/cmake-3.9.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.2/cmake-3.9.2-win64-x64.zip", "fileName": "cmake-3.9.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.9.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.1/cmake-3.9.1-win32-x86.zip", "fileName": "cmake-3.9.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.1/cmake-3.9.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.1/cmake-3.9.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.0/cmake-3.9.0-win32-x86.zip", "fileName": "cmake-3.9.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.0/cmake-3.9.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.0/cmake-3.9.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.8.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.2/cmake-3.8.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.8.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.2/cmake-3.8.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.8.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.2/cmake-3.8.2-win64-x64.zip", "fileName": "cmake-3.8.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.8.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.1/cmake-3.8.1-win64-x64.zip", "fileName": "cmake-3.8.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.1/cmake-3.8.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.8.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.1/cmake-3.8.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.8.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.8.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.0/cmake-3.8.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.8.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.0/cmake-3.8.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.8.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.0/cmake-3.8.0-win64-x64.zip", "fileName": "cmake-3.8.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.7.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.2/cmake-3.7.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.7.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.2/cmake-3.7.2-win64-x64.zip", "fileName": "cmake-3.7.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.2/cmake-3.7.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.7.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.7.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.1/cmake-3.7.1-win64-x64.zip", "fileName": "cmake-3.7.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.1/cmake-3.7.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.7.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.1/cmake-3.7.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.7.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.7.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.0/cmake-3.7.0-win64-x64.zip", "fileName": "cmake-3.7.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.0/cmake-3.7.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.7.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.0/cmake-3.7.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.7.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.6.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.3/cmake-3.6.3-Linux-i386.tar.gz", "fileName": "cmake-3.6.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.3/cmake-3.6.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.3/cmake-3.6.3-win32-x86.zip", "fileName": "cmake-3.6.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.6.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.2/cmake-3.6.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.2/cmake-3.6.2-Linux-i386.tar.gz", "fileName": "cmake-3.6.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.2/cmake-3.6.2-win64-x64.zip", "fileName": "cmake-3.6.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.6.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.1/cmake-3.6.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.6.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.1/cmake-3.6.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.1/cmake-3.6.1-win32-x86.zip", "fileName": "cmake-3.6.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.6.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.0/cmake-3.6.0-win64-x64.zip", "fileName": "cmake-3.6.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.0/cmake-3.6.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.0/cmake-3.6.0-Linux-i386.tar.gz", "fileName": "cmake-3.6.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.5.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.2/cmake-3.5.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.5.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.2/cmake-3.5.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.5.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.2/cmake-3.5.2-win32-x86.zip", "fileName": "cmake-3.5.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.5.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.1/cmake-3.5.1-Linux-i386.tar.gz", "fileName": "cmake-3.5.1-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.1/cmake-3.5.1-win32-x86.zip", "fileName": "cmake-3.5.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.1/cmake-3.5.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.5.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.5.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.0/cmake-3.5.0-win32-x86.zip", "fileName": "cmake-3.5.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.0/cmake-3.5.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.5.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.0/cmake-3.5.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.5.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.4.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.3/cmake-3.4.3-Linux-i386.tar.gz", "fileName": "cmake-3.4.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.3/cmake-3.4.3-win32-x86.zip", "fileName": "cmake-3.4.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.3/cmake-3.4.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.4.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.4.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.2/cmake-3.4.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.4.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.2/cmake-3.4.2-Linux-i386.tar.gz", "fileName": "cmake-3.4.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.2/cmake-3.4.2-win32-x86.zip", "fileName": "cmake-3.4.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.4.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.1/cmake-3.4.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.4.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.1/cmake-3.4.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.4.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.1/cmake-3.4.1-win32-x86.zip", "fileName": "cmake-3.4.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.4.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.0/cmake-3.4.0-win32-x86.zip", "fileName": "cmake-3.4.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.0/cmake-3.4.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.4.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.3.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.2/cmake-3.3.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.3.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.2/cmake-3.3.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.3.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.2/cmake-3.3.2-win32-x86.zip", "fileName": "cmake-3.3.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.3.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.1/cmake-3.3.1-win32-x86.zip", "fileName": "cmake-3.3.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.1/cmake-3.3.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.3.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.1/cmake-3.3.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.3.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.3.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.0/cmake-3.3.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.3.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.0/cmake-3.3.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.3.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.0/cmake-3.3.0-win32-x86.zip", "fileName": "cmake-3.3.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.2.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.3/cmake-3.2.3-Linux-i386.tar.gz", "fileName": "cmake-3.2.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.3/cmake-3.2.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.3/cmake-3.2.3-win32-x86.zip", "fileName": "cmake-3.2.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.2.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.2/cmake-3.2.2-win32-x86.zip", "fileName": "cmake-3.2.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.2/cmake-3.2.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.2/cmake-3.2.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.2.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.2.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.1/cmake-3.2.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.1/cmake-3.2.1-win32-x86.zip", "fileName": "cmake-3.2.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.1/cmake-3.2.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.2.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.2.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.0/cmake-3.2.0-Linux-i386.tar.gz", "fileName": "cmake-3.2.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.0/cmake-3.2.0-win32-x86.zip", "fileName": "cmake-3.2.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.0/cmake-3.2.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.1.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.3/cmake-3.1.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.1.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.3/cmake-3.1.3-Linux-i386.tar.gz", "fileName": "cmake-3.1.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.3/cmake-3.1.3-win32-x86.zip", "fileName": "cmake-3.1.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.1.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.2/cmake-3.1.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.1.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.2/cmake-3.1.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.1.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.2/cmake-3.1.2-win32-x86.zip", "fileName": "cmake-3.1.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.1.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.1/cmake-3.1.1-Linux-i386.tar.gz", "fileName": "cmake-3.1.1-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.1/cmake-3.1.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.1.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.1/cmake-3.1.1-win32-x86.zip", "fileName": "cmake-3.1.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.1.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.0/cmake-3.1.0-Linux-i386.tar.gz", "fileName": "cmake-3.1.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.0/cmake-3.1.0-win32-x86.zip", "fileName": "cmake-3.1.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.0.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.2/cmake-3.0.2-Darwin64-universal.tar.gz", "fileName": "cmake-3.0.2-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.2/cmake-3.0.2-Linux-i386.tar.gz", "fileName": "cmake-3.0.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.2/cmake-3.0.2-win32-x86.zip", "fileName": "cmake-3.0.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.0.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.1/cmake-3.0.1-Darwin64-universal.tar.gz", "fileName": "cmake-3.0.1-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.1/cmake-3.0.1-Linux-i386.tar.gz", "fileName": "cmake-3.0.1-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.1/cmake-3.0.1-win32-x86.zip", "fileName": "cmake-3.0.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.0.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.0/cmake-3.0.0-Darwin64-universal.tar.gz", "fileName": "cmake-3.0.0-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.0/cmake-3.0.0-Linux-i386.tar.gz", "fileName": "cmake-3.0.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.0/cmake-3.0.0-win32-x86.zip", "fileName": "cmake-3.0.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "2.8.12": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2-Darwin64-universal.tar.gz", "fileName": "cmake-2.8.12.2-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2-Linux-i386.tar.gz", "fileName": "cmake-2.8.12.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2-win32-x86.zip", "fileName": "cmake-2.8.12.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "2.8.10": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.10.2/cmake-2.8.10.2-Darwin64-universal.tar.gz", "fileName": "cmake-2.8.10.2-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.10.2/cmake-2.8.10.2-Linux-i386.tar.gz", "fileName": "cmake-2.8.10.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.10.2/cmake-2.8.10.2-win32-x86.zip", "fileName": "cmake-2.8.10.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "2.6.4": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.6.4/cmake-2.6.4-Linux-i386.tar.gz", "fileName": "cmake-2.6.4-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.6.4/cmake-2.6.4-win32-x86.zip", "fileName": "cmake-2.6.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "2.4.8": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.4.8/cmake-2.4.8-Linux-i386.tar.gz", "fileName": "cmake-2.4.8-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.4.8/cmake-2.4.8-win32-x86.zip", "fileName": "cmake-2.4.8-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } } };
+exports.cmakeCatalog = { "3.27.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-macos-universal.tar.gz", "fileName": "cmake-3.27.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-windows-x86_64.zip", "fileName": "cmake-3.27.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "latest": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-macos-universal.tar.gz", "fileName": "cmake-3.27.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0/cmake-3.27.0-windows-x86_64.zip", "fileName": "cmake-3.27.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.27.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "latestrc": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc5/cmake-3.27.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.27.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc4/cmake-3.27.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc4/cmake-3.27.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc4/cmake-3.27.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc4/cmake-3.27.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.27.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc3/cmake-3.27.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.27.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc2/cmake-3.27.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.27.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.27.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.27.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.27.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.27.0-rc1/cmake-3.27.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.27.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.tar.gz", "fileName": "cmake-3.26.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-x86_64.tar.gz", "fileName": "cmake-3.26.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-macos-universal.tar.gz", "fileName": "cmake-3.26.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-windows-x86_64.zip", "fileName": "cmake-3.26.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-linux-aarch64.tar.gz", "fileName": "cmake-3.26.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-linux-x86_64.tar.gz", "fileName": "cmake-3.26.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-macos-universal.tar.gz", "fileName": "cmake-3.26.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-windows-x86_64.zip", "fileName": "cmake-3.26.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-linux-aarch64.tar.gz", "fileName": "cmake-3.26.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-linux-x86_64.tar.gz", "fileName": "cmake-3.26.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-macos-universal.tar.gz", "fileName": "cmake-3.26.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.2/cmake-3.26.2-windows-x86_64.zip", "fileName": "cmake-3.26.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-linux-aarch64.tar.gz", "fileName": "cmake-3.26.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-linux-x86_64.tar.gz", "fileName": "cmake-3.26.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-macos-universal.tar.gz", "fileName": "cmake-3.26.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-windows-x86_64.zip", "fileName": "cmake-3.26.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-macos-universal.tar.gz", "fileName": "cmake-3.26.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-windows-x86_64.zip", "fileName": "cmake-3.26.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc6/cmake-3.26.0-rc6-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-aarch64.tar.gz", "fileName": "cmake-3.25.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz", "fileName": "cmake-3.25.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-macos-universal.tar.gz", "fileName": "cmake-3.25.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-windows-x86_64.zip", "fileName": "cmake-3.25.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-aarch64.tar.gz", "fileName": "cmake-3.24.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-x86_64.tar.gz", "fileName": "cmake-3.24.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-macos-universal.tar.gz", "fileName": "cmake-3.24.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-windows-x86_64.zip", "fileName": "cmake-3.24.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc5/cmake-3.26.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc4/cmake-3.26.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc3/cmake-3.26.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc2/cmake-3.26.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.26.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.26.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.26.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.26.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.26.0-rc1/cmake-3.26.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.26.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-linux-aarch64.tar.gz", "fileName": "cmake-3.25.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-linux-x86_64.tar.gz", "fileName": "cmake-3.25.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-macos-universal.tar.gz", "fileName": "cmake-3.25.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.2/cmake-3.25.2-windows-x86_64.zip", "fileName": "cmake-3.25.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-linux-aarch64.tar.gz", "fileName": "cmake-3.25.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-linux-x86_64.tar.gz", "fileName": "cmake-3.25.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-macos-universal.tar.gz", "fileName": "cmake-3.25.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-windows-x86_64.zip", "fileName": "cmake-3.25.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-macos-universal.tar.gz", "fileName": "cmake-3.25.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-windows-x86_64.zip", "fileName": "cmake-3.25.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc3/cmake-3.25.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-aarch64.tar.gz", "fileName": "cmake-3.24.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-x86_64.tar.gz", "fileName": "cmake-3.24.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-macos-universal.tar.gz", "fileName": "cmake-3.24.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-windows-x86_64.zip", "fileName": "cmake-3.24.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-linux-aarch64.tar.gz", "fileName": "cmake-3.23.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-linux-x86_64.tar.gz", "fileName": "cmake-3.23.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-macos-universal.tar.gz", "fileName": "cmake-3.23.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-windows-x86_64.zip", "fileName": "cmake-3.23.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc2/cmake-3.25.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.25.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.25.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.25.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.25.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.25.0-rc1/cmake-3.25.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.25.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-linux-aarch64.tar.gz", "fileName": "cmake-3.23.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-linux-x86_64.tar.gz", "fileName": "cmake-3.23.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-macos-universal.tar.gz", "fileName": "cmake-3.23.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.4/cmake-3.23.4-windows-x86_64.zip", "fileName": "cmake-3.23.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-linux-aarch64.tar.gz", "fileName": "cmake-3.24.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-linux-x86_64.tar.gz", "fileName": "cmake-3.24.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-macos-universal.tar.gz", "fileName": "cmake-3.24.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-windows-x86_64.zip", "fileName": "cmake-3.24.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-linux-aarch64.tar.gz", "fileName": "cmake-3.24.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-linux-x86_64.tar.gz", "fileName": "cmake-3.24.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-macos-universal.tar.gz", "fileName": "cmake-3.24.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-windows-x86_64.zip", "fileName": "cmake-3.24.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-macos-universal.tar.gz", "fileName": "cmake-3.24.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-windows-x86_64.zip", "fileName": "cmake-3.24.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc5/cmake-3.24.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-linux-aarch64.tar.gz", "fileName": "cmake-3.23.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-linux-x86_64.tar.gz", "fileName": "cmake-3.23.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-macos-universal.tar.gz", "fileName": "cmake-3.23.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-windows-x86_64.zip", "fileName": "cmake-3.23.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-linux-aarch64.tar.gz", "fileName": "cmake-3.22.6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-linux-x86_64.tar.gz", "fileName": "cmake-3.22.6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-macos-universal.tar.gz", "fileName": "cmake-3.22.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.6/cmake-3.22.6-windows-x86_64.zip", "fileName": "cmake-3.22.6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc4/cmake-3.24.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc3/cmake-3.24.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc2/cmake-3.24.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.24.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.24.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.24.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.24.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.24.0-rc1/cmake-3.24.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.24.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-linux-aarch64.tar.gz", "fileName": "cmake-3.22.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-linux-x86_64.tar.gz", "fileName": "cmake-3.22.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-macos-universal.tar.gz", "fileName": "cmake-3.22.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.5/cmake-3.22.5-windows-x86_64.zip", "fileName": "cmake-3.22.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.7": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-linux-aarch64.tar.gz", "fileName": "cmake-3.21.7-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-linux-x86_64.tar.gz", "fileName": "cmake-3.21.7-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-macos-universal.tar.gz", "fileName": "cmake-3.21.7-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-windows-x86_64.zip", "fileName": "cmake-3.21.7-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-linux-aarch64.tar.gz", "fileName": "cmake-3.23.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-linux-x86_64.tar.gz", "fileName": "cmake-3.23.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-macos-universal.tar.gz", "fileName": "cmake-3.23.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-windows-x86_64.zip", "fileName": "cmake-3.23.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-linux-aarch64.tar.gz", "fileName": "cmake-3.23.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-linux-x86_64.tar.gz", "fileName": "cmake-3.23.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-macos-universal.tar.gz", "fileName": "cmake-3.23.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.1/cmake-3.23.1-windows-x86_64.zip", "fileName": "cmake-3.23.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-linux-aarch64.tar.gz", "fileName": "cmake-3.22.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-linux-x86_64.tar.gz", "fileName": "cmake-3.22.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-macos-universal.tar.gz", "fileName": "cmake-3.22.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.4/cmake-3.22.4-windows-x86_64.zip", "fileName": "cmake-3.22.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-macos-universal.tar.gz", "fileName": "cmake-3.23.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-windows-x86_64.zip", "fileName": "cmake-3.23.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc5/cmake-3.23.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc4/cmake-3.23.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc3/cmake-3.23.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-linux-aarch64.tar.gz", "fileName": "cmake-3.22.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-linux-x86_64.tar.gz", "fileName": "cmake-3.22.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-macos-universal.tar.gz", "fileName": "cmake-3.22.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-windows-x86_64.zip", "fileName": "cmake-3.22.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-linux-aarch64.tar.gz", "fileName": "cmake-3.21.6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-linux-x86_64.tar.gz", "fileName": "cmake-3.21.6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-macos-universal.tar.gz", "fileName": "cmake-3.21.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.6/cmake-3.21.6-windows-x86_64.zip", "fileName": "cmake-3.21.6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc2/cmake-3.23.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.23.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.23.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.23.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.23.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.23.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-linux-aarch64.tar.gz", "fileName": "cmake-3.21.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-linux-x86_64.tar.gz", "fileName": "cmake-3.21.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-macos-universal.tar.gz", "fileName": "cmake-3.21.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.5/cmake-3.21.5-windows-x86_64.zip", "fileName": "cmake-3.21.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-aarch64.tar.gz", "fileName": "cmake-3.22.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.tar.gz", "fileName": "cmake-3.22.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-macos-universal.tar.gz", "fileName": "cmake-3.22.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-windows-x86_64.zip", "fileName": "cmake-3.22.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.tar.gz", "fileName": "cmake-3.22.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-x86_64.tar.gz", "fileName": "cmake-3.22.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-macos-universal.tar.gz", "fileName": "cmake-3.22.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-windows-x86_64.zip", "fileName": "cmake-3.22.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-macos-universal.tar.gz", "fileName": "cmake-3.22.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-windows-x86_64.zip", "fileName": "cmake-3.22.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.22.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc3/cmake-3.22.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.22.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.22.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc2/cmake-3.22.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.22.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-aarch64.tar.gz", "fileName": "cmake-3.21.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.tar.gz", "fileName": "cmake-3.21.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-macos-universal.tar.gz", "fileName": "cmake-3.21.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-windows-x86_64.zip", "fileName": "cmake-3.21.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.22.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.22.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.22.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.22.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.22.0-rc1/cmake-3.22.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.22.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-linux-aarch64.tar.gz", "fileName": "cmake-3.21.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-linux-x86_64.tar.gz", "fileName": "cmake-3.21.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-macos-universal.tar.gz", "fileName": "cmake-3.21.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3-windows-x86_64.zip", "fileName": "cmake-3.21.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-linux-aarch64.tar.gz", "fileName": "cmake-3.20.6-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-linux-x86_64.tar.gz", "fileName": "cmake-3.20.6-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-macos-universal.tar.gz", "fileName": "cmake-3.20.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.6/cmake-3.20.6-windows-x86_64.zip", "fileName": "cmake-3.20.6-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-linux-aarch64.tar.gz", "fileName": "cmake-3.21.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-linux-x86_64.tar.gz", "fileName": "cmake-3.21.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-macos-universal.tar.gz", "fileName": "cmake-3.21.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-windows-x86_64.zip", "fileName": "cmake-3.21.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-linux-aarch64.tar.gz", "fileName": "cmake-3.21.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-linux-x86_64.tar.gz", "fileName": "cmake-3.21.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-macos-universal.tar.gz", "fileName": "cmake-3.21.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1-windows-x86_64.zip", "fileName": "cmake-3.21.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-macos-universal.tar.gz", "fileName": "cmake-3.21.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip", "fileName": "cmake-3.21.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.21.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.21.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.21.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.21.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.21.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.21.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.21.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.21.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.21.0-rc1/cmake-3.21.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.21.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-aarch64.tar.gz", "fileName": "cmake-3.20.5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-x86_64.tar.gz", "fileName": "cmake-3.20.5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-macos-universal.tar.gz", "fileName": "cmake-3.20.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-windows-x86_64.zip", "fileName": "cmake-3.20.5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-linux-aarch64.tar.gz", "fileName": "cmake-3.20.4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-linux-x86_64.tar.gz", "fileName": "cmake-3.20.4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-macos-universal.tar.gz", "fileName": "cmake-3.20.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.4/cmake-3.20.4-windows-x86_64.zip", "fileName": "cmake-3.20.4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-linux-aarch64.tar.gz", "fileName": "cmake-3.20.3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-linux-x86_64.tar.gz", "fileName": "cmake-3.20.3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-macos-universal.tar.gz", "fileName": "cmake-3.20.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-windows-x86_64.zip", "fileName": "cmake-3.20.3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-linux-aarch64.tar.gz", "fileName": "cmake-3.20.2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-linux-x86_64.tar.gz", "fileName": "cmake-3.20.2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-macos-universal.tar.gz", "fileName": "cmake-3.20.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2-windows-x86_64.zip", "fileName": "cmake-3.20.2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-aarch64.tar.gz", "fileName": "cmake-3.20.1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-x86_64.tar.gz", "fileName": "cmake-3.20.1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-macos-universal.tar.gz", "fileName": "cmake-3.20.1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-windows-x86_64.zip", "fileName": "cmake-3.20.1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.8": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.8-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.8-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-macos-universal.tar.gz", "fileName": "cmake-3.19.8-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.8/cmake-3.19.8-win64-x64.zip", "fileName": "cmake-3.19.8-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-macos-universal.tar.gz", "fileName": "cmake-3.20.0-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-windows-x86_64.zip", "fileName": "cmake-3.20.0-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc5-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc5-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc5/cmake-3.20.0-rc5-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc5-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.7": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.7-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-macos-universal.tar.gz", "fileName": "cmake-3.19.7-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.7/cmake-3.19.7-win64-x64.zip", "fileName": "cmake-3.19.7-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc4-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc4-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc4/cmake-3.20.0-rc4-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc4-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc3-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc3-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc3/cmake-3.20.0-rc3-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc3-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc2": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc2-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc2-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc2/cmake-3.20.0-rc2-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc2-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.6": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.6-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-macos-universal.tar.gz", "fileName": "cmake-3.19.6-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-win64-x64.zip", "fileName": "cmake-3.19.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.20.0-rc1": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-linux-aarch64.tar.gz", "fileName": "cmake-3.20.0-rc1-linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-linux-x86_64.tar.gz", "fileName": "cmake-3.20.0-rc1-linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-macos-universal.tar.gz", "fileName": "cmake-3.20.0-rc1-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.20.0-rc1/cmake-3.20.0-rc1-windows-x86_64.zip", "fileName": "cmake-3.20.0-rc1-windows-x86_64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.5": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.5-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-macos-universal.tar.gz", "fileName": "cmake-3.19.5-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5-win64-x64.zip", "fileName": "cmake-3.19.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.6": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.6/cmake-3.18.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.6/cmake-3.18.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.6/cmake-3.18.6-win64-x64.zip", "fileName": "cmake-3.18.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.4": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.4-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-macos-universal.tar.gz", "fileName": "cmake-3.19.4-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-win64-x64.zip", "fileName": "cmake-3.19.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.3": { "linux-arm64": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-Linux-aarch64.tar.gz", "fileName": "cmake-3.19.3-Linux-aarch64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-macos-universal.tar.gz", "fileName": "cmake-3.19.3-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.3/cmake-3.19.3-win64-x64.zip", "fileName": "cmake-3.19.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.2/cmake-3.19.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.2/cmake-3.19.2-macos-universal.tar.gz", "fileName": "cmake-3.19.2-macos-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.2/cmake-3.19.2-win64-x64.zip", "fileName": "cmake-3.19.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-win64-x64.zip", "fileName": "cmake-3.19.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-win64-x64.zip", "fileName": "cmake-3.19.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.5": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.5/cmake-3.18.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.5/cmake-3.18.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.5/cmake-3.18.5-win64-x64.zip", "fileName": "cmake-3.18.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0-rc3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc3/cmake-3.19.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc3/cmake-3.19.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc3/cmake-3.19.0-rc3-win64-x64.zip", "fileName": "cmake-3.19.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc2/cmake-3.19.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc2/cmake-3.19.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc2/cmake-3.19.0-rc2-win64-x64.zip", "fileName": "cmake-3.19.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.19.0-rc1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc1/cmake-3.19.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc1/cmake-3.19.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.19.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.19.0-rc1/cmake-3.19.0-rc1-win64-x64.zip", "fileName": "cmake-3.19.0-rc1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.4/cmake-3.18.4-win64-x64.zip", "fileName": "cmake-3.18.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-win64-x64.zip", "fileName": "cmake-3.18.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.17.5": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.5/cmake-3.17.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.5/cmake-3.17.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.5/cmake-3.17.5-win64-x64.zip", "fileName": "cmake-3.17.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.9": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.9/cmake-3.16.9-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.9-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.9/cmake-3.16.9-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.9-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.9/cmake-3.16.9-win64-x64.zip", "fileName": "cmake-3.16.9-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-win64-x64.zip", "fileName": "cmake-3.18.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-win64-x64.zip", "fileName": "cmake-3.18.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.17.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.4/cmake-3.17.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.4/cmake-3.17.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.4/cmake-3.17.4-win64-x64.zip", "fileName": "cmake-3.17.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-win64-x64.zip", "fileName": "cmake-3.18.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.18.0-rc4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc4/cmake-3.18.0-rc4-win32-x86.zip", "fileName": "cmake-3.18.0-rc4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc4/cmake-3.18.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc4/cmake-3.18.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.18.0-rc3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc3/cmake-3.18.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc3/cmake-3.18.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc3/cmake-3.18.0-rc3-win64-x64.zip", "fileName": "cmake-3.18.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.18.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc2/cmake-3.18.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc2/cmake-3.18.0-rc2-win32-x86.zip", "fileName": "cmake-3.18.0-rc2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc2/cmake-3.18.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.18.0-rc1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc1/cmake-3.18.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc1/cmake-3.18.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.18.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.18.0-rc1/cmake-3.18.0-rc1-win64-x64.zip", "fileName": "cmake-3.18.0-rc1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.8": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.8/cmake-3.16.8-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.8-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.8/cmake-3.16.8-win64-x64.zip", "fileName": "cmake-3.16.8-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.8/cmake-3.16.8-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.8-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.17.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-win32-x86.zip", "fileName": "cmake-3.17.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.7": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.7/cmake-3.16.7-win64-x64.zip", "fileName": "cmake-3.16.7-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.7/cmake-3.16.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.7/cmake-3.16.7-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.7-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-win64-x64.zip", "fileName": "cmake-3.17.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.6": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6-win64-x64.zip", "fileName": "cmake-3.16.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.1/cmake-3.17.1-win64-x64.zip", "fileName": "cmake-3.17.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.1/cmake-3.17.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.1/cmake-3.17.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-win64-x64.zip", "fileName": "cmake-3.17.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.17.0-rc3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc3/cmake-3.17.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc3/cmake-3.17.0-rc3-win64-x64.zip", "fileName": "cmake-3.17.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc3/cmake-3.17.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5-win32-x86.zip", "fileName": "cmake-3.16.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.0-rc2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc2/cmake-3.17.0-rc2-win64-x64.zip", "fileName": "cmake-3.17.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc2/cmake-3.17.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc2/cmake-3.17.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.17.0-rc1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc1/cmake-3.17.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc1/cmake-3.17.0-rc1-win32-x86.zip", "fileName": "cmake-3.17.0-rc1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.17.0-rc1/cmake-3.17.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.17.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4-win64-x64.zip", "fileName": "cmake-3.16.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.7": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-win32-x86.zip", "fileName": "cmake-3.15.7-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.7-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-win32-x86.zip", "fileName": "cmake-3.16.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2-win32-x86.zip", "fileName": "cmake-3.16.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.6": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6-win32-x86.zip", "fileName": "cmake-3.15.6-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-win32-x86.zip", "fileName": "cmake-3.16.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.16.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-win32-x86.zip", "fileName": "cmake-3.16.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.16.0-rc4": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4-win32-x86.zip", "fileName": "cmake-3.16.0-rc4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc4/cmake-3.16.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.16.0-rc3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc3/cmake-3.16.0-rc3-win64-x64.zip", "fileName": "cmake-3.16.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc3/cmake-3.16.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc3/cmake-3.16.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-win32-x86.zip", "fileName": "cmake-3.15.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.16.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-win64-x64.zip", "fileName": "cmake-3.16.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.16.0-rc1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc1/cmake-3.16.0-rc1-win32-x86.zip", "fileName": "cmake-3.16.0-rc1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc1/cmake-3.16.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.16.0-rc1/cmake-3.16.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.16.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-win32-x86.zip", "fileName": "cmake-3.15.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.7": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.7/cmake-3.14.7-win64-x64.zip", "fileName": "cmake-3.14.7-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.7/cmake-3.14.7-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.7-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.7/cmake-3.14.7-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.7-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3-win32-x86.zip", "fileName": "cmake-3.15.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.15.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-win64-x64.zip", "fileName": "cmake-3.15.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1-win32-x86.zip", "fileName": "cmake-3.15.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-win32-x86.zip", "fileName": "cmake-3.15.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.6": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-win32-x86.zip", "fileName": "cmake-3.14.6-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.6/cmake-3.14.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc4/cmake-3.15.0-rc4-win32-x86.zip", "fileName": "cmake-3.15.0-rc4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc4/cmake-3.15.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc4/cmake-3.15.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc3/cmake-3.15.0-rc3-win64-x64.zip", "fileName": "cmake-3.15.0-rc3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc3/cmake-3.15.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc3/cmake-3.15.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc2/cmake-3.15.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc2/cmake-3.15.0-rc2-win32-x86.zip", "fileName": "cmake-3.15.0-rc2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc2/cmake-3.15.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.15.0-rc1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.15.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-win64-x64.zip", "fileName": "cmake-3.15.0-rc1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.14.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-win64-x64.zip", "fileName": "cmake-3.14.5-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.4/cmake-3.14.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.4/cmake-3.14.4-win32-x86.zip", "fileName": "cmake-3.14.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.4/cmake-3.14.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.13.5": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.5/cmake-3.13.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.5/cmake-3.13.5-win32-x86.zip", "fileName": "cmake-3.13.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.5/cmake-3.13.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-win64-x64.zip", "fileName": "cmake-3.14.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.14.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-win64-x64.zip", "fileName": "cmake-3.14.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1-win64-x64.zip", "fileName": "cmake-3.14.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-win64-x64.zip", "fileName": "cmake-3.14.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.0-rc4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc4/cmake-3.14.0-rc4-win64-x64.zip", "fileName": "cmake-3.14.0-rc4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc4/cmake-3.14.0-rc4-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc4/cmake-3.14.0-rc4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.14.0-rc3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc3/cmake-3.14.0-rc3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc3/cmake-3.14.0-rc3-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc3/cmake-3.14.0-rc3-win32-x86.zip", "fileName": "cmake-3.14.0-rc3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.14.0-rc2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc2/cmake-3.14.0-rc2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc2/cmake-3.14.0-rc2-win64-x64.zip", "fileName": "cmake-3.14.0-rc2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc2/cmake-3.14.0-rc2-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.14.0-rc1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-win32-x86.zip", "fileName": "cmake-3.14.0-rc1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-Linux-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.14.0-rc1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.13.4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4-win32-x86.zip", "fileName": "cmake-3.13.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.13.3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3-win64-x64.zip", "fileName": "cmake-3.13.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.13.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.2/cmake-3.13.2-win64-x64.zip", "fileName": "cmake-3.13.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.2/cmake-3.13.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.2/cmake-3.13.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.13.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-win64-x64.zip", "fileName": "cmake-3.13.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.13.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.13.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.13.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-win64-x64.zip", "fileName": "cmake-3.13.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.12.4": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.4/cmake-3.12.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.4/cmake-3.12.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.4/cmake-3.12.4-win64-x64.zip", "fileName": "cmake-3.12.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.12.3": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.3/cmake-3.12.3-win64-x64.zip", "fileName": "cmake-3.12.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.3/cmake-3.12.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.3/cmake-3.12.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.12.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-win64-x64.zip", "fileName": "cmake-3.12.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.12.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.1/cmake-3.12.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.1/cmake-3.12.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.1/cmake-3.12.1-win32-x86.zip", "fileName": "cmake-3.12.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.12.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-win32-x86.zip", "fileName": "cmake-3.12.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.12.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.12.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.11.4": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.4/cmake-3.11.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.4/cmake-3.11.4-win32-x86.zip", "fileName": "cmake-3.11.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.4/cmake-3.11.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.11.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.3/cmake-3.11.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.3/cmake-3.11.3-win32-x86.zip", "fileName": "cmake-3.11.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.3/cmake-3.11.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.11.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-win32-x86.zip", "fileName": "cmake-3.11.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.11.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.1/cmake-3.11.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.1/cmake-3.11.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.1/cmake-3.11.1-win64-x64.zip", "fileName": "cmake-3.11.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.11.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.11.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.11.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.11.0/cmake-3.11.0-win32-x86.zip", "fileName": "cmake-3.11.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.10.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3-win32-x86.zip", "fileName": "cmake-3.10.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.10.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.2/cmake-3.10.2-win64-x64.zip", "fileName": "cmake-3.10.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.2/cmake-3.10.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.2/cmake-3.10.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.10.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.1/cmake-3.10.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.1/cmake-3.10.1-win64-x64.zip", "fileName": "cmake-3.10.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.1/cmake-3.10.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.10.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.0/cmake-3.10.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.10.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.0/cmake-3.10.0-win32-x86.zip", "fileName": "cmake-3.10.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.10.0/cmake-3.10.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.10.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.6": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.6/cmake-3.9.6-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.6-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.6/cmake-3.9.6-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.6-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.6/cmake-3.9.6-win64-x64.zip", "fileName": "cmake-3.9.6-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.9.5": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.5/cmake-3.9.5-win32-x86.zip", "fileName": "cmake-3.9.5-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.5/cmake-3.9.5-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.5-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.5/cmake-3.9.5-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.5-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.4": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.4/cmake-3.9.4-win64-x64.zip", "fileName": "cmake-3.9.4-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.4/cmake-3.9.4-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.4-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.4/cmake-3.9.4-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.4-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.3/cmake-3.9.3-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.3-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.3/cmake-3.9.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.3/cmake-3.9.3-win64-x64.zip", "fileName": "cmake-3.9.3-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.9.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.2/cmake-3.9.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.2/cmake-3.9.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.2/cmake-3.9.2-win64-x64.zip", "fileName": "cmake-3.9.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.9.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.1/cmake-3.9.1-win32-x86.zip", "fileName": "cmake-3.9.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.1/cmake-3.9.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.1/cmake-3.9.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.9.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.0/cmake-3.9.0-win32-x86.zip", "fileName": "cmake-3.9.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.0/cmake-3.9.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.9.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.9.0/cmake-3.9.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.9.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.8.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.2/cmake-3.8.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.8.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.2/cmake-3.8.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.8.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.2/cmake-3.8.2-win64-x64.zip", "fileName": "cmake-3.8.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.8.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.1/cmake-3.8.1-win64-x64.zip", "fileName": "cmake-3.8.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.1/cmake-3.8.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.8.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.1/cmake-3.8.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.8.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.8.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.0/cmake-3.8.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.8.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.0/cmake-3.8.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.8.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.8.0/cmake-3.8.0-win64-x64.zip", "fileName": "cmake-3.8.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.7.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.2/cmake-3.7.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.7.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.2/cmake-3.7.2-win64-x64.zip", "fileName": "cmake-3.7.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.2/cmake-3.7.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.7.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.7.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.1/cmake-3.7.1-win64-x64.zip", "fileName": "cmake-3.7.1-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.1/cmake-3.7.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.7.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.1/cmake-3.7.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.7.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.7.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.0/cmake-3.7.0-win64-x64.zip", "fileName": "cmake-3.7.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.0/cmake-3.7.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.7.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.7.0/cmake-3.7.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.7.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.6.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.3/cmake-3.6.3-Linux-i386.tar.gz", "fileName": "cmake-3.6.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.3/cmake-3.6.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.3/cmake-3.6.3-win32-x86.zip", "fileName": "cmake-3.6.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.6.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.2/cmake-3.6.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.2/cmake-3.6.2-Linux-i386.tar.gz", "fileName": "cmake-3.6.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.2/cmake-3.6.2-win64-x64.zip", "fileName": "cmake-3.6.2-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.6.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.1/cmake-3.6.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.6.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.1/cmake-3.6.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.1/cmake-3.6.1-win32-x86.zip", "fileName": "cmake-3.6.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.6.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.0/cmake-3.6.0-win64-x64.zip", "fileName": "cmake-3.6.0-win64-x64.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.0/cmake-3.6.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.6.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.6.0/cmake-3.6.0-Linux-i386.tar.gz", "fileName": "cmake-3.6.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.5.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.2/cmake-3.5.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.5.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.2/cmake-3.5.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.5.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.2/cmake-3.5.2-win32-x86.zip", "fileName": "cmake-3.5.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.5.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.1/cmake-3.5.1-Linux-i386.tar.gz", "fileName": "cmake-3.5.1-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.1/cmake-3.5.1-win32-x86.zip", "fileName": "cmake-3.5.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.1/cmake-3.5.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.5.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.5.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.0/cmake-3.5.0-win32-x86.zip", "fileName": "cmake-3.5.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.0/cmake-3.5.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.5.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.5.0/cmake-3.5.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.5.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.4.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.3/cmake-3.4.3-Linux-i386.tar.gz", "fileName": "cmake-3.4.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.3/cmake-3.4.3-win32-x86.zip", "fileName": "cmake-3.4.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.3/cmake-3.4.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.4.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.4.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.2/cmake-3.4.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.4.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.2/cmake-3.4.2-Linux-i386.tar.gz", "fileName": "cmake-3.4.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.2/cmake-3.4.2-win32-x86.zip", "fileName": "cmake-3.4.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.4.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.1/cmake-3.4.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.4.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.1/cmake-3.4.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.4.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.1/cmake-3.4.1-win32-x86.zip", "fileName": "cmake-3.4.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.4.0": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.0/cmake-3.4.0-win32-x86.zip", "fileName": "cmake-3.4.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.4.0/cmake-3.4.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.4.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.3.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.2/cmake-3.3.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.3.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.2/cmake-3.3.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.3.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.2/cmake-3.3.2-win32-x86.zip", "fileName": "cmake-3.3.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.3.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.1/cmake-3.3.1-win32-x86.zip", "fileName": "cmake-3.3.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.1/cmake-3.3.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.3.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.1/cmake-3.3.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.3.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.3.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.0/cmake-3.3.0-Linux-x86_64.tar.gz", "fileName": "cmake-3.3.0-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.0/cmake-3.3.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.3.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.3.0/cmake-3.3.0-win32-x86.zip", "fileName": "cmake-3.3.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.2.3": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.3/cmake-3.2.3-Linux-i386.tar.gz", "fileName": "cmake-3.2.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.3/cmake-3.2.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.3/cmake-3.2.3-win32-x86.zip", "fileName": "cmake-3.2.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.2.2": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.2/cmake-3.2.2-win32-x86.zip", "fileName": "cmake-3.2.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.2/cmake-3.2.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.2/cmake-3.2.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.2.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.2.1": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.1/cmake-3.2.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.1/cmake-3.2.1-win32-x86.zip", "fileName": "cmake-3.2.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.1/cmake-3.2.1-Linux-x86_64.tar.gz", "fileName": "cmake-3.2.1-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.2.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.0/cmake-3.2.0-Linux-i386.tar.gz", "fileName": "cmake-3.2.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.0/cmake-3.2.0-win32-x86.zip", "fileName": "cmake-3.2.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.2.0/cmake-3.2.0-Darwin-x86_64.tar.gz", "fileName": "cmake-3.2.0-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.1.3": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.3/cmake-3.1.3-Darwin-x86_64.tar.gz", "fileName": "cmake-3.1.3-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.3/cmake-3.1.3-Linux-i386.tar.gz", "fileName": "cmake-3.1.3-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.3/cmake-3.1.3-win32-x86.zip", "fileName": "cmake-3.1.3-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.1.2": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.2/cmake-3.1.2-Linux-x86_64.tar.gz", "fileName": "cmake-3.1.2-Linux-x86_64.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.2/cmake-3.1.2-Darwin-x86_64.tar.gz", "fileName": "cmake-3.1.2-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.2/cmake-3.1.2-win32-x86.zip", "fileName": "cmake-3.1.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.1.1": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.1/cmake-3.1.1-Linux-i386.tar.gz", "fileName": "cmake-3.1.1-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.1/cmake-3.1.1-Darwin-x86_64.tar.gz", "fileName": "cmake-3.1.1-Darwin-x86_64.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.1/cmake-3.1.1-win32-x86.zip", "fileName": "cmake-3.1.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.1.0": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.0/cmake-3.1.0-Linux-i386.tar.gz", "fileName": "cmake-3.1.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.1.0/cmake-3.1.0-win32-x86.zip", "fileName": "cmake-3.1.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "3.0.2": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.2/cmake-3.0.2-Darwin64-universal.tar.gz", "fileName": "cmake-3.0.2-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.2/cmake-3.0.2-win32-x86.zip", "fileName": "cmake-3.0.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.2/cmake-3.0.2-Linux-i386.tar.gz", "fileName": "cmake-3.0.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "3.0.1": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.1/cmake-3.0.1-win32-x86.zip", "fileName": "cmake-3.0.1-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.1/cmake-3.0.1-Linux-i386.tar.gz", "fileName": "cmake-3.0.1-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.1/cmake-3.0.1-Darwin64-universal.tar.gz", "fileName": "cmake-3.0.1-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "3.0.0": { "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.0/cmake-3.0.0-Darwin64-universal.tar.gz", "fileName": "cmake-3.0.0-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.0/cmake-3.0.0-win32-x86.zip", "fileName": "cmake-3.0.0-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v3.0.0/cmake-3.0.0-Linux-i386.tar.gz", "fileName": "cmake-3.0.0-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } }, "2.8.12": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2-Linux-i386.tar.gz", "fileName": "cmake-2.8.12.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2-Darwin64-universal.tar.gz", "fileName": "cmake-2.8.12.2-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2-win32-x86.zip", "fileName": "cmake-2.8.12.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "2.8.10": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.10.2/cmake-2.8.10.2-win32-x86.zip", "fileName": "cmake-2.8.10.2-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.10.2/cmake-2.8.10.2-Linux-i386.tar.gz", "fileName": "cmake-2.8.10.2-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/CMake/releases/download/v2.8.10.2/cmake-2.8.10.2-Darwin64-universal.tar.gz", "fileName": "cmake-2.8.10.2-Darwin64-universal.tar.gz", "binPath": "CMake.app/Contents/bin/", "dropSuffix": ".tar.gz" } }, "2.6.4": { "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.6.4/cmake-2.6.4-Linux-i386.tar.gz", "fileName": "cmake-2.6.4-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.6.4/cmake-2.6.4-win32-x86.zip", "fileName": "cmake-2.6.4-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" } }, "2.4.8": { "win32": { "url": "https://github.com/Kitware/CMake/releases/download/v2.4.8/cmake-2.4.8-win32-x86.zip", "fileName": "cmake-2.4.8-win32-x86.zip", "binPath": "bin/", "dropSuffix": ".zip" }, "linux": { "url": "https://github.com/Kitware/CMake/releases/download/v2.4.8/cmake-2.4.8-Linux-i386.tar.gz", "fileName": "cmake-2.4.8-Linux-i386.tar.gz", "binPath": "bin/", "dropSuffix": ".tar.gz" } } };
 exports.ninjaCatalog = { "1.11.1": { "linux-arm64": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_aarch64-linux-gnu.tar.gz", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_aarch64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "win32-arm64": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_arm64-pc-windows-msvc.zip", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_arm64-pc-windows-msvc.zip", "binPath": "", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_universal-apple-darwin.tar.gz", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_universal-apple-darwin.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-pc-windows-msvc.zip", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-pc-windows-msvc.zip", "binPath": "", "dropSuffix": ".zip" } }, "latest": { "linux-arm64": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_aarch64-linux-gnu.tar.gz", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_aarch64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "win32-arm64": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_arm64-pc-windows-msvc.zip", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_arm64-pc-windows-msvc.zip", "binPath": "", "dropSuffix": ".zip" }, "darwin": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_universal-apple-darwin.tar.gz", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_universal-apple-darwin.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/ninja/releases/download/v1.11.1.g95dee.kitware.jobserver-1/ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-pc-windows-msvc.zip", "fileName": "ninja-1.11.1.g95dee.kitware.jobserver-1_x86_64-pc-windows-msvc.zip", "binPath": "", "dropSuffix": ".zip" } }, "1.10.2": { "linux-arm64": { "url": "https://github.com/Kitware/ninja/releases/download/v1.10.2.g51db2.kitware.jobserver-1/ninja-1.10.2.g51db2.kitware.jobserver-1_aarch64-linux-gnu.tar.gz", "fileName": "ninja-1.10.2.g51db2.kitware.jobserver-1_aarch64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "darwin": { "url": "https://github.com/Kitware/ninja/releases/download/v1.10.2.g51db2.kitware.jobserver-1/ninja-1.10.2.g51db2.kitware.jobserver-1_universal-apple-darwin.tar.gz", "fileName": "ninja-1.10.2.g51db2.kitware.jobserver-1_universal-apple-darwin.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.10.2.g51db2.kitware.jobserver-1/ninja-1.10.2.g51db2.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.10.2.g51db2.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" }, "win32": { "url": "https://github.com/Kitware/ninja/releases/download/v1.10.2.g51db2.kitware.jobserver-1/ninja-1.10.2.g51db2.kitware.jobserver-1_x86_64-pc-windows-msvc.zip", "fileName": "ninja-1.10.2.g51db2.kitware.jobserver-1_x86_64-pc-windows-msvc.zip", "binPath": "", "dropSuffix": ".zip" } }, "1.10.0": { "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.10.0.gfb670.kitware.jobserver-1/ninja-1.10.0.gfb670.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.10.0.gfb670.kitware.jobserver-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" } }, "1.9.0": { "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.9.0.gad558.kitware.dyndep-1.jobserver-1/ninja-1.9.0.gad558.kitware.dyndep-1.jobserver-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.9.0.gad558.kitware.dyndep-1.jobserver-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" } }, "1.8.2": { "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.8.2.g972a7.kitware.dyndep-1/ninja-1.8.2.g972a7.kitware.dyndep-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.8.2.g972a7.kitware.dyndep-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" } }, "1.7.2": { "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.7.2.gcc0ea.kitware.dyndep-1/ninja-1.7.2.gcc0ea.kitware.dyndep-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.7.2.gcc0ea.kitware.dyndep-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" } }, "1.7.1": { "linux": { "url": "https://github.com/Kitware/ninja/releases/download/v1.7.1.g7ca7f.kitware.dyndep-1/ninja-1.7.1.g7ca7f.kitware.dyndep-1_x86_64-linux-gnu.tar.gz", "fileName": "ninja-1.7.1.g7ca7f.kitware.dyndep-1_x86_64-linux-gnu.tar.gz", "binPath": "", "dropSuffix": ".tar.gz" } } };
 
 //# sourceMappingURL=releases-catalog.js.map
@@ -11132,7 +11132,7 @@ var coreAuth = __nccwpck_require__(9645);
 var os = __nccwpck_require__(2037);
 var http = __nccwpck_require__(3685);
 var https = __nccwpck_require__(5687);
-var tough = __nccwpck_require__(8165);
+var tough = __nccwpck_require__(7372);
 var abortController = __nccwpck_require__(2557);
 var tunnel = __nccwpck_require__(4294);
 var stream = __nccwpck_require__(2781);
@@ -17143,2486 +17143,6 @@ module.exports = function(dst, src) {
 
   return dst;
 };
-
-
-/***/ }),
-
-/***/ 8165:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-/*!
- * Copyright (c) 2015-2020, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-const punycode = __nccwpck_require__(9540);
-const urlParse = __nccwpck_require__(5682);
-const pubsuffix = __nccwpck_require__(8292);
-const Store = (__nccwpck_require__(7707)/* .Store */ .y);
-const MemoryCookieStore = (__nccwpck_require__(6738)/* .MemoryCookieStore */ .m);
-const pathMatch = (__nccwpck_require__(807)/* .pathMatch */ .U);
-const validators = __nccwpck_require__(1598);
-const VERSION = __nccwpck_require__(8742);
-const { fromCallback } = __nccwpck_require__(9046);
-const { getCustomInspectSymbol } = __nccwpck_require__(9375);
-
-// From RFC6265 S4.1.1
-// note that it excludes \x3B ";"
-const COOKIE_OCTETS = /^[\x21\x23-\x2B\x2D-\x3A\x3C-\x5B\x5D-\x7E]+$/;
-
-const CONTROL_CHARS = /[\x00-\x1F]/;
-
-// From Chromium // '\r', '\n' and '\0' should be treated as a terminator in
-// the "relaxed" mode, see:
-// https://github.com/ChromiumWebApps/chromium/blob/b3d3b4da8bb94c1b2e061600df106d590fda3620/net/cookies/parsed_cookie.cc#L60
-const TERMINATORS = ["\n", "\r", "\0"];
-
-// RFC6265 S4.1.1 defines path value as 'any CHAR except CTLs or ";"'
-// Note ';' is \x3B
-const PATH_VALUE = /[\x20-\x3A\x3C-\x7E]+/;
-
-// date-time parsing constants (RFC6265 S5.1.1)
-
-const DATE_DELIM = /[\x09\x20-\x2F\x3B-\x40\x5B-\x60\x7B-\x7E]/;
-
-const MONTH_TO_NUM = {
-  jan: 0,
-  feb: 1,
-  mar: 2,
-  apr: 3,
-  may: 4,
-  jun: 5,
-  jul: 6,
-  aug: 7,
-  sep: 8,
-  oct: 9,
-  nov: 10,
-  dec: 11
-};
-
-const MAX_TIME = 2147483647000; // 31-bit max
-const MIN_TIME = 0; // 31-bit min
-const SAME_SITE_CONTEXT_VAL_ERR =
-  'Invalid sameSiteContext option for getCookies(); expected one of "strict", "lax", or "none"';
-
-function checkSameSiteContext(value) {
-  validators.validate(validators.isNonEmptyString(value), value);
-  const context = String(value).toLowerCase();
-  if (context === "none" || context === "lax" || context === "strict") {
-    return context;
-  } else {
-    return null;
-  }
-}
-
-const PrefixSecurityEnum = Object.freeze({
-  SILENT: "silent",
-  STRICT: "strict",
-  DISABLED: "unsafe-disabled"
-});
-
-// Dumped from ip-regex@4.0.0, with the following changes:
-// * all capturing groups converted to non-capturing -- "(?:)"
-// * support for IPv6 Scoped Literal ("%eth1") removed
-// * lowercase hexadecimal only
-const IP_REGEX_LOWERCASE = /(?:^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$)|(?:^(?:(?:[a-f\d]{1,4}:){7}(?:[a-f\d]{1,4}|:)|(?:[a-f\d]{1,4}:){6}(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|:[a-f\d]{1,4}|:)|(?:[a-f\d]{1,4}:){5}(?::(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,2}|:)|(?:[a-f\d]{1,4}:){4}(?:(?::[a-f\d]{1,4}){0,1}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,3}|:)|(?:[a-f\d]{1,4}:){3}(?:(?::[a-f\d]{1,4}){0,2}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,4}|:)|(?:[a-f\d]{1,4}:){2}(?:(?::[a-f\d]{1,4}){0,3}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,5}|:)|(?:[a-f\d]{1,4}:){1}(?:(?::[a-f\d]{1,4}){0,4}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,6}|:)|(?::(?:(?::[a-f\d]{1,4}){0,5}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,7}|:)))$)/;
-const IP_V6_REGEX = `
-\\[?(?:
-(?:[a-fA-F\\d]{1,4}:){7}(?:[a-fA-F\\d]{1,4}|:)|
-(?:[a-fA-F\\d]{1,4}:){6}(?:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|:[a-fA-F\\d]{1,4}|:)|
-(?:[a-fA-F\\d]{1,4}:){5}(?::(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,2}|:)|
-(?:[a-fA-F\\d]{1,4}:){4}(?:(?::[a-fA-F\\d]{1,4}){0,1}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,3}|:)|
-(?:[a-fA-F\\d]{1,4}:){3}(?:(?::[a-fA-F\\d]{1,4}){0,2}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,4}|:)|
-(?:[a-fA-F\\d]{1,4}:){2}(?:(?::[a-fA-F\\d]{1,4}){0,3}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,5}|:)|
-(?:[a-fA-F\\d]{1,4}:){1}(?:(?::[a-fA-F\\d]{1,4}){0,4}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,6}|:)|
-(?::(?:(?::[a-fA-F\\d]{1,4}){0,5}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,7}|:))
-)(?:%[0-9a-zA-Z]{1,})?\\]?
-`
-  .replace(/\s*\/\/.*$/gm, "")
-  .replace(/\n/g, "")
-  .trim();
-const IP_V6_REGEX_OBJECT = new RegExp(`^${IP_V6_REGEX}$`);
-
-/*
- * Parses a Natural number (i.e., non-negative integer) with either the
- *    <min>*<max>DIGIT ( non-digit *OCTET )
- * or
- *    <min>*<max>DIGIT
- * grammar (RFC6265 S5.1.1).
- *
- * The "trailingOK" boolean controls if the grammar accepts a
- * "( non-digit *OCTET )" trailer.
- */
-function parseDigits(token, minDigits, maxDigits, trailingOK) {
-  let count = 0;
-  while (count < token.length) {
-    const c = token.charCodeAt(count);
-    // "non-digit = %x00-2F / %x3A-FF"
-    if (c <= 0x2f || c >= 0x3a) {
-      break;
-    }
-    count++;
-  }
-
-  // constrain to a minimum and maximum number of digits.
-  if (count < minDigits || count > maxDigits) {
-    return null;
-  }
-
-  if (!trailingOK && count != token.length) {
-    return null;
-  }
-
-  return parseInt(token.substr(0, count), 10);
-}
-
-function parseTime(token) {
-  const parts = token.split(":");
-  const result = [0, 0, 0];
-
-  /* RF6256 S5.1.1:
-   *      time            = hms-time ( non-digit *OCTET )
-   *      hms-time        = time-field ":" time-field ":" time-field
-   *      time-field      = 1*2DIGIT
-   */
-
-  if (parts.length !== 3) {
-    return null;
-  }
-
-  for (let i = 0; i < 3; i++) {
-    // "time-field" must be strictly "1*2DIGIT", HOWEVER, "hms-time" can be
-    // followed by "( non-digit *OCTET )" so therefore the last time-field can
-    // have a trailer
-    const trailingOK = i == 2;
-    const num = parseDigits(parts[i], 1, 2, trailingOK);
-    if (num === null) {
-      return null;
-    }
-    result[i] = num;
-  }
-
-  return result;
-}
-
-function parseMonth(token) {
-  token = String(token)
-    .substr(0, 3)
-    .toLowerCase();
-  const num = MONTH_TO_NUM[token];
-  return num >= 0 ? num : null;
-}
-
-/*
- * RFC6265 S5.1.1 date parser (see RFC for full grammar)
- */
-function parseDate(str) {
-  if (!str) {
-    return;
-  }
-
-  /* RFC6265 S5.1.1:
-   * 2. Process each date-token sequentially in the order the date-tokens
-   * appear in the cookie-date
-   */
-  const tokens = str.split(DATE_DELIM);
-  if (!tokens) {
-    return;
-  }
-
-  let hour = null;
-  let minute = null;
-  let second = null;
-  let dayOfMonth = null;
-  let month = null;
-  let year = null;
-
-  for (let i = 0; i < tokens.length; i++) {
-    const token = tokens[i].trim();
-    if (!token.length) {
-      continue;
-    }
-
-    let result;
-
-    /* 2.1. If the found-time flag is not set and the token matches the time
-     * production, set the found-time flag and set the hour- value,
-     * minute-value, and second-value to the numbers denoted by the digits in
-     * the date-token, respectively.  Skip the remaining sub-steps and continue
-     * to the next date-token.
-     */
-    if (second === null) {
-      result = parseTime(token);
-      if (result) {
-        hour = result[0];
-        minute = result[1];
-        second = result[2];
-        continue;
-      }
-    }
-
-    /* 2.2. If the found-day-of-month flag is not set and the date-token matches
-     * the day-of-month production, set the found-day-of- month flag and set
-     * the day-of-month-value to the number denoted by the date-token.  Skip
-     * the remaining sub-steps and continue to the next date-token.
-     */
-    if (dayOfMonth === null) {
-      // "day-of-month = 1*2DIGIT ( non-digit *OCTET )"
-      result = parseDigits(token, 1, 2, true);
-      if (result !== null) {
-        dayOfMonth = result;
-        continue;
-      }
-    }
-
-    /* 2.3. If the found-month flag is not set and the date-token matches the
-     * month production, set the found-month flag and set the month-value to
-     * the month denoted by the date-token.  Skip the remaining sub-steps and
-     * continue to the next date-token.
-     */
-    if (month === null) {
-      result = parseMonth(token);
-      if (result !== null) {
-        month = result;
-        continue;
-      }
-    }
-
-    /* 2.4. If the found-year flag is not set and the date-token matches the
-     * year production, set the found-year flag and set the year-value to the
-     * number denoted by the date-token.  Skip the remaining sub-steps and
-     * continue to the next date-token.
-     */
-    if (year === null) {
-      // "year = 2*4DIGIT ( non-digit *OCTET )"
-      result = parseDigits(token, 2, 4, true);
-      if (result !== null) {
-        year = result;
-        /* From S5.1.1:
-         * 3.  If the year-value is greater than or equal to 70 and less
-         * than or equal to 99, increment the year-value by 1900.
-         * 4.  If the year-value is greater than or equal to 0 and less
-         * than or equal to 69, increment the year-value by 2000.
-         */
-        if (year >= 70 && year <= 99) {
-          year += 1900;
-        } else if (year >= 0 && year <= 69) {
-          year += 2000;
-        }
-      }
-    }
-  }
-
-  /* RFC 6265 S5.1.1
-   * "5. Abort these steps and fail to parse the cookie-date if:
-   *     *  at least one of the found-day-of-month, found-month, found-
-   *        year, or found-time flags is not set,
-   *     *  the day-of-month-value is less than 1 or greater than 31,
-   *     *  the year-value is less than 1601,
-   *     *  the hour-value is greater than 23,
-   *     *  the minute-value is greater than 59, or
-   *     *  the second-value is greater than 59.
-   *     (Note that leap seconds cannot be represented in this syntax.)"
-   *
-   * So, in order as above:
-   */
-  if (
-    dayOfMonth === null ||
-    month === null ||
-    year === null ||
-    second === null ||
-    dayOfMonth < 1 ||
-    dayOfMonth > 31 ||
-    year < 1601 ||
-    hour > 23 ||
-    minute > 59 ||
-    second > 59
-  ) {
-    return;
-  }
-
-  return new Date(Date.UTC(year, month, dayOfMonth, hour, minute, second));
-}
-
-function formatDate(date) {
-  validators.validate(validators.isDate(date), date);
-  return date.toUTCString();
-}
-
-// S5.1.2 Canonicalized Host Names
-function canonicalDomain(str) {
-  if (str == null) {
-    return null;
-  }
-  str = str.trim().replace(/^\./, ""); // S4.1.2.3 & S5.2.3: ignore leading .
-
-  if (IP_V6_REGEX_OBJECT.test(str)) {
-    str = str.replace("[", "").replace("]", "");
-  }
-
-  // convert to IDN if any non-ASCII characters
-  if (punycode && /[^\u0001-\u007f]/.test(str)) {
-    str = punycode.toASCII(str);
-  }
-
-  return str.toLowerCase();
-}
-
-// S5.1.3 Domain Matching
-function domainMatch(str, domStr, canonicalize) {
-  if (str == null || domStr == null) {
-    return null;
-  }
-  if (canonicalize !== false) {
-    str = canonicalDomain(str);
-    domStr = canonicalDomain(domStr);
-  }
-
-  /*
-   * S5.1.3:
-   * "A string domain-matches a given domain string if at least one of the
-   * following conditions hold:"
-   *
-   * " o The domain string and the string are identical. (Note that both the
-   * domain string and the string will have been canonicalized to lower case at
-   * this point)"
-   */
-  if (str == domStr) {
-    return true;
-  }
-
-  /* " o All of the following [three] conditions hold:" */
-
-  /* "* The domain string is a suffix of the string" */
-  const idx = str.lastIndexOf(domStr);
-  if (idx <= 0) {
-    return false; // it's a non-match (-1) or prefix (0)
-  }
-
-  // next, check it's a proper suffix
-  // e.g., "a.b.c".indexOf("b.c") === 2
-  // 5 === 3+2
-  if (str.length !== domStr.length + idx) {
-    return false; // it's not a suffix
-  }
-
-  /* "  * The last character of the string that is not included in the
-   * domain string is a %x2E (".") character." */
-  if (str.substr(idx - 1, 1) !== ".") {
-    return false; // doesn't align on "."
-  }
-
-  /* "  * The string is a host name (i.e., not an IP address)." */
-  if (IP_REGEX_LOWERCASE.test(str)) {
-    return false; // it's an IP address
-  }
-
-  return true;
-}
-
-// RFC6265 S5.1.4 Paths and Path-Match
-
-/*
- * "The user agent MUST use an algorithm equivalent to the following algorithm
- * to compute the default-path of a cookie:"
- *
- * Assumption: the path (and not query part or absolute uri) is passed in.
- */
-function defaultPath(path) {
-  // "2. If the uri-path is empty or if the first character of the uri-path is not
-  // a %x2F ("/") character, output %x2F ("/") and skip the remaining steps.
-  if (!path || path.substr(0, 1) !== "/") {
-    return "/";
-  }
-
-  // "3. If the uri-path contains no more than one %x2F ("/") character, output
-  // %x2F ("/") and skip the remaining step."
-  if (path === "/") {
-    return path;
-  }
-
-  const rightSlash = path.lastIndexOf("/");
-  if (rightSlash === 0) {
-    return "/";
-  }
-
-  // "4. Output the characters of the uri-path from the first character up to,
-  // but not including, the right-most %x2F ("/")."
-  return path.slice(0, rightSlash);
-}
-
-function trimTerminator(str) {
-  if (validators.isEmptyString(str)) return str;
-  for (let t = 0; t < TERMINATORS.length; t++) {
-    const terminatorIdx = str.indexOf(TERMINATORS[t]);
-    if (terminatorIdx !== -1) {
-      str = str.substr(0, terminatorIdx);
-    }
-  }
-
-  return str;
-}
-
-function parseCookiePair(cookiePair, looseMode) {
-  cookiePair = trimTerminator(cookiePair);
-  validators.validate(validators.isString(cookiePair), cookiePair);
-
-  let firstEq = cookiePair.indexOf("=");
-  if (looseMode) {
-    if (firstEq === 0) {
-      // '=' is immediately at start
-      cookiePair = cookiePair.substr(1);
-      firstEq = cookiePair.indexOf("="); // might still need to split on '='
-    }
-  } else {
-    // non-loose mode
-    if (firstEq <= 0) {
-      // no '=' or is at start
-      return; // needs to have non-empty "cookie-name"
-    }
-  }
-
-  let cookieName, cookieValue;
-  if (firstEq <= 0) {
-    cookieName = "";
-    cookieValue = cookiePair.trim();
-  } else {
-    cookieName = cookiePair.substr(0, firstEq).trim();
-    cookieValue = cookiePair.substr(firstEq + 1).trim();
-  }
-
-  if (CONTROL_CHARS.test(cookieName) || CONTROL_CHARS.test(cookieValue)) {
-    return;
-  }
-
-  const c = new Cookie();
-  c.key = cookieName;
-  c.value = cookieValue;
-  return c;
-}
-
-function parse(str, options) {
-  if (!options || typeof options !== "object") {
-    options = {};
-  }
-
-  if (validators.isEmptyString(str) || !validators.isString(str)) {
-    return null;
-  }
-
-  str = str.trim();
-
-  // We use a regex to parse the "name-value-pair" part of S5.2
-  const firstSemi = str.indexOf(";"); // S5.2 step 1
-  const cookiePair = firstSemi === -1 ? str : str.substr(0, firstSemi);
-  const c = parseCookiePair(cookiePair, !!options.loose);
-  if (!c) {
-    return;
-  }
-
-  if (firstSemi === -1) {
-    return c;
-  }
-
-  // S5.2.3 "unparsed-attributes consist of the remainder of the set-cookie-string
-  // (including the %x3B (";") in question)." plus later on in the same section
-  // "discard the first ";" and trim".
-  const unparsed = str.slice(firstSemi + 1).trim();
-
-  // "If the unparsed-attributes string is empty, skip the rest of these
-  // steps."
-  if (unparsed.length === 0) {
-    return c;
-  }
-
-  /*
-   * S5.2 says that when looping over the items "[p]rocess the attribute-name
-   * and attribute-value according to the requirements in the following
-   * subsections" for every item.  Plus, for many of the individual attributes
-   * in S5.3 it says to use the "attribute-value of the last attribute in the
-   * cookie-attribute-list".  Therefore, in this implementation, we overwrite
-   * the previous value.
-   */
-  const cookie_avs = unparsed.split(";");
-  while (cookie_avs.length) {
-    const av = cookie_avs.shift().trim();
-    if (av.length === 0) {
-      // happens if ";;" appears
-      continue;
-    }
-    const av_sep = av.indexOf("=");
-    let av_key, av_value;
-
-    if (av_sep === -1) {
-      av_key = av;
-      av_value = null;
-    } else {
-      av_key = av.substr(0, av_sep);
-      av_value = av.substr(av_sep + 1);
-    }
-
-    av_key = av_key.trim().toLowerCase();
-
-    if (av_value) {
-      av_value = av_value.trim();
-    }
-
-    switch (av_key) {
-      case "expires": // S5.2.1
-        if (av_value) {
-          const exp = parseDate(av_value);
-          // "If the attribute-value failed to parse as a cookie date, ignore the
-          // cookie-av."
-          if (exp) {
-            // over and underflow not realistically a concern: V8's getTime() seems to
-            // store something larger than a 32-bit time_t (even with 32-bit node)
-            c.expires = exp;
-          }
-        }
-        break;
-
-      case "max-age": // S5.2.2
-        if (av_value) {
-          // "If the first character of the attribute-value is not a DIGIT or a "-"
-          // character ...[or]... If the remainder of attribute-value contains a
-          // non-DIGIT character, ignore the cookie-av."
-          if (/^-?[0-9]+$/.test(av_value)) {
-            const delta = parseInt(av_value, 10);
-            // "If delta-seconds is less than or equal to zero (0), let expiry-time
-            // be the earliest representable date and time."
-            c.setMaxAge(delta);
-          }
-        }
-        break;
-
-      case "domain": // S5.2.3
-        // "If the attribute-value is empty, the behavior is undefined.  However,
-        // the user agent SHOULD ignore the cookie-av entirely."
-        if (av_value) {
-          // S5.2.3 "Let cookie-domain be the attribute-value without the leading %x2E
-          // (".") character."
-          const domain = av_value.trim().replace(/^\./, "");
-          if (domain) {
-            // "Convert the cookie-domain to lower case."
-            c.domain = domain.toLowerCase();
-          }
-        }
-        break;
-
-      case "path": // S5.2.4
-        /*
-         * "If the attribute-value is empty or if the first character of the
-         * attribute-value is not %x2F ("/"):
-         *   Let cookie-path be the default-path.
-         * Otherwise:
-         *   Let cookie-path be the attribute-value."
-         *
-         * We'll represent the default-path as null since it depends on the
-         * context of the parsing.
-         */
-        c.path = av_value && av_value[0] === "/" ? av_value : null;
-        break;
-
-      case "secure": // S5.2.5
-        /*
-         * "If the attribute-name case-insensitively matches the string "Secure",
-         * the user agent MUST append an attribute to the cookie-attribute-list
-         * with an attribute-name of Secure and an empty attribute-value."
-         */
-        c.secure = true;
-        break;
-
-      case "httponly": // S5.2.6 -- effectively the same as 'secure'
-        c.httpOnly = true;
-        break;
-
-      case "samesite": // RFC6265bis-02 S5.3.7
-        const enforcement = av_value ? av_value.toLowerCase() : "";
-        switch (enforcement) {
-          case "strict":
-            c.sameSite = "strict";
-            break;
-          case "lax":
-            c.sameSite = "lax";
-            break;
-          case "none":
-            c.sameSite = "none";
-            break;
-          default:
-            c.sameSite = undefined;
-            break;
-        }
-        break;
-
-      default:
-        c.extensions = c.extensions || [];
-        c.extensions.push(av);
-        break;
-    }
-  }
-
-  return c;
-}
-
-/**
- *  If the cookie-name begins with a case-sensitive match for the
- *  string "__Secure-", abort these steps and ignore the cookie
- *  entirely unless the cookie's secure-only-flag is true.
- * @param cookie
- * @returns boolean
- */
-function isSecurePrefixConditionMet(cookie) {
-  validators.validate(validators.isObject(cookie), cookie);
-  return !cookie.key.startsWith("__Secure-") || cookie.secure;
-}
-
-/**
- *  If the cookie-name begins with a case-sensitive match for the
- *  string "__Host-", abort these steps and ignore the cookie
- *  entirely unless the cookie meets all the following criteria:
- *    1.  The cookie's secure-only-flag is true.
- *    2.  The cookie's host-only-flag is true.
- *    3.  The cookie-attribute-list contains an attribute with an
- *        attribute-name of "Path", and the cookie's path is "/".
- * @param cookie
- * @returns boolean
- */
-function isHostPrefixConditionMet(cookie) {
-  validators.validate(validators.isObject(cookie));
-  return (
-    !cookie.key.startsWith("__Host-") ||
-    (cookie.secure &&
-      cookie.hostOnly &&
-      cookie.path != null &&
-      cookie.path === "/")
-  );
-}
-
-// avoid the V8 deoptimization monster!
-function jsonParse(str) {
-  let obj;
-  try {
-    obj = JSON.parse(str);
-  } catch (e) {
-    return e;
-  }
-  return obj;
-}
-
-function fromJSON(str) {
-  if (!str || validators.isEmptyString(str)) {
-    return null;
-  }
-
-  let obj;
-  if (typeof str === "string") {
-    obj = jsonParse(str);
-    if (obj instanceof Error) {
-      return null;
-    }
-  } else {
-    // assume it's an Object
-    obj = str;
-  }
-
-  const c = new Cookie();
-  for (let i = 0; i < Cookie.serializableProperties.length; i++) {
-    const prop = Cookie.serializableProperties[i];
-    if (obj[prop] === undefined || obj[prop] === cookieDefaults[prop]) {
-      continue; // leave as prototype default
-    }
-
-    if (prop === "expires" || prop === "creation" || prop === "lastAccessed") {
-      if (obj[prop] === null) {
-        c[prop] = null;
-      } else {
-        c[prop] = obj[prop] == "Infinity" ? "Infinity" : new Date(obj[prop]);
-      }
-    } else {
-      c[prop] = obj[prop];
-    }
-  }
-
-  return c;
-}
-
-/* Section 5.4 part 2:
- * "*  Cookies with longer paths are listed before cookies with
- *     shorter paths.
- *
- *  *  Among cookies that have equal-length path fields, cookies with
- *     earlier creation-times are listed before cookies with later
- *     creation-times."
- */
-
-function cookieCompare(a, b) {
-  validators.validate(validators.isObject(a), a);
-  validators.validate(validators.isObject(b), b);
-  let cmp = 0;
-
-  // descending for length: b CMP a
-  const aPathLen = a.path ? a.path.length : 0;
-  const bPathLen = b.path ? b.path.length : 0;
-  cmp = bPathLen - aPathLen;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  // ascending for time: a CMP b
-  const aTime = a.creation ? a.creation.getTime() : MAX_TIME;
-  const bTime = b.creation ? b.creation.getTime() : MAX_TIME;
-  cmp = aTime - bTime;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  // break ties for the same millisecond (precision of JavaScript's clock)
-  cmp = a.creationIndex - b.creationIndex;
-
-  return cmp;
-}
-
-// Gives the permutation of all possible pathMatch()es of a given path. The
-// array is in longest-to-shortest order.  Handy for indexing.
-function permutePath(path) {
-  validators.validate(validators.isString(path));
-  if (path === "/") {
-    return ["/"];
-  }
-  const permutations = [path];
-  while (path.length > 1) {
-    const lindex = path.lastIndexOf("/");
-    if (lindex === 0) {
-      break;
-    }
-    path = path.substr(0, lindex);
-    permutations.push(path);
-  }
-  permutations.push("/");
-  return permutations;
-}
-
-function getCookieContext(url) {
-  if (url instanceof Object) {
-    return url;
-  }
-  // NOTE: decodeURI will throw on malformed URIs (see GH-32).
-  // Therefore, we will just skip decoding for such URIs.
-  try {
-    url = decodeURI(url);
-  } catch (err) {
-    // Silently swallow error
-  }
-
-  return urlParse(url);
-}
-
-const cookieDefaults = {
-  // the order in which the RFC has them:
-  key: "",
-  value: "",
-  expires: "Infinity",
-  maxAge: null,
-  domain: null,
-  path: null,
-  secure: false,
-  httpOnly: false,
-  extensions: null,
-  // set by the CookieJar:
-  hostOnly: null,
-  pathIsDefault: null,
-  creation: null,
-  lastAccessed: null,
-  sameSite: undefined
-};
-
-class Cookie {
-  constructor(options = {}) {
-    const customInspectSymbol = getCustomInspectSymbol();
-    if (customInspectSymbol) {
-      this[customInspectSymbol] = this.inspect;
-    }
-
-    Object.assign(this, cookieDefaults, options);
-    this.creation = this.creation || new Date();
-
-    // used to break creation ties in cookieCompare():
-    Object.defineProperty(this, "creationIndex", {
-      configurable: false,
-      enumerable: false, // important for assert.deepEqual checks
-      writable: true,
-      value: ++Cookie.cookiesCreated
-    });
-  }
-
-  inspect() {
-    const now = Date.now();
-    const hostOnly = this.hostOnly != null ? this.hostOnly : "?";
-    const createAge = this.creation
-      ? `${now - this.creation.getTime()}ms`
-      : "?";
-    const accessAge = this.lastAccessed
-      ? `${now - this.lastAccessed.getTime()}ms`
-      : "?";
-    return `Cookie="${this.toString()}; hostOnly=${hostOnly}; aAge=${accessAge}; cAge=${createAge}"`;
-  }
-
-  toJSON() {
-    const obj = {};
-
-    for (const prop of Cookie.serializableProperties) {
-      if (this[prop] === cookieDefaults[prop]) {
-        continue; // leave as prototype default
-      }
-
-      if (
-        prop === "expires" ||
-        prop === "creation" ||
-        prop === "lastAccessed"
-      ) {
-        if (this[prop] === null) {
-          obj[prop] = null;
-        } else {
-          obj[prop] =
-            this[prop] == "Infinity" // intentionally not ===
-              ? "Infinity"
-              : this[prop].toISOString();
-        }
-      } else if (prop === "maxAge") {
-        if (this[prop] !== null) {
-          // again, intentionally not ===
-          obj[prop] =
-            this[prop] == Infinity || this[prop] == -Infinity
-              ? this[prop].toString()
-              : this[prop];
-        }
-      } else {
-        if (this[prop] !== cookieDefaults[prop]) {
-          obj[prop] = this[prop];
-        }
-      }
-    }
-
-    return obj;
-  }
-
-  clone() {
-    return fromJSON(this.toJSON());
-  }
-
-  validate() {
-    if (!COOKIE_OCTETS.test(this.value)) {
-      return false;
-    }
-    if (
-      this.expires != Infinity &&
-      !(this.expires instanceof Date) &&
-      !parseDate(this.expires)
-    ) {
-      return false;
-    }
-    if (this.maxAge != null && this.maxAge <= 0) {
-      return false; // "Max-Age=" non-zero-digit *DIGIT
-    }
-    if (this.path != null && !PATH_VALUE.test(this.path)) {
-      return false;
-    }
-
-    const cdomain = this.cdomain();
-    if (cdomain) {
-      if (cdomain.match(/\.$/)) {
-        return false; // S4.1.2.3 suggests that this is bad. domainMatch() tests confirm this
-      }
-      const suffix = pubsuffix.getPublicSuffix(cdomain);
-      if (suffix == null) {
-        // it's a public suffix
-        return false;
-      }
-    }
-    return true;
-  }
-
-  setExpires(exp) {
-    if (exp instanceof Date) {
-      this.expires = exp;
-    } else {
-      this.expires = parseDate(exp) || "Infinity";
-    }
-  }
-
-  setMaxAge(age) {
-    if (age === Infinity || age === -Infinity) {
-      this.maxAge = age.toString(); // so JSON.stringify() works
-    } else {
-      this.maxAge = age;
-    }
-  }
-
-  cookieString() {
-    let val = this.value;
-    if (val == null) {
-      val = "";
-    }
-    if (this.key === "") {
-      return val;
-    }
-    return `${this.key}=${val}`;
-  }
-
-  // gives Set-Cookie header format
-  toString() {
-    let str = this.cookieString();
-
-    if (this.expires != Infinity) {
-      if (this.expires instanceof Date) {
-        str += `; Expires=${formatDate(this.expires)}`;
-      } else {
-        str += `; Expires=${this.expires}`;
-      }
-    }
-
-    if (this.maxAge != null && this.maxAge != Infinity) {
-      str += `; Max-Age=${this.maxAge}`;
-    }
-
-    if (this.domain && !this.hostOnly) {
-      str += `; Domain=${this.domain}`;
-    }
-    if (this.path) {
-      str += `; Path=${this.path}`;
-    }
-
-    if (this.secure) {
-      str += "; Secure";
-    }
-    if (this.httpOnly) {
-      str += "; HttpOnly";
-    }
-    if (this.sameSite && this.sameSite !== "none") {
-      const ssCanon = Cookie.sameSiteCanonical[this.sameSite.toLowerCase()];
-      str += `; SameSite=${ssCanon ? ssCanon : this.sameSite}`;
-    }
-    if (this.extensions) {
-      this.extensions.forEach(ext => {
-        str += `; ${ext}`;
-      });
-    }
-
-    return str;
-  }
-
-  // TTL() partially replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
-  // elsewhere)
-  // S5.3 says to give the "latest representable date" for which we use Infinity
-  // For "expired" we use 0
-  TTL(now) {
-    /* RFC6265 S4.1.2.2 If a cookie has both the Max-Age and the Expires
-     * attribute, the Max-Age attribute has precedence and controls the
-     * expiration date of the cookie.
-     * (Concurs with S5.3 step 3)
-     */
-    if (this.maxAge != null) {
-      return this.maxAge <= 0 ? 0 : this.maxAge * 1000;
-    }
-
-    let expires = this.expires;
-    if (expires != Infinity) {
-      if (!(expires instanceof Date)) {
-        expires = parseDate(expires) || Infinity;
-      }
-
-      if (expires == Infinity) {
-        return Infinity;
-      }
-
-      return expires.getTime() - (now || Date.now());
-    }
-
-    return Infinity;
-  }
-
-  // expiryTime() replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
-  // elsewhere)
-  expiryTime(now) {
-    if (this.maxAge != null) {
-      const relativeTo = now || this.creation || new Date();
-      const age = this.maxAge <= 0 ? -Infinity : this.maxAge * 1000;
-      return relativeTo.getTime() + age;
-    }
-
-    if (this.expires == Infinity) {
-      return Infinity;
-    }
-    return this.expires.getTime();
-  }
-
-  // expiryDate() replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
-  // elsewhere), except it returns a Date
-  expiryDate(now) {
-    const millisec = this.expiryTime(now);
-    if (millisec == Infinity) {
-      return new Date(MAX_TIME);
-    } else if (millisec == -Infinity) {
-      return new Date(MIN_TIME);
-    } else {
-      return new Date(millisec);
-    }
-  }
-
-  // This replaces the "persistent-flag" parts of S5.3 step 3
-  isPersistent() {
-    return this.maxAge != null || this.expires != Infinity;
-  }
-
-  // Mostly S5.1.2 and S5.2.3:
-  canonicalizedDomain() {
-    if (this.domain == null) {
-      return null;
-    }
-    return canonicalDomain(this.domain);
-  }
-
-  cdomain() {
-    return this.canonicalizedDomain();
-  }
-}
-
-Cookie.cookiesCreated = 0;
-Cookie.parse = parse;
-Cookie.fromJSON = fromJSON;
-Cookie.serializableProperties = Object.keys(cookieDefaults);
-Cookie.sameSiteLevel = {
-  strict: 3,
-  lax: 2,
-  none: 1
-};
-
-Cookie.sameSiteCanonical = {
-  strict: "Strict",
-  lax: "Lax"
-};
-
-function getNormalizedPrefixSecurity(prefixSecurity) {
-  if (prefixSecurity != null) {
-    const normalizedPrefixSecurity = prefixSecurity.toLowerCase();
-    /* The three supported options */
-    switch (normalizedPrefixSecurity) {
-      case PrefixSecurityEnum.STRICT:
-      case PrefixSecurityEnum.SILENT:
-      case PrefixSecurityEnum.DISABLED:
-        return normalizedPrefixSecurity;
-    }
-  }
-  /* Default is SILENT */
-  return PrefixSecurityEnum.SILENT;
-}
-
-class CookieJar {
-  constructor(store, options = { rejectPublicSuffixes: true }) {
-    if (typeof options === "boolean") {
-      options = { rejectPublicSuffixes: options };
-    }
-    validators.validate(validators.isObject(options), options);
-    this.rejectPublicSuffixes = options.rejectPublicSuffixes;
-    this.enableLooseMode = !!options.looseMode;
-    this.allowSpecialUseDomain =
-      typeof options.allowSpecialUseDomain === "boolean"
-        ? options.allowSpecialUseDomain
-        : true;
-    this.store = store || new MemoryCookieStore();
-    this.prefixSecurity = getNormalizedPrefixSecurity(options.prefixSecurity);
-    this._cloneSync = syncWrap("clone");
-    this._importCookiesSync = syncWrap("_importCookies");
-    this.getCookiesSync = syncWrap("getCookies");
-    this.getCookieStringSync = syncWrap("getCookieString");
-    this.getSetCookieStringsSync = syncWrap("getSetCookieStrings");
-    this.removeAllCookiesSync = syncWrap("removeAllCookies");
-    this.setCookieSync = syncWrap("setCookie");
-    this.serializeSync = syncWrap("serialize");
-  }
-
-  setCookie(cookie, url, options, cb) {
-    validators.validate(validators.isNonEmptyString(url), cb, options);
-    let err;
-
-    if (validators.isFunction(url)) {
-      cb = url;
-      return cb(new Error("No URL was specified"));
-    }
-
-    const context = getCookieContext(url);
-    if (validators.isFunction(options)) {
-      cb = options;
-      options = {};
-    }
-
-    validators.validate(validators.isFunction(cb), cb);
-
-    if (
-      !validators.isNonEmptyString(cookie) &&
-      !validators.isObject(cookie) &&
-      cookie instanceof String &&
-      cookie.length == 0
-    ) {
-      return cb(null);
-    }
-
-    const host = canonicalDomain(context.hostname);
-    const loose = options.loose || this.enableLooseMode;
-
-    let sameSiteContext = null;
-    if (options.sameSiteContext) {
-      sameSiteContext = checkSameSiteContext(options.sameSiteContext);
-      if (!sameSiteContext) {
-        return cb(new Error(SAME_SITE_CONTEXT_VAL_ERR));
-      }
-    }
-
-    // S5.3 step 1
-    if (typeof cookie === "string" || cookie instanceof String) {
-      cookie = Cookie.parse(cookie, { loose: loose });
-      if (!cookie) {
-        err = new Error("Cookie failed to parse");
-        return cb(options.ignoreError ? null : err);
-      }
-    } else if (!(cookie instanceof Cookie)) {
-      // If you're seeing this error, and are passing in a Cookie object,
-      // it *might* be a Cookie object from another loaded version of tough-cookie.
-      err = new Error(
-        "First argument to setCookie must be a Cookie object or string"
-      );
-      return cb(options.ignoreError ? null : err);
-    }
-
-    // S5.3 step 2
-    const now = options.now || new Date(); // will assign later to save effort in the face of errors
-
-    // S5.3 step 3: NOOP; persistent-flag and expiry-time is handled by getCookie()
-
-    // S5.3 step 4: NOOP; domain is null by default
-
-    // S5.3 step 5: public suffixes
-    if (this.rejectPublicSuffixes && cookie.domain) {
-      const suffix = pubsuffix.getPublicSuffix(cookie.cdomain(), {
-        allowSpecialUseDomain: this.allowSpecialUseDomain,
-        ignoreError: options.ignoreError
-      });
-      if (suffix == null && !IP_V6_REGEX_OBJECT.test(cookie.domain)) {
-        // e.g. "com"
-        err = new Error("Cookie has domain set to a public suffix");
-        return cb(options.ignoreError ? null : err);
-      }
-    }
-
-    // S5.3 step 6:
-    if (cookie.domain) {
-      if (!domainMatch(host, cookie.cdomain(), false)) {
-        err = new Error(
-          `Cookie not in this host's domain. Cookie:${cookie.cdomain()} Request:${host}`
-        );
-        return cb(options.ignoreError ? null : err);
-      }
-
-      if (cookie.hostOnly == null) {
-        // don't reset if already set
-        cookie.hostOnly = false;
-      }
-    } else {
-      cookie.hostOnly = true;
-      cookie.domain = host;
-    }
-
-    //S5.2.4 If the attribute-value is empty or if the first character of the
-    //attribute-value is not %x2F ("/"):
-    //Let cookie-path be the default-path.
-    if (!cookie.path || cookie.path[0] !== "/") {
-      cookie.path = defaultPath(context.pathname);
-      cookie.pathIsDefault = true;
-    }
-
-    // S5.3 step 8: NOOP; secure attribute
-    // S5.3 step 9: NOOP; httpOnly attribute
-
-    // S5.3 step 10
-    if (options.http === false && cookie.httpOnly) {
-      err = new Error("Cookie is HttpOnly and this isn't an HTTP API");
-      return cb(options.ignoreError ? null : err);
-    }
-
-    // 6252bis-02 S5.4 Step 13 & 14:
-    if (
-      cookie.sameSite !== "none" &&
-      cookie.sameSite !== undefined &&
-      sameSiteContext
-    ) {
-      // "If the cookie's "same-site-flag" is not "None", and the cookie
-      //  is being set from a context whose "site for cookies" is not an
-      //  exact match for request-uri's host's registered domain, then
-      //  abort these steps and ignore the newly created cookie entirely."
-      if (sameSiteContext === "none") {
-        err = new Error(
-          "Cookie is SameSite but this is a cross-origin request"
-        );
-        return cb(options.ignoreError ? null : err);
-      }
-    }
-
-    /* 6265bis-02 S5.4 Steps 15 & 16 */
-    const ignoreErrorForPrefixSecurity =
-      this.prefixSecurity === PrefixSecurityEnum.SILENT;
-    const prefixSecurityDisabled =
-      this.prefixSecurity === PrefixSecurityEnum.DISABLED;
-    /* If prefix checking is not disabled ...*/
-    if (!prefixSecurityDisabled) {
-      let errorFound = false;
-      let errorMsg;
-      /* Check secure prefix condition */
-      if (!isSecurePrefixConditionMet(cookie)) {
-        errorFound = true;
-        errorMsg = "Cookie has __Secure prefix but Secure attribute is not set";
-      } else if (!isHostPrefixConditionMet(cookie)) {
-        /* Check host prefix condition */
-        errorFound = true;
-        errorMsg =
-          "Cookie has __Host prefix but either Secure or HostOnly attribute is not set or Path is not '/'";
-      }
-      if (errorFound) {
-        return cb(
-          options.ignoreError || ignoreErrorForPrefixSecurity
-            ? null
-            : new Error(errorMsg)
-        );
-      }
-    }
-
-    const store = this.store;
-
-    if (!store.updateCookie) {
-      store.updateCookie = function(oldCookie, newCookie, cb) {
-        this.putCookie(newCookie, cb);
-      };
-    }
-
-    function withCookie(err, oldCookie) {
-      if (err) {
-        return cb(err);
-      }
-
-      const next = function(err) {
-        if (err) {
-          return cb(err);
-        } else {
-          cb(null, cookie);
-        }
-      };
-
-      if (oldCookie) {
-        // S5.3 step 11 - "If the cookie store contains a cookie with the same name,
-        // domain, and path as the newly created cookie:"
-        if (options.http === false && oldCookie.httpOnly) {
-          // step 11.2
-          err = new Error("old Cookie is HttpOnly and this isn't an HTTP API");
-          return cb(options.ignoreError ? null : err);
-        }
-        cookie.creation = oldCookie.creation; // step 11.3
-        cookie.creationIndex = oldCookie.creationIndex; // preserve tie-breaker
-        cookie.lastAccessed = now;
-        // Step 11.4 (delete cookie) is implied by just setting the new one:
-        store.updateCookie(oldCookie, cookie, next); // step 12
-      } else {
-        cookie.creation = cookie.lastAccessed = now;
-        store.putCookie(cookie, next); // step 12
-      }
-    }
-
-    store.findCookie(cookie.domain, cookie.path, cookie.key, withCookie);
-  }
-
-  // RFC6365 S5.4
-  getCookies(url, options, cb) {
-    validators.validate(validators.isNonEmptyString(url), cb, url);
-    const context = getCookieContext(url);
-    if (validators.isFunction(options)) {
-      cb = options;
-      options = {};
-    }
-    validators.validate(validators.isObject(options), cb, options);
-    validators.validate(validators.isFunction(cb), cb);
-
-    const host = canonicalDomain(context.hostname);
-    const path = context.pathname || "/";
-
-    let secure = options.secure;
-    if (
-      secure == null &&
-      context.protocol &&
-      (context.protocol == "https:" || context.protocol == "wss:")
-    ) {
-      secure = true;
-    }
-
-    let sameSiteLevel = 0;
-    if (options.sameSiteContext) {
-      const sameSiteContext = checkSameSiteContext(options.sameSiteContext);
-      sameSiteLevel = Cookie.sameSiteLevel[sameSiteContext];
-      if (!sameSiteLevel) {
-        return cb(new Error(SAME_SITE_CONTEXT_VAL_ERR));
-      }
-    }
-
-    let http = options.http;
-    if (http == null) {
-      http = true;
-    }
-
-    const now = options.now || Date.now();
-    const expireCheck = options.expire !== false;
-    const allPaths = !!options.allPaths;
-    const store = this.store;
-
-    function matchingCookie(c) {
-      // "Either:
-      //   The cookie's host-only-flag is true and the canonicalized
-      //   request-host is identical to the cookie's domain.
-      // Or:
-      //   The cookie's host-only-flag is false and the canonicalized
-      //   request-host domain-matches the cookie's domain."
-      if (c.hostOnly) {
-        if (c.domain != host) {
-          return false;
-        }
-      } else {
-        if (!domainMatch(host, c.domain, false)) {
-          return false;
-        }
-      }
-
-      // "The request-uri's path path-matches the cookie's path."
-      if (!allPaths && !pathMatch(path, c.path)) {
-        return false;
-      }
-
-      // "If the cookie's secure-only-flag is true, then the request-uri's
-      // scheme must denote a "secure" protocol"
-      if (c.secure && !secure) {
-        return false;
-      }
-
-      // "If the cookie's http-only-flag is true, then exclude the cookie if the
-      // cookie-string is being generated for a "non-HTTP" API"
-      if (c.httpOnly && !http) {
-        return false;
-      }
-
-      // RFC6265bis-02 S5.3.7
-      if (sameSiteLevel) {
-        const cookieLevel = Cookie.sameSiteLevel[c.sameSite || "none"];
-        if (cookieLevel > sameSiteLevel) {
-          // only allow cookies at or below the request level
-          return false;
-        }
-      }
-
-      // deferred from S5.3
-      // non-RFC: allow retention of expired cookies by choice
-      if (expireCheck && c.expiryTime() <= now) {
-        store.removeCookie(c.domain, c.path, c.key, () => {}); // result ignored
-        return false;
-      }
-
-      return true;
-    }
-
-    store.findCookies(
-      host,
-      allPaths ? null : path,
-      this.allowSpecialUseDomain,
-      (err, cookies) => {
-        if (err) {
-          return cb(err);
-        }
-
-        cookies = cookies.filter(matchingCookie);
-
-        // sorting of S5.4 part 2
-        if (options.sort !== false) {
-          cookies = cookies.sort(cookieCompare);
-        }
-
-        // S5.4 part 3
-        const now = new Date();
-        for (const cookie of cookies) {
-          cookie.lastAccessed = now;
-        }
-        // TODO persist lastAccessed
-
-        cb(null, cookies);
-      }
-    );
-  }
-
-  getCookieString(...args) {
-    const cb = args.pop();
-    validators.validate(validators.isFunction(cb), cb);
-    const next = function(err, cookies) {
-      if (err) {
-        cb(err);
-      } else {
-        cb(
-          null,
-          cookies
-            .sort(cookieCompare)
-            .map(c => c.cookieString())
-            .join("; ")
-        );
-      }
-    };
-    args.push(next);
-    this.getCookies.apply(this, args);
-  }
-
-  getSetCookieStrings(...args) {
-    const cb = args.pop();
-    validators.validate(validators.isFunction(cb), cb);
-    const next = function(err, cookies) {
-      if (err) {
-        cb(err);
-      } else {
-        cb(
-          null,
-          cookies.map(c => {
-            return c.toString();
-          })
-        );
-      }
-    };
-    args.push(next);
-    this.getCookies.apply(this, args);
-  }
-
-  serialize(cb) {
-    validators.validate(validators.isFunction(cb), cb);
-    let type = this.store.constructor.name;
-    if (validators.isObject(type)) {
-      type = null;
-    }
-
-    // update README.md "Serialization Format" if you change this, please!
-    const serialized = {
-      // The version of tough-cookie that serialized this jar. Generally a good
-      // practice since future versions can make data import decisions based on
-      // known past behavior. When/if this matters, use `semver`.
-      version: `tough-cookie@${VERSION}`,
-
-      // add the store type, to make humans happy:
-      storeType: type,
-
-      // CookieJar configuration:
-      rejectPublicSuffixes: !!this.rejectPublicSuffixes,
-      enableLooseMode: !!this.enableLooseMode,
-      allowSpecialUseDomain: !!this.allowSpecialUseDomain,
-      prefixSecurity: getNormalizedPrefixSecurity(this.prefixSecurity),
-
-      // this gets filled from getAllCookies:
-      cookies: []
-    };
-
-    if (
-      !(
-        this.store.getAllCookies &&
-        typeof this.store.getAllCookies === "function"
-      )
-    ) {
-      return cb(
-        new Error(
-          "store does not support getAllCookies and cannot be serialized"
-        )
-      );
-    }
-
-    this.store.getAllCookies((err, cookies) => {
-      if (err) {
-        return cb(err);
-      }
-
-      serialized.cookies = cookies.map(cookie => {
-        // convert to serialized 'raw' cookies
-        cookie = cookie instanceof Cookie ? cookie.toJSON() : cookie;
-
-        // Remove the index so new ones get assigned during deserialization
-        delete cookie.creationIndex;
-
-        return cookie;
-      });
-
-      return cb(null, serialized);
-    });
-  }
-
-  toJSON() {
-    return this.serializeSync();
-  }
-
-  // use the class method CookieJar.deserialize instead of calling this directly
-  _importCookies(serialized, cb) {
-    let cookies = serialized.cookies;
-    if (!cookies || !Array.isArray(cookies)) {
-      return cb(new Error("serialized jar has no cookies array"));
-    }
-    cookies = cookies.slice(); // do not modify the original
-
-    const putNext = err => {
-      if (err) {
-        return cb(err);
-      }
-
-      if (!cookies.length) {
-        return cb(err, this);
-      }
-
-      let cookie;
-      try {
-        cookie = fromJSON(cookies.shift());
-      } catch (e) {
-        return cb(e);
-      }
-
-      if (cookie === null) {
-        return putNext(null); // skip this cookie
-      }
-
-      this.store.putCookie(cookie, putNext);
-    };
-
-    putNext();
-  }
-
-  clone(newStore, cb) {
-    if (arguments.length === 1) {
-      cb = newStore;
-      newStore = null;
-    }
-
-    this.serialize((err, serialized) => {
-      if (err) {
-        return cb(err);
-      }
-      CookieJar.deserialize(serialized, newStore, cb);
-    });
-  }
-
-  cloneSync(newStore) {
-    if (arguments.length === 0) {
-      return this._cloneSync();
-    }
-    if (!newStore.synchronous) {
-      throw new Error(
-        "CookieJar clone destination store is not synchronous; use async API instead."
-      );
-    }
-    return this._cloneSync(newStore);
-  }
-
-  removeAllCookies(cb) {
-    validators.validate(validators.isFunction(cb), cb);
-    const store = this.store;
-
-    // Check that the store implements its own removeAllCookies(). The default
-    // implementation in Store will immediately call the callback with a "not
-    // implemented" Error.
-    if (
-      typeof store.removeAllCookies === "function" &&
-      store.removeAllCookies !== Store.prototype.removeAllCookies
-    ) {
-      return store.removeAllCookies(cb);
-    }
-
-    store.getAllCookies((err, cookies) => {
-      if (err) {
-        return cb(err);
-      }
-
-      if (cookies.length === 0) {
-        return cb(null);
-      }
-
-      let completedCount = 0;
-      const removeErrors = [];
-
-      function removeCookieCb(removeErr) {
-        if (removeErr) {
-          removeErrors.push(removeErr);
-        }
-
-        completedCount++;
-
-        if (completedCount === cookies.length) {
-          return cb(removeErrors.length ? removeErrors[0] : null);
-        }
-      }
-
-      cookies.forEach(cookie => {
-        store.removeCookie(
-          cookie.domain,
-          cookie.path,
-          cookie.key,
-          removeCookieCb
-        );
-      });
-    });
-  }
-
-  static deserialize(strOrObj, store, cb) {
-    if (arguments.length !== 3) {
-      // store is optional
-      cb = store;
-      store = null;
-    }
-    validators.validate(validators.isFunction(cb), cb);
-
-    let serialized;
-    if (typeof strOrObj === "string") {
-      serialized = jsonParse(strOrObj);
-      if (serialized instanceof Error) {
-        return cb(serialized);
-      }
-    } else {
-      serialized = strOrObj;
-    }
-
-    const jar = new CookieJar(store, {
-      rejectPublicSuffixes: serialized.rejectPublicSuffixes,
-      looseMode: serialized.enableLooseMode,
-      allowSpecialUseDomain: serialized.allowSpecialUseDomain,
-      prefixSecurity: serialized.prefixSecurity
-    });
-    jar._importCookies(serialized, err => {
-      if (err) {
-        return cb(err);
-      }
-      cb(null, jar);
-    });
-  }
-
-  static deserializeSync(strOrObj, store) {
-    const serialized =
-      typeof strOrObj === "string" ? JSON.parse(strOrObj) : strOrObj;
-    const jar = new CookieJar(store, {
-      rejectPublicSuffixes: serialized.rejectPublicSuffixes,
-      looseMode: serialized.enableLooseMode
-    });
-
-    // catch this mistake early:
-    if (!jar.store.synchronous) {
-      throw new Error(
-        "CookieJar store is not synchronous; use async API instead."
-      );
-    }
-
-    jar._importCookiesSync(serialized);
-    return jar;
-  }
-}
-CookieJar.fromJSON = CookieJar.deserializeSync;
-
-[
-  "_importCookies",
-  "clone",
-  "getCookies",
-  "getCookieString",
-  "getSetCookieStrings",
-  "removeAllCookies",
-  "serialize",
-  "setCookie"
-].forEach(name => {
-  CookieJar.prototype[name] = fromCallback(CookieJar.prototype[name]);
-});
-CookieJar.deserialize = fromCallback(CookieJar.deserialize);
-
-// Use a closure to provide a true imperative API for synchronous stores.
-function syncWrap(method) {
-  return function(...args) {
-    if (!this.store.synchronous) {
-      throw new Error(
-        "CookieJar store is not synchronous; use async API instead."
-      );
-    }
-
-    let syncErr, syncResult;
-    this[method](...args, (err, result) => {
-      syncErr = err;
-      syncResult = result;
-    });
-
-    if (syncErr) {
-      throw syncErr;
-    }
-    return syncResult;
-  };
-}
-
-exports.version = VERSION;
-exports.CookieJar = CookieJar;
-exports.Cookie = Cookie;
-exports.Store = Store;
-exports.MemoryCookieStore = MemoryCookieStore;
-exports.parseDate = parseDate;
-exports.formatDate = formatDate;
-exports.parse = parse;
-exports.fromJSON = fromJSON;
-exports.domainMatch = domainMatch;
-exports.defaultPath = defaultPath;
-exports.pathMatch = pathMatch;
-exports.getPublicSuffix = pubsuffix.getPublicSuffix;
-exports.cookieCompare = cookieCompare;
-exports.permuteDomain = __nccwpck_require__(5696).permuteDomain;
-exports.permutePath = permutePath;
-exports.canonicalDomain = canonicalDomain;
-exports.PrefixSecurityEnum = PrefixSecurityEnum;
-exports.ParameterError = validators.ParameterError;
-
-
-/***/ }),
-
-/***/ 6738:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-var __webpack_unused_export__;
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-const { fromCallback } = __nccwpck_require__(9046);
-const Store = (__nccwpck_require__(7707)/* .Store */ .y);
-const permuteDomain = (__nccwpck_require__(5696).permuteDomain);
-const pathMatch = (__nccwpck_require__(807)/* .pathMatch */ .U);
-const { getCustomInspectSymbol, getUtilInspect } = __nccwpck_require__(9375);
-
-class MemoryCookieStore extends Store {
-  constructor() {
-    super();
-    this.synchronous = true;
-    this.idx = {};
-    const customInspectSymbol = getCustomInspectSymbol();
-    if (customInspectSymbol) {
-      this[customInspectSymbol] = this.inspect;
-    }
-  }
-
-  inspect() {
-    const util = { inspect: getUtilInspect(inspectFallback) };
-    return `{ idx: ${util.inspect(this.idx, false, 2)} }`;
-  }
-
-  findCookie(domain, path, key, cb) {
-    if (!this.idx[domain]) {
-      return cb(null, undefined);
-    }
-    if (!this.idx[domain][path]) {
-      return cb(null, undefined);
-    }
-    return cb(null, this.idx[domain][path][key] || null);
-  }
-  findCookies(domain, path, allowSpecialUseDomain, cb) {
-    const results = [];
-    if (typeof allowSpecialUseDomain === "function") {
-      cb = allowSpecialUseDomain;
-      allowSpecialUseDomain = true;
-    }
-    if (!domain) {
-      return cb(null, []);
-    }
-
-    let pathMatcher;
-    if (!path) {
-      // null means "all paths"
-      pathMatcher = function matchAll(domainIndex) {
-        for (const curPath in domainIndex) {
-          const pathIndex = domainIndex[curPath];
-          for (const key in pathIndex) {
-            results.push(pathIndex[key]);
-          }
-        }
-      };
-    } else {
-      pathMatcher = function matchRFC(domainIndex) {
-        //NOTE: we should use path-match algorithm from S5.1.4 here
-        //(see : https://github.com/ChromiumWebApps/chromium/blob/b3d3b4da8bb94c1b2e061600df106d590fda3620/net/cookies/canonical_cookie.cc#L299)
-        Object.keys(domainIndex).forEach(cookiePath => {
-          if (pathMatch(path, cookiePath)) {
-            const pathIndex = domainIndex[cookiePath];
-            for (const key in pathIndex) {
-              results.push(pathIndex[key]);
-            }
-          }
-        });
-      };
-    }
-
-    const domains = permuteDomain(domain, allowSpecialUseDomain) || [domain];
-    const idx = this.idx;
-    domains.forEach(curDomain => {
-      const domainIndex = idx[curDomain];
-      if (!domainIndex) {
-        return;
-      }
-      pathMatcher(domainIndex);
-    });
-
-    cb(null, results);
-  }
-
-  putCookie(cookie, cb) {
-    if (!this.idx[cookie.domain]) {
-      this.idx[cookie.domain] = {};
-    }
-    if (!this.idx[cookie.domain][cookie.path]) {
-      this.idx[cookie.domain][cookie.path] = {};
-    }
-    this.idx[cookie.domain][cookie.path][cookie.key] = cookie;
-    cb(null);
-  }
-  updateCookie(oldCookie, newCookie, cb) {
-    // updateCookie() may avoid updating cookies that are identical.  For example,
-    // lastAccessed may not be important to some stores and an equality
-    // comparison could exclude that field.
-    this.putCookie(newCookie, cb);
-  }
-  removeCookie(domain, path, key, cb) {
-    if (
-      this.idx[domain] &&
-      this.idx[domain][path] &&
-      this.idx[domain][path][key]
-    ) {
-      delete this.idx[domain][path][key];
-    }
-    cb(null);
-  }
-  removeCookies(domain, path, cb) {
-    if (this.idx[domain]) {
-      if (path) {
-        delete this.idx[domain][path];
-      } else {
-        delete this.idx[domain];
-      }
-    }
-    return cb(null);
-  }
-  removeAllCookies(cb) {
-    this.idx = {};
-    return cb(null);
-  }
-  getAllCookies(cb) {
-    const cookies = [];
-    const idx = this.idx;
-
-    const domains = Object.keys(idx);
-    domains.forEach(domain => {
-      const paths = Object.keys(idx[domain]);
-      paths.forEach(path => {
-        const keys = Object.keys(idx[domain][path]);
-        keys.forEach(key => {
-          if (key !== null) {
-            cookies.push(idx[domain][path][key]);
-          }
-        });
-      });
-    });
-
-    // Sort by creationIndex so deserializing retains the creation order.
-    // When implementing your own store, this SHOULD retain the order too
-    cookies.sort((a, b) => {
-      return (a.creationIndex || 0) - (b.creationIndex || 0);
-    });
-
-    cb(null, cookies);
-  }
-}
-
-[
-  "findCookie",
-  "findCookies",
-  "putCookie",
-  "updateCookie",
-  "removeCookie",
-  "removeCookies",
-  "removeAllCookies",
-  "getAllCookies"
-].forEach(name => {
-  MemoryCookieStore.prototype[name] = fromCallback(
-    MemoryCookieStore.prototype[name]
-  );
-});
-
-exports.m = MemoryCookieStore;
-
-function inspectFallback(val) {
-  const domains = Object.keys(val);
-  if (domains.length === 0) {
-    return "{}";
-  }
-  let result = "{\n";
-  Object.keys(val).forEach((domain, i) => {
-    result += formatDomain(domain, val[domain]);
-    if (i < domains.length - 1) {
-      result += ",";
-    }
-    result += "\n";
-  });
-  result += "}";
-  return result;
-}
-
-function formatDomain(domainName, domainValue) {
-  const indent = "  ";
-  let result = `${indent}'${domainName}': {\n`;
-  Object.keys(domainValue).forEach((path, i, paths) => {
-    result += formatPath(path, domainValue[path]);
-    if (i < paths.length - 1) {
-      result += ",";
-    }
-    result += "\n";
-  });
-  result += `${indent}}`;
-  return result;
-}
-
-function formatPath(pathName, pathValue) {
-  const indent = "    ";
-  let result = `${indent}'${pathName}': {\n`;
-  Object.keys(pathValue).forEach((cookieName, i, cookieNames) => {
-    const cookie = pathValue[cookieName];
-    result += `      ${cookieName}: ${cookie.inspect()}`;
-    if (i < cookieNames.length - 1) {
-      result += ",";
-    }
-    result += "\n";
-  });
-  result += `${indent}}`;
-  return result;
-}
-
-__webpack_unused_export__ = inspectFallback;
-
-
-/***/ }),
-
-/***/ 807:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*
- * "A request-path path-matches a given cookie-path if at least one of the
- * following conditions holds:"
- */
-function pathMatch(reqPath, cookiePath) {
-  // "o  The cookie-path and the request-path are identical."
-  if (cookiePath === reqPath) {
-    return true;
-  }
-
-  const idx = reqPath.indexOf(cookiePath);
-  if (idx === 0) {
-    // "o  The cookie-path is a prefix of the request-path, and the last
-    // character of the cookie-path is %x2F ("/")."
-    if (cookiePath.substr(-1) === "/") {
-      return true;
-    }
-
-    // " o  The cookie-path is a prefix of the request-path, and the first
-    // character of the request-path that is not included in the cookie- path
-    // is a %x2F ("/") character."
-    if (reqPath.substr(cookiePath.length, 1) === "/") {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-exports.U = pathMatch;
-
-
-/***/ }),
-
-/***/ 5696:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-const pubsuffix = __nccwpck_require__(8292);
-
-// Gives the permutation of all possible domainMatch()es of a given domain. The
-// array is in shortest-to-longest order.  Handy for indexing.
-
-function permuteDomain(domain, allowSpecialUseDomain) {
-  const pubSuf = pubsuffix.getPublicSuffix(domain, {
-    allowSpecialUseDomain: allowSpecialUseDomain
-  });
-
-  if (!pubSuf) {
-    return null;
-  }
-  if (pubSuf == domain) {
-    return [domain];
-  }
-
-  // Nuke trailing dot
-  if (domain.slice(-1) == ".") {
-    domain = domain.slice(0, -1);
-  }
-
-  const prefix = domain.slice(0, -(pubSuf.length + 1)); // ".example.com"
-  const parts = prefix.split(".").reverse();
-  let cur = pubSuf;
-  const permutations = [cur];
-  while (parts.length) {
-    cur = `${parts.shift()}.${cur}`;
-    permutations.push(cur);
-  }
-  return permutations;
-}
-
-exports.permuteDomain = permuteDomain;
-
-
-/***/ }),
-
-/***/ 8292:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-/*!
- * Copyright (c) 2018, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-const psl = __nccwpck_require__(9975);
-
-// RFC 6761
-const SPECIAL_USE_DOMAINS = [
-  "local",
-  "example",
-  "invalid",
-  "localhost",
-  "test"
-];
-
-const SPECIAL_TREATMENT_DOMAINS = ["localhost", "invalid"];
-
-function getPublicSuffix(domain, options = {}) {
-  const domainParts = domain.split(".");
-  const topLevelDomain = domainParts[domainParts.length - 1];
-  const allowSpecialUseDomain = !!options.allowSpecialUseDomain;
-  const ignoreError = !!options.ignoreError;
-
-  if (allowSpecialUseDomain && SPECIAL_USE_DOMAINS.includes(topLevelDomain)) {
-    if (domainParts.length > 1) {
-      const secondLevelDomain = domainParts[domainParts.length - 2];
-      // In aforementioned example, the eTLD/pubSuf will be apple.localhost
-      return `${secondLevelDomain}.${topLevelDomain}`;
-    } else if (SPECIAL_TREATMENT_DOMAINS.includes(topLevelDomain)) {
-      // For a single word special use domain, e.g. 'localhost' or 'invalid', per RFC 6761,
-      // "Application software MAY recognize {localhost/invalid} names as special, or
-      // MAY pass them to name resolution APIs as they would for other domain names."
-      return `${topLevelDomain}`;
-    }
-  }
-
-  if (!ignoreError && SPECIAL_USE_DOMAINS.includes(topLevelDomain)) {
-    throw new Error(
-      `Cookie has domain set to the public suffix "${topLevelDomain}" which is a special use domain. To allow this, configure your CookieJar with {allowSpecialUseDomain:true, rejectPublicSuffixes: false}.`
-    );
-  }
-
-  return psl.get(domain);
-}
-
-exports.getPublicSuffix = getPublicSuffix;
-
-
-/***/ }),
-
-/***/ 7707:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*jshint unused:false */
-
-class Store {
-  constructor() {
-    this.synchronous = false;
-  }
-
-  findCookie(domain, path, key, cb) {
-    throw new Error("findCookie is not implemented");
-  }
-
-  findCookies(domain, path, allowSpecialUseDomain, cb) {
-    throw new Error("findCookies is not implemented");
-  }
-
-  putCookie(cookie, cb) {
-    throw new Error("putCookie is not implemented");
-  }
-
-  updateCookie(oldCookie, newCookie, cb) {
-    // recommended default implementation:
-    // return this.putCookie(newCookie, cb);
-    throw new Error("updateCookie is not implemented");
-  }
-
-  removeCookie(domain, path, key, cb) {
-    throw new Error("removeCookie is not implemented");
-  }
-
-  removeCookies(domain, path, cb) {
-    throw new Error("removeCookies is not implemented");
-  }
-
-  removeAllCookies(cb) {
-    throw new Error("removeAllCookies is not implemented");
-  }
-
-  getAllCookies(cb) {
-    throw new Error(
-      "getAllCookies is not implemented (therefore jar cannot be serialized)"
-    );
-  }
-}
-
-exports.y = Store;
-
-
-/***/ }),
-
-/***/ 9375:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-function requireUtil() {
-  try {
-    // eslint-disable-next-line no-restricted-modules
-    return __nccwpck_require__(3837);
-  } catch (e) {
-    return null;
-  }
-}
-
-// for v10.12.0+
-function lookupCustomInspectSymbol() {
-  return Symbol.for("nodejs.util.inspect.custom");
-}
-
-// for older node environments
-function tryReadingCustomSymbolFromUtilInspect(options) {
-  const _requireUtil = options.requireUtil || requireUtil;
-  const util = _requireUtil();
-  return util ? util.inspect.custom : null;
-}
-
-exports.getUtilInspect = function getUtilInspect(fallback, options = {}) {
-  const _requireUtil = options.requireUtil || requireUtil;
-  const util = _requireUtil();
-  return function inspect(value, showHidden, depth) {
-    return util ? util.inspect(value, showHidden, depth) : fallback(value);
-  };
-};
-
-exports.getCustomInspectSymbol = function getCustomInspectSymbol(options = {}) {
-  const _lookupCustomInspectSymbol =
-    options.lookupCustomInspectSymbol || lookupCustomInspectSymbol;
-
-  // get custom inspect symbol for node environments
-  return (
-    _lookupCustomInspectSymbol() ||
-    tryReadingCustomSymbolFromUtilInspect(options)
-  );
-};
-
-
-/***/ }),
-
-/***/ 1598:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-/* ************************************************************************************
-Extracted from check-types.js
-https://gitlab.com/philbooth/check-types.js
-
-MIT License
-
-Copyright (c) 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Phil Booth
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-************************************************************************************ */
-
-
-/* Validation functions copied from check-types package - https://www.npmjs.com/package/check-types */
-function isFunction(data) {
-  return typeof data === "function";
-}
-
-function isNonEmptyString(data) {
-  return isString(data) && data !== "";
-}
-
-function isDate(data) {
-  return isInstanceStrict(data, Date) && isInteger(data.getTime());
-}
-
-function isEmptyString(data) {
-  return data === "" || (data instanceof String && data.toString() === "");
-}
-
-function isString(data) {
-  return typeof data === "string" || data instanceof String;
-}
-
-function isObject(data) {
-  return toString.call(data) === "[object Object]";
-}
-function isInstanceStrict(data, prototype) {
-  try {
-    return data instanceof prototype;
-  } catch (error) {
-    return false;
-  }
-}
-
-function isInteger(data) {
-  return typeof data === "number" && data % 1 === 0;
-}
-/* End validation functions */
-
-function validate(bool, cb, options) {
-  if (!isFunction(cb)) {
-    options = cb;
-    cb = null;
-  }
-  if (!isObject(options)) options = { Error: "Failed Check" };
-  if (!bool) {
-    if (cb) {
-      cb(new ParameterError(options));
-    } else {
-      throw new ParameterError(options);
-    }
-  }
-}
-
-class ParameterError extends Error {
-  constructor(...params) {
-    super(...params);
-  }
-}
-
-exports.ParameterError = ParameterError;
-exports.isFunction = isFunction;
-exports.isNonEmptyString = isNonEmptyString;
-exports.isDate = isDate;
-exports.isEmptyString = isEmptyString;
-exports.isString = isString;
-exports.isObject = isObject;
-exports.validate = validate;
-
-
-/***/ }),
-
-/***/ 8742:
-/***/ ((module) => {
-
-// generated by genversion
-module.exports = '4.1.2'
 
 
 /***/ }),
@@ -57092,6 +54612,7 @@ class Comparator {
       }
     }
 
+    comp = comp.trim().split(/\s+/).join(' ')
     debug('comparator', comp, options)
     this.options = options
     this.loose = !!options.loose
@@ -57154,13 +54675,6 @@ class Comparator {
       throw new TypeError('a Comparator is required')
     }
 
-    if (!options || typeof options !== 'object') {
-      options = {
-        loose: !!options,
-        includePrerelease: false,
-      }
-    }
-
     if (this.operator === '') {
       if (this.value === '') {
         return true
@@ -57173,39 +54687,50 @@ class Comparator {
       return new Range(this.value, options).test(comp.semver)
     }
 
-    const sameDirectionIncreasing =
-      (this.operator === '>=' || this.operator === '>') &&
-      (comp.operator === '>=' || comp.operator === '>')
-    const sameDirectionDecreasing =
-      (this.operator === '<=' || this.operator === '<') &&
-      (comp.operator === '<=' || comp.operator === '<')
-    const sameSemVer = this.semver.version === comp.semver.version
-    const differentDirectionsInclusive =
-      (this.operator === '>=' || this.operator === '<=') &&
-      (comp.operator === '>=' || comp.operator === '<=')
-    const oppositeDirectionsLessThan =
-      cmp(this.semver, '<', comp.semver, options) &&
-      (this.operator === '>=' || this.operator === '>') &&
-        (comp.operator === '<=' || comp.operator === '<')
-    const oppositeDirectionsGreaterThan =
-      cmp(this.semver, '>', comp.semver, options) &&
-      (this.operator === '<=' || this.operator === '<') &&
-        (comp.operator === '>=' || comp.operator === '>')
+    options = parseOptions(options)
 
-    return (
-      sameDirectionIncreasing ||
-      sameDirectionDecreasing ||
-      (sameSemVer && differentDirectionsInclusive) ||
-      oppositeDirectionsLessThan ||
-      oppositeDirectionsGreaterThan
-    )
+    // Special cases where nothing can possibly be lower
+    if (options.includePrerelease &&
+      (this.value === '<0.0.0-0' || comp.value === '<0.0.0-0')) {
+      return false
+    }
+    if (!options.includePrerelease &&
+      (this.value.startsWith('<0.0.0') || comp.value.startsWith('<0.0.0'))) {
+      return false
+    }
+
+    // Same direction increasing (> or >=)
+    if (this.operator.startsWith('>') && comp.operator.startsWith('>')) {
+      return true
+    }
+    // Same direction decreasing (< or <=)
+    if (this.operator.startsWith('<') && comp.operator.startsWith('<')) {
+      return true
+    }
+    // same SemVer and both sides are inclusive (<= or >=)
+    if (
+      (this.semver.version === comp.semver.version) &&
+      this.operator.includes('=') && comp.operator.includes('=')) {
+      return true
+    }
+    // opposite directions less than
+    if (cmp(this.semver, '<', comp.semver, options) &&
+      this.operator.startsWith('>') && comp.operator.startsWith('<')) {
+      return true
+    }
+    // opposite directions greater than
+    if (cmp(this.semver, '>', comp.semver, options) &&
+      this.operator.startsWith('<') && comp.operator.startsWith('>')) {
+      return true
+    }
+    return false
   }
 }
 
 module.exports = Comparator
 
 const parseOptions = __nccwpck_require__(785)
-const { re, t } = __nccwpck_require__(9523)
+const { safeRe: re, t } = __nccwpck_require__(9523)
 const cmp = __nccwpck_require__(5098)
 const debug = __nccwpck_require__(106)
 const SemVer = __nccwpck_require__(8088)
@@ -57245,19 +54770,26 @@ class Range {
     this.loose = !!options.loose
     this.includePrerelease = !!options.includePrerelease
 
-    // First, split based on boolean or ||
+    // First reduce all whitespace as much as possible so we do not have to rely
+    // on potentially slow regexes like \s*. This is then stored and used for
+    // future error messages as well.
     this.raw = range
-    this.set = range
+      .trim()
+      .split(/\s+/)
+      .join(' ')
+
+    // First, split on ||
+    this.set = this.raw
       .split('||')
       // map the range to a 2d array of comparators
-      .map(r => this.parseRange(r.trim()))
+      .map(r => this.parseRange(r))
       // throw out any comparator lists that are empty
       // this generally means that it was not a valid range, which is allowed
       // in loose mode, but will still throw if the WHOLE range is invalid.
       .filter(c => c.length)
 
     if (!this.set.length) {
-      throw new TypeError(`Invalid SemVer Range: ${range}`)
+      throw new TypeError(`Invalid SemVer Range: ${this.raw}`)
     }
 
     // if we have any that are not the null set, throw out null sets.
@@ -57283,9 +54815,7 @@ class Range {
 
   format () {
     this.range = this.set
-      .map((comps) => {
-        return comps.join(' ').trim()
-      })
+      .map((comps) => comps.join(' ').trim())
       .join('||')
       .trim()
     return this.range
@@ -57296,12 +54826,12 @@ class Range {
   }
 
   parseRange (range) {
-    range = range.trim()
-
     // memoize range parsing for performance.
     // this is a very hot path, and fully deterministic.
-    const memoOpts = Object.keys(this.options).join(',')
-    const memoKey = `parseRange:${memoOpts}:${range}`
+    const memoOpts =
+      (this.options.includePrerelease && FLAG_INCLUDE_PRERELEASE) |
+      (this.options.loose && FLAG_LOOSE)
+    const memoKey = memoOpts + ':' + range
     const cached = cache.get(memoKey)
     if (cached) {
       return cached
@@ -57321,9 +54851,6 @@ class Range {
 
     // `^ 1.2.3` => `^1.2.3`
     range = range.replace(re[t.CARETTRIM], caretTrimReplace)
-
-    // normalize spaces
-    range = range.split(/\s+/).join(' ')
 
     // At this point, the range is completely trimmed and
     // ready to be split into comparators.
@@ -57409,6 +54936,7 @@ class Range {
     return false
   }
 }
+
 module.exports = Range
 
 const LRU = __nccwpck_require__(7129)
@@ -57419,12 +54947,13 @@ const Comparator = __nccwpck_require__(1532)
 const debug = __nccwpck_require__(106)
 const SemVer = __nccwpck_require__(8088)
 const {
-  re,
+  safeRe: re,
   t,
   comparatorTrimReplace,
   tildeTrimReplace,
   caretTrimReplace,
 } = __nccwpck_require__(9523)
+const { FLAG_INCLUDE_PRERELEASE, FLAG_LOOSE } = __nccwpck_require__(2293)
 
 const isNullSet = c => c.value === '<0.0.0-0'
 const isAny = c => c.value === ''
@@ -57472,10 +55001,13 @@ const isX = id => !id || id.toLowerCase() === 'x' || id === '*'
 // ~1.2.3, ~>1.2.3 --> >=1.2.3 <1.3.0-0
 // ~1.2.0, ~>1.2.0 --> >=1.2.0 <1.3.0-0
 // ~0.0.1 --> >=0.0.1 <0.1.0-0
-const replaceTildes = (comp, options) =>
-  comp.trim().split(/\s+/).map((c) => {
-    return replaceTilde(c, options)
-  }).join(' ')
+const replaceTildes = (comp, options) => {
+  return comp
+    .trim()
+    .split(/\s+/)
+    .map((c) => replaceTilde(c, options))
+    .join(' ')
+}
 
 const replaceTilde = (comp, options) => {
   const r = options.loose ? re[t.TILDELOOSE] : re[t.TILDE]
@@ -57513,10 +55045,13 @@ const replaceTilde = (comp, options) => {
 // ^1.2.0 --> >=1.2.0 <2.0.0-0
 // ^0.0.1 --> >=0.0.1 <0.0.2-0
 // ^0.1.0 --> >=0.1.0 <0.2.0-0
-const replaceCarets = (comp, options) =>
-  comp.trim().split(/\s+/).map((c) => {
-    return replaceCaret(c, options)
-  }).join(' ')
+const replaceCarets = (comp, options) => {
+  return comp
+    .trim()
+    .split(/\s+/)
+    .map((c) => replaceCaret(c, options))
+    .join(' ')
+}
 
 const replaceCaret = (comp, options) => {
   debug('caret', comp, options)
@@ -57573,9 +55108,10 @@ const replaceCaret = (comp, options) => {
 
 const replaceXRanges = (comp, options) => {
   debug('replaceXRanges', comp, options)
-  return comp.split(/\s+/).map((c) => {
-    return replaceXRange(c, options)
-  }).join(' ')
+  return comp
+    .split(/\s+/)
+    .map((c) => replaceXRange(c, options))
+    .join(' ')
 }
 
 const replaceXRange = (comp, options) => {
@@ -57658,12 +55194,15 @@ const replaceXRange = (comp, options) => {
 const replaceStars = (comp, options) => {
   debug('replaceStars', comp, options)
   // Looseness is ignored here.  star is always as loose as it gets!
-  return comp.trim().replace(re[t.STAR], '')
+  return comp
+    .trim()
+    .replace(re[t.STAR], '')
 }
 
 const replaceGTE0 = (comp, options) => {
   debug('replaceGTE0', comp, options)
-  return comp.trim()
+  return comp
+    .trim()
     .replace(re[options.includePrerelease ? t.GTE0PRE : t.GTE0], '')
 }
 
@@ -57701,7 +55240,7 @@ const hyphenReplace = incPr => ($0,
     to = `<=${to}`
   }
 
-  return (`${from} ${to}`).trim()
+  return `${from} ${to}`.trim()
 }
 
 const testSet = (set, version, options) => {
@@ -57748,7 +55287,7 @@ const testSet = (set, version, options) => {
 
 const debug = __nccwpck_require__(106)
 const { MAX_LENGTH, MAX_SAFE_INTEGER } = __nccwpck_require__(2293)
-const { re, t } = __nccwpck_require__(9523)
+const { safeRe: re, t } = __nccwpck_require__(9523)
 
 const parseOptions = __nccwpck_require__(785)
 const { compareIdentifiers } = __nccwpck_require__(2463)
@@ -57764,7 +55303,7 @@ class SemVer {
         version = version.version
       }
     } else if (typeof version !== 'string') {
-      throw new TypeError(`Invalid Version: ${version}`)
+      throw new TypeError(`Invalid version. Must be a string. Got type "${typeof version}".`)
     }
 
     if (version.length > MAX_LENGTH) {
@@ -57923,36 +55462,36 @@ class SemVer {
 
   // preminor will bump the version up to the next minor release, and immediately
   // down to pre-release. premajor and prepatch work the same way.
-  inc (release, identifier) {
+  inc (release, identifier, identifierBase) {
     switch (release) {
       case 'premajor':
         this.prerelease.length = 0
         this.patch = 0
         this.minor = 0
         this.major++
-        this.inc('pre', identifier)
+        this.inc('pre', identifier, identifierBase)
         break
       case 'preminor':
         this.prerelease.length = 0
         this.patch = 0
         this.minor++
-        this.inc('pre', identifier)
+        this.inc('pre', identifier, identifierBase)
         break
       case 'prepatch':
         // If this is already a prerelease, it will bump to the next version
         // drop any prereleases that might already exist, since they are not
         // relevant at this point.
         this.prerelease.length = 0
-        this.inc('patch', identifier)
-        this.inc('pre', identifier)
+        this.inc('patch', identifier, identifierBase)
+        this.inc('pre', identifier, identifierBase)
         break
       // If the input is a non-prerelease version, this acts the same as
       // prepatch.
       case 'prerelease':
         if (this.prerelease.length === 0) {
-          this.inc('patch', identifier)
+          this.inc('patch', identifier, identifierBase)
         }
-        this.inc('pre', identifier)
+        this.inc('pre', identifier, identifierBase)
         break
 
       case 'major':
@@ -57994,9 +55533,15 @@ class SemVer {
         break
       // This probably shouldn't be used publicly.
       // 1.0.0 'pre' would become 1.0.0-0 which is the wrong direction.
-      case 'pre':
+      case 'pre': {
+        const base = Number(identifierBase) ? 1 : 0
+
+        if (!identifier && identifierBase === false) {
+          throw new Error('invalid increment argument: identifier is empty')
+        }
+
         if (this.prerelease.length === 0) {
-          this.prerelease = [0]
+          this.prerelease = [base]
         } else {
           let i = this.prerelease.length
           while (--i >= 0) {
@@ -58007,27 +55552,36 @@ class SemVer {
           }
           if (i === -1) {
             // didn't increment anything
-            this.prerelease.push(0)
+            if (identifier === this.prerelease.join('.') && identifierBase === false) {
+              throw new Error('invalid increment argument: identifier already exists')
+            }
+            this.prerelease.push(base)
           }
         }
         if (identifier) {
           // 1.2.0-beta.1 bumps to 1.2.0-beta.2,
           // 1.2.0-beta.fooblz or 1.2.0-beta bumps to 1.2.0-beta.0
+          let prerelease = [identifier, base]
+          if (identifierBase === false) {
+            prerelease = [identifier]
+          }
           if (compareIdentifiers(this.prerelease[0], identifier) === 0) {
             if (isNaN(this.prerelease[1])) {
-              this.prerelease = [identifier, 0]
+              this.prerelease = prerelease
             }
           } else {
-            this.prerelease = [identifier, 0]
+            this.prerelease = prerelease
           }
         }
         break
-
+      }
       default:
         throw new Error(`invalid increment argument: ${release}`)
     }
-    this.format()
-    this.raw = this.version
+    this.raw = this.format()
+    if (this.build.length) {
+      this.raw += `+${this.build.join('.')}`
+    }
     return this
   }
 }
@@ -58114,7 +55668,7 @@ module.exports = cmp
 
 const SemVer = __nccwpck_require__(8088)
 const parse = __nccwpck_require__(5925)
-const { re, t } = __nccwpck_require__(9523)
+const { safeRe: re, t } = __nccwpck_require__(9523)
 
 const coerce = (version, options) => {
   if (version instanceof SemVer) {
@@ -58208,27 +55762,69 @@ module.exports = compare
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const parse = __nccwpck_require__(5925)
-const eq = __nccwpck_require__(1898)
 
 const diff = (version1, version2) => {
-  if (eq(version1, version2)) {
+  const v1 = parse(version1, null, true)
+  const v2 = parse(version2, null, true)
+  const comparison = v1.compare(v2)
+
+  if (comparison === 0) {
     return null
-  } else {
-    const v1 = parse(version1)
-    const v2 = parse(version2)
-    const hasPre = v1.prerelease.length || v2.prerelease.length
-    const prefix = hasPre ? 'pre' : ''
-    const defaultResult = hasPre ? 'prerelease' : ''
-    for (const key in v1) {
-      if (key === 'major' || key === 'minor' || key === 'patch') {
-        if (v1[key] !== v2[key]) {
-          return prefix + key
-        }
-      }
-    }
-    return defaultResult // may be undefined
   }
+
+  const v1Higher = comparison > 0
+  const highVersion = v1Higher ? v1 : v2
+  const lowVersion = v1Higher ? v2 : v1
+  const highHasPre = !!highVersion.prerelease.length
+  const lowHasPre = !!lowVersion.prerelease.length
+
+  if (lowHasPre && !highHasPre) {
+    // Going from prerelease -> no prerelease requires some special casing
+
+    // If the low version has only a major, then it will always be a major
+    // Some examples:
+    // 1.0.0-1 -> 1.0.0
+    // 1.0.0-1 -> 1.1.1
+    // 1.0.0-1 -> 2.0.0
+    if (!lowVersion.patch && !lowVersion.minor) {
+      return 'major'
+    }
+
+    // Otherwise it can be determined by checking the high version
+
+    if (highVersion.patch) {
+      // anything higher than a patch bump would result in the wrong version
+      return 'patch'
+    }
+
+    if (highVersion.minor) {
+      // anything higher than a minor bump would result in the wrong version
+      return 'minor'
+    }
+
+    // bumping major/minor/patch all have same result
+    return 'major'
+  }
+
+  // add the `pre` prefix if we are going to a prerelease version
+  const prefix = highHasPre ? 'pre' : ''
+
+  if (v1.major !== v2.major) {
+    return prefix + 'major'
+  }
+
+  if (v1.minor !== v2.minor) {
+    return prefix + 'minor'
+  }
+
+  if (v1.patch !== v2.patch) {
+    return prefix + 'patch'
+  }
+
+  // high and low are preleases
+  return 'prerelease'
 }
+
 module.exports = diff
 
 
@@ -58269,8 +55865,9 @@ module.exports = gte
 
 const SemVer = __nccwpck_require__(8088)
 
-const inc = (version, release, options, identifier) => {
+const inc = (version, release, options, identifier, identifierBase) => {
   if (typeof (options) === 'string') {
+    identifierBase = identifier
     identifier = options
     options = undefined
   }
@@ -58279,7 +55876,7 @@ const inc = (version, release, options, identifier) => {
     return new SemVer(
       version instanceof SemVer ? version.version : version,
       options
-    ).inc(release, identifier).version
+    ).inc(release, identifier, identifierBase).version
   } catch (er) {
     return null
   }
@@ -58342,35 +55939,18 @@ module.exports = neq
 /***/ 5925:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { MAX_LENGTH } = __nccwpck_require__(2293)
-const { re, t } = __nccwpck_require__(9523)
 const SemVer = __nccwpck_require__(8088)
-
-const parseOptions = __nccwpck_require__(785)
-const parse = (version, options) => {
-  options = parseOptions(options)
-
+const parse = (version, options, throwErrors = false) => {
   if (version instanceof SemVer) {
     return version
   }
-
-  if (typeof version !== 'string') {
-    return null
-  }
-
-  if (version.length > MAX_LENGTH) {
-    return null
-  }
-
-  const r = options.loose ? re[t.LOOSE] : re[t.FULL]
-  if (!r.test(version)) {
-    return null
-  }
-
   try {
     return new SemVer(version, options)
   } catch (er) {
-    return null
+    if (!throwErrors) {
+      return null
+    }
+    throw er
   }
 }
 
@@ -58550,6 +56130,7 @@ module.exports = {
   src: internalRe.src,
   tokens: internalRe.t,
   SEMVER_SPEC_VERSION: constants.SEMVER_SPEC_VERSION,
+  RELEASE_TYPES: constants.RELEASE_TYPES,
   compareIdentifiers: identifiers.compareIdentifiers,
   rcompareIdentifiers: identifiers.rcompareIdentifiers,
 }
@@ -58571,11 +56152,24 @@ const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER ||
 // Max safe segment length for coercion.
 const MAX_SAFE_COMPONENT_LENGTH = 16
 
+const RELEASE_TYPES = [
+  'major',
+  'premajor',
+  'minor',
+  'preminor',
+  'patch',
+  'prepatch',
+  'prerelease',
+]
+
 module.exports = {
-  SEMVER_SPEC_VERSION,
   MAX_LENGTH,
-  MAX_SAFE_INTEGER,
   MAX_SAFE_COMPONENT_LENGTH,
+  MAX_SAFE_INTEGER,
+  RELEASE_TYPES,
+  SEMVER_SPEC_VERSION,
+  FLAG_INCLUDE_PRERELEASE: 0b001,
+  FLAG_LOOSE: 0b010,
 }
 
 
@@ -58630,16 +56224,20 @@ module.exports = {
 /***/ 785:
 /***/ ((module) => {
 
-// parse out just the options we care about so we always get a consistent
-// obj with keys in a consistent order.
-const opts = ['includePrerelease', 'loose', 'rtl']
-const parseOptions = options =>
-  !options ? {}
-  : typeof options !== 'object' ? { loose: true }
-  : opts.filter(k => options[k]).reduce((o, k) => {
-    o[k] = true
-    return o
-  }, {})
+// parse out just the options we care about
+const looseOption = Object.freeze({ loose: true })
+const emptyOpts = Object.freeze({ })
+const parseOptions = options => {
+  if (!options) {
+    return emptyOpts
+  }
+
+  if (typeof options !== 'object') {
+    return looseOption
+  }
+
+  return options
+}
 module.exports = parseOptions
 
 
@@ -58654,16 +56252,27 @@ exports = module.exports = {}
 
 // The actual regexps go on exports.re
 const re = exports.re = []
+const safeRe = exports.safeRe = []
 const src = exports.src = []
 const t = exports.t = {}
 let R = 0
 
 const createToken = (name, value, isGlobal) => {
+  // Replace all greedy whitespace to prevent regex dos issues. These regex are
+  // used internally via the safeRe object since all inputs in this library get
+  // normalized first to trim and collapse all extra whitespace. The original
+  // regexes are exported for userland consumption and lower level usage. A
+  // future breaking change could export the safer regex only with a note that
+  // all input should have extra whitespace removed.
+  const safe = value
+    .split('\\s*').join('\\s{0,1}')
+    .split('\\s+').join('\\s')
   const index = R++
   debug(name, index, value)
   t[name] = index
   src[index] = value
   re[index] = new RegExp(value, isGlobal ? 'g' : undefined)
+  safeRe[index] = new RegExp(safe, isGlobal ? 'g' : undefined)
 }
 
 // The following Regular Expressions can be used for tokenizing,
@@ -58852,7 +56461,7 @@ const Range = __nccwpck_require__(9828)
 const intersects = (r1, r2, options) => {
   r1 = new Range(r1, options)
   r2 = new Range(r2, options)
-  return r1.intersects(r2)
+  return r1.intersects(r2, options)
 }
 module.exports = intersects
 
@@ -59215,6 +56824,9 @@ const subset = (sub, dom, options = {}) => {
   return true
 }
 
+const minimumVersionWithPreRelease = [new Comparator('>=0.0.0-0')]
+const minimumVersion = [new Comparator('>=0.0.0')]
+
 const simpleSubset = (sub, dom, options) => {
   if (sub === dom) {
     return true
@@ -59224,9 +56836,9 @@ const simpleSubset = (sub, dom, options) => {
     if (dom.length === 1 && dom[0].semver === ANY) {
       return true
     } else if (options.includePrerelease) {
-      sub = [new Comparator('>=0.0.0-0')]
+      sub = minimumVersionWithPreRelease
     } else {
-      sub = [new Comparator('>=0.0.0')]
+      sub = minimumVersion
     }
   }
 
@@ -59234,7 +56846,7 @@ const simpleSubset = (sub, dom, options) => {
     if (options.includePrerelease) {
       return true
     } else {
-      dom = [new Comparator('>=0.0.0')]
+      dom = minimumVersion
     }
   }
 
@@ -59422,6 +57034,2486 @@ const validRange = (range, options) => {
   }
 }
 module.exports = validRange
+
+
+/***/ }),
+
+/***/ 7372:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015-2020, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const punycode = __nccwpck_require__(9540);
+const urlParse = __nccwpck_require__(5682);
+const pubsuffix = __nccwpck_require__(4401);
+const Store = (__nccwpck_require__(460)/* .Store */ .y);
+const MemoryCookieStore = (__nccwpck_require__(2640)/* .MemoryCookieStore */ .m);
+const pathMatch = (__nccwpck_require__(4336)/* .pathMatch */ .U);
+const validators = __nccwpck_require__(7886);
+const VERSION = __nccwpck_require__(3199);
+const { fromCallback } = __nccwpck_require__(9046);
+const { getCustomInspectSymbol } = __nccwpck_require__(5309);
+
+// From RFC6265 S4.1.1
+// note that it excludes \x3B ";"
+const COOKIE_OCTETS = /^[\x21\x23-\x2B\x2D-\x3A\x3C-\x5B\x5D-\x7E]+$/;
+
+const CONTROL_CHARS = /[\x00-\x1F]/;
+
+// From Chromium // '\r', '\n' and '\0' should be treated as a terminator in
+// the "relaxed" mode, see:
+// https://github.com/ChromiumWebApps/chromium/blob/b3d3b4da8bb94c1b2e061600df106d590fda3620/net/cookies/parsed_cookie.cc#L60
+const TERMINATORS = ["\n", "\r", "\0"];
+
+// RFC6265 S4.1.1 defines path value as 'any CHAR except CTLs or ";"'
+// Note ';' is \x3B
+const PATH_VALUE = /[\x20-\x3A\x3C-\x7E]+/;
+
+// date-time parsing constants (RFC6265 S5.1.1)
+
+const DATE_DELIM = /[\x09\x20-\x2F\x3B-\x40\x5B-\x60\x7B-\x7E]/;
+
+const MONTH_TO_NUM = {
+  jan: 0,
+  feb: 1,
+  mar: 2,
+  apr: 3,
+  may: 4,
+  jun: 5,
+  jul: 6,
+  aug: 7,
+  sep: 8,
+  oct: 9,
+  nov: 10,
+  dec: 11
+};
+
+const MAX_TIME = 2147483647000; // 31-bit max
+const MIN_TIME = 0; // 31-bit min
+const SAME_SITE_CONTEXT_VAL_ERR =
+  'Invalid sameSiteContext option for getCookies(); expected one of "strict", "lax", or "none"';
+
+function checkSameSiteContext(value) {
+  validators.validate(validators.isNonEmptyString(value), value);
+  const context = String(value).toLowerCase();
+  if (context === "none" || context === "lax" || context === "strict") {
+    return context;
+  } else {
+    return null;
+  }
+}
+
+const PrefixSecurityEnum = Object.freeze({
+  SILENT: "silent",
+  STRICT: "strict",
+  DISABLED: "unsafe-disabled"
+});
+
+// Dumped from ip-regex@4.0.0, with the following changes:
+// * all capturing groups converted to non-capturing -- "(?:)"
+// * support for IPv6 Scoped Literal ("%eth1") removed
+// * lowercase hexadecimal only
+const IP_REGEX_LOWERCASE = /(?:^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$)|(?:^(?:(?:[a-f\d]{1,4}:){7}(?:[a-f\d]{1,4}|:)|(?:[a-f\d]{1,4}:){6}(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|:[a-f\d]{1,4}|:)|(?:[a-f\d]{1,4}:){5}(?::(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,2}|:)|(?:[a-f\d]{1,4}:){4}(?:(?::[a-f\d]{1,4}){0,1}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,3}|:)|(?:[a-f\d]{1,4}:){3}(?:(?::[a-f\d]{1,4}){0,2}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,4}|:)|(?:[a-f\d]{1,4}:){2}(?:(?::[a-f\d]{1,4}){0,3}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,5}|:)|(?:[a-f\d]{1,4}:){1}(?:(?::[a-f\d]{1,4}){0,4}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,6}|:)|(?::(?:(?::[a-f\d]{1,4}){0,5}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,7}|:)))$)/;
+const IP_V6_REGEX = `
+\\[?(?:
+(?:[a-fA-F\\d]{1,4}:){7}(?:[a-fA-F\\d]{1,4}|:)|
+(?:[a-fA-F\\d]{1,4}:){6}(?:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|:[a-fA-F\\d]{1,4}|:)|
+(?:[a-fA-F\\d]{1,4}:){5}(?::(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,2}|:)|
+(?:[a-fA-F\\d]{1,4}:){4}(?:(?::[a-fA-F\\d]{1,4}){0,1}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,3}|:)|
+(?:[a-fA-F\\d]{1,4}:){3}(?:(?::[a-fA-F\\d]{1,4}){0,2}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,4}|:)|
+(?:[a-fA-F\\d]{1,4}:){2}(?:(?::[a-fA-F\\d]{1,4}){0,3}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,5}|:)|
+(?:[a-fA-F\\d]{1,4}:){1}(?:(?::[a-fA-F\\d]{1,4}){0,4}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,6}|:)|
+(?::(?:(?::[a-fA-F\\d]{1,4}){0,5}:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}|(?::[a-fA-F\\d]{1,4}){1,7}|:))
+)(?:%[0-9a-zA-Z]{1,})?\\]?
+`
+  .replace(/\s*\/\/.*$/gm, "")
+  .replace(/\n/g, "")
+  .trim();
+const IP_V6_REGEX_OBJECT = new RegExp(`^${IP_V6_REGEX}$`);
+
+/*
+ * Parses a Natural number (i.e., non-negative integer) with either the
+ *    <min>*<max>DIGIT ( non-digit *OCTET )
+ * or
+ *    <min>*<max>DIGIT
+ * grammar (RFC6265 S5.1.1).
+ *
+ * The "trailingOK" boolean controls if the grammar accepts a
+ * "( non-digit *OCTET )" trailer.
+ */
+function parseDigits(token, minDigits, maxDigits, trailingOK) {
+  let count = 0;
+  while (count < token.length) {
+    const c = token.charCodeAt(count);
+    // "non-digit = %x00-2F / %x3A-FF"
+    if (c <= 0x2f || c >= 0x3a) {
+      break;
+    }
+    count++;
+  }
+
+  // constrain to a minimum and maximum number of digits.
+  if (count < minDigits || count > maxDigits) {
+    return null;
+  }
+
+  if (!trailingOK && count != token.length) {
+    return null;
+  }
+
+  return parseInt(token.substr(0, count), 10);
+}
+
+function parseTime(token) {
+  const parts = token.split(":");
+  const result = [0, 0, 0];
+
+  /* RF6256 S5.1.1:
+   *      time            = hms-time ( non-digit *OCTET )
+   *      hms-time        = time-field ":" time-field ":" time-field
+   *      time-field      = 1*2DIGIT
+   */
+
+  if (parts.length !== 3) {
+    return null;
+  }
+
+  for (let i = 0; i < 3; i++) {
+    // "time-field" must be strictly "1*2DIGIT", HOWEVER, "hms-time" can be
+    // followed by "( non-digit *OCTET )" so therefore the last time-field can
+    // have a trailer
+    const trailingOK = i == 2;
+    const num = parseDigits(parts[i], 1, 2, trailingOK);
+    if (num === null) {
+      return null;
+    }
+    result[i] = num;
+  }
+
+  return result;
+}
+
+function parseMonth(token) {
+  token = String(token)
+    .substr(0, 3)
+    .toLowerCase();
+  const num = MONTH_TO_NUM[token];
+  return num >= 0 ? num : null;
+}
+
+/*
+ * RFC6265 S5.1.1 date parser (see RFC for full grammar)
+ */
+function parseDate(str) {
+  if (!str) {
+    return;
+  }
+
+  /* RFC6265 S5.1.1:
+   * 2. Process each date-token sequentially in the order the date-tokens
+   * appear in the cookie-date
+   */
+  const tokens = str.split(DATE_DELIM);
+  if (!tokens) {
+    return;
+  }
+
+  let hour = null;
+  let minute = null;
+  let second = null;
+  let dayOfMonth = null;
+  let month = null;
+  let year = null;
+
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i].trim();
+    if (!token.length) {
+      continue;
+    }
+
+    let result;
+
+    /* 2.1. If the found-time flag is not set and the token matches the time
+     * production, set the found-time flag and set the hour- value,
+     * minute-value, and second-value to the numbers denoted by the digits in
+     * the date-token, respectively.  Skip the remaining sub-steps and continue
+     * to the next date-token.
+     */
+    if (second === null) {
+      result = parseTime(token);
+      if (result) {
+        hour = result[0];
+        minute = result[1];
+        second = result[2];
+        continue;
+      }
+    }
+
+    /* 2.2. If the found-day-of-month flag is not set and the date-token matches
+     * the day-of-month production, set the found-day-of- month flag and set
+     * the day-of-month-value to the number denoted by the date-token.  Skip
+     * the remaining sub-steps and continue to the next date-token.
+     */
+    if (dayOfMonth === null) {
+      // "day-of-month = 1*2DIGIT ( non-digit *OCTET )"
+      result = parseDigits(token, 1, 2, true);
+      if (result !== null) {
+        dayOfMonth = result;
+        continue;
+      }
+    }
+
+    /* 2.3. If the found-month flag is not set and the date-token matches the
+     * month production, set the found-month flag and set the month-value to
+     * the month denoted by the date-token.  Skip the remaining sub-steps and
+     * continue to the next date-token.
+     */
+    if (month === null) {
+      result = parseMonth(token);
+      if (result !== null) {
+        month = result;
+        continue;
+      }
+    }
+
+    /* 2.4. If the found-year flag is not set and the date-token matches the
+     * year production, set the found-year flag and set the year-value to the
+     * number denoted by the date-token.  Skip the remaining sub-steps and
+     * continue to the next date-token.
+     */
+    if (year === null) {
+      // "year = 2*4DIGIT ( non-digit *OCTET )"
+      result = parseDigits(token, 2, 4, true);
+      if (result !== null) {
+        year = result;
+        /* From S5.1.1:
+         * 3.  If the year-value is greater than or equal to 70 and less
+         * than or equal to 99, increment the year-value by 1900.
+         * 4.  If the year-value is greater than or equal to 0 and less
+         * than or equal to 69, increment the year-value by 2000.
+         */
+        if (year >= 70 && year <= 99) {
+          year += 1900;
+        } else if (year >= 0 && year <= 69) {
+          year += 2000;
+        }
+      }
+    }
+  }
+
+  /* RFC 6265 S5.1.1
+   * "5. Abort these steps and fail to parse the cookie-date if:
+   *     *  at least one of the found-day-of-month, found-month, found-
+   *        year, or found-time flags is not set,
+   *     *  the day-of-month-value is less than 1 or greater than 31,
+   *     *  the year-value is less than 1601,
+   *     *  the hour-value is greater than 23,
+   *     *  the minute-value is greater than 59, or
+   *     *  the second-value is greater than 59.
+   *     (Note that leap seconds cannot be represented in this syntax.)"
+   *
+   * So, in order as above:
+   */
+  if (
+    dayOfMonth === null ||
+    month === null ||
+    year === null ||
+    second === null ||
+    dayOfMonth < 1 ||
+    dayOfMonth > 31 ||
+    year < 1601 ||
+    hour > 23 ||
+    minute > 59 ||
+    second > 59
+  ) {
+    return;
+  }
+
+  return new Date(Date.UTC(year, month, dayOfMonth, hour, minute, second));
+}
+
+function formatDate(date) {
+  validators.validate(validators.isDate(date), date);
+  return date.toUTCString();
+}
+
+// S5.1.2 Canonicalized Host Names
+function canonicalDomain(str) {
+  if (str == null) {
+    return null;
+  }
+  str = str.trim().replace(/^\./, ""); // S4.1.2.3 & S5.2.3: ignore leading .
+
+  if (IP_V6_REGEX_OBJECT.test(str)) {
+    str = str.replace("[", "").replace("]", "");
+  }
+
+  // convert to IDN if any non-ASCII characters
+  if (punycode && /[^\u0001-\u007f]/.test(str)) {
+    str = punycode.toASCII(str);
+  }
+
+  return str.toLowerCase();
+}
+
+// S5.1.3 Domain Matching
+function domainMatch(str, domStr, canonicalize) {
+  if (str == null || domStr == null) {
+    return null;
+  }
+  if (canonicalize !== false) {
+    str = canonicalDomain(str);
+    domStr = canonicalDomain(domStr);
+  }
+
+  /*
+   * S5.1.3:
+   * "A string domain-matches a given domain string if at least one of the
+   * following conditions hold:"
+   *
+   * " o The domain string and the string are identical. (Note that both the
+   * domain string and the string will have been canonicalized to lower case at
+   * this point)"
+   */
+  if (str == domStr) {
+    return true;
+  }
+
+  /* " o All of the following [three] conditions hold:" */
+
+  /* "* The domain string is a suffix of the string" */
+  const idx = str.lastIndexOf(domStr);
+  if (idx <= 0) {
+    return false; // it's a non-match (-1) or prefix (0)
+  }
+
+  // next, check it's a proper suffix
+  // e.g., "a.b.c".indexOf("b.c") === 2
+  // 5 === 3+2
+  if (str.length !== domStr.length + idx) {
+    return false; // it's not a suffix
+  }
+
+  /* "  * The last character of the string that is not included in the
+   * domain string is a %x2E (".") character." */
+  if (str.substr(idx - 1, 1) !== ".") {
+    return false; // doesn't align on "."
+  }
+
+  /* "  * The string is a host name (i.e., not an IP address)." */
+  if (IP_REGEX_LOWERCASE.test(str)) {
+    return false; // it's an IP address
+  }
+
+  return true;
+}
+
+// RFC6265 S5.1.4 Paths and Path-Match
+
+/*
+ * "The user agent MUST use an algorithm equivalent to the following algorithm
+ * to compute the default-path of a cookie:"
+ *
+ * Assumption: the path (and not query part or absolute uri) is passed in.
+ */
+function defaultPath(path) {
+  // "2. If the uri-path is empty or if the first character of the uri-path is not
+  // a %x2F ("/") character, output %x2F ("/") and skip the remaining steps.
+  if (!path || path.substr(0, 1) !== "/") {
+    return "/";
+  }
+
+  // "3. If the uri-path contains no more than one %x2F ("/") character, output
+  // %x2F ("/") and skip the remaining step."
+  if (path === "/") {
+    return path;
+  }
+
+  const rightSlash = path.lastIndexOf("/");
+  if (rightSlash === 0) {
+    return "/";
+  }
+
+  // "4. Output the characters of the uri-path from the first character up to,
+  // but not including, the right-most %x2F ("/")."
+  return path.slice(0, rightSlash);
+}
+
+function trimTerminator(str) {
+  if (validators.isEmptyString(str)) return str;
+  for (let t = 0; t < TERMINATORS.length; t++) {
+    const terminatorIdx = str.indexOf(TERMINATORS[t]);
+    if (terminatorIdx !== -1) {
+      str = str.substr(0, terminatorIdx);
+    }
+  }
+
+  return str;
+}
+
+function parseCookiePair(cookiePair, looseMode) {
+  cookiePair = trimTerminator(cookiePair);
+  validators.validate(validators.isString(cookiePair), cookiePair);
+
+  let firstEq = cookiePair.indexOf("=");
+  if (looseMode) {
+    if (firstEq === 0) {
+      // '=' is immediately at start
+      cookiePair = cookiePair.substr(1);
+      firstEq = cookiePair.indexOf("="); // might still need to split on '='
+    }
+  } else {
+    // non-loose mode
+    if (firstEq <= 0) {
+      // no '=' or is at start
+      return; // needs to have non-empty "cookie-name"
+    }
+  }
+
+  let cookieName, cookieValue;
+  if (firstEq <= 0) {
+    cookieName = "";
+    cookieValue = cookiePair.trim();
+  } else {
+    cookieName = cookiePair.substr(0, firstEq).trim();
+    cookieValue = cookiePair.substr(firstEq + 1).trim();
+  }
+
+  if (CONTROL_CHARS.test(cookieName) || CONTROL_CHARS.test(cookieValue)) {
+    return;
+  }
+
+  const c = new Cookie();
+  c.key = cookieName;
+  c.value = cookieValue;
+  return c;
+}
+
+function parse(str, options) {
+  if (!options || typeof options !== "object") {
+    options = {};
+  }
+
+  if (validators.isEmptyString(str) || !validators.isString(str)) {
+    return null;
+  }
+
+  str = str.trim();
+
+  // We use a regex to parse the "name-value-pair" part of S5.2
+  const firstSemi = str.indexOf(";"); // S5.2 step 1
+  const cookiePair = firstSemi === -1 ? str : str.substr(0, firstSemi);
+  const c = parseCookiePair(cookiePair, !!options.loose);
+  if (!c) {
+    return;
+  }
+
+  if (firstSemi === -1) {
+    return c;
+  }
+
+  // S5.2.3 "unparsed-attributes consist of the remainder of the set-cookie-string
+  // (including the %x3B (";") in question)." plus later on in the same section
+  // "discard the first ";" and trim".
+  const unparsed = str.slice(firstSemi + 1).trim();
+
+  // "If the unparsed-attributes string is empty, skip the rest of these
+  // steps."
+  if (unparsed.length === 0) {
+    return c;
+  }
+
+  /*
+   * S5.2 says that when looping over the items "[p]rocess the attribute-name
+   * and attribute-value according to the requirements in the following
+   * subsections" for every item.  Plus, for many of the individual attributes
+   * in S5.3 it says to use the "attribute-value of the last attribute in the
+   * cookie-attribute-list".  Therefore, in this implementation, we overwrite
+   * the previous value.
+   */
+  const cookie_avs = unparsed.split(";");
+  while (cookie_avs.length) {
+    const av = cookie_avs.shift().trim();
+    if (av.length === 0) {
+      // happens if ";;" appears
+      continue;
+    }
+    const av_sep = av.indexOf("=");
+    let av_key, av_value;
+
+    if (av_sep === -1) {
+      av_key = av;
+      av_value = null;
+    } else {
+      av_key = av.substr(0, av_sep);
+      av_value = av.substr(av_sep + 1);
+    }
+
+    av_key = av_key.trim().toLowerCase();
+
+    if (av_value) {
+      av_value = av_value.trim();
+    }
+
+    switch (av_key) {
+      case "expires": // S5.2.1
+        if (av_value) {
+          const exp = parseDate(av_value);
+          // "If the attribute-value failed to parse as a cookie date, ignore the
+          // cookie-av."
+          if (exp) {
+            // over and underflow not realistically a concern: V8's getTime() seems to
+            // store something larger than a 32-bit time_t (even with 32-bit node)
+            c.expires = exp;
+          }
+        }
+        break;
+
+      case "max-age": // S5.2.2
+        if (av_value) {
+          // "If the first character of the attribute-value is not a DIGIT or a "-"
+          // character ...[or]... If the remainder of attribute-value contains a
+          // non-DIGIT character, ignore the cookie-av."
+          if (/^-?[0-9]+$/.test(av_value)) {
+            const delta = parseInt(av_value, 10);
+            // "If delta-seconds is less than or equal to zero (0), let expiry-time
+            // be the earliest representable date and time."
+            c.setMaxAge(delta);
+          }
+        }
+        break;
+
+      case "domain": // S5.2.3
+        // "If the attribute-value is empty, the behavior is undefined.  However,
+        // the user agent SHOULD ignore the cookie-av entirely."
+        if (av_value) {
+          // S5.2.3 "Let cookie-domain be the attribute-value without the leading %x2E
+          // (".") character."
+          const domain = av_value.trim().replace(/^\./, "");
+          if (domain) {
+            // "Convert the cookie-domain to lower case."
+            c.domain = domain.toLowerCase();
+          }
+        }
+        break;
+
+      case "path": // S5.2.4
+        /*
+         * "If the attribute-value is empty or if the first character of the
+         * attribute-value is not %x2F ("/"):
+         *   Let cookie-path be the default-path.
+         * Otherwise:
+         *   Let cookie-path be the attribute-value."
+         *
+         * We'll represent the default-path as null since it depends on the
+         * context of the parsing.
+         */
+        c.path = av_value && av_value[0] === "/" ? av_value : null;
+        break;
+
+      case "secure": // S5.2.5
+        /*
+         * "If the attribute-name case-insensitively matches the string "Secure",
+         * the user agent MUST append an attribute to the cookie-attribute-list
+         * with an attribute-name of Secure and an empty attribute-value."
+         */
+        c.secure = true;
+        break;
+
+      case "httponly": // S5.2.6 -- effectively the same as 'secure'
+        c.httpOnly = true;
+        break;
+
+      case "samesite": // RFC6265bis-02 S5.3.7
+        const enforcement = av_value ? av_value.toLowerCase() : "";
+        switch (enforcement) {
+          case "strict":
+            c.sameSite = "strict";
+            break;
+          case "lax":
+            c.sameSite = "lax";
+            break;
+          case "none":
+            c.sameSite = "none";
+            break;
+          default:
+            c.sameSite = undefined;
+            break;
+        }
+        break;
+
+      default:
+        c.extensions = c.extensions || [];
+        c.extensions.push(av);
+        break;
+    }
+  }
+
+  return c;
+}
+
+/**
+ *  If the cookie-name begins with a case-sensitive match for the
+ *  string "__Secure-", abort these steps and ignore the cookie
+ *  entirely unless the cookie's secure-only-flag is true.
+ * @param cookie
+ * @returns boolean
+ */
+function isSecurePrefixConditionMet(cookie) {
+  validators.validate(validators.isObject(cookie), cookie);
+  return !cookie.key.startsWith("__Secure-") || cookie.secure;
+}
+
+/**
+ *  If the cookie-name begins with a case-sensitive match for the
+ *  string "__Host-", abort these steps and ignore the cookie
+ *  entirely unless the cookie meets all the following criteria:
+ *    1.  The cookie's secure-only-flag is true.
+ *    2.  The cookie's host-only-flag is true.
+ *    3.  The cookie-attribute-list contains an attribute with an
+ *        attribute-name of "Path", and the cookie's path is "/".
+ * @param cookie
+ * @returns boolean
+ */
+function isHostPrefixConditionMet(cookie) {
+  validators.validate(validators.isObject(cookie));
+  return (
+    !cookie.key.startsWith("__Host-") ||
+    (cookie.secure &&
+      cookie.hostOnly &&
+      cookie.path != null &&
+      cookie.path === "/")
+  );
+}
+
+// avoid the V8 deoptimization monster!
+function jsonParse(str) {
+  let obj;
+  try {
+    obj = JSON.parse(str);
+  } catch (e) {
+    return e;
+  }
+  return obj;
+}
+
+function fromJSON(str) {
+  if (!str || validators.isEmptyString(str)) {
+    return null;
+  }
+
+  let obj;
+  if (typeof str === "string") {
+    obj = jsonParse(str);
+    if (obj instanceof Error) {
+      return null;
+    }
+  } else {
+    // assume it's an Object
+    obj = str;
+  }
+
+  const c = new Cookie();
+  for (let i = 0; i < Cookie.serializableProperties.length; i++) {
+    const prop = Cookie.serializableProperties[i];
+    if (obj[prop] === undefined || obj[prop] === cookieDefaults[prop]) {
+      continue; // leave as prototype default
+    }
+
+    if (prop === "expires" || prop === "creation" || prop === "lastAccessed") {
+      if (obj[prop] === null) {
+        c[prop] = null;
+      } else {
+        c[prop] = obj[prop] == "Infinity" ? "Infinity" : new Date(obj[prop]);
+      }
+    } else {
+      c[prop] = obj[prop];
+    }
+  }
+
+  return c;
+}
+
+/* Section 5.4 part 2:
+ * "*  Cookies with longer paths are listed before cookies with
+ *     shorter paths.
+ *
+ *  *  Among cookies that have equal-length path fields, cookies with
+ *     earlier creation-times are listed before cookies with later
+ *     creation-times."
+ */
+
+function cookieCompare(a, b) {
+  validators.validate(validators.isObject(a), a);
+  validators.validate(validators.isObject(b), b);
+  let cmp = 0;
+
+  // descending for length: b CMP a
+  const aPathLen = a.path ? a.path.length : 0;
+  const bPathLen = b.path ? b.path.length : 0;
+  cmp = bPathLen - aPathLen;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  // ascending for time: a CMP b
+  const aTime = a.creation ? a.creation.getTime() : MAX_TIME;
+  const bTime = b.creation ? b.creation.getTime() : MAX_TIME;
+  cmp = aTime - bTime;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  // break ties for the same millisecond (precision of JavaScript's clock)
+  cmp = a.creationIndex - b.creationIndex;
+
+  return cmp;
+}
+
+// Gives the permutation of all possible pathMatch()es of a given path. The
+// array is in longest-to-shortest order.  Handy for indexing.
+function permutePath(path) {
+  validators.validate(validators.isString(path));
+  if (path === "/") {
+    return ["/"];
+  }
+  const permutations = [path];
+  while (path.length > 1) {
+    const lindex = path.lastIndexOf("/");
+    if (lindex === 0) {
+      break;
+    }
+    path = path.substr(0, lindex);
+    permutations.push(path);
+  }
+  permutations.push("/");
+  return permutations;
+}
+
+function getCookieContext(url) {
+  if (url instanceof Object) {
+    return url;
+  }
+  // NOTE: decodeURI will throw on malformed URIs (see GH-32).
+  // Therefore, we will just skip decoding for such URIs.
+  try {
+    url = decodeURI(url);
+  } catch (err) {
+    // Silently swallow error
+  }
+
+  return urlParse(url);
+}
+
+const cookieDefaults = {
+  // the order in which the RFC has them:
+  key: "",
+  value: "",
+  expires: "Infinity",
+  maxAge: null,
+  domain: null,
+  path: null,
+  secure: false,
+  httpOnly: false,
+  extensions: null,
+  // set by the CookieJar:
+  hostOnly: null,
+  pathIsDefault: null,
+  creation: null,
+  lastAccessed: null,
+  sameSite: undefined
+};
+
+class Cookie {
+  constructor(options = {}) {
+    const customInspectSymbol = getCustomInspectSymbol();
+    if (customInspectSymbol) {
+      this[customInspectSymbol] = this.inspect;
+    }
+
+    Object.assign(this, cookieDefaults, options);
+    this.creation = this.creation || new Date();
+
+    // used to break creation ties in cookieCompare():
+    Object.defineProperty(this, "creationIndex", {
+      configurable: false,
+      enumerable: false, // important for assert.deepEqual checks
+      writable: true,
+      value: ++Cookie.cookiesCreated
+    });
+  }
+
+  inspect() {
+    const now = Date.now();
+    const hostOnly = this.hostOnly != null ? this.hostOnly : "?";
+    const createAge = this.creation
+      ? `${now - this.creation.getTime()}ms`
+      : "?";
+    const accessAge = this.lastAccessed
+      ? `${now - this.lastAccessed.getTime()}ms`
+      : "?";
+    return `Cookie="${this.toString()}; hostOnly=${hostOnly}; aAge=${accessAge}; cAge=${createAge}"`;
+  }
+
+  toJSON() {
+    const obj = {};
+
+    for (const prop of Cookie.serializableProperties) {
+      if (this[prop] === cookieDefaults[prop]) {
+        continue; // leave as prototype default
+      }
+
+      if (
+        prop === "expires" ||
+        prop === "creation" ||
+        prop === "lastAccessed"
+      ) {
+        if (this[prop] === null) {
+          obj[prop] = null;
+        } else {
+          obj[prop] =
+            this[prop] == "Infinity" // intentionally not ===
+              ? "Infinity"
+              : this[prop].toISOString();
+        }
+      } else if (prop === "maxAge") {
+        if (this[prop] !== null) {
+          // again, intentionally not ===
+          obj[prop] =
+            this[prop] == Infinity || this[prop] == -Infinity
+              ? this[prop].toString()
+              : this[prop];
+        }
+      } else {
+        if (this[prop] !== cookieDefaults[prop]) {
+          obj[prop] = this[prop];
+        }
+      }
+    }
+
+    return obj;
+  }
+
+  clone() {
+    return fromJSON(this.toJSON());
+  }
+
+  validate() {
+    if (!COOKIE_OCTETS.test(this.value)) {
+      return false;
+    }
+    if (
+      this.expires != Infinity &&
+      !(this.expires instanceof Date) &&
+      !parseDate(this.expires)
+    ) {
+      return false;
+    }
+    if (this.maxAge != null && this.maxAge <= 0) {
+      return false; // "Max-Age=" non-zero-digit *DIGIT
+    }
+    if (this.path != null && !PATH_VALUE.test(this.path)) {
+      return false;
+    }
+
+    const cdomain = this.cdomain();
+    if (cdomain) {
+      if (cdomain.match(/\.$/)) {
+        return false; // S4.1.2.3 suggests that this is bad. domainMatch() tests confirm this
+      }
+      const suffix = pubsuffix.getPublicSuffix(cdomain);
+      if (suffix == null) {
+        // it's a public suffix
+        return false;
+      }
+    }
+    return true;
+  }
+
+  setExpires(exp) {
+    if (exp instanceof Date) {
+      this.expires = exp;
+    } else {
+      this.expires = parseDate(exp) || "Infinity";
+    }
+  }
+
+  setMaxAge(age) {
+    if (age === Infinity || age === -Infinity) {
+      this.maxAge = age.toString(); // so JSON.stringify() works
+    } else {
+      this.maxAge = age;
+    }
+  }
+
+  cookieString() {
+    let val = this.value;
+    if (val == null) {
+      val = "";
+    }
+    if (this.key === "") {
+      return val;
+    }
+    return `${this.key}=${val}`;
+  }
+
+  // gives Set-Cookie header format
+  toString() {
+    let str = this.cookieString();
+
+    if (this.expires != Infinity) {
+      if (this.expires instanceof Date) {
+        str += `; Expires=${formatDate(this.expires)}`;
+      } else {
+        str += `; Expires=${this.expires}`;
+      }
+    }
+
+    if (this.maxAge != null && this.maxAge != Infinity) {
+      str += `; Max-Age=${this.maxAge}`;
+    }
+
+    if (this.domain && !this.hostOnly) {
+      str += `; Domain=${this.domain}`;
+    }
+    if (this.path) {
+      str += `; Path=${this.path}`;
+    }
+
+    if (this.secure) {
+      str += "; Secure";
+    }
+    if (this.httpOnly) {
+      str += "; HttpOnly";
+    }
+    if (this.sameSite && this.sameSite !== "none") {
+      const ssCanon = Cookie.sameSiteCanonical[this.sameSite.toLowerCase()];
+      str += `; SameSite=${ssCanon ? ssCanon : this.sameSite}`;
+    }
+    if (this.extensions) {
+      this.extensions.forEach(ext => {
+        str += `; ${ext}`;
+      });
+    }
+
+    return str;
+  }
+
+  // TTL() partially replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
+  // elsewhere)
+  // S5.3 says to give the "latest representable date" for which we use Infinity
+  // For "expired" we use 0
+  TTL(now) {
+    /* RFC6265 S4.1.2.2 If a cookie has both the Max-Age and the Expires
+     * attribute, the Max-Age attribute has precedence and controls the
+     * expiration date of the cookie.
+     * (Concurs with S5.3 step 3)
+     */
+    if (this.maxAge != null) {
+      return this.maxAge <= 0 ? 0 : this.maxAge * 1000;
+    }
+
+    let expires = this.expires;
+    if (expires != Infinity) {
+      if (!(expires instanceof Date)) {
+        expires = parseDate(expires) || Infinity;
+      }
+
+      if (expires == Infinity) {
+        return Infinity;
+      }
+
+      return expires.getTime() - (now || Date.now());
+    }
+
+    return Infinity;
+  }
+
+  // expiryTime() replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
+  // elsewhere)
+  expiryTime(now) {
+    if (this.maxAge != null) {
+      const relativeTo = now || this.creation || new Date();
+      const age = this.maxAge <= 0 ? -Infinity : this.maxAge * 1000;
+      return relativeTo.getTime() + age;
+    }
+
+    if (this.expires == Infinity) {
+      return Infinity;
+    }
+    return this.expires.getTime();
+  }
+
+  // expiryDate() replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
+  // elsewhere), except it returns a Date
+  expiryDate(now) {
+    const millisec = this.expiryTime(now);
+    if (millisec == Infinity) {
+      return new Date(MAX_TIME);
+    } else if (millisec == -Infinity) {
+      return new Date(MIN_TIME);
+    } else {
+      return new Date(millisec);
+    }
+  }
+
+  // This replaces the "persistent-flag" parts of S5.3 step 3
+  isPersistent() {
+    return this.maxAge != null || this.expires != Infinity;
+  }
+
+  // Mostly S5.1.2 and S5.2.3:
+  canonicalizedDomain() {
+    if (this.domain == null) {
+      return null;
+    }
+    return canonicalDomain(this.domain);
+  }
+
+  cdomain() {
+    return this.canonicalizedDomain();
+  }
+}
+
+Cookie.cookiesCreated = 0;
+Cookie.parse = parse;
+Cookie.fromJSON = fromJSON;
+Cookie.serializableProperties = Object.keys(cookieDefaults);
+Cookie.sameSiteLevel = {
+  strict: 3,
+  lax: 2,
+  none: 1
+};
+
+Cookie.sameSiteCanonical = {
+  strict: "Strict",
+  lax: "Lax"
+};
+
+function getNormalizedPrefixSecurity(prefixSecurity) {
+  if (prefixSecurity != null) {
+    const normalizedPrefixSecurity = prefixSecurity.toLowerCase();
+    /* The three supported options */
+    switch (normalizedPrefixSecurity) {
+      case PrefixSecurityEnum.STRICT:
+      case PrefixSecurityEnum.SILENT:
+      case PrefixSecurityEnum.DISABLED:
+        return normalizedPrefixSecurity;
+    }
+  }
+  /* Default is SILENT */
+  return PrefixSecurityEnum.SILENT;
+}
+
+class CookieJar {
+  constructor(store, options = { rejectPublicSuffixes: true }) {
+    if (typeof options === "boolean") {
+      options = { rejectPublicSuffixes: options };
+    }
+    validators.validate(validators.isObject(options), options);
+    this.rejectPublicSuffixes = options.rejectPublicSuffixes;
+    this.enableLooseMode = !!options.looseMode;
+    this.allowSpecialUseDomain =
+      typeof options.allowSpecialUseDomain === "boolean"
+        ? options.allowSpecialUseDomain
+        : true;
+    this.store = store || new MemoryCookieStore();
+    this.prefixSecurity = getNormalizedPrefixSecurity(options.prefixSecurity);
+    this._cloneSync = syncWrap("clone");
+    this._importCookiesSync = syncWrap("_importCookies");
+    this.getCookiesSync = syncWrap("getCookies");
+    this.getCookieStringSync = syncWrap("getCookieString");
+    this.getSetCookieStringsSync = syncWrap("getSetCookieStrings");
+    this.removeAllCookiesSync = syncWrap("removeAllCookies");
+    this.setCookieSync = syncWrap("setCookie");
+    this.serializeSync = syncWrap("serialize");
+  }
+
+  setCookie(cookie, url, options, cb) {
+    validators.validate(validators.isNonEmptyString(url), cb, options);
+    let err;
+
+    if (validators.isFunction(url)) {
+      cb = url;
+      return cb(new Error("No URL was specified"));
+    }
+
+    const context = getCookieContext(url);
+    if (validators.isFunction(options)) {
+      cb = options;
+      options = {};
+    }
+
+    validators.validate(validators.isFunction(cb), cb);
+
+    if (
+      !validators.isNonEmptyString(cookie) &&
+      !validators.isObject(cookie) &&
+      cookie instanceof String &&
+      cookie.length == 0
+    ) {
+      return cb(null);
+    }
+
+    const host = canonicalDomain(context.hostname);
+    const loose = options.loose || this.enableLooseMode;
+
+    let sameSiteContext = null;
+    if (options.sameSiteContext) {
+      sameSiteContext = checkSameSiteContext(options.sameSiteContext);
+      if (!sameSiteContext) {
+        return cb(new Error(SAME_SITE_CONTEXT_VAL_ERR));
+      }
+    }
+
+    // S5.3 step 1
+    if (typeof cookie === "string" || cookie instanceof String) {
+      cookie = Cookie.parse(cookie, { loose: loose });
+      if (!cookie) {
+        err = new Error("Cookie failed to parse");
+        return cb(options.ignoreError ? null : err);
+      }
+    } else if (!(cookie instanceof Cookie)) {
+      // If you're seeing this error, and are passing in a Cookie object,
+      // it *might* be a Cookie object from another loaded version of tough-cookie.
+      err = new Error(
+        "First argument to setCookie must be a Cookie object or string"
+      );
+      return cb(options.ignoreError ? null : err);
+    }
+
+    // S5.3 step 2
+    const now = options.now || new Date(); // will assign later to save effort in the face of errors
+
+    // S5.3 step 3: NOOP; persistent-flag and expiry-time is handled by getCookie()
+
+    // S5.3 step 4: NOOP; domain is null by default
+
+    // S5.3 step 5: public suffixes
+    if (this.rejectPublicSuffixes && cookie.domain) {
+      const suffix = pubsuffix.getPublicSuffix(cookie.cdomain(), {
+        allowSpecialUseDomain: this.allowSpecialUseDomain,
+        ignoreError: options.ignoreError
+      });
+      if (suffix == null && !IP_V6_REGEX_OBJECT.test(cookie.domain)) {
+        // e.g. "com"
+        err = new Error("Cookie has domain set to a public suffix");
+        return cb(options.ignoreError ? null : err);
+      }
+    }
+
+    // S5.3 step 6:
+    if (cookie.domain) {
+      if (!domainMatch(host, cookie.cdomain(), false)) {
+        err = new Error(
+          `Cookie not in this host's domain. Cookie:${cookie.cdomain()} Request:${host}`
+        );
+        return cb(options.ignoreError ? null : err);
+      }
+
+      if (cookie.hostOnly == null) {
+        // don't reset if already set
+        cookie.hostOnly = false;
+      }
+    } else {
+      cookie.hostOnly = true;
+      cookie.domain = host;
+    }
+
+    //S5.2.4 If the attribute-value is empty or if the first character of the
+    //attribute-value is not %x2F ("/"):
+    //Let cookie-path be the default-path.
+    if (!cookie.path || cookie.path[0] !== "/") {
+      cookie.path = defaultPath(context.pathname);
+      cookie.pathIsDefault = true;
+    }
+
+    // S5.3 step 8: NOOP; secure attribute
+    // S5.3 step 9: NOOP; httpOnly attribute
+
+    // S5.3 step 10
+    if (options.http === false && cookie.httpOnly) {
+      err = new Error("Cookie is HttpOnly and this isn't an HTTP API");
+      return cb(options.ignoreError ? null : err);
+    }
+
+    // 6252bis-02 S5.4 Step 13 & 14:
+    if (
+      cookie.sameSite !== "none" &&
+      cookie.sameSite !== undefined &&
+      sameSiteContext
+    ) {
+      // "If the cookie's "same-site-flag" is not "None", and the cookie
+      //  is being set from a context whose "site for cookies" is not an
+      //  exact match for request-uri's host's registered domain, then
+      //  abort these steps and ignore the newly created cookie entirely."
+      if (sameSiteContext === "none") {
+        err = new Error(
+          "Cookie is SameSite but this is a cross-origin request"
+        );
+        return cb(options.ignoreError ? null : err);
+      }
+    }
+
+    /* 6265bis-02 S5.4 Steps 15 & 16 */
+    const ignoreErrorForPrefixSecurity =
+      this.prefixSecurity === PrefixSecurityEnum.SILENT;
+    const prefixSecurityDisabled =
+      this.prefixSecurity === PrefixSecurityEnum.DISABLED;
+    /* If prefix checking is not disabled ...*/
+    if (!prefixSecurityDisabled) {
+      let errorFound = false;
+      let errorMsg;
+      /* Check secure prefix condition */
+      if (!isSecurePrefixConditionMet(cookie)) {
+        errorFound = true;
+        errorMsg = "Cookie has __Secure prefix but Secure attribute is not set";
+      } else if (!isHostPrefixConditionMet(cookie)) {
+        /* Check host prefix condition */
+        errorFound = true;
+        errorMsg =
+          "Cookie has __Host prefix but either Secure or HostOnly attribute is not set or Path is not '/'";
+      }
+      if (errorFound) {
+        return cb(
+          options.ignoreError || ignoreErrorForPrefixSecurity
+            ? null
+            : new Error(errorMsg)
+        );
+      }
+    }
+
+    const store = this.store;
+
+    if (!store.updateCookie) {
+      store.updateCookie = function(oldCookie, newCookie, cb) {
+        this.putCookie(newCookie, cb);
+      };
+    }
+
+    function withCookie(err, oldCookie) {
+      if (err) {
+        return cb(err);
+      }
+
+      const next = function(err) {
+        if (err) {
+          return cb(err);
+        } else {
+          cb(null, cookie);
+        }
+      };
+
+      if (oldCookie) {
+        // S5.3 step 11 - "If the cookie store contains a cookie with the same name,
+        // domain, and path as the newly created cookie:"
+        if (options.http === false && oldCookie.httpOnly) {
+          // step 11.2
+          err = new Error("old Cookie is HttpOnly and this isn't an HTTP API");
+          return cb(options.ignoreError ? null : err);
+        }
+        cookie.creation = oldCookie.creation; // step 11.3
+        cookie.creationIndex = oldCookie.creationIndex; // preserve tie-breaker
+        cookie.lastAccessed = now;
+        // Step 11.4 (delete cookie) is implied by just setting the new one:
+        store.updateCookie(oldCookie, cookie, next); // step 12
+      } else {
+        cookie.creation = cookie.lastAccessed = now;
+        store.putCookie(cookie, next); // step 12
+      }
+    }
+
+    store.findCookie(cookie.domain, cookie.path, cookie.key, withCookie);
+  }
+
+  // RFC6365 S5.4
+  getCookies(url, options, cb) {
+    validators.validate(validators.isNonEmptyString(url), cb, url);
+    const context = getCookieContext(url);
+    if (validators.isFunction(options)) {
+      cb = options;
+      options = {};
+    }
+    validators.validate(validators.isObject(options), cb, options);
+    validators.validate(validators.isFunction(cb), cb);
+
+    const host = canonicalDomain(context.hostname);
+    const path = context.pathname || "/";
+
+    let secure = options.secure;
+    if (
+      secure == null &&
+      context.protocol &&
+      (context.protocol == "https:" || context.protocol == "wss:")
+    ) {
+      secure = true;
+    }
+
+    let sameSiteLevel = 0;
+    if (options.sameSiteContext) {
+      const sameSiteContext = checkSameSiteContext(options.sameSiteContext);
+      sameSiteLevel = Cookie.sameSiteLevel[sameSiteContext];
+      if (!sameSiteLevel) {
+        return cb(new Error(SAME_SITE_CONTEXT_VAL_ERR));
+      }
+    }
+
+    let http = options.http;
+    if (http == null) {
+      http = true;
+    }
+
+    const now = options.now || Date.now();
+    const expireCheck = options.expire !== false;
+    const allPaths = !!options.allPaths;
+    const store = this.store;
+
+    function matchingCookie(c) {
+      // "Either:
+      //   The cookie's host-only-flag is true and the canonicalized
+      //   request-host is identical to the cookie's domain.
+      // Or:
+      //   The cookie's host-only-flag is false and the canonicalized
+      //   request-host domain-matches the cookie's domain."
+      if (c.hostOnly) {
+        if (c.domain != host) {
+          return false;
+        }
+      } else {
+        if (!domainMatch(host, c.domain, false)) {
+          return false;
+        }
+      }
+
+      // "The request-uri's path path-matches the cookie's path."
+      if (!allPaths && !pathMatch(path, c.path)) {
+        return false;
+      }
+
+      // "If the cookie's secure-only-flag is true, then the request-uri's
+      // scheme must denote a "secure" protocol"
+      if (c.secure && !secure) {
+        return false;
+      }
+
+      // "If the cookie's http-only-flag is true, then exclude the cookie if the
+      // cookie-string is being generated for a "non-HTTP" API"
+      if (c.httpOnly && !http) {
+        return false;
+      }
+
+      // RFC6265bis-02 S5.3.7
+      if (sameSiteLevel) {
+        const cookieLevel = Cookie.sameSiteLevel[c.sameSite || "none"];
+        if (cookieLevel > sameSiteLevel) {
+          // only allow cookies at or below the request level
+          return false;
+        }
+      }
+
+      // deferred from S5.3
+      // non-RFC: allow retention of expired cookies by choice
+      if (expireCheck && c.expiryTime() <= now) {
+        store.removeCookie(c.domain, c.path, c.key, () => {}); // result ignored
+        return false;
+      }
+
+      return true;
+    }
+
+    store.findCookies(
+      host,
+      allPaths ? null : path,
+      this.allowSpecialUseDomain,
+      (err, cookies) => {
+        if (err) {
+          return cb(err);
+        }
+
+        cookies = cookies.filter(matchingCookie);
+
+        // sorting of S5.4 part 2
+        if (options.sort !== false) {
+          cookies = cookies.sort(cookieCompare);
+        }
+
+        // S5.4 part 3
+        const now = new Date();
+        for (const cookie of cookies) {
+          cookie.lastAccessed = now;
+        }
+        // TODO persist lastAccessed
+
+        cb(null, cookies);
+      }
+    );
+  }
+
+  getCookieString(...args) {
+    const cb = args.pop();
+    validators.validate(validators.isFunction(cb), cb);
+    const next = function(err, cookies) {
+      if (err) {
+        cb(err);
+      } else {
+        cb(
+          null,
+          cookies
+            .sort(cookieCompare)
+            .map(c => c.cookieString())
+            .join("; ")
+        );
+      }
+    };
+    args.push(next);
+    this.getCookies.apply(this, args);
+  }
+
+  getSetCookieStrings(...args) {
+    const cb = args.pop();
+    validators.validate(validators.isFunction(cb), cb);
+    const next = function(err, cookies) {
+      if (err) {
+        cb(err);
+      } else {
+        cb(
+          null,
+          cookies.map(c => {
+            return c.toString();
+          })
+        );
+      }
+    };
+    args.push(next);
+    this.getCookies.apply(this, args);
+  }
+
+  serialize(cb) {
+    validators.validate(validators.isFunction(cb), cb);
+    let type = this.store.constructor.name;
+    if (validators.isObject(type)) {
+      type = null;
+    }
+
+    // update README.md "Serialization Format" if you change this, please!
+    const serialized = {
+      // The version of tough-cookie that serialized this jar. Generally a good
+      // practice since future versions can make data import decisions based on
+      // known past behavior. When/if this matters, use `semver`.
+      version: `tough-cookie@${VERSION}`,
+
+      // add the store type, to make humans happy:
+      storeType: type,
+
+      // CookieJar configuration:
+      rejectPublicSuffixes: !!this.rejectPublicSuffixes,
+      enableLooseMode: !!this.enableLooseMode,
+      allowSpecialUseDomain: !!this.allowSpecialUseDomain,
+      prefixSecurity: getNormalizedPrefixSecurity(this.prefixSecurity),
+
+      // this gets filled from getAllCookies:
+      cookies: []
+    };
+
+    if (
+      !(
+        this.store.getAllCookies &&
+        typeof this.store.getAllCookies === "function"
+      )
+    ) {
+      return cb(
+        new Error(
+          "store does not support getAllCookies and cannot be serialized"
+        )
+      );
+    }
+
+    this.store.getAllCookies((err, cookies) => {
+      if (err) {
+        return cb(err);
+      }
+
+      serialized.cookies = cookies.map(cookie => {
+        // convert to serialized 'raw' cookies
+        cookie = cookie instanceof Cookie ? cookie.toJSON() : cookie;
+
+        // Remove the index so new ones get assigned during deserialization
+        delete cookie.creationIndex;
+
+        return cookie;
+      });
+
+      return cb(null, serialized);
+    });
+  }
+
+  toJSON() {
+    return this.serializeSync();
+  }
+
+  // use the class method CookieJar.deserialize instead of calling this directly
+  _importCookies(serialized, cb) {
+    let cookies = serialized.cookies;
+    if (!cookies || !Array.isArray(cookies)) {
+      return cb(new Error("serialized jar has no cookies array"));
+    }
+    cookies = cookies.slice(); // do not modify the original
+
+    const putNext = err => {
+      if (err) {
+        return cb(err);
+      }
+
+      if (!cookies.length) {
+        return cb(err, this);
+      }
+
+      let cookie;
+      try {
+        cookie = fromJSON(cookies.shift());
+      } catch (e) {
+        return cb(e);
+      }
+
+      if (cookie === null) {
+        return putNext(null); // skip this cookie
+      }
+
+      this.store.putCookie(cookie, putNext);
+    };
+
+    putNext();
+  }
+
+  clone(newStore, cb) {
+    if (arguments.length === 1) {
+      cb = newStore;
+      newStore = null;
+    }
+
+    this.serialize((err, serialized) => {
+      if (err) {
+        return cb(err);
+      }
+      CookieJar.deserialize(serialized, newStore, cb);
+    });
+  }
+
+  cloneSync(newStore) {
+    if (arguments.length === 0) {
+      return this._cloneSync();
+    }
+    if (!newStore.synchronous) {
+      throw new Error(
+        "CookieJar clone destination store is not synchronous; use async API instead."
+      );
+    }
+    return this._cloneSync(newStore);
+  }
+
+  removeAllCookies(cb) {
+    validators.validate(validators.isFunction(cb), cb);
+    const store = this.store;
+
+    // Check that the store implements its own removeAllCookies(). The default
+    // implementation in Store will immediately call the callback with a "not
+    // implemented" Error.
+    if (
+      typeof store.removeAllCookies === "function" &&
+      store.removeAllCookies !== Store.prototype.removeAllCookies
+    ) {
+      return store.removeAllCookies(cb);
+    }
+
+    store.getAllCookies((err, cookies) => {
+      if (err) {
+        return cb(err);
+      }
+
+      if (cookies.length === 0) {
+        return cb(null);
+      }
+
+      let completedCount = 0;
+      const removeErrors = [];
+
+      function removeCookieCb(removeErr) {
+        if (removeErr) {
+          removeErrors.push(removeErr);
+        }
+
+        completedCount++;
+
+        if (completedCount === cookies.length) {
+          return cb(removeErrors.length ? removeErrors[0] : null);
+        }
+      }
+
+      cookies.forEach(cookie => {
+        store.removeCookie(
+          cookie.domain,
+          cookie.path,
+          cookie.key,
+          removeCookieCb
+        );
+      });
+    });
+  }
+
+  static deserialize(strOrObj, store, cb) {
+    if (arguments.length !== 3) {
+      // store is optional
+      cb = store;
+      store = null;
+    }
+    validators.validate(validators.isFunction(cb), cb);
+
+    let serialized;
+    if (typeof strOrObj === "string") {
+      serialized = jsonParse(strOrObj);
+      if (serialized instanceof Error) {
+        return cb(serialized);
+      }
+    } else {
+      serialized = strOrObj;
+    }
+
+    const jar = new CookieJar(store, {
+      rejectPublicSuffixes: serialized.rejectPublicSuffixes,
+      looseMode: serialized.enableLooseMode,
+      allowSpecialUseDomain: serialized.allowSpecialUseDomain,
+      prefixSecurity: serialized.prefixSecurity
+    });
+    jar._importCookies(serialized, err => {
+      if (err) {
+        return cb(err);
+      }
+      cb(null, jar);
+    });
+  }
+
+  static deserializeSync(strOrObj, store) {
+    const serialized =
+      typeof strOrObj === "string" ? JSON.parse(strOrObj) : strOrObj;
+    const jar = new CookieJar(store, {
+      rejectPublicSuffixes: serialized.rejectPublicSuffixes,
+      looseMode: serialized.enableLooseMode
+    });
+
+    // catch this mistake early:
+    if (!jar.store.synchronous) {
+      throw new Error(
+        "CookieJar store is not synchronous; use async API instead."
+      );
+    }
+
+    jar._importCookiesSync(serialized);
+    return jar;
+  }
+}
+CookieJar.fromJSON = CookieJar.deserializeSync;
+
+[
+  "_importCookies",
+  "clone",
+  "getCookies",
+  "getCookieString",
+  "getSetCookieStrings",
+  "removeAllCookies",
+  "serialize",
+  "setCookie"
+].forEach(name => {
+  CookieJar.prototype[name] = fromCallback(CookieJar.prototype[name]);
+});
+CookieJar.deserialize = fromCallback(CookieJar.deserialize);
+
+// Use a closure to provide a true imperative API for synchronous stores.
+function syncWrap(method) {
+  return function(...args) {
+    if (!this.store.synchronous) {
+      throw new Error(
+        "CookieJar store is not synchronous; use async API instead."
+      );
+    }
+
+    let syncErr, syncResult;
+    this[method](...args, (err, result) => {
+      syncErr = err;
+      syncResult = result;
+    });
+
+    if (syncErr) {
+      throw syncErr;
+    }
+    return syncResult;
+  };
+}
+
+exports.version = VERSION;
+exports.CookieJar = CookieJar;
+exports.Cookie = Cookie;
+exports.Store = Store;
+exports.MemoryCookieStore = MemoryCookieStore;
+exports.parseDate = parseDate;
+exports.formatDate = formatDate;
+exports.parse = parse;
+exports.fromJSON = fromJSON;
+exports.domainMatch = domainMatch;
+exports.defaultPath = defaultPath;
+exports.pathMatch = pathMatch;
+exports.getPublicSuffix = pubsuffix.getPublicSuffix;
+exports.cookieCompare = cookieCompare;
+exports.permuteDomain = __nccwpck_require__(5986).permuteDomain;
+exports.permutePath = permutePath;
+exports.canonicalDomain = canonicalDomain;
+exports.PrefixSecurityEnum = PrefixSecurityEnum;
+exports.ParameterError = validators.ParameterError;
+
+
+/***/ }),
+
+/***/ 2640:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+var __webpack_unused_export__;
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const { fromCallback } = __nccwpck_require__(9046);
+const Store = (__nccwpck_require__(460)/* .Store */ .y);
+const permuteDomain = (__nccwpck_require__(5986).permuteDomain);
+const pathMatch = (__nccwpck_require__(4336)/* .pathMatch */ .U);
+const { getCustomInspectSymbol, getUtilInspect } = __nccwpck_require__(5309);
+
+class MemoryCookieStore extends Store {
+  constructor() {
+    super();
+    this.synchronous = true;
+    this.idx = Object.create(null);
+    const customInspectSymbol = getCustomInspectSymbol();
+    if (customInspectSymbol) {
+      this[customInspectSymbol] = this.inspect;
+    }
+  }
+
+  inspect() {
+    const util = { inspect: getUtilInspect(inspectFallback) };
+    return `{ idx: ${util.inspect(this.idx, false, 2)} }`;
+  }
+
+  findCookie(domain, path, key, cb) {
+    if (!this.idx[domain]) {
+      return cb(null, undefined);
+    }
+    if (!this.idx[domain][path]) {
+      return cb(null, undefined);
+    }
+    return cb(null, this.idx[domain][path][key] || null);
+  }
+  findCookies(domain, path, allowSpecialUseDomain, cb) {
+    const results = [];
+    if (typeof allowSpecialUseDomain === "function") {
+      cb = allowSpecialUseDomain;
+      allowSpecialUseDomain = true;
+    }
+    if (!domain) {
+      return cb(null, []);
+    }
+
+    let pathMatcher;
+    if (!path) {
+      // null means "all paths"
+      pathMatcher = function matchAll(domainIndex) {
+        for (const curPath in domainIndex) {
+          const pathIndex = domainIndex[curPath];
+          for (const key in pathIndex) {
+            results.push(pathIndex[key]);
+          }
+        }
+      };
+    } else {
+      pathMatcher = function matchRFC(domainIndex) {
+        //NOTE: we should use path-match algorithm from S5.1.4 here
+        //(see : https://github.com/ChromiumWebApps/chromium/blob/b3d3b4da8bb94c1b2e061600df106d590fda3620/net/cookies/canonical_cookie.cc#L299)
+        Object.keys(domainIndex).forEach(cookiePath => {
+          if (pathMatch(path, cookiePath)) {
+            const pathIndex = domainIndex[cookiePath];
+            for (const key in pathIndex) {
+              results.push(pathIndex[key]);
+            }
+          }
+        });
+      };
+    }
+
+    const domains = permuteDomain(domain, allowSpecialUseDomain) || [domain];
+    const idx = this.idx;
+    domains.forEach(curDomain => {
+      const domainIndex = idx[curDomain];
+      if (!domainIndex) {
+        return;
+      }
+      pathMatcher(domainIndex);
+    });
+
+    cb(null, results);
+  }
+
+  putCookie(cookie, cb) {
+    if (!this.idx[cookie.domain]) {
+      this.idx[cookie.domain] = Object.create(null);
+    }
+    if (!this.idx[cookie.domain][cookie.path]) {
+      this.idx[cookie.domain][cookie.path] = Object.create(null);
+    }
+    this.idx[cookie.domain][cookie.path][cookie.key] = cookie;
+    cb(null);
+  }
+  updateCookie(oldCookie, newCookie, cb) {
+    // updateCookie() may avoid updating cookies that are identical.  For example,
+    // lastAccessed may not be important to some stores and an equality
+    // comparison could exclude that field.
+    this.putCookie(newCookie, cb);
+  }
+  removeCookie(domain, path, key, cb) {
+    if (
+      this.idx[domain] &&
+      this.idx[domain][path] &&
+      this.idx[domain][path][key]
+    ) {
+      delete this.idx[domain][path][key];
+    }
+    cb(null);
+  }
+  removeCookies(domain, path, cb) {
+    if (this.idx[domain]) {
+      if (path) {
+        delete this.idx[domain][path];
+      } else {
+        delete this.idx[domain];
+      }
+    }
+    return cb(null);
+  }
+  removeAllCookies(cb) {
+    this.idx = Object.create(null);
+    return cb(null);
+  }
+  getAllCookies(cb) {
+    const cookies = [];
+    const idx = this.idx;
+
+    const domains = Object.keys(idx);
+    domains.forEach(domain => {
+      const paths = Object.keys(idx[domain]);
+      paths.forEach(path => {
+        const keys = Object.keys(idx[domain][path]);
+        keys.forEach(key => {
+          if (key !== null) {
+            cookies.push(idx[domain][path][key]);
+          }
+        });
+      });
+    });
+
+    // Sort by creationIndex so deserializing retains the creation order.
+    // When implementing your own store, this SHOULD retain the order too
+    cookies.sort((a, b) => {
+      return (a.creationIndex || 0) - (b.creationIndex || 0);
+    });
+
+    cb(null, cookies);
+  }
+}
+
+[
+  "findCookie",
+  "findCookies",
+  "putCookie",
+  "updateCookie",
+  "removeCookie",
+  "removeCookies",
+  "removeAllCookies",
+  "getAllCookies"
+].forEach(name => {
+  MemoryCookieStore.prototype[name] = fromCallback(
+    MemoryCookieStore.prototype[name]
+  );
+});
+
+exports.m = MemoryCookieStore;
+
+function inspectFallback(val) {
+  const domains = Object.keys(val);
+  if (domains.length === 0) {
+    return "[Object: null prototype] {}";
+  }
+  let result = "[Object: null prototype] {\n";
+  Object.keys(val).forEach((domain, i) => {
+    result += formatDomain(domain, val[domain]);
+    if (i < domains.length - 1) {
+      result += ",";
+    }
+    result += "\n";
+  });
+  result += "}";
+  return result;
+}
+
+function formatDomain(domainName, domainValue) {
+  const indent = "  ";
+  let result = `${indent}'${domainName}': [Object: null prototype] {\n`;
+  Object.keys(domainValue).forEach((path, i, paths) => {
+    result += formatPath(path, domainValue[path]);
+    if (i < paths.length - 1) {
+      result += ",";
+    }
+    result += "\n";
+  });
+  result += `${indent}}`;
+  return result;
+}
+
+function formatPath(pathName, pathValue) {
+  const indent = "    ";
+  let result = `${indent}'${pathName}': [Object: null prototype] {\n`;
+  Object.keys(pathValue).forEach((cookieName, i, cookieNames) => {
+    const cookie = pathValue[cookieName];
+    result += `      ${cookieName}: ${cookie.inspect()}`;
+    if (i < cookieNames.length - 1) {
+      result += ",";
+    }
+    result += "\n";
+  });
+  result += `${indent}}`;
+  return result;
+}
+
+__webpack_unused_export__ = inspectFallback;
+
+
+/***/ }),
+
+/***/ 4336:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * "A request-path path-matches a given cookie-path if at least one of the
+ * following conditions holds:"
+ */
+function pathMatch(reqPath, cookiePath) {
+  // "o  The cookie-path and the request-path are identical."
+  if (cookiePath === reqPath) {
+    return true;
+  }
+
+  const idx = reqPath.indexOf(cookiePath);
+  if (idx === 0) {
+    // "o  The cookie-path is a prefix of the request-path, and the last
+    // character of the cookie-path is %x2F ("/")."
+    if (cookiePath.substr(-1) === "/") {
+      return true;
+    }
+
+    // " o  The cookie-path is a prefix of the request-path, and the first
+    // character of the request-path that is not included in the cookie- path
+    // is a %x2F ("/") character."
+    if (reqPath.substr(cookiePath.length, 1) === "/") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+exports.U = pathMatch;
+
+
+/***/ }),
+
+/***/ 5986:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const pubsuffix = __nccwpck_require__(4401);
+
+// Gives the permutation of all possible domainMatch()es of a given domain. The
+// array is in shortest-to-longest order.  Handy for indexing.
+
+function permuteDomain(domain, allowSpecialUseDomain) {
+  const pubSuf = pubsuffix.getPublicSuffix(domain, {
+    allowSpecialUseDomain: allowSpecialUseDomain
+  });
+
+  if (!pubSuf) {
+    return null;
+  }
+  if (pubSuf == domain) {
+    return [domain];
+  }
+
+  // Nuke trailing dot
+  if (domain.slice(-1) == ".") {
+    domain = domain.slice(0, -1);
+  }
+
+  const prefix = domain.slice(0, -(pubSuf.length + 1)); // ".example.com"
+  const parts = prefix.split(".").reverse();
+  let cur = pubSuf;
+  const permutations = [cur];
+  while (parts.length) {
+    cur = `${parts.shift()}.${cur}`;
+    permutations.push(cur);
+  }
+  return permutations;
+}
+
+exports.permuteDomain = permuteDomain;
+
+
+/***/ }),
+
+/***/ 4401:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2018, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const psl = __nccwpck_require__(9975);
+
+// RFC 6761
+const SPECIAL_USE_DOMAINS = [
+  "local",
+  "example",
+  "invalid",
+  "localhost",
+  "test"
+];
+
+const SPECIAL_TREATMENT_DOMAINS = ["localhost", "invalid"];
+
+function getPublicSuffix(domain, options = {}) {
+  const domainParts = domain.split(".");
+  const topLevelDomain = domainParts[domainParts.length - 1];
+  const allowSpecialUseDomain = !!options.allowSpecialUseDomain;
+  const ignoreError = !!options.ignoreError;
+
+  if (allowSpecialUseDomain && SPECIAL_USE_DOMAINS.includes(topLevelDomain)) {
+    if (domainParts.length > 1) {
+      const secondLevelDomain = domainParts[domainParts.length - 2];
+      // In aforementioned example, the eTLD/pubSuf will be apple.localhost
+      return `${secondLevelDomain}.${topLevelDomain}`;
+    } else if (SPECIAL_TREATMENT_DOMAINS.includes(topLevelDomain)) {
+      // For a single word special use domain, e.g. 'localhost' or 'invalid', per RFC 6761,
+      // "Application software MAY recognize {localhost/invalid} names as special, or
+      // MAY pass them to name resolution APIs as they would for other domain names."
+      return `${topLevelDomain}`;
+    }
+  }
+
+  if (!ignoreError && SPECIAL_USE_DOMAINS.includes(topLevelDomain)) {
+    throw new Error(
+      `Cookie has domain set to the public suffix "${topLevelDomain}" which is a special use domain. To allow this, configure your CookieJar with {allowSpecialUseDomain:true, rejectPublicSuffixes: false}.`
+    );
+  }
+
+  return psl.get(domain);
+}
+
+exports.getPublicSuffix = getPublicSuffix;
+
+
+/***/ }),
+
+/***/ 460:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*jshint unused:false */
+
+class Store {
+  constructor() {
+    this.synchronous = false;
+  }
+
+  findCookie(domain, path, key, cb) {
+    throw new Error("findCookie is not implemented");
+  }
+
+  findCookies(domain, path, allowSpecialUseDomain, cb) {
+    throw new Error("findCookies is not implemented");
+  }
+
+  putCookie(cookie, cb) {
+    throw new Error("putCookie is not implemented");
+  }
+
+  updateCookie(oldCookie, newCookie, cb) {
+    // recommended default implementation:
+    // return this.putCookie(newCookie, cb);
+    throw new Error("updateCookie is not implemented");
+  }
+
+  removeCookie(domain, path, key, cb) {
+    throw new Error("removeCookie is not implemented");
+  }
+
+  removeCookies(domain, path, cb) {
+    throw new Error("removeCookies is not implemented");
+  }
+
+  removeAllCookies(cb) {
+    throw new Error("removeAllCookies is not implemented");
+  }
+
+  getAllCookies(cb) {
+    throw new Error(
+      "getAllCookies is not implemented (therefore jar cannot be serialized)"
+    );
+  }
+}
+
+exports.y = Store;
+
+
+/***/ }),
+
+/***/ 5309:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+function requireUtil() {
+  try {
+    // eslint-disable-next-line no-restricted-modules
+    return __nccwpck_require__(3837);
+  } catch (e) {
+    return null;
+  }
+}
+
+// for v10.12.0+
+function lookupCustomInspectSymbol() {
+  return Symbol.for("nodejs.util.inspect.custom");
+}
+
+// for older node environments
+function tryReadingCustomSymbolFromUtilInspect(options) {
+  const _requireUtil = options.requireUtil || requireUtil;
+  const util = _requireUtil();
+  return util ? util.inspect.custom : null;
+}
+
+exports.getUtilInspect = function getUtilInspect(fallback, options = {}) {
+  const _requireUtil = options.requireUtil || requireUtil;
+  const util = _requireUtil();
+  return function inspect(value, showHidden, depth) {
+    return util ? util.inspect(value, showHidden, depth) : fallback(value);
+  };
+};
+
+exports.getCustomInspectSymbol = function getCustomInspectSymbol(options = {}) {
+  const _lookupCustomInspectSymbol =
+    options.lookupCustomInspectSymbol || lookupCustomInspectSymbol;
+
+  // get custom inspect symbol for node environments
+  return (
+    _lookupCustomInspectSymbol() ||
+    tryReadingCustomSymbolFromUtilInspect(options)
+  );
+};
+
+
+/***/ }),
+
+/***/ 7886:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/* ************************************************************************************
+Extracted from check-types.js
+https://gitlab.com/philbooth/check-types.js
+
+MIT License
+
+Copyright (c) 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Phil Booth
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+************************************************************************************ */
+
+
+/* Validation functions copied from check-types package - https://www.npmjs.com/package/check-types */
+function isFunction(data) {
+  return typeof data === "function";
+}
+
+function isNonEmptyString(data) {
+  return isString(data) && data !== "";
+}
+
+function isDate(data) {
+  return isInstanceStrict(data, Date) && isInteger(data.getTime());
+}
+
+function isEmptyString(data) {
+  return data === "" || (data instanceof String && data.toString() === "");
+}
+
+function isString(data) {
+  return typeof data === "string" || data instanceof String;
+}
+
+function isObject(data) {
+  return toString.call(data) === "[object Object]";
+}
+function isInstanceStrict(data, prototype) {
+  try {
+    return data instanceof prototype;
+  } catch (error) {
+    return false;
+  }
+}
+
+function isInteger(data) {
+  return typeof data === "number" && data % 1 === 0;
+}
+/* End validation functions */
+
+function validate(bool, cb, options) {
+  if (!isFunction(cb)) {
+    options = cb;
+    cb = null;
+  }
+  if (!isObject(options)) options = { Error: "Failed Check" };
+  if (!bool) {
+    if (cb) {
+      cb(new ParameterError(options));
+    } else {
+      throw new ParameterError(options);
+    }
+  }
+}
+
+class ParameterError extends Error {
+  constructor(...params) {
+    super(...params);
+  }
+}
+
+exports.ParameterError = ParameterError;
+exports.isFunction = isFunction;
+exports.isNonEmptyString = isNonEmptyString;
+exports.isDate = isDate;
+exports.isEmptyString = isEmptyString;
+exports.isString = isString;
+exports.isObject = isObject;
+exports.validate = validate;
+
+
+/***/ }),
+
+/***/ 3199:
+/***/ ((module) => {
+
+// generated by genversion
+module.exports = '4.1.3'
 
 
 /***/ }),
