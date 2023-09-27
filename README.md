@@ -161,5 +161,5 @@ The software is provided as is, there is no warranty of any kind. All users are 
 # License
 All the content in this repository is licensed under the [MIT License](LICENSE.txt).
 
-Copyright (c) 2020-2021-2022 Luca Cappa
+Copyright (c) 2020-2021-2022-2023 Luca Cappa
 
