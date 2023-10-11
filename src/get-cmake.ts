@@ -7,6 +7,7 @@ import * as core from '@actions/core';
 import * as io from '@actions/io';
 import * as tools from '@actions/tool-cache';
 import * as path from 'path';
+import * as fs from 'fs';
 import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
 import * as shared from './releases-collector'
@@ -256,18 +257,38 @@ export class ToolsGetter {
     return cache.restoreCache([outPath], key.toString());
   }
 
+  private async extract(archiveSuffix: string, downloaded: string, outputPath: string): Promise<string> {
+    try {
+      await extractFunction[archiveSuffix](downloaded, outputPath);
+    } catch (exception) {
+      // Fix up the downloaded archive extension for https://github.com/actions/toolkit/issues/1179
+      if (process.platform === 'win32') {
+        const zipExtension = ".zip";
+        if (path.extname(downloaded) !== zipExtension) {
+          const downloadedZip = downloaded + zipExtension;
+          fs.renameSync(downloaded, downloadedZip);
+          return await extractFunction[archiveSuffix](downloadedZip, outputPath);
+        }
+      }
+
+      throw exception;
+    }
+
+    return downloaded;
+  }
+
   private async downloadTools(
     cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo,
     outputPath: string): Promise<void> {
     let outPath: string;
     await core.group("Downloading and extracting CMake", async () => {
       const downloaded = await tools.downloadTool(cmakePackage.url);
-      await extractFunction[cmakePackage.dropSuffix](downloaded, outputPath);
+      await this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
     });
 
     await core.group("Downloading and extracting Ninja", async () => {
       const downloaded = await tools.downloadTool(ninjaPackage.url);
-      await extractFunction[ninjaPackage.dropSuffix](downloaded, outputPath);
+      await this.extract(ninjaPackage.dropSuffix, downloaded, outputPath);
     });
   }
 

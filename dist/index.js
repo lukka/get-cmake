@@ -25,6 +25,7 @@ const core = __nccwpck_require__(2186);
 const io = __nccwpck_require__(7436);
 const tools = __nccwpck_require__(7784);
 const path = __nccwpck_require__(1017);
+const fs = __nccwpck_require__(7147);
 const semver_1 = __nccwpck_require__(1383);
 const catalog = __nccwpck_require__(5284);
 const shared = __nccwpck_require__(6946);
@@ -261,16 +262,36 @@ class ToolsGetter {
     restoreCache(outPath, key) {
         return cache.restoreCache([outPath], key.toString());
     }
+    extract(archiveSuffix, downloaded, outputPath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield extractFunction[archiveSuffix](downloaded, outputPath);
+            }
+            catch (exception) {
+                // Fix up the path for https://github.com/actions/toolkit/issues/1179
+                if (process.platform === 'win32') {
+                    const zipExtension = ".zip";
+                    if (path.extname(downloaded) !== zipExtension) {
+                        const downloadedZip = downloaded + zipExtension;
+                        fs.renameSync(downloaded, downloadedZip);
+                        return yield extractFunction[archiveSuffix](downloadedZip, outputPath);
+                    }
+                }
+                throw exception;
+            }
+            return downloaded;
+        });
+    }
     downloadTools(cmakePackage, ninjaPackage, outputPath) {
         return __awaiter(this, void 0, void 0, function* () {
             let outPath;
             yield core.group("Downloading and extracting CMake", () => __awaiter(this, void 0, void 0, function* () {
                 const downloaded = yield tools.downloadTool(cmakePackage.url);
-                yield extractFunction[cmakePackage.dropSuffix](downloaded, outputPath);
+                yield this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
             }));
             yield core.group("Downloading and extracting Ninja", () => __awaiter(this, void 0, void 0, function* () {
                 const downloaded = yield tools.downloadTool(ninjaPackage.url);
-                yield extractFunction[ninjaPackage.dropSuffix](downloaded, outputPath);
+                yield this.extract(ninjaPackage.dropSuffix, downloaded, outputPath);
             }));
         });
     }
