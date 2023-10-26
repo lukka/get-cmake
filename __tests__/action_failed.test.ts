@@ -25,16 +25,25 @@ jest.spyOn(core, 'getBooleanInput').mockImplementation((arg: string, options: co
     return true;
 });
 
-var coreSetFailed = jest.spyOn(core, 'setFailed');
-var coreError = jest.spyOn(core, 'error');
+// Avoid any side effect of core.setFailed and core.error, they may fail the workflow, but this test is suppposed 
+// to fail, but workflow step (i.e. in this case `npm run test`) should not fail.
+var coreSetFailed = jest.spyOn(core, 'setFailed').mockImplementation(() => {});
+var coreError = jest.spyOn(core, 'error').mockImplementation(() => {});
 var toolsCacheDir = jest.spyOn(toolcache, 'cacheDir');
 
 test('testing get-cmake action failure', async () => {
     const testId = Math.random();
+    process.exitCode
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
     process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
     await getcmake.main();
     expect(coreSetFailed).toBeCalledTimes(1);
     expect(coreError).toBeCalledTimes(0);
     expect(toolsCacheDir).toBeCalledTimes(0);
+    
+    jest.clearAllMocks();
+    // The failure sets an exit code different than 0, and this will fail `npm run test`.
+    // On node20+ on Linux/Windows (but not on macOS) this leads to a failing exit 
+    // code: https://github.com/jestjs/jest/issues/14501
+    process.exitCode = 0;
 });
