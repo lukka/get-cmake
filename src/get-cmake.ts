@@ -287,7 +287,7 @@ export async function main(): Promise<void> {
   } catch (err) {
     const error: Error = err as Error;
     if (error?.stack) {
-      core.info(error.stack);
+      core.debug(error.stack);
     }
     const errorAsString = (err ?? "undefined error").toString();
     core.setFailed(`get-cmake action execution failed: '${errorAsString}'`);

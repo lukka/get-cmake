@@ -6,7 +6,7 @@ name: 'get-cmake'
 description: 'Installs CMake and Ninja, and caches them on cloud based GitHub cache, and/or on the local GitHub runner cache.'
 author: 'Luca Cappa https://github.com/lukka'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 
 inputs:
