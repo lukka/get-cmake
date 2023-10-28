@@ -23,7 +23,7 @@ jobs:
         os: ${{ fromJson(inputs.runs-on) }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - uses: actions/download-artifact@v3
