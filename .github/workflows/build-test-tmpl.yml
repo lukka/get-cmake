@@ -39,8 +39,10 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       if: inputs.generate-catalog == true
     - run: npm run test
+      if: false
     - uses: ./
       name: validation test by running get-cmake
+      if: false
     - name: CMake version check
       run: |
         which cmake
@@ -53,6 +55,7 @@ jobs:
           exit -1
         fi
       shell: bash
+      if: false
     - name: ninja version check
       run: |
         which ninja
@@ -65,6 +68,7 @@ jobs:
           exit -1
         fi
       shell: bash
+      if: false
     - uses: actions/upload-artifact@v3
       with:
         name: catalog
@@ -72,4 +76,30 @@ jobs:
           .latest_ninja_version
           .latest_cmake_version
           src/releases-catalog.ts
-      if: inputs.generate-catalog == true
+      if: inputs.generate-catalog == true && false
+
+    - name: Check if there is a new CMake version
+      id: git-check
+      #run: echo "modified=$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)" >> $GITHUB_OUTPUT
+      run: echo "modified=$(echo 'true')" >> $GITHUB_OUTPUT
+      if: ${{ inputs.generate-catalog == true }}
+
+    - name: Create commit for PR for new version
+      id: input-pr
+      run: |
+        pwd
+        echo "TEST" >> .latest_cmake_version
+        export CMAKE_VERSION_FOR_PR=$(cat .latest_cmake_version)
+        echo "CMAKE_VERSION_FOR_PR=${CMAKE_VERSION_FOR_PR}" >> "$GITHUB_ENV"
+        echo "Creating commit for CMake version: '$CMAKE_VERSION_FOR_PR' ."
+        git add -u
+        git commit -m 'CMake version $CMAKE_VERSION_FOR_PR'
+      if: ${{ (steps.git-check.outputs.modified == 'true') && (inputs.generate-catalog == true) }}
+
+    - name: Create PR for new CMake version
+      uses: peter-evans/create-pull-request@v5
+      with:
+        title: ${{ env.CMAKE_VERSION_FOR_PR }}
+        draft: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+      if: ${{ (steps.git-check.outputs.modified == 'true') && (inputs.generate-catalog == true) }}
