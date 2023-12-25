@@ -26,7 +26,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: catalog
       if: inputs.generate-catalog != true
@@ -65,7 +65,7 @@ jobs:
           exit -1
         fi
       shell: bash
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: catalog
         path: |
