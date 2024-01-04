@@ -29,6 +29,7 @@ jobs:
 
   build_and_test_arm:
     needs: generate_catalog_build_and_test
+    if: false #Disable buildjet's arm based runners usage.
     uses: ./.github/workflows/build-test-tmpl.yml
     with:
       runs-on: "['buildjet-2vcpu-ubuntu-2204-arm']"
@@ -57,6 +58,7 @@ jobs:
   test_user_provided_version_arm:
     needs: build_and_test_arm
     uses: ./.github/workflows/functional-tests-tmpl.yml
+    if: false #Disable buildjet's arm based runners usage.
     with:
       runs-on: "['buildjet-2vcpu-ubuntu-2204-arm']"
       experimental: true
