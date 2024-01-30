@@ -108,5 +108,6 @@ jobs:
             dist/*.js
             .latest_cmake_version
             .latestrc_cmake_version
-        token: ${{ secrets.GITHUB_TOKEN }}
       if: ${{ (steps.git-check.outputs.modified == 'true') && (inputs.generate-catalog == true) }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.AUTO_PR_WITH_CHECKS }}
