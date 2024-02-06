@@ -15,7 +15,7 @@ jobs:
       generate-catalog: true
     secrets:
       token:
-        ${{ github.token }}
+        ${{ secrets.SSH_PRIVATE_KEY }}
 
   build_and_test:
     needs: generate_catalog_build_and_test
