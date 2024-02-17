@@ -75,27 +75,26 @@ jobs:
           src/releases-catalog.ts
       if: inputs.generate-catalog == true
 
-    - name: Check if there is a new CMake version
-      id: git-check
-      run: echo "modified=$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)" >> $GITHUB_OUTPUT
-      # To test the workflow when this step returns true, use: run: echo "modified=$(echo 'true')" >> $GITHUB_OUTPUT
-      if: ${{ inputs.generate-catalog == true }}
-
-    - name: Create a Git commit for the PR
+    - name: If there is a new CMake version, create a Git commit for the PR
       id: input-pr
-      run: |        
+      run: |
         if ! git diff --exit-code .latest_cmake_version ; then
           export CMAKE_NEW_VERSIONS=cmake-v$(cat .latest_cmake_version)
         fi
         if ! git diff --exit-code .latestrc_cmake_version ; then
           export CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS} cmake-rc-v$(cat .latestrc_cmake_version)"
         fi
-        # Get rid of leading space if any
-        CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS## }"
-        echo "CMAKE_NEW_VERSIONS=${CMAKE_NEW_VERSIONS}" >> "$GITHUB_ENV"
-        git add -u
-        git commit -m "New CMake version(s): $CMAKE_NEW_VERSIONS"
-      if: ${{ (steps.git-check.outputs.modified == 'true') && (inputs.generate-catalog == true) }}
+        if [[ -n "${CMAKE_NEW_VERSIONS}" ]]; then
+          # Get rid of leading space if any
+          CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS## }"
+          echo "CMAKE_NEW_VERSIONS=${CMAKE_NEW_VERSIONS}" >> "$GITHUB_ENV"
+          git add -u
+          git commit -m "New CMake version(s): $CMAKE_NEW_VERSIONS"
+          echo "createpr=true" >> $GITHUB_OUTPUT
+        else
+          echo "There is no new version of CMake."
+        fi
+      if: ${{ inputs.generate-catalog == true }}
 
     - name: Create the PR for new CMake version(s)
       uses: peter-evans/create-pull-request@v6
@@ -109,4 +108,4 @@ jobs:
             dist/*.js
             .latest_cmake_version
             .latestrc_cmake_version
-      if: ${{ (steps.git-check.outputs.modified == 'true') && (inputs.generate-catalog == true) }}
+      if: ${{ (steps.git-check.outputs.createpr == 'true') }}
