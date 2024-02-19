@@ -37,6 +37,9 @@ jest.spyOn(core, 'getBooleanInput').mockImplementation((arg: string, options: co
     }
 });
 
+// Avoiding messing with PATH during test execution.
+const addToolsToPath = jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(0);
+
 var coreSetFailed = jest.spyOn(core, 'setFailed');
 var coreError = jest.spyOn(core, 'error');
 var toolsCacheDir = jest.spyOn(toolcache, 'cacheDir');

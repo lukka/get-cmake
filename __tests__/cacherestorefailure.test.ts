@@ -20,6 +20,9 @@ jest.spyOn(cache, 'restoreCache').mockImplementation(() => {
     throw new Error();
 });
 
+// Avoiding messing with PATH during test execution.
+const addToolsToPath = jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(0);
+
 test('testing get-cmake with restoreCache failure', async () => {
     const testId = Math.random();
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);

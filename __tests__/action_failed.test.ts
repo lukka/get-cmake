@@ -8,6 +8,7 @@ import * as toolcache from '@actions/tool-cache';
 import * as core from '@actions/core';
 import * as getcmake from '../src/get-cmake';
 import path = require('path');
+import { ToolsGetter } from '../src/get-cmake';
 
 // 10 minutes
 jest.setTimeout(10 * 60 * 1000)
@@ -24,6 +25,9 @@ jest.spyOn(cache, 'restoreCache').mockImplementation(() => {
 jest.spyOn(core, 'getBooleanInput').mockImplementation((arg: string, options: core.InputOptions | undefined): boolean => {
     return true;
 });
+
+// Avoiding messing with PATH during test execution.
+const addToolsToPath = jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(0);
 
 // Avoid any side effect of core.setFailed and core.error, they may fail the workflow, but this test is suppposed 
 // to fail, but workflow step (i.e. in this case `npm run test`) should not fail.
