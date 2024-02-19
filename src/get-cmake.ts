@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2021-2022-2023 Luca Cappa
+// Copyright (c) 2020-2021-2022-2023-2024 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
@@ -7,31 +7,16 @@ import * as core from '@actions/core';
 import * as io from '@actions/io';
 import * as tools from '@actions/tool-cache';
 import * as path from 'path';
-import * as fs from 'fs';
+import * as fs from 'fs/promises'
 import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
 import * as shared from './releases-collector'
+import { hashCode } from './utils'
+import { platform } from 'os';
 
 const extractFunction: { [key: string]: { (url: string, outputPath: string): Promise<string> } } = {
   '.tar.gz': tools.extractTar,
   '.zip': tools.extractZip
-}
-
-/**
- * Compute an unique number given some text.
- * @param {string} text
- * @returns {string}
- */
-function hashCode(text: string): number {
-  let hash = 41;
-  if (text.length != 0) {
-    for (let i = 0; i < text.length; i++) {
-      const char: number = text.charCodeAt(i);
-      hash = ((hash << 5) + hash) ^ char;
-    }
-  }
-
-  return Math.abs(hash);
 }
 
 export class ToolsGetter {
@@ -200,6 +185,39 @@ export class ToolsGetter {
     }
   }
 
+  private isWindows() : boolean{
+    return (process.platform === 'win32');
+  }
+
+  // Some ninja archives for macOS contain the ninja executable named after 
+  // the package name rather than 'ninja'.
+  private async fixUpNinjaExeName(ninjaPath: string): Promise<void> {
+    core.debug(`fixUpNinjaExeName(${ninjaPath})<<<`);
+    try {
+      const ninjaExeFileName = this.isWindows() ? 'ninja.exe': 'ninja';
+      const files = await fs.readdir(ninjaPath);
+      for (const file of files) {
+        core.debug(`Processing: '${file}'.`);
+        if (file.toLowerCase() !== ninjaExeFileName && file.toLowerCase().startsWith('ninja')) {
+          core.debug(`Renaming: '${file}'.`);
+          // If not an executable, skip it
+          const ninjaFullPath = path.join(ninjaPath, file);
+          try { await fs.access(ninjaFullPath, fs.constants.X_OK); } catch { continue; };
+          const ninjaExeFullPath = path.join(ninjaPath, ninjaExeFileName);
+          await fs.rename(ninjaFullPath, ninjaExeFullPath);
+          core.debug(`Renamed '${ninjaFullPath}' to '${ninjaExeFullPath}'.`);
+          return;
+        }
+      }
+      core.debug(`No rename occurred.`);
+    } catch (err: any) {
+      const error: Error = err as Error;
+      core.warning(`Error while trying to fix up ninja executable name at '${ninjaPath}': ` +
+        err?.message ?? "unknown error");
+    }
+    core.debug(`fixUpNinjaExeName(${ninjaPath})>>>`);
+  }
+
   private async addToolsToPath(outPath: string, cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo): Promise<void> {
     try {
       if (!cmakePackage.fileName) {
@@ -217,6 +235,7 @@ export class ToolsGetter {
       core.addPath(cmakePath);
       core.info(`Ninja path: '${ninjaPath}'`);
       core.addPath(ninjaPath);
+      await this.fixUpNinjaExeName(ninjaPath);
 
       try {
         core.startGroup(`Validating the installed CMake and Ninja`);
@@ -262,11 +281,11 @@ export class ToolsGetter {
       await extractFunction[archiveSuffix](downloaded, outputPath);
     } catch (exception) {
       // Fix up the downloaded archive extension for https://github.com/actions/toolkit/issues/1179
-      if (process.platform === 'win32') {
+      if (this.isWindows()) {
         const zipExtension = ".zip";
         if (path.extname(downloaded) !== zipExtension) {
           const downloadedZip = downloaded + zipExtension;
-          fs.renameSync(downloaded, downloadedZip);
+          await fs.rename(downloaded, downloadedZip);
           return await extractFunction[archiveSuffix](downloadedZip, outputPath);
         }
       }
@@ -280,7 +299,6 @@ export class ToolsGetter {
   private async downloadTools(
     cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo,
     outputPath: string): Promise<void> {
-    let outPath: string;
     await core.group("Downloading and extracting CMake", async () => {
       const downloaded = await tools.downloadTool(cmakePackage.url);
       await this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
@@ -293,7 +311,10 @@ export class ToolsGetter {
   }
 
   private static hashToFakeSemver(hashedKey: number): string {
-    return `${hashedKey}.0.0`;
+    // Since the key may be negative and needs to drop the sign to work good as 
+    // a major version number, let's ensure an unique version by switching the patch part.
+    const minorPatch = hashedKey > 0 ? ".0.0" : ".0.1";
+    return `${Math.abs(hashedKey)}${minorPatch}`;
   }
 }
 

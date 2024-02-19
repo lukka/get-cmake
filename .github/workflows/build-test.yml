@@ -46,7 +46,7 @@ jobs:
       versions: "[\"{'cmake':'','ninja':''}\",\
         \"{cmake:'3.22.6', 'ninja':'1.11.1'}\",\
         \"{'cmake':'3.25.0-rc4','ninja':'latest'}\",\
-        \"{'cmake':'latest','ninja':'~1.11.0'}\",\
+        \"{'cmake':'latest','ninja':'~1.10.0'}\",\
         \"{'cmake':'latestrc','ninja':'^1.11.0'}\",\
         \"{'cmake':'~3.25.0','ninja':''}\",\
         \"{'cmake':'^3.1.1','ninja':''}\",\
@@ -65,7 +65,7 @@ jobs:
       versions: "[\"{'cmake':'','ninja':''}\",\
         \"{cmake:'3.22.6', 'ninja':'1.11.1'}\",\
         \"{'cmake':'3.25.0-rc4','ninja':'latest'}\",\
-        \"{'cmake':'latest','ninja':'~1.11.0'}\",\
+        \"{'cmake':'latest','ninja':'~1.10.0'}\",\
         \"{'cmake':'latestrc','ninja':'^1.11.0'}\",\
         \"{'cmake':'~3.25.0','ninja':''}\",\
         \"{'cmake':'^3.1.1','ninja':''}\"]"
