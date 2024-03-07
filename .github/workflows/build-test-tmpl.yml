@@ -76,7 +76,7 @@ jobs:
       if: inputs.generate-catalog == true
 
     - name: If there is a new CMake version, create a Git commit for the PR
-      id: input-pr
+      id: git-check
       run: |
         if ! git diff --exit-code .latest_cmake_version ; then
           export CMAKE_NEW_VERSIONS=cmake-v$(cat .latest_cmake_version)
