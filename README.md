@@ -34,7 +34,7 @@ There are two kind of caches:
 Steps of `get-cmake`:
   1. If a `cache-hit` occurs (either local or cloud cache), CMake and Ninja are restored from the cache.
      1. if both local and cloud are enabled, the local cache check goes first.
-  2. If a `cache-miss` occurs, i.e. none of the enabled caches hits:
+  2. If a `cache-miss` occurs, i.e. none of the enabled caches hit:
      1. the action downloads and installs the desired versions of CMake and Ninja.
      2. the action stores CMake and Ninja for the enabled caches:
         1. if enabled, on the [cloud based GitHub cache](https://www.npmjs.com/package/@actions/cache). This is beneficial for the next run of the workflow especially on _GitHub-hosted runners_.
