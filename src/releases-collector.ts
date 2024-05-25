@@ -1,4 +1,4 @@
-// Copyright (c) 2022-2023 Luca Cappa
+// Copyright (c) 2022-2023-2024 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
@@ -77,6 +77,31 @@ export class NinjaFilters {
     binPath: "",
     dropSuffix: '.tar.gz',
     suffix: "universal-apple-darwin.tar.gz",
+    platform: macosPlatform,
+  }, {
+    binPath: "",
+    dropSuffix: 'ninja-linux-aarch64.zip',
+    suffix: "ninja-linux-aarch64.zip",
+    platform: linuxArmPlatform,
+  }, {
+    binPath: "",
+    dropSuffix: 'ninja-linux.zip',
+    suffix: "ninja-linux.zip",
+    platform: linuxX64Platform,
+  }, {
+    binPath: "",
+    dropSuffix: 'ninja-win.zip',
+    suffix: "ninja-win.zip",
+    platform: windowsPlatform,
+  }, {
+    binPath: "",
+    dropSuffix: 'ninja-winarm64.zip',
+    suffix: "ninja-winarm64.zip",
+    platform: windowsArmPlatform,
+  }, {
+    binPath: "",
+    dropSuffix: 'ninja-mac.zip',
+    suffix: "ninja-mac.zip",
     platform: macosPlatform,
   }];
 

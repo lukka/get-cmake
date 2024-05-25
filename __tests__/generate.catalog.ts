@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Luca Cappa
+// Copyright (c) 2022-2024 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 // SPDX short identifier: MIT
 
@@ -17,7 +17,7 @@ import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
 // 1 hour in milliseconds.
 jest.setTimeout(60 * 60 * 1000)
 
-function writeLatestToFile(map: rc.MostRecentReleases, releaseName: string, platform: string, filename: string) {
+function writeLatestToFile(map: rc.MostRecentReleases, releaseName: string, platform: string, filename: string): void {
     const value = map.get(releaseName)?.get(platform)?.mostRecentVersion?.version;
     if (!value)
         throw new Error(`Cannot get the '${releaseName}' for ${platform}`);
@@ -96,26 +96,28 @@ test.only('generate catalog of all CMake and Ninja releases ...', async () => {
     writeLatestToFile(cmakeMostRecentRelease, 'latest', process.platform, ".latest_cmake_version");
     writeLatestToFile(cmakeMostRecentRelease, 'latestrc', process.platform, ".latestrc_cmake_version");
 
-    await octokit.paginate('GET /repos/Kitware/ninja/releases', {
-        owner: 'Kitware',
-        repo: 'ninja',
-        per_page: 30,
-    },
-        (response: any) => {
-            for (const rel of response.data) {
-                try {
-                    const assets = rel.assets as rc.Asset[];
-                    assets.forEach((t) => t.tag_name = rel.tag_name);
-                    ninjaCollector.track(assets);
+    for (const path of ['/repos/Kitware/ninja/releases', '/repos/ninja-build/ninja/releases']) {
+        await octokit.paginate(`GET ${path}`, {
+            owner: path.split('/')[2],
+            repo: 'ninja',
+            per_page: 30,
+        },
+            (response: any) => {
+                for (const rel of response.data) {
+                    try {
+                        const assets = rel.assets as rc.Asset[];
+                        assets.forEach((t) => t.tag_name = rel.tag_name);
+                        ninjaCollector.track(assets);
+                    }
+                    catch (err: any) {
+                        console.log("Warning: " + err);
+                    }
                 }
-                catch (err: any) {
-                    console.log("Warning: " + err);
-                }
-            }
-        }).catch((err: any) => {
-            console.log(`Failure during HTTP download and parsing of Ninja releases: ${err as Error}`);
-            throw err;
-        });
+            }).catch((err: any) => {
+                console.log(`Failure during HTTP download and parsing of Ninja releases: ${err as Error}`);
+                throw err;
+            });
+    };
 
     console.log(`Found ${Object.keys(ninjaReleasesMap).length} releases: `);
     for (const relVersion in ninjaReleasesMap) {
