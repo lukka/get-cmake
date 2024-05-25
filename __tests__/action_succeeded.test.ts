@@ -65,7 +65,7 @@ test('testing get-cmake action success with specific cmake versions', async () =
         "3.25.0-rc4", "3.25.0-rc3"]) {
         process.env.RUNNER_TEMP = os.tmpdir();
         process.env["CUSTOM_CMAKE_VERSION"] = version;
-        process.env["CUSTOM_NINJA_VERSION"] = '~1.10.0';
+        process.env["CUSTOM_NINJA_VERSION"] = '~1.12.1';
         await getcmake.main();
         expect(coreSetFailed).toBeCalledTimes(0);
         expect(coreError).toBeCalledTimes(0);

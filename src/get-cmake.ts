@@ -1,5 +1,6 @@
 // Copyright (c) 2020-2021-2022-2023-2024 Luca Cappa
 // Released under the term specified in file LICENSE.txt
+
 // SPDX short identifier: MIT
 
 import * as cache from '@actions/cache';
@@ -12,7 +13,6 @@ import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
 import * as shared from './releases-collector'
 import { hashCode } from './utils'
-import { platform } from 'os';
 
 const extractFunction: { [key: string]: { (url: string, outputPath: string): Promise<string> } } = {
   '.tar.gz': tools.extractTar,
@@ -185,7 +185,7 @@ export class ToolsGetter {
     }
   }
 
-  private isWindows() : boolean{
+  private isWindows(): boolean {
     return (process.platform === 'win32');
   }
 
@@ -194,7 +194,7 @@ export class ToolsGetter {
   private async fixUpNinjaExeName(ninjaPath: string): Promise<void> {
     core.debug(`fixUpNinjaExeName(${ninjaPath})<<<`);
     try {
-      const ninjaExeFileName = this.isWindows() ? 'ninja.exe': 'ninja';
+      const ninjaExeFileName = this.isWindows() ? 'ninja.exe' : 'ninja';
       const files = await fs.readdir(ninjaPath);
       for (const file of files) {
         core.debug(`Processing: '${file}'.`);
@@ -306,8 +306,22 @@ export class ToolsGetter {
 
     await core.group("Downloading and extracting Ninja", async () => {
       const downloaded = await tools.downloadTool(ninjaPackage.url);
-      await this.extract(ninjaPackage.dropSuffix, downloaded, outputPath);
+      await this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
     });
+  }
+
+  private static getArchiveExtension(archivePath?: string): string {
+    if (!archivePath) {
+      throw new Error(`Invalid archivePath passed to getArchiveExtension()`);
+    }
+    const urlLower = archivePath.toLowerCase();
+    if (urlLower.endsWith('.tar.gz')) {
+      return '.tar.gz';
+    } else if (urlLower.endsWith('.zip')) {
+      return '.zip';
+    } else {
+      throw new Error(`Unknown archive extension for '${archivePath}'`);
+    }
   }
 
   private static hashToFakeSemver(hashedKey: number): string {
@@ -318,6 +332,18 @@ export class ToolsGetter {
   }
 }
 
+function forceExit(exitCode: number) {
+  // work around for:
+  //  - https://github.com/lukka/get-cmake/issues/136
+  //  - https://github.com/nodejs/node/issues/47228
+
+  // Avoid this workaround when running mocked unit tests.
+  if (process.env.JEST_WORKER_ID)
+    return;
+
+  process.exit(exitCode);
+}
+
 export async function main(): Promise<void> {
   try {
     const cmakeGetter: ToolsGetter = new ToolsGetter(
@@ -326,6 +352,7 @@ export async function main(): Promise<void> {
     await cmakeGetter.run();
     core.info('get-cmake action execution succeeded');
     process.exitCode = 0;
+    forceExit(0);
   } catch (err) {
     const error: Error = err as Error;
     if (error?.stack) {
@@ -334,5 +361,7 @@ export async function main(): Promise<void> {
     const errorAsString = (err ?? "undefined error").toString();
     core.setFailed(`get-cmake action execution failed: '${errorAsString}'`);
     process.exitCode = -1000;
+    
+    forceExit(-1000);
   }
 }
