@@ -85,7 +85,8 @@ jobs:
           export CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS} cmake-rc-v$(cat .latestrc_cmake_version)"
         fi
         if [[ -n "${CMAKE_NEW_VERSIONS}" ]]; then
-          # Get rid of leading space if any
+          # Get rid of blank space if any
+          CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS// /}"
           CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS## }"
           echo "CMAKE_NEW_VERSIONS=${CMAKE_NEW_VERSIONS}" >> "$GITHUB_ENV"
           git add -u
