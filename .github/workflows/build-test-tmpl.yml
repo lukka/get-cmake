@@ -98,7 +98,7 @@ jobs:
       if: ${{ inputs.generate-catalog == true }}
 
     - name: Create the PR for new CMake version(s)
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v7
       with:
         title: '[Automated] Adding ${{ env.CMAKE_NEW_VERSIONS }}'
         body: "Add to catalog new CMake version(s): ${{ env.CMAKE_NEW_VERSIONS }}"
