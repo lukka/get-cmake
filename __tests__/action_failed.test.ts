@@ -9,6 +9,7 @@ import * as core from '@actions/core';
 import * as getcmake from '../src/get-cmake';
 import path = require('path');
 import { ToolsGetter } from '../src/get-cmake';
+import * as crypto from 'crypto';
 
 // 10 minutes
 jest.setTimeout(10 * 60 * 1000)
@@ -36,7 +37,7 @@ var coreError = jest.spyOn(core, 'error').mockImplementation(() => {});
 var toolsCacheDir = jest.spyOn(toolcache, 'cacheDir');
 
 test('testing get-cmake action failure', async () => {
-    const testId = Math.random();
+    const testId = crypto.randomBytes(16).toString('hex');
     process.exitCode
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
     process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);

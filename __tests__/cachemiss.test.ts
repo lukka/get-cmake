@@ -9,6 +9,7 @@ import { ToolsGetter } from '../src/get-cmake';
 import * as cache from '@actions/cache';
 import * as core from '@actions/core';
 import path = require('path');
+import * as crypto from 'crypto';
 
 // 10 minutes
 jest.setTimeout(10 * 60 * 1000)
@@ -27,7 +28,7 @@ const cacheRestoreCache = jest.spyOn(cache, 'restoreCache').mockImplementation((
 const addToolsToPath = jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(0);
 
 test('testing get-cmake with cache-miss...', async () => {
-    const testId = Math.random();
+    const testId = crypto.randomBytes(16).toString('hex');
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
     const getter: ToolsGetter = new ToolsGetter();
     await getter.run();
