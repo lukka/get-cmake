@@ -3,6 +3,7 @@
 // SPDX short identifier: MIT
 
 import * as os from 'os';
+import * as crypto from 'crypto';
 import * as toolcache from '@actions/tool-cache';
 import * as core from '@actions/core';
 import * as path from 'path'
@@ -46,7 +47,7 @@ var toolsCacheDir = jest.spyOn(toolcache, 'cacheDir');
 var toolsFind = jest.spyOn(toolcache, 'find');
 
 test('testing get-cmake action success with cloud/local cache enabled', async () => {
-    const testId = Math.random();
+    const testId = crypto.randomBytes(16).toString('hex');
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
     process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
 
@@ -78,7 +79,7 @@ test('testing get-cmake action success with cloud/local cache enabled', async ()
 });
 
 test('testing get-cmake action success with local or cloud cache hits', async () => {
-    const testId = Math.random();
+    const testId = crypto.randomBytes(16).toString('hex');
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
     process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
 
@@ -121,7 +122,7 @@ test('testing get-cmake action store and restore local cache', async () => {
     toolsCacheDir.mockRestore();
     toolsFind.mockRestore();
 
-    const testId = Math.random();
+    const testId = crypto.randomBytes(16).toString('hex');
     process.env.RUNNER_TEMP = path.join(os.tmpdir(), `${testId}`);
     process.env.RUNNER_TOOL_CACHE = path.join(os.tmpdir(), `${testId}-cache`);
     let downloadMock = undefined;
