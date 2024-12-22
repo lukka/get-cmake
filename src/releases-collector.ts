@@ -128,22 +128,28 @@ export class CMakeFilters {
     suffix: "Linux-i386.tar.gz",
     platform: linuxX86Platform,
   }];
-  private static readonly windowsFilters: ReleaseFilter[] = [{
-    binPath: 'bin/',
-    dropSuffix: ".zip",
-    suffix: "windows-x86_64.zip",
-    platform: windowsPlatform,
-  }, {
-    binPath: 'bin/',
-    dropSuffix: ".zip",
-    suffix: "win64-x64.zip",
-    platform: windowsPlatform,
-  }, {
-    binPath: 'bin/',
-    dropSuffix: ".zip",
-    suffix: "win32-x86.zip",
-    platform: windowsPlatform,
-  }];
+  private static readonly windowsFilters: ReleaseFilter[] = [
+    {
+      binPath: 'bin/',
+      dropSuffix: ".zip",
+      suffix: "windows-arm64.zip",
+      platform: windowsArmPlatform,
+    }, {
+      binPath: 'bin/',
+      dropSuffix: ".zip",
+      suffix: "windows-x86_64.zip",
+      platform: windowsPlatform,
+    }, {
+      binPath: 'bin/',
+      dropSuffix: ".zip",
+      suffix: "win64-x64.zip",
+      platform: windowsPlatform,
+    }, {
+      binPath: 'bin/',
+      dropSuffix: ".zip",
+      suffix: "win32-x86.zip",
+      platform: windowsPlatform,
+    }];
   private static readonly macosFilters: ReleaseFilter[] = [{
     binPath: "CMake.app/Contents/bin/",
     dropSuffix: '.tar.gz',
