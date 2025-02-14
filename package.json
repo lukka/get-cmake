@@ -51,12 +51,12 @@
     "@actions/io": "^1.1.2",
     "@actions/tool-cache": "^2.0.1",
     "@octokit/core": "5.0.1",
-    "@octokit/plugin-paginate-rest": "^5.0.1",
+    "@octokit/plugin-paginate-rest": "^11.4.2",
     "@types/jest": "^29.2.0",
     "install": "^0.13.0",
     "jest-cli": "^29.2.1",
     "node-notifier": ">=8.0.1",
-    "octokit": "^3.1.2",
+    "octokit": "^4.1.1",
     "semver": "^7.5.2",
     "uuid": "^7.0.3"
   }
