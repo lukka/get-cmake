@@ -19,7 +19,7 @@
   "devDependencies": {
     "@octokit/plugin-rest-endpoint-methods": "10.1.2",
     "@octokit/plugin-retry": "6.0.1",
-    "@octokit/plugin-throttling": "^8.1.2",
+    "@octokit/plugin-throttling": "^9.4.0",
     "@types/node": "^16.0.0",
     "@types/semver": "^7.3.13",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
@@ -50,13 +50,13 @@
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.2",
     "@actions/tool-cache": "^2.0.1",
-    "@octokit/core": "5.0.1",
+    "@octokit/core": "6.1.4",
     "@octokit/plugin-paginate-rest": "^5.0.1",
     "@types/jest": "^29.2.0",
     "install": "^0.13.0",
     "jest-cli": "^29.2.1",
     "node-notifier": ">=8.0.1",
-    "octokit": "^3.1.2",
+    "octokit": "^4.1.2",
     "semver": "^7.5.2",
     "uuid": "^7.0.3"
   }
