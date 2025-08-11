@@ -27,7 +27,7 @@ jobs:
       with:
         submodules: true
         ssh-key: ${{ secrets.token }}
-    - uses: actions/download-artifact@v4
+    - uses: actions/download-artifact@v5
       with:
         name: catalog
       if: inputs.generate-catalog != true
