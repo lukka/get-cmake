@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2021-2022-2023-2024 Luca Cappa
+// Copyright (c) 2020-2021-2022-2023-2024-2025 Luca Cappa
 // Released under the term specified in file LICENSE.txt
 
 // SPDX short identifier: MIT
@@ -233,8 +233,10 @@ export class ToolsGetter {
 
       core.info(`CMake path: '${cmakePath}'`);
       core.addPath(cmakePath);
+      core.setOutput('cmake-path', cmakePath);
       core.info(`Ninja path: '${ninjaPath}'`);
       core.addPath(ninjaPath);
+      core.setOutput('ninja-path', ninjaPath);
       await this.fixUpNinjaExeName(ninjaPath);
 
       try {
