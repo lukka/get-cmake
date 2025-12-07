@@ -6,6 +6,7 @@
   - [Quickstart](#quickstart)
     - [If you want to use  **latest stable** you can use this one-liner:](#if-you-want-to-use--latest-stable-you-can-use-this-one-liner)
     - [If you want to **pin** the workflow to **specific range of versions** of CMake and Ninja:](#if-you-want-to-pin-the-workflow-to-specific-range-of-versions-of-cmake-and-ninja)
+    - [Outputs](#outputs)
   - [Action reference: all input/output parameters](#action-reference-all-inputoutput-parameters)
   - [Who is using `get-cmake`](#who-is-using-get-cmake)
 - [Developers information](#developers-information)
@@ -92,6 +93,26 @@ or there is another option:
   - name: Get specific version CMake, v3.26.0
     uses: lukka/get-cmake@v3.26.0     # <- this one-liner is all you need.
 ```
+
+<br>
+
+### Outputs
+The action provides the following outputs that can be used in subsequent steps:
+- `cmake-path`: The path to the installed CMake executable
+- `ninja-path`: The path to the installed Ninja executable
+
+Example usage:
+```yaml
+- name: Get CMake and Ninja
+  uses: lukka/get-cmake@latest
+  id: cmake-and-ninja
+  
+- name: Use CMake and Ninja paths
+  run: |
+    echo "CMake is at: ${{ steps.cmake-and-ninja.outputs.cmake-path }}"
+    echo "Ninja is at: ${{ steps.cmake-and-ninja.outputs.ninja-path }}"
+```
+
 <br>
 
 ## Action reference: all input/output parameters
@@ -161,5 +182,5 @@ The software is provided as is, there is no warranty of any kind. All users are 
 # License
 All the content in this repository is licensed under the [MIT License](LICENSE.txt).
 
-Copyright (c) 2020-2021-2022-2023-2024 Luca Cappa
+Copyright (c) 2020-2021-2022-2023-2024-2025 Luca Cappa
 
