@@ -1,0 +1,97 @@
+name: 'Auto-release on CMake version merge'
+
+# This workflow automatically creates a release when a PR with a new CMake version
+# is merged to the main branch. It syncs the 'latest' branch and creates a version tag.
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  auto_release:
+    name: 'Auto-create release for new CMake version'
+    # Only run if PR was merged (not just closed) and title indicates new CMake version
+    if: |
+      github.event.pull_request.merged == true &&
+      contains(github.event.pull_request.title, 'New CMake version')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine version and check if release needed
+        id: check_version
+        run: |
+          # Read the current CMake version from main
+          CMAKE_VERSION=$(cat .latest_cmake_version)
+          echo "CMAKE_VERSION=$CMAKE_VERSION" >> $GITHUB_OUTPUT
+          echo "Current CMake version: $CMAKE_VERSION"
+          
+          # Check if tag already exists
+          if git ls-remote --tags origin | grep -q "refs/tags/v${CMAKE_VERSION}$"; then
+            echo "Tag v${CMAKE_VERSION} already exists, skipping release"
+            echo "SHOULD_RELEASE=false" >> $GITHUB_OUTPUT
+          else
+            echo "Tag v${CMAKE_VERSION} does not exist, will create release"
+            echo "SHOULD_RELEASE=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update latest branch to match main
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        run: |
+          # Get the current commit SHA of main
+          MAIN_SHA=$(git rev-parse HEAD)
+          echo "Main branch is at commit: $MAIN_SHA"
+
+          # Force update the latest branch to match main
+          git push origin HEAD:refs/heads/latest --force
+          echo "✓ Latest branch updated to match main"
+
+      - name: Create and push version tag
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        run: |
+          TAG_NAME="v${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          
+          # Create the tag
+          git tag -a "$TAG_NAME" -m "Release $TAG_NAME - CMake ${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          
+          # Push the tag
+          git push origin "$TAG_NAME"
+          echo "✓ Tag $TAG_NAME created and pushed"
+
+      - name: Create release summary
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        run: |
+          echo "## 🎉 Release v${{ steps.check_version.outputs.CMAKE_VERSION }} created!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Changes" >> $GITHUB_STEP_SUMMARY
+          echo "- CMake version updated to ${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
+          echo "- Tag \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` created" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Usage" >> $GITHUB_STEP_SUMMARY
+          echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
+          echo '```yaml' >> $GITHUB_STEP_SUMMARY
+          echo "- uses: lukka/get-cmake@latest" >> $GITHUB_STEP_SUMMARY
+          echo "- uses: lukka/get-cmake@v${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Skip message
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'false'
+        run: |
+          echo "## ℹ️ Release skipped" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Tag v${{ steps.check_version.outputs.CMAKE_VERSION }} already exists." >> $GITHUB_STEP_SUMMARY
