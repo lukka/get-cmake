@@ -96,13 +96,21 @@ jobs:
           echo "Created tag object with SHA: $TAG_SHA"
           
           # Create reference to the tag
-          gh api \
+          REF_RESPONSE=$(gh api \
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             /repos/${{ github.repository }}/git/refs \
             -f ref="refs/tags/$TAG_NAME" \
-            -f sha="$TAG_SHA"
+            -f sha="$TAG_SHA")
+          
+          # Validate the reference was created
+          REF_REF=$(echo "$REF_RESPONSE" | jq -r '.ref')
+          if [[ -z "$REF_REF" || "$REF_REF" == "null" ]]; then
+            echo "Error: Failed to create tag reference. API response:"
+            echo "$REF_RESPONSE"
+            exit 1
+          fi
           
           echo "✓ Verified tag $TAG_NAME created and pushed"
 
