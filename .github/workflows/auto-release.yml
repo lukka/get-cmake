@@ -74,7 +74,7 @@ jobs:
           COMMIT_SHA=$(git rev-parse HEAD)
           
           # Create tag object using GitHub API (this creates a verified tag)
-          TAG_RESPONSE=$(gh api \
+          TAG_SHA=$(gh api \
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
@@ -82,33 +82,30 @@ jobs:
             -f tag="$TAG_NAME" \
             -f message="Release $TAG_NAME - CMake ${{ steps.check_version.outputs.CMAKE_VERSION }}" \
             -f object="$COMMIT_SHA" \
-            -f type="commit")
-          
-          TAG_SHA=$(echo "$TAG_RESPONSE" | jq -r '.sha')
+            -f type="commit" \
+            --jq '.sha')
           
           # Validate that we got a valid SHA
           if [[ -z "$TAG_SHA" || "$TAG_SHA" == "null" ]]; then
-            echo "Error: Failed to create tag object. API response:"
-            echo "$TAG_RESPONSE"
+            echo "Error: Failed to create tag object or received invalid SHA"
             exit 1
           fi
           
           echo "Created tag object with SHA: $TAG_SHA"
           
           # Create reference to the tag
-          REF_RESPONSE=$(gh api \
+          TAG_REF=$(gh api \
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             /repos/${{ github.repository }}/git/refs \
             -f ref="refs/tags/$TAG_NAME" \
-            -f sha="$TAG_SHA")
+            -f sha="$TAG_SHA" \
+            --jq '.ref')
           
           # Validate the reference was created
-          REF_REF=$(echo "$REF_RESPONSE" | jq -r '.ref')
-          if [[ -z "$REF_REF" || "$REF_REF" == "null" ]]; then
-            echo "Error: Failed to create tag reference. API response:"
-            echo "$REF_RESPONSE"
+          if [[ -z "$TAG_REF" || "$TAG_REF" == "null" ]]; then
+            echo "Error: Failed to create tag reference"
             exit 1
           fi
           
