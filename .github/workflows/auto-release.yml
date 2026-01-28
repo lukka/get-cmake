@@ -66,15 +66,36 @@ jobs:
 
       - name: Create and push version tag
         if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           TAG_NAME="v${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          COMMIT_SHA=$(git rev-parse HEAD)
           
-          # Create the tag
-          git tag -a "$TAG_NAME" -m "Release $TAG_NAME - CMake ${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          # Create tag object using GitHub API (this creates a verified tag)
+          TAG_RESPONSE=$(gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/git/tags \
+            -f tag="$TAG_NAME" \
+            -f message="Release $TAG_NAME - CMake ${{ steps.check_version.outputs.CMAKE_VERSION }}" \
+            -f object="$COMMIT_SHA" \
+            -f type="commit")
           
-          # Push the tag
-          git push origin "$TAG_NAME"
-          echo "✓ Tag $TAG_NAME created and pushed"
+          TAG_SHA=$(echo "$TAG_RESPONSE" | jq -r '.sha')
+          echo "Created tag object with SHA: $TAG_SHA"
+          
+          # Create reference to the tag
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/git/refs \
+            -f ref="refs/tags/$TAG_NAME" \
+            -f sha="$TAG_SHA"
+          
+          echo "✓ Verified tag $TAG_NAME created and pushed"
 
       - name: Create release summary
         run: |
