@@ -6,22 +6,27 @@ This document describes the release process for the get-cmake action after a new
 
 The get-cmake action uses two key reference points for users:
 1. **`latest` branch** - Points to the most recent stable release
-2. **Version tags** (e.g., `v4.2.3`) - Allow users to pin to specific versions
+2. **Version tags** (e.g., `vX.Y.Z`) - Allow users to pin to specific versions
 
-When a new CMake version is detected and merged to `main` via automated PR, a release should be performed to make it available to users.
-
-## Current State
-
-Based on the latest analysis:
-- **Main branch**: Contains CMake v4.2.3 (merged via PR #232)
-- **Latest branch**: Currently at CMake v4.2.2 (needs to be updated)
-- **Latest tag**: v4.2.2 (needs new tag v4.2.3)
+When a new CMake version is detected and merged to `main` via automated PR, a release is performed automatically (or can be done manually) to make it available to users.
 
 ## Release Steps
 
-### Option 1: Using GitHub Actions Workflow (Recommended)
+### Option 1: Automatic Release (Recommended)
 
-A workflow file `.github/workflows/sync-latest-and-tag.yml` has been created to automate this process.
+The `auto-release.yml` workflow automatically handles releases when automated CMake version PRs are merged:
+
+1. When a PR with title matching `[Automated] Adding cmake-vX.Y.Z` is merged to main
+2. The workflow automatically:
+   - Reads the version from `.latest_cmake_version`
+   - Updates the `latest` branch to match `main`
+   - Creates and pushes the version tag (if it doesn't exist)
+
+**No manual action needed** - the release happens automatically!
+
+### Option 2: Manual Release (Override/Fallback)
+
+If you need to manually trigger a release or override the automatic process:
 
 1. Go to the Actions tab in GitHub
 2. Select "Sync latest branch and create release tag" workflow
@@ -30,12 +35,13 @@ A workflow file `.github/workflows/sync-latest-and-tag.yml` has been created to 
 5. Click "Run workflow" button
 
 The workflow will:
+- Validate the tag name format
 - Update the `latest` branch to match `main`
 - Create and push the specified version tag
 
-### Option 2: Manual Process (Advanced)
+### Option 3: Manual Command-Line Process (Advanced)
 
-If you prefer to do this manually or the workflow is not available:
+If you prefer to do this manually via command line:
 
 ```bash
 # 1. Ensure you're on the main branch and up to date
@@ -72,23 +78,23 @@ After the release process:
 
 2. **Verify the tag was created**:
    ```bash
-   git ls-remote --tags origin | grep v4.2.3
+   git ls-remote --tags origin | grep "vX.Y.Z"
    ```
 
 3. **Test the action**:
    Create a test workflow using:
    ```yaml
    - uses: lukka/get-cmake@latest
-   - uses: lukka/get-cmake@v4.2.3
+   - uses: lukka/get-cmake@vX.Y.Z  # Replace with actual version
    ```
 
 ## What Users See
 
 After the release:
 
-- **Users using `@latest`**: Will automatically get CMake v4.2.3
-- **Users using `@v4.2.3`**: Can pin to this specific version
-- **Users using `@v4.2.2`**: Will continue to use v4.2.2
+- **Users using `@latest`**: Will automatically get the new CMake version
+- **Users using `@vX.Y.Z`**: Can pin to specific versions
+- **Users using older tags**: Will continue to use their pinned version
 
 ## Background: How New Versions Are Detected
 
@@ -96,15 +102,14 @@ The `build-test-tmpl.yml` workflow:
 1. Runs `npm run generate-catalog` to query GitHub for new CMake/Ninja releases
 2. Compares with `.latest_cmake_version` and `.latestrc_cmake_version`
 3. If new versions found, creates an automated PR to main
-4. After PR is merged, a manual release should be performed (this document)
+4. When the PR is merged, the `auto-release.yml` workflow automatically creates the release
 
 ## Release Checklist
 
-For each release:
+For manual releases or verification:
 
 - [ ] Verify the PR with new CMake version was merged to `main`
 - [ ] Check the version in `.latest_cmake_version` on main branch
-- [ ] Run the sync workflow or manual commands
 - [ ] Verify `latest` branch points to same commit as `main`
 - [ ] Verify the version tag was created
 - [ ] Test the action using `@latest` reference
@@ -113,14 +118,17 @@ For each release:
 ## Troubleshooting
 
 **Problem**: Tag already exists
-- **Solution**: Check if release was already done. If tag is incorrect, delete it first:
+- **Solution**: The auto-release workflow will skip tag creation but still sync the latest branch. For manual workflow, check if release was already done. If tag is incorrect, delete it first:
   ```bash
-  git push origin :refs/tags/v4.2.3
-  git tag -d v4.2.3
+  git push origin :refs/tags/vX.Y.Z
+  git tag -d vX.Y.Z
   ```
 
 **Problem**: Latest branch won't update
-- **Solution**: Ensure you have write permissions to the repository
+- **Solution**: Ensure you have write permissions to the repository. Check workflow logs in GitHub Actions.
 
 **Problem**: Users not getting new version with `@latest`
-- **Solution**: GitHub may cache action references. Users can try clearing cache or using a specific tag.
+- **Solution**: GitHub may cache action references. Users can try clearing cache or using a specific tag. Verify the latest branch is actually updated.
+
+**Problem**: Auto-release workflow didn't trigger
+- **Solution**: Check that the PR title matches the pattern `[Automated] Adding cmake-vX.Y.Z`. If needed, use the manual workflow as a fallback.

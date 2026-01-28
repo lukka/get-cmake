@@ -9,13 +9,17 @@ on:
     branches:
       - main
 
+concurrency:
+  group: release-workflow
+  cancel-in-progress: false
+
 jobs:
   auto_release:
     name: 'Auto-create release for new CMake version'
-    # Only run if PR was merged (not just closed) and title indicates new CMake version
+    # Only run if PR was merged (not just closed) and title matches automated PR pattern
     if: |
       github.event.pull_request.merged == true &&
-      contains(github.event.pull_request.title, 'New CMake version')
+      contains(github.event.pull_request.title, '[Automated] Adding')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -50,9 +54,9 @@ jobs:
           fi
 
       - name: Update latest branch to match main
-        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
         run: |
-          # Get the current commit SHA of main
+          # Always update latest branch to match main, even if tag exists
+          # This ensures latest branch is always in sync
           MAIN_SHA=$(git rev-parse HEAD)
           echo "Main branch is at commit: $MAIN_SHA"
 
@@ -73,25 +77,24 @@ jobs:
           echo "✓ Tag $TAG_NAME created and pushed"
 
       - name: Create release summary
-        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
         run: |
-          echo "## 🎉 Release v${{ steps.check_version.outputs.CMAKE_VERSION }} created!" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Changes" >> $GITHUB_STEP_SUMMARY
-          echo "- CMake version updated to ${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
-          echo "- Tag \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` created" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Usage" >> $GITHUB_STEP_SUMMARY
-          echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
-          echo '```yaml' >> $GITHUB_STEP_SUMMARY
-          echo "- uses: lukka/get-cmake@latest" >> $GITHUB_STEP_SUMMARY
-          echo "- uses: lukka/get-cmake@v${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-
-      - name: Skip message
-        if: steps.check_version.outputs.SHOULD_RELEASE == 'false'
-        run: |
-          echo "## ℹ️ Release skipped" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Tag v${{ steps.check_version.outputs.CMAKE_VERSION }} already exists." >> $GITHUB_STEP_SUMMARY
+          if [[ "${{ steps.check_version.outputs.SHOULD_RELEASE }}" == "true" ]]; then
+            echo "## 🎉 Release v${{ steps.check_version.outputs.CMAKE_VERSION }} created!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Changes" >> $GITHUB_STEP_SUMMARY
+            echo "- CMake version updated to ${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
+            echo "- Tag \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` created" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Usage" >> $GITHUB_STEP_SUMMARY
+            echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
+            echo '```yaml' >> $GITHUB_STEP_SUMMARY
+            echo "- uses: lukka/get-cmake@latest" >> $GITHUB_STEP_SUMMARY
+            echo "- uses: lukka/get-cmake@v${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ℹ️ Latest branch synced, tag already exists" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- Latest branch updated to match main" >> $GITHUB_STEP_SUMMARY
+            echo "- Tag v${{ steps.check_version.outputs.CMAKE_VERSION }} already exists (not recreated)" >> $GITHUB_STEP_SUMMARY
+          fi
