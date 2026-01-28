@@ -69,6 +69,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -e
           TAG_NAME="${{ inputs.tag_name }}"
           COMMIT_SHA=$(git rev-parse HEAD)
           
@@ -84,6 +85,14 @@ jobs:
             -f type="commit")
           
           TAG_SHA=$(echo "$TAG_RESPONSE" | jq -r '.sha')
+          
+          # Validate that we got a valid SHA
+          if [[ -z "$TAG_SHA" || "$TAG_SHA" == "null" ]]; then
+            echo "Error: Failed to create tag object. API response:"
+            echo "$TAG_RESPONSE"
+            exit 1
+          fi
+          
           echo "Created tag object with SHA: $TAG_SHA"
           
           # Create reference to the tag
