@@ -1,0 +1,88 @@
+name: 'Sync latest branch and create release tag'
+
+# This workflow synchronizes the 'latest' branch with 'main' and creates a version tag
+# for releases. It should be triggered manually when a new CMake version PR is merged to main.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for the release (e.g., v4.2.3)'
+        required: true
+        type: string
+
+concurrency:
+  group: release-workflow
+  cancel-in-progress: false
+
+jobs:
+  sync_and_tag:
+    name: 'Sync latest branch and create tag'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Validate tag name
+        run: |
+          TAG_NAME="${{ inputs.tag_name }}"
+          
+          # Validate tag format (should start with 'v' and be followed by version)
+          if ! [[ "$TAG_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+            echo "Error: Tag name '$TAG_NAME' does not match expected format (e.g., v4.2.3 or v4.2.3-rc1)"
+            exit 1
+          fi
+          
+          # Check if tag already exists remotely
+          if git ls-remote --tags origin | grep -q "refs/tags/${TAG_NAME}$"; then
+            echo "Error: Tag $TAG_NAME already exists"
+            exit 1
+          fi
+          
+          echo "✓ Tag name validated: $TAG_NAME"
+
+      - name: Update latest branch to match main
+        run: |
+          # Fetch all branches
+          git fetch origin
+
+          # Get the current commit SHA of main
+          MAIN_SHA=$(git rev-parse HEAD)
+          echo "Main branch is at commit: $MAIN_SHA"
+
+          # Force update the latest branch to match main
+          git push origin HEAD:refs/heads/latest --force
+          echo "✓ Latest branch updated to match main"
+
+      - name: Create and push tag
+        run: |
+          TAG_NAME="${{ inputs.tag_name }}"
+          
+          # Create the tag
+          git tag -a "$TAG_NAME" -m "Release $TAG_NAME"
+          
+          # Push the tag
+          git push origin "$TAG_NAME"
+          echo "✓ Tag $TAG_NAME created and pushed"
+
+      - name: Summary
+        run: |
+          echo "## Release completed successfully! 🎉" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- ✓ Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
+          echo "- ✓ Tag \`${{ inputs.tag_name }}\` created" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
+          echo "- \`@latest\` - for the latest stable version" >> $GITHUB_STEP_SUMMARY
+          echo "- \`@${{ inputs.tag_name }}\` - for this specific version" >> $GITHUB_STEP_SUMMARY

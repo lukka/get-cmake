@@ -179,6 +179,17 @@ The software is provided as is, there is no warranty of any kind. All users are 
 
 <br>
 
+## Release Process
+When a new CMake or Ninja version is merged to the main branch, a release should be performed to make it available to users via the `@latest` branch reference and version tags.
+
+See [RELEASE_PROCESS.md](./RELEASE_PROCESS.md) for detailed instructions.
+
+**Quick summary:**
+- **Automated**: The `auto-release.yml` workflow automatically creates releases when CMake version PRs are merged
+- **Manual**: Use the "Sync latest branch and create release tag" workflow in GitHub Actions to manually trigger a release
+
+<br>
+
 # License
 All the content in this repository is licensed under the [MIT License](LICENSE.txt).
 
