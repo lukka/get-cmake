@@ -208,10 +208,13 @@ jobs:
             python3 - <<'PY'
 import json
 import os
+import urllib.error
 import urllib.request
 
-context = open(os.environ["RELEASE_CONTEXT_FILE"], "r", encoding="utf-8").read()
-template = open(os.environ["RELEASE_TEMPLATE_FILE"], "r", encoding="utf-8").read()
+with open(os.environ["RELEASE_CONTEXT_FILE"], "r", encoding="utf-8") as context_file:
+    context = context_file.read()
+with open(os.environ["RELEASE_TEMPLATE_FILE"], "r", encoding="utf-8") as template_file:
+    template = template_file.read()
 target_tag = os.environ["TARGET_TAG"]
 
 payload = {
@@ -249,34 +252,62 @@ payload = {
             ),
         },
     ],
-    "temperature": 0.2,
+    "temperature": 0.0,
 }
 
-req = urllib.request.Request(
-    "https://models.inference.ai.azure.com/chat/completions",
-    data=json.dumps(payload).encode("utf-8"),
-    headers={
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {os.environ['MODELS_API_TOKEN']}",
-    },
-    method="POST",
-)
-with urllib.request.urlopen(req, timeout=60) as response:
-    result = json.loads(response.read().decode("utf-8"))
+fallback_decision = {
+    "should_create_draft_release": True,
+    "release_title": f"CMake {target_tag}",
+    "release_notes_markdown": template.strip(),
+    "reasoning": "",
+    "categories": {
+        "breaking": [],
+        "features": [],
+        "bug_fixes": [],
+        "maintenance": []
+    }
+}
 
-content = result["choices"][0]["message"]["content"]
-start = content.find("{")
-end = content.rfind("}")
-if start == -1 or end == -1:
-    raise RuntimeError("Model response did not include JSON content")
-decision = json.loads(content[start:end + 1])
+try:
+    req = urllib.request.Request(
+        "https://models.inference.ai.azure.com/chat/completions",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {os.environ['MODELS_API_TOKEN']}",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as response:
+        result = json.loads(response.read().decode("utf-8"))
 
-open(os.environ["RELEASE_DECISION_FILE"], "w", encoding="utf-8").write(
-    json.dumps(decision, ensure_ascii=False, indent=2)
-)
-open(os.environ["RELEASE_NOTES_FILE"], "w", encoding="utf-8").write(
-    decision.get("release_notes_markdown", "").strip() + "\n"
-)
+    content = result["choices"][0]["message"]["content"].strip()
+    if content.startswith("```"):
+        content_lines = content.splitlines()
+        if content_lines and content_lines[0].startswith("```"):
+            content_lines = content_lines[1:]
+        if content_lines and content_lines[-1].strip().startswith("```"):
+            content_lines = content_lines[:-1]
+        content = "\n".join(content_lines).strip()
+    decision = json.loads(content)
+except (urllib.error.URLError, urllib.error.HTTPError, OSError, ValueError, json.JSONDecodeError, KeyError, IndexError) as ex:
+    decision = fallback_decision
+    decision["reasoning"] = (
+        "LLM request or parsing failed; fallback uses previous template. "
+        f"Error: {type(ex).__name__}: {ex}"
+    )
+
+if not decision.get("release_notes_markdown", "").strip():
+    decision["release_notes_markdown"] = fallback_decision["release_notes_markdown"]
+if not decision.get("release_title", "").strip():
+    decision["release_title"] = fallback_decision["release_title"]
+if "should_create_draft_release" not in decision:
+    decision["should_create_draft_release"] = False
+
+with open(os.environ["RELEASE_DECISION_FILE"], "w", encoding="utf-8") as decision_file:
+    decision_file.write(json.dumps(decision, ensure_ascii=False, indent=2))
+with open(os.environ["RELEASE_NOTES_FILE"], "w", encoding="utf-8") as notes_file:
+    notes_file.write(decision.get("release_notes_markdown", "").strip() + "\n")
 PY
           else
             cp "$RELEASE_TEMPLATE_FILE" "$RELEASE_NOTES_FILE"
@@ -284,7 +315,8 @@ PY
 import json
 import os
 
-template = open(os.environ["RELEASE_TEMPLATE_FILE"], "r", encoding="utf-8").read().strip()
+with open(os.environ["RELEASE_TEMPLATE_FILE"], "r", encoding="utf-8") as template_file:
+    template = template_file.read().strip()
 decision = {
     "should_create_draft_release": True,
     "release_title": f"CMake {os.environ['TARGET_TAG']}",
@@ -297,14 +329,24 @@ decision = {
         "maintenance": []
     }
 }
-open(os.environ["RELEASE_DECISION_FILE"], "w", encoding="utf-8").write(
-    json.dumps(decision, ensure_ascii=False, indent=2)
-)
+with open(os.environ["RELEASE_DECISION_FILE"], "w", encoding="utf-8") as decision_file:
+    decision_file.write(json.dumps(decision, ensure_ascii=False, indent=2))
 PY
           fi
 
-          SHOULD_CREATE_DRAFT=$(python3 -c 'import json,sys; print("true" if json.load(open(sys.argv[1])).get("should_create_draft_release", True) else "false")' "$RELEASE_DECISION_FILE")
-          RELEASE_TITLE=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("release_title","").strip())' "$RELEASE_DECISION_FILE")
+          export RELEASE_DECISION_FILE
+          readarray -t RELEASE_DATA < <(python3 - <<'PY'
+import json
+import os
+
+with open(os.environ["RELEASE_DECISION_FILE"], encoding="utf-8") as decision_file:
+    decision = json.load(decision_file)
+print("true" if decision.get("should_create_draft_release", False) else "false")
+print(decision.get("release_title", "").strip())
+PY
+          )
+          SHOULD_CREATE_DRAFT="${RELEASE_DATA[0]}"
+          RELEASE_TITLE="${RELEASE_DATA[1]}"
           if [[ -z "$RELEASE_TITLE" ]]; then
             RELEASE_TITLE="CMake $TARGET_TAG"
           fi
