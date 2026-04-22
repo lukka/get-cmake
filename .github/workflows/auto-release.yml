@@ -111,6 +111,67 @@ jobs:
           
           echo "✓ Verified tag $TAG_NAME created and pushed"
 
+      - name: Prepare release notes from latest release template
+        id: release_notes
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          TAG_NAME="v${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          RELEASE_NOTES_FILE="$RUNNER_TEMP/release-notes.md"
+          DEFAULT_RELEASE_NOTES_FILE="$RUNNER_TEMP/default-release-notes.md"
+
+          cat <<EOF > "$DEFAULT_RELEASE_NOTES_FILE"
+          The \`get-cmake\` action downloads and caches CMake and Ninja on your workflows. Versions can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning) using [\`cmakeVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L13) and [\`ninjaVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L16) inputs.
+
+          Changes:
+           - \`latest\` is now using CMake version \`${TAG_NAME}\`, use this one-liner e.g.:
+           \`uses: lukka/get-cmake@latest\`
+
+          Enjoy!
+          EOF
+
+          if PREV_BODY=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/releases/latest \
+            --jq '.body // empty' 2>/dev/null); then
+            PREV_TAG=$(gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              /repos/${{ github.repository }}/releases/latest \
+              --jq '.tag_name // empty' 2>/dev/null)
+
+            if [[ -n "$PREV_BODY" ]]; then
+              # Create release notes by reusing the previous release notes template and replacing the previous tag.
+              if [[ -n "$PREV_TAG" ]]; then
+                UPDATED_BODY="${PREV_BODY//$PREV_TAG/$TAG_NAME}"
+                printf '%s' "$UPDATED_BODY" > "$RELEASE_NOTES_FILE"
+              else
+                printf '%s' "$PREV_BODY" > "$RELEASE_NOTES_FILE"
+              fi
+            else
+              cp "$DEFAULT_RELEASE_NOTES_FILE" "$RELEASE_NOTES_FILE"
+            fi
+          else
+            cp "$DEFAULT_RELEASE_NOTES_FILE" "$RELEASE_NOTES_FILE"
+          fi
+
+          echo "RELEASE_NOTES_FILE=$RELEASE_NOTES_FILE" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub release
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG_NAME="v${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          gh release create "$TAG_NAME" \
+            --title "CMake $TAG_NAME" \
+            --notes-file "${{ steps.release_notes.outputs.RELEASE_NOTES_FILE }}" \
+            --verify-tag
+          echo "✓ GitHub release $TAG_NAME created"
+
       - name: Create release summary
         run: |
           if [[ "${{ steps.check_version.outputs.SHOULD_RELEASE }}" == "true" ]]; then
@@ -120,6 +181,7 @@ jobs:
             echo "- CMake version updated to ${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
             echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
             echo "- Tag \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` created" >> $GITHUB_STEP_SUMMARY
+            echo "- GitHub Release \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` published" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Usage" >> $GITHUB_STEP_SUMMARY
             echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY

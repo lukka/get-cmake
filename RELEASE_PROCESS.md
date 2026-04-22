@@ -21,6 +21,7 @@ The `auto-release.yml` workflow automatically handles releases when automated CM
    - Reads the version from `.latest_cmake_version`
    - Updates the `latest` branch to match `main`
    - Creates and pushes the version tag (if it doesn't exist)
+   - Creates a GitHub Release with notes based on the latest release as template
 
 **No manual action needed** - the release happens automatically!
 
@@ -38,6 +39,7 @@ The workflow will:
 - Validate the tag name format
 - Update the `latest` branch to match `main`
 - Create and push the specified version tag
+- Note: it does not generate release notes from the previous release template
 
 ### Option 3: Manual Command-Line Process (Advanced)
 
@@ -81,7 +83,11 @@ After the release process:
    git ls-remote --tags origin | grep "vX.Y.Z"
    ```
 
-3. **Test the action**:
+3. **Verify the GitHub Release was created**:
+   - Check that release `vX.Y.Z` exists in the Releases page
+   - Confirm the release notes were generated from the previous release template and updated to `vX.Y.Z`
+
+4. **Test the action**:
    Create a test workflow using:
    ```yaml
    - uses: lukka/get-cmake@latest
@@ -112,6 +118,7 @@ For manual releases or verification:
 - [ ] Check the version in `.latest_cmake_version` on main branch
 - [ ] Verify `latest` branch points to same commit as `main`
 - [ ] Verify the version tag was created
+- [ ] Verify the GitHub Release was created with expected notes
 - [ ] Test the action using `@latest` reference
 - [ ] Update any release notes or announcements if needed
 
