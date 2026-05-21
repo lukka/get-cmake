@@ -29,7 +29,7 @@
     "eslint": "^8.52.0",
     "eslint-plugin-jest": "^27.6.0",
     "gulp": "5.0.0",
-    "gulp-eslint": "6.0.0",
+    "gulp-eslint-new": "^2.6.2",
     "gulp-install": "^1.1.0",
     "gulp-jest": "^4.0.3",
     "gulp-sourcemaps": "^2.6.5",

@@ -7,7 +7,7 @@ const path = require('path');
 const install = require('gulp-install');
 const ts = require("gulp-typescript");
 const sourcemaps = require("gulp-sourcemaps");
-const eslint = require('gulp-eslint');
+const eslint = require('gulp-eslint-new');
 const jest = require('gulp-jest').default;
 
 var installPackages = function () {
@@ -59,4 +59,3 @@ gulp.task('build', build);
 gulp.task('installPackages', installPackages);
 // 'test' must not be part of the 'default' target, as it is started explicitly *after* ncc has been run by the package.json run script.
 gulp.task('default', gulp.series('installPackages', 'eslint', 'build'));
-
