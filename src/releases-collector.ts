@@ -24,6 +24,7 @@ export interface PackageInfo {
   fileName?: string;
   binPath: string;
   dropSuffix: string;
+  sha256?: string;
 }
 
 export interface ReleaseFilter {
