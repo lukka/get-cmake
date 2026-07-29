@@ -23,15 +23,15 @@ jobs:
         os: ${{ fromJson(inputs.runs-on) }}
 
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
       with:
         submodules: true
         ssh-key: ${{ secrets.token }}
-    - uses: actions/download-artifact@v8
+    - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8
       with:
         name: catalog
       if: inputs.generate-catalog != true
-    - uses: actions/setup-node@v6
+    - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38  # v6
       with:
         node-version: '24.x'
     - run: npm install
@@ -66,7 +66,7 @@ jobs:
           exit -1
         fi
       shell: bash
-    - uses: actions/upload-artifact@v7
+    - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
       with:
         name: catalog
         # The marker files are hidden, and upload-artifact drops hidden files unless
@@ -109,7 +109,7 @@ jobs:
       if: ${{ inputs.generate-catalog == true }}
 
     - name: Create the PR for new CMake version(s)
-      uses: peter-evans/create-pull-request@v8
+      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8
       with:
         title: '[Automated] Adding ${{ env.CMAKE_NEW_VERSIONS }}'
         body: "Add to catalog new CMake version(s): ${{ env.CMAKE_NEW_VERSIONS }}"
