@@ -35,9 +35,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Validate tag name
+        env:
+          TAG_NAME: ${{ inputs.tag_name }}
         run: |
-          TAG_NAME="${{ inputs.tag_name }}"
-          
           # Validate tag format (should start with 'v' and be followed by version)
           if ! [[ "$TAG_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
             echo "Error: Tag name '$TAG_NAME' does not match expected format (e.g., v4.2.3 or v4.2.3-rc1)"
@@ -68,9 +68,9 @@ jobs:
       - name: Create and push tag
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ inputs.tag_name }}
         run: |
           set -e
-          TAG_NAME="${{ inputs.tag_name }}"
           COMMIT_SHA=$(git rev-parse HEAD)
           
           # Create tag object using GitHub API (this creates a verified tag)
@@ -112,12 +112,14 @@ jobs:
           echo "✓ Verified tag $TAG_NAME created and pushed"
 
       - name: Summary
+        env:
+          TAG_NAME: ${{ inputs.tag_name }}
         run: |
           echo "## Release completed successfully! 🎉" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- ✓ Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
-          echo "- ✓ Tag \`${{ inputs.tag_name }}\` created" >> $GITHUB_STEP_SUMMARY
+          echo "- ✓ Tag \`${TAG_NAME}\` created" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
           echo "- \`@latest\` - for the latest stable version" >> $GITHUB_STEP_SUMMARY
-          echo "- \`@${{ inputs.tag_name }}\` - for this specific version" >> $GITHUB_STEP_SUMMARY
+          echo "- \`@${TAG_NAME}\` - for this specific version" >> $GITHUB_STEP_SUMMARY
