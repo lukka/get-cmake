@@ -21,8 +21,11 @@ The `auto-release.yml` workflow automatically handles releases when automated CM
    - Reads the version from `.latest_cmake_version`
    - Updates the `latest` branch to match `main`
    - Creates and pushes the version tag (if it doesn't exist)
+   - Gathers context (recent commits, merged PRs, and previous release notes template)
+   - Runs an agentic LLM reasoning step as a "Release Manager"
+   - Creates a draft GitHub Release only when the reasoning step says release is warranted
 
-**No manual action needed** - the release happens automatically!
+The result is a draft release for human review before publishing.
 
 ### Option 2: Manual Release (Override/Fallback)
 
@@ -38,6 +41,7 @@ The workflow will:
 - Validate the tag name format
 - Update the `latest` branch to match `main`
 - Create and push the specified version tag
+- Note: it does not run the agentic reasoning step or create a draft release
 
 ### Option 3: Manual Command-Line Process (Advanced)
 
@@ -81,7 +85,12 @@ After the release process:
    git ls-remote --tags origin | grep "vX.Y.Z"
    ```
 
-3. **Test the action**:
+3. **Verify the draft GitHub Release was created**:
+   - Check that draft release `vX.Y.Z` exists in the Releases page
+   - Confirm the notes and categorization are sensible based on recent commits/PRs and previous release template
+   - Review and publish the draft release manually
+
+4. **Test the action**:
    Create a test workflow using:
    ```yaml
    - uses: lukka/get-cmake@latest
@@ -112,6 +121,8 @@ For manual releases or verification:
 - [ ] Check the version in `.latest_cmake_version` on main branch
 - [ ] Verify `latest` branch points to same commit as `main`
 - [ ] Verify the version tag was created
+- [ ] Verify the draft GitHub Release was created with expected notes
+- [ ] Review and publish the draft release
 - [ ] Test the action using `@latest` reference
 - [ ] Update any release notes or announcements if needed
 

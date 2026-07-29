@@ -111,15 +111,278 @@ jobs:
           
           echo "✓ Verified tag $TAG_NAME created and pushed"
 
+      - name: Gather release context
+        id: release_context
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          TAG_NAME="v${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          RELEASE_CONTEXT_FILE="$RUNNER_TEMP/release-context.md"
+          DEFAULT_RELEASE_NOTES_FILE="$RUNNER_TEMP/default-release-notes.md"
+
+          cat <<EOF > "$DEFAULT_RELEASE_NOTES_FILE"
+          The \`get-cmake\` action downloads and caches CMake and Ninja on your workflows. Versions can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning) using [\`cmakeVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L13) and [\`ninjaVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L16) inputs.
+
+          Changes:
+           - \`latest\` is now using CMake version \`${TAG_NAME}\`, use this one-liner:
+           \`uses: lukka/get-cmake@latest\`
+
+          Enjoy!
+          EOF
+
+          PREV_TAG=""
+          PREV_BODY=""
+          if PREV_BODY=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/releases/latest \
+            --jq '.body // empty' 2>/dev/null); then
+            PREV_TAG=$(gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              /repos/${{ github.repository }}/releases/latest \
+              --jq '.tag_name // empty' 2>/dev/null)
+          fi
+
+          {
+            echo "Target tag: $TAG_NAME"
+            echo "Previous release tag: ${PREV_TAG:-none}"
+            echo ""
+            echo "### Commits since previous release"
+            if [[ -n "$PREV_TAG" ]]; then
+              git --no-pager log "${PREV_TAG}..HEAD" --pretty=format:'- %s (%h)' --max-count=50 || true
+            else
+              git --no-pager log --pretty=format:'- %s (%h)' --max-count=50 || true
+            fi
+            echo ""
+            echo ""
+            echo "### Recently merged pull requests"
+            gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              /repos/${{ github.repository }}/pulls \
+              -f state=closed \
+              -f base=main \
+              -f sort=updated \
+              -f direction=desc \
+              -f per_page=20 \
+              --jq '.[] | select(.merged_at != null) | "- #\(.number) \(.title) (merged \(.merged_at))"' || true
+            echo ""
+            echo ""
+            echo "### Previous release notes template"
+            if [[ -n "$PREV_BODY" ]]; then
+              printf '%s\n' "$PREV_BODY"
+            else
+              cat "$DEFAULT_RELEASE_NOTES_FILE"
+            fi
+          } > "$RELEASE_CONTEXT_FILE"
+
+          if [[ -n "$PREV_BODY" ]]; then
+            RELEASE_TEMPLATE_FILE="$RUNNER_TEMP/previous-release-template.md"
+            printf '%s\n' "$PREV_BODY" > "$RELEASE_TEMPLATE_FILE"
+            echo "RELEASE_TEMPLATE_FILE=$RELEASE_TEMPLATE_FILE" >> $GITHUB_OUTPUT
+          else
+            echo "RELEASE_TEMPLATE_FILE=$DEFAULT_RELEASE_NOTES_FILE" >> $GITHUB_OUTPUT
+          fi
+
+          echo "RELEASE_CONTEXT_FILE=$RELEASE_CONTEXT_FILE" >> $GITHUB_OUTPUT
+          echo "TARGET_TAG=$TAG_NAME" >> $GITHUB_OUTPUT
+
+      - name: Agentic release reasoning
+        id: release_agent
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        env:
+          MODELS_API_TOKEN: ${{ secrets.GITHUB_MODELS_API_KEY }}
+          TARGET_TAG: ${{ steps.release_context.outputs.TARGET_TAG }}
+          RELEASE_CONTEXT_FILE: ${{ steps.release_context.outputs.RELEASE_CONTEXT_FILE }}
+          RELEASE_TEMPLATE_FILE: ${{ steps.release_context.outputs.RELEASE_TEMPLATE_FILE }}
+        run: |
+          set -e
+          RELEASE_NOTES_FILE="$RUNNER_TEMP/release-notes.md"
+          RELEASE_DECISION_FILE="$RUNNER_TEMP/release-decision.json"
+          export RELEASE_NOTES_FILE RELEASE_DECISION_FILE
+
+          if [[ -n "$MODELS_API_TOKEN" ]]; then
+            python3 - <<'PY'
+import json
+import os
+import urllib.error
+import urllib.request
+
+with open(os.environ["RELEASE_CONTEXT_FILE"], "r", encoding="utf-8") as context_file:
+    context = context_file.read()
+with open(os.environ["RELEASE_TEMPLATE_FILE"], "r", encoding="utf-8") as template_file:
+    template = template_file.read()
+target_tag = os.environ["TARGET_TAG"]
+
+payload = {
+    "model": "openai/gpt-4.1-mini",
+    "messages": [
+        {
+            "role": "system",
+            "content": (
+                "You are a Release Manager. Use the provided repository context to reason about whether a draft release should be created. "
+                "Respond with JSON only."
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                f"Target tag: {target_tag}\n\n"
+                "Context:\n"
+                f"{context}\n\n"
+                "Release notes template (from previous release):\n"
+                f"{template}\n\n"
+                "Return JSON with this exact schema:\n"
+                "{\n"
+                '  "should_create_draft_release": true,\n'
+                '  "release_title": "string",\n'
+                '  "release_notes_markdown": "string",\n'
+                '  "reasoning": "string",\n'
+                '  "categories": {\n'
+                '    "breaking": ["string"],\n'
+                '    "features": ["string"],\n'
+                '    "bug_fixes": ["string"],\n'
+                '    "maintenance": ["string"]\n'
+                "  }\n"
+                "}\n"
+                "Use the template style in release_notes_markdown and update it for the target tag."
+            ),
+        },
+    ],
+    "temperature": 0.0,
+}
+
+fallback_decision = {
+    "should_create_draft_release": True,
+    "release_title": f"CMake {target_tag}",
+    "release_notes_markdown": template.strip(),
+    "reasoning": "",
+    "categories": {
+        "breaking": [],
+        "features": [],
+        "bug_fixes": [],
+        "maintenance": []
+    }
+}
+
+try:
+    req = urllib.request.Request(
+        "https://models.inference.ai.azure.com/chat/completions",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {os.environ['MODELS_API_TOKEN']}",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as response:
+        result = json.loads(response.read().decode("utf-8"))
+
+    content = result["choices"][0]["message"]["content"].strip()
+    if content.startswith("```"):
+        content_lines = content.splitlines()
+        if content_lines and content_lines[0].startswith("```"):
+            content_lines = content_lines[1:]
+        if content_lines and content_lines[-1].strip().startswith("```"):
+            content_lines = content_lines[:-1]
+        content = "\n".join(content_lines).strip()
+    decision = json.loads(content)
+except (urllib.error.URLError, urllib.error.HTTPError, OSError, ValueError, json.JSONDecodeError, KeyError, IndexError) as ex:
+    decision = fallback_decision
+    decision["reasoning"] = (
+        "LLM request or parsing failed; fallback uses previous template. "
+        f"Error: {type(ex).__name__}: {ex}"
+    )
+
+if not decision.get("release_notes_markdown", "").strip():
+    decision["release_notes_markdown"] = fallback_decision["release_notes_markdown"]
+if not decision.get("release_title", "").strip():
+    decision["release_title"] = fallback_decision["release_title"]
+if "should_create_draft_release" not in decision:
+    decision["should_create_draft_release"] = False
+
+with open(os.environ["RELEASE_DECISION_FILE"], "w", encoding="utf-8") as decision_file:
+    decision_file.write(json.dumps(decision, ensure_ascii=False, indent=2))
+with open(os.environ["RELEASE_NOTES_FILE"], "w", encoding="utf-8") as notes_file:
+    notes_file.write(decision.get("release_notes_markdown", "").strip() + "\n")
+PY
+          else
+            cp "$RELEASE_TEMPLATE_FILE" "$RELEASE_NOTES_FILE"
+            python3 - <<'PY'
+import json
+import os
+
+with open(os.environ["RELEASE_TEMPLATE_FILE"], "r", encoding="utf-8") as template_file:
+    template = template_file.read().strip()
+decision = {
+    "should_create_draft_release": True,
+    "release_title": f"CMake {os.environ['TARGET_TAG']}",
+    "release_notes_markdown": template,
+    "reasoning": "No models token configured; fallback keeps creating a draft release using the latest release template.",
+    "categories": {
+        "breaking": [],
+        "features": [],
+        "bug_fixes": [],
+        "maintenance": []
+    }
+}
+with open(os.environ["RELEASE_DECISION_FILE"], "w", encoding="utf-8") as decision_file:
+    decision_file.write(json.dumps(decision, ensure_ascii=False, indent=2))
+PY
+          fi
+
+          export RELEASE_DECISION_FILE
+          readarray -t RELEASE_DATA < <(python3 - <<'PY'
+import json
+import os
+
+with open(os.environ["RELEASE_DECISION_FILE"], encoding="utf-8") as decision_file:
+    decision = json.load(decision_file)
+print("true" if decision.get("should_create_draft_release", False) else "false")
+print(decision.get("release_title", "").strip())
+PY
+          )
+          SHOULD_CREATE_DRAFT="${RELEASE_DATA[0]}"
+          RELEASE_TITLE="${RELEASE_DATA[1]}"
+          if [[ -z "$RELEASE_TITLE" ]]; then
+            RELEASE_TITLE="CMake $TARGET_TAG"
+          fi
+
+          echo "SHOULD_CREATE_DRAFT=$SHOULD_CREATE_DRAFT" >> $GITHUB_OUTPUT
+          echo "RELEASE_TITLE=$RELEASE_TITLE" >> $GITHUB_OUTPUT
+          echo "RELEASE_NOTES_FILE=$RELEASE_NOTES_FILE" >> $GITHUB_OUTPUT
+          echo "RELEASE_DECISION_FILE=$RELEASE_DECISION_FILE" >> $GITHUB_OUTPUT
+
+      - name: Create draft GitHub release
+        if: steps.check_version.outputs.SHOULD_RELEASE == 'true' && steps.release_agent.outputs.SHOULD_CREATE_DRAFT == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG_NAME="v${{ steps.check_version.outputs.CMAKE_VERSION }}"
+          gh release create "$TAG_NAME" \
+            --draft \
+            --title "${{ steps.release_agent.outputs.RELEASE_TITLE }}" \
+            --notes-file "${{ steps.release_agent.outputs.RELEASE_NOTES_FILE }}" \
+            --verify-tag
+          echo "✓ Draft GitHub release $TAG_NAME created"
+
       - name: Create release summary
         run: |
           if [[ "${{ steps.check_version.outputs.SHOULD_RELEASE }}" == "true" ]]; then
-            echo "## 🎉 Release v${{ steps.check_version.outputs.CMAKE_VERSION }} created!" >> $GITHUB_STEP_SUMMARY
+            echo "## 🎉 Release workflow completed for v${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Changes" >> $GITHUB_STEP_SUMMARY
             echo "- CMake version updated to ${{ steps.check_version.outputs.CMAKE_VERSION }}" >> $GITHUB_STEP_SUMMARY
             echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
             echo "- Tag \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` created" >> $GITHUB_STEP_SUMMARY
+            if [[ "${{ steps.release_agent.outputs.SHOULD_CREATE_DRAFT }}" == "true" ]]; then
+              echo "- Draft GitHub Release \`v${{ steps.check_version.outputs.CMAKE_VERSION }}\` created" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- Agentic reasoning decided no draft release is needed" >> $GITHUB_STEP_SUMMARY
+            fi
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Usage" >> $GITHUB_STEP_SUMMARY
             echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
