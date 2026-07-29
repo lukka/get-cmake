@@ -26,6 +26,7 @@ const io = __nccwpck_require__(47351);
 const tools = __nccwpck_require__(27784);
 const path = __nccwpck_require__(71017);
 const fs = __nccwpck_require__(73292);
+const crypto = __nccwpck_require__(6113);
 const semver_1 = __nccwpck_require__(11383);
 const catalog = __nccwpck_require__(15284);
 const shared = __nccwpck_require__(26946);
@@ -312,14 +313,38 @@ class ToolsGetter {
             return downloaded;
         });
     }
+    verifyChecksum(filePath, expectedSha256, toolName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const fileBuffer = yield fs.readFile(filePath);
+            const hash = crypto.createHash('sha256').update(fileBuffer).digest('hex');
+            if (hash.toLowerCase() !== expectedSha256.toLowerCase()) {
+                throw new Error(`SHA-256 checksum mismatch for ${toolName}!\n` +
+                    `  Expected: ${expectedSha256.toLowerCase()}\n` +
+                    `  Got:      ${hash}`);
+            }
+            core.info(`SHA-256 checksum verified for ${toolName}.`);
+        });
+    }
     downloadTools(cmakePackage, ninjaPackage, outputPath) {
         return __awaiter(this, void 0, void 0, function* () {
             yield core.group("Downloading and extracting CMake", () => __awaiter(this, void 0, void 0, function* () {
                 const downloaded = yield tools.downloadTool(cmakePackage.url);
+                if (cmakePackage.sha256) {
+                    yield this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake');
+                }
+                else {
+                    core.warning('SHA-256 checksum not available for CMake download; integrity cannot be verified.');
+                }
                 yield this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
             }));
             yield core.group("Downloading and extracting Ninja", () => __awaiter(this, void 0, void 0, function* () {
                 const downloaded = yield tools.downloadTool(ninjaPackage.url);
+                if (ninjaPackage.sha256) {
+                    yield this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja');
+                }
+                else {
+                    core.warning('SHA-256 checksum not available for Ninja download; integrity cannot be verified.');
+                }
                 yield this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
             }));
         });

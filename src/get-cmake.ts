@@ -9,6 +9,7 @@ import * as io from '@actions/io';
 import * as tools from '@actions/tool-cache';
 import * as path from 'path';
 import * as fs from 'fs/promises'
+import * as crypto from 'crypto';
 import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
 import * as shared from './releases-collector'
@@ -298,16 +299,39 @@ export class ToolsGetter {
     return downloaded;
   }
 
+  private async verifyChecksum(filePath: string, expectedSha256: string, toolName: string): Promise<void> {
+    const fileBuffer = await fs.readFile(filePath);
+    const hash = crypto.createHash('sha256').update(fileBuffer).digest('hex');
+    if (hash.toLowerCase() !== expectedSha256.toLowerCase()) {
+      throw new Error(
+        `SHA-256 checksum mismatch for ${toolName}!\n` +
+        `  Expected: ${expectedSha256.toLowerCase()}\n` +
+        `  Got:      ${hash}`
+      );
+    }
+    core.info(`SHA-256 checksum verified for ${toolName}.`);
+  }
+
   private async downloadTools(
     cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo,
     outputPath: string): Promise<void> {
     await core.group("Downloading and extracting CMake", async () => {
       const downloaded = await tools.downloadTool(cmakePackage.url);
+      if (cmakePackage.sha256) {
+        await this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake');
+      } else {
+        core.warning('SHA-256 checksum not available for CMake download; integrity cannot be verified.');
+      }
       await this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
     });
 
     await core.group("Downloading and extracting Ninja", async () => {
       const downloaded = await tools.downloadTool(ninjaPackage.url);
+      if (ninjaPackage.sha256) {
+        await this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja');
+      } else {
+        core.warning('SHA-256 checksum not available for Ninja download; integrity cannot be verified.');
+      }
       await this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
     });
   }
