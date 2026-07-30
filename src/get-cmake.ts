@@ -9,6 +9,7 @@ import * as io from '@actions/io';
 import * as tools from '@actions/tool-cache';
 import * as path from 'path';
 import * as fs from 'fs/promises'
+import * as fsSync from 'fs'
 import * as crypto from 'crypto';
 import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
@@ -300,8 +301,13 @@ export class ToolsGetter {
   }
 
   private async verifyChecksum(filePath: string, expectedSha256: string, toolName: string): Promise<void> {
-    const fileBuffer = await fs.readFile(filePath);
-    const hash = crypto.createHash('sha256').update(fileBuffer).digest('hex');
+    const hash = await new Promise<string>((resolve, reject) => {
+      const hasher = crypto.createHash('sha256');
+      const stream = fsSync.createReadStream(filePath);
+      stream.on('data', (chunk) => hasher.update(chunk));
+      stream.on('end', () => resolve(hasher.digest('hex')));
+      stream.on('error', reject);
+    });
     if (hash.toLowerCase() !== expectedSha256.toLowerCase()) {
       throw new Error(
         `SHA-256 checksum mismatch for ${toolName}!\n` +
