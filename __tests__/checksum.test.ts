@@ -54,11 +54,10 @@ test('catalog cmake entries have sha256 for modern versions', async () => {
 
     // Check a well-known version (3.25.0) has sha256
     const v3250 = cmakeCatalog['3.25.0'];
-    if (v3250) {
-        for (const platform of Object.keys(v3250)) {
-            const pkg = v3250[platform];
-            expect(pkg.sha256).toBeDefined();
-            expect(pkg.sha256).toMatch(/^[0-9a-f]{64}$/);
-        }
+    expect(v3250).toBeDefined();
+    for (const platform of Object.keys(v3250)) {
+        const pkg = v3250[platform];
+        expect(pkg.sha256).toBeDefined();
+        expect(pkg.sha256).toMatch(/^[0-9a-f]{64}$/);
     }
 });
