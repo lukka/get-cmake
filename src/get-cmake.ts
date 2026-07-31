@@ -109,9 +109,11 @@ export class ToolsGetter {
     let localPath: string | undefined = undefined;
 
     try {
-      core.startGroup(`Computing cache key from the downloads' URLs`);
-      // Get an unique output directory name from the URL.
-      const inputHash = `${cmakePackage.url}${ninjaPackage.url}`;
+      core.startGroup(`Computing cache key from the downloads' URLs and checksums`);
+      // Get an unique output directory name from the URL and expected checksums.
+      // Including the checksums ensures legacy cache entries (stored without
+      // checksum verification) are invalidated when digests are present.
+      const inputHash = `${cmakePackage.url}${cmakePackage.sha256 ?? ''}${ninjaPackage.url}${ninjaPackage.sha256 ?? ''}`;
       hashedKey = hashCode(inputHash);
       core.info(`Cache key: '${hashedKey}'.`);
       core.debug(`hash('${inputHash}') === '${hashedKey}'`);
