@@ -51,7 +51,7 @@ function writeLatestToFile(map: rc.MostRecentReleases, releaseName: string, plat
     fs.writeFileSync(filename, value);
 }
 
-test.only('generate catalog of all CMake and Ninja releases ...', async () => {
+test('generate catalog of all CMake and Ninja releases ...', async () => {
     console.log('generate release catalog ...');
     if (!process.env['GITHUB_TOKEN']) {
         const result = dotenv.config();
