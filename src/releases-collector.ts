@@ -47,7 +47,7 @@ export interface MostRecentVersion { mostRecentVersion: semver.SemVer | null };
 
 export type MostRecentReleases = Map<string, Map<string, MostRecentVersion>>;
 
-export type Asset = { name: string; browser_download_url: string; tag_name: string };
+export type Asset = { name: string; browser_download_url: string; tag_name: string; digest?: string };
 
 export class NinjaFilters {
   private static readonly linuxArmFilters: ReleaseFilter[] = [{
@@ -190,12 +190,19 @@ export class ReleasesCollector {
           if (asset.name.trim().toLowerCase().endsWith(filter.suffix.toLowerCase())) {
             try {
               const version = semver.parse(asset.tag_name) || semver.coerce(asset.tag_name);
-              const release = {
+              const release: PackageInfo = {
                 url: asset.browser_download_url,
                 fileName: asset.name,
                 binPath: filter.binPath,
                 dropSuffix: filter.dropSuffix,
               };
+              // Extract sha256 from the GitHub Releases API digest field (format: "sha256:<hex>").
+              if (asset.digest) {
+                const match = asset.digest.match(/^sha256:([0-9a-f]{64})$/i);
+                if (match) {
+                  release.sha256 = match[1].toLowerCase();
+                }
+              }
               if (version) {
                 const currentVersion = { mostRecentVersion: version };
                 this.map[version.version] ?? (this.map[version.version] = {});

@@ -325,21 +325,19 @@ export class ToolsGetter {
     outputPath: string): Promise<void> {
     await core.group("Downloading and extracting CMake", async () => {
       const downloaded = await tools.downloadTool(cmakePackage.url);
-      if (cmakePackage.sha256) {
-        await this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake');
-      } else {
-        core.warning('SHA-256 checksum not available for CMake download; integrity cannot be verified.');
+      if (!cmakePackage.sha256) {
+        throw new Error('SHA-256 checksum not available for CMake download; refusing to extract an unverified archive.');
       }
+      await this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake');
       await this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
     });
 
     await core.group("Downloading and extracting Ninja", async () => {
       const downloaded = await tools.downloadTool(ninjaPackage.url);
-      if (ninjaPackage.sha256) {
-        await this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja');
-      } else {
-        core.warning('SHA-256 checksum not available for Ninja download; integrity cannot be verified.');
+      if (!ninjaPackage.sha256) {
+        throw new Error('SHA-256 checksum not available for Ninja download; refusing to extract an unverified archive.');
       }
+      await this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja');
       await this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
     });
   }
