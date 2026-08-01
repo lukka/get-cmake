@@ -69,6 +69,11 @@ jobs:
     - uses: actions/upload-artifact@v7
       with:
         name: catalog
+        # The marker files are hidden, and upload-artifact drops hidden files unless
+        # told otherwise: without this the artifact would carry the catalog alone, and
+        # the downstream jobs would validate the freshly installed CMake and Ninja
+        # against the stale marker files committed in the branch being built.
+        include-hidden-files: true
         path: |
           .latest_ninja_version
           .latest_cmake_version
