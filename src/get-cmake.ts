@@ -302,7 +302,7 @@ export class ToolsGetter {
     return downloaded;
   }
 
-  private async verifyChecksum(filePath: string, expectedSha256: string, toolName: string): Promise<void> {
+  private async verifyChecksum(filePath: string, expectedSha256: string, toolName: string, url: string): Promise<void> {
     const hash = await new Promise<string>((resolve, reject) => {
       const hasher = crypto.createHash('sha256');
       const stream = fsSync.createReadStream(filePath);
@@ -311,8 +311,10 @@ export class ToolsGetter {
       stream.on('error', reject);
     });
     if (hash.toLowerCase() !== expectedSha256.toLowerCase()) {
+      // Do not leave an archive that failed verification on disk.
+      await fs.rm(filePath, { force: true });
       throw new Error(
-        `SHA-256 checksum mismatch for ${toolName}!\n` +
+        `SHA-256 checksum mismatch for ${toolName} downloaded from '${url}'!\n` +
         `  Expected: ${expectedSha256.toLowerCase()}\n` +
         `  Got:      ${hash}`
       );
@@ -324,20 +326,21 @@ export class ToolsGetter {
     cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo,
     outputPath: string): Promise<void> {
     await core.group("Downloading and extracting CMake", async () => {
-      const downloaded = await tools.downloadTool(cmakePackage.url);
+      // Bail out before spending bandwidth on an archive that could not be verified anyway.
       if (!cmakePackage.sha256) {
-        throw new Error('SHA-256 checksum not available for CMake download; refusing to extract an unverified archive.');
+        throw new Error(`SHA-256 checksum not available for CMake at '${cmakePackage.url}'; refusing to download an unverifiable archive.`);
       }
-      await this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake');
+      const downloaded = await tools.downloadTool(cmakePackage.url);
+      await this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake', cmakePackage.url);
       await this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
     });
 
     await core.group("Downloading and extracting Ninja", async () => {
-      const downloaded = await tools.downloadTool(ninjaPackage.url);
       if (!ninjaPackage.sha256) {
-        throw new Error('SHA-256 checksum not available for Ninja download; refusing to extract an unverified archive.');
+        throw new Error(`SHA-256 checksum not available for Ninja at '${ninjaPackage.url}'; refusing to download an unverifiable archive.`);
       }
-      await this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja');
+      const downloaded = await tools.downloadTool(ninjaPackage.url);
+      await this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja', ninjaPackage.url);
       await this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
     });
   }
