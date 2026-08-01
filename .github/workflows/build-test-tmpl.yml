@@ -78,10 +78,16 @@ jobs:
     - name: If there is a new CMake version, create a Git commit for the PR
       id: git-check
       run: |
-        if ! git diff --exit-code .latest_cmake_version ; then
+        # Compare the freshly generated versions against 'main', the branch the
+        # automated pull request targets, and not against the checked out ref: a
+        # branch forked before the last version bump still carries the previous
+        # version, hence it would look like it introduces a new one and would spawn
+        # a duplicate of an already merged automated pull request.
+        git fetch --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+        if ! git diff --exit-code origin/main -- .latest_cmake_version ; then
           export CMAKE_NEW_VERSIONS=cmake-v$(cat .latest_cmake_version)
         fi
-        if ! git diff --exit-code .latestrc_cmake_version ; then
+        if ! git diff --exit-code origin/main -- .latestrc_cmake_version ; then
           export CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS} cmake-rc-v$(cat .latestrc_cmake_version)"
         fi
         if [[ -n "${CMAKE_NEW_VERSIONS}" ]]; then
