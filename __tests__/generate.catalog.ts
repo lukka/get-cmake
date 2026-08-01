@@ -119,9 +119,14 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
     // Fetch SHA-256 manifests for all versioned CMake releases and populate the catalog.
     // Kitware publishes a SHA-256 manifest for every CMake release at:
     //   https://github.com/Kitware/CMake/releases/download/vX.Y.Z/cmake-X.Y.Z-SHA-256.txt
+    // CMake started publishing these manifests from version 3.4.0 onwards.
+    // Versions below this threshold are legacy and are not expected to have a manifest.
+    const SHA256_MANIFEST_MIN_VERSION = '3.4.0';
     console.log('Fetching SHA-256 checksums for CMake releases...');
     const versionedCmakeKeys = Object.keys(cmakeReleasesMap).filter(k => semver.valid(k));
     for (const versionKey of versionedCmakeKeys) {
+        const coercedVersion = semver.coerce(versionKey);
+        const isLegacy = coercedVersion && semver.lt(coercedVersion, SHA256_MANIFEST_MIN_VERSION);
         const sha256Url = `https://github.com/Kitware/CMake/releases/download/v${versionKey}/cmake-${versionKey}-SHA-256.txt`;
         const text = await fetchText(sha256Url);
         if (text) {
@@ -136,9 +141,20 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
                     }
                 }
             }
+            // Validate that every tracked package filename was found in the manifest.
+            for (const platform of Object.keys(cmakeReleasesMap[versionKey])) {
+                const pkg = cmakeReleasesMap[versionKey][platform];
+                if (!pkg.sha256) {
+                    throw new Error(
+                        `SHA-256 manifest for CMake ${versionKey} did not contain an entry for '${pkg.fileName}' (platform: ${platform})`
+                    );
+                }
+            }
             console.log(`  SHA-256 fetched for CMake ${versionKey}`);
+        } else if (isLegacy) {
+            console.log(`  Skipping SHA-256 manifest for legacy CMake ${versionKey} (pre-${SHA256_MANIFEST_MIN_VERSION}, no manifest published)`);
         } else {
-            console.log(`  Warning: Could not fetch SHA-256 manifest for CMake ${versionKey}`);
+            throw new Error(`Failed to fetch SHA-256 manifest for CMake ${versionKey} from ${sha256Url}`);
         }
     }
 
