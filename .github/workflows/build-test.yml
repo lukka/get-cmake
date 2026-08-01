@@ -8,6 +8,25 @@ on:
   workflow_dispatch:
 
 jobs:
+  verify_dist:
+    name: 'Verify that dist/ is up to date'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+      - run: npm ci
+      - run: npm run pack
+      - name: Assert that dist/ matches the sources
+        run: |
+          if ! git diff --exit-code -- dist/ ; then
+            echo "ASSERTION FAILED! The content of 'dist/' does not match the sources: "
+            echo "run 'npm run pack' and commit the updated 'dist/index.js'."
+            exit 1
+          fi
+        shell: bash
+
   generate_catalog_build_and_test:
     # This is the only invocation that writes: it pushes the branch holding the
     # refreshed catalog and opens the automated pull request for it. Every scope
