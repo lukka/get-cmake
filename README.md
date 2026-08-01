@@ -115,6 +115,12 @@ Example usage:
 
 <br>
 
+### Integrity verification
+Every downloaded archive is verified against the SHA-256 checksum stored in the [catalog of releases](./src/releases-catalog.ts), which is generated from the checksums published by the CMake and Ninja maintainers.
+If the checksum does not match, the archive is deleted and the action fails; if no checksum is known for the requested version, the archive is not downloaded at all.
+
+<br>
+
 ## Action reference: all input/output parameters
 Please read [action.yml](./action.yml).
 
