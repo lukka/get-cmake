@@ -6,9 +6,15 @@ import * as process from 'process';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as crypto from 'crypto';
+import { pipeline } from 'stream/promises';
 import * as rc from '../src/releases-collector'
 import * as semver from 'semver';
 import { HttpClient } from '@actions/http-client';
+// The catalog being regenerated. It is read before being overwritten, so that the
+// SHA-256 digests already computed by a previous run can be carried over instead of
+// being downloaded again.
+import * as previousCatalog from '../src/releases-catalog';
 
 const { Octokit } = require("@octokit/core");
 import { paginateRest } from "@octokit/plugin-paginate-rest";
@@ -21,15 +27,128 @@ jest.setTimeout(60 * 60 * 1000)
 
 const httpClient = new HttpClient('get-cmake-catalog-generator/1.0');
 
+// Number of retries upon a transient HTTP failure.
+const maxRetries = 3;
+
+function delay(milliseconds: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+/**
+ * Fetch the content of 'url' as text.
+ * @returns the body, or null when the resource does not exist (HTTP 404).
+ * @throws when the resource cannot be fetched for any other reason, e.g. a transient
+ * network failure: silently dropping those would let the generator emit a catalog
+ * missing the digests the action requires at run time.
+ */
 async function fetchText(url: string): Promise<string | null> {
-    try {
-        const response = await httpClient.get(url);
-        if (response.message.statusCode !== 200) {
-            return null;
+    for (let attempt = 0; ; attempt++) {
+        try {
+            const response = await httpClient.get(url);
+            const statusCode = response.message.statusCode;
+            const body = await response.readBody();
+            if (statusCode === 200)
+                return body;
+            if (statusCode === 404)
+                return null;
+            throw new Error(`GET '${url}' failed with status code ${statusCode}.`);
+        } catch (err) {
+            if (attempt >= maxRetries)
+                throw err;
+            console.log(`  Retrying '${url}' after failure: ${err}`);
+            await delay(1000 * (2 ** attempt));
         }
-        return await response.readBody();
-    } catch (err) {
-        return null;
+    }
+}
+
+/**
+ * Download the artifact at 'url' and compute its SHA-256. This is the fallback for the
+ * legacy releases that publish neither a checksum manifest nor a GitHub asset digest.
+ * @returns the digest, or null when the artifact does not exist anymore (HTTP 404):
+ * a few assets of the oldest releases have been lost by the GitHub storage.
+ */
+async function computeSha256ByDownloading(url: string): Promise<string | null> {
+    for (let attempt = 0; ; attempt++) {
+        try {
+            const response = await httpClient.get(url);
+            if (response.message.statusCode !== 200) {
+                await response.readBody();
+                if (response.message.statusCode === 404)
+                    return null;
+                throw new Error(`GET '${url}' failed with status code ${response.message.statusCode}.`);
+            }
+            const hasher = crypto.createHash('sha256');
+            await pipeline(response.message, hasher);
+            return hasher.digest('hex');
+        } catch (err) {
+            if (attempt >= maxRetries)
+                throw err;
+            console.log(`  Retrying '${url}' after failure: ${err}`);
+            await delay(1000 * (2 ** attempt));
+        }
+    }
+}
+
+/** Index the SHA-256 digests of an already generated catalog by download URL. */
+function indexDigestsByUrl(...catalogs: rc.CatalogType[]): Map<string, string> {
+    const digests = new Map<string, string>();
+    for (const theCatalog of catalogs) {
+        for (const versionKey of Object.keys(theCatalog)) {
+            for (const platform of Object.keys(theCatalog[versionKey])) {
+                const pkg = theCatalog[versionKey][platform];
+                if (pkg.sha256)
+                    digests.set(pkg.url, pkg.sha256);
+            }
+        }
+    }
+    return digests;
+}
+
+/**
+ * Ensure every package of the catalog carries a SHA-256 digest, since the action refuses
+ * to extract an archive it cannot verify. Missing digests are carried over from the
+ * previous catalog when the download URL is unchanged, and computed by downloading the
+ * artifact otherwise. The packages whose artifact does not exist anymore are dropped:
+ * they cannot be installed regardless of the verification.
+ * @throws when a digest cannot be established for a package that is still downloadable.
+ */
+async function ensureAllSha256(
+    theCatalog: rc.CatalogType, toolName: string, knownDigests: Map<string, string>): Promise<void> {
+    const unavailableUrls = new Set<string>();
+    for (const versionKey of Object.keys(theCatalog)) {
+        for (const platform of Object.keys(theCatalog[versionKey])) {
+            // Note: the 'latest'/'latestrc' entries share the very same PackageInfo instance
+            // of the version they point to, hence they are filled in by this same loop.
+            const pkg = theCatalog[versionKey][platform];
+            if (pkg.sha256 || unavailableUrls.has(pkg.url))
+                continue;
+            const knownDigest = knownDigests.get(pkg.url);
+            if (knownDigest) {
+                pkg.sha256 = knownDigest;
+                console.log(`  SHA-256 of ${toolName} ${versionKey} (${platform}) carried over from the previous catalog.`);
+                continue;
+            }
+            console.log(`  Computing SHA-256 of ${toolName} ${versionKey} (${platform}) by downloading '${pkg.url}' ...`);
+            const sha256 = await computeSha256ByDownloading(pkg.url);
+            if (!sha256)
+                unavailableUrls.add(pkg.url);
+            else
+                pkg.sha256 = sha256;
+        }
+    }
+
+    for (const versionKey of Object.keys(theCatalog)) {
+        for (const platform of Object.keys(theCatalog[versionKey])) {
+            const pkg = theCatalog[versionKey][platform];
+            if (unavailableUrls.has(pkg.url)) {
+                console.log(`  Warning: dropping ${toolName} ${versionKey} (${platform}), '${pkg.url}' does not exist anymore.`);
+                delete theCatalog[versionKey][platform];
+            } else if (!pkg.sha256) {
+                throw new Error(`Missing SHA-256 digest for ${toolName} ${versionKey} (${platform}): '${pkg.url}'.`);
+            }
+        }
+        if (Object.keys(theCatalog[versionKey]).length === 0)
+            delete theCatalog[versionKey];
     }
 }
 
@@ -41,7 +160,8 @@ function parseSha256Line(line: string): [string, string] | null {
     if (parts.length < 2) return null;
     const hash = parts[0].toLowerCase();
     if (!/^[0-9a-f]{64}$/.test(hash)) return null;
-    return [parts[1], hash];
+    // In binary mode the file name is prefixed by '*', e.g. "<hash> *<filename>".
+    return [parts[1].replace(/^\*/, ''), hash];
 }
 
 function writeLatestToFile(map: rc.MostRecentReleases, releaseName: string, platform: string, filename: string): void {
@@ -59,6 +179,12 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
             throw result.error;
         }
     }
+
+    // Snapshot the digests of the catalog being regenerated: the releases whose download
+    // URL is unchanged do not need to be downloaded again to recompute their digest.
+    const knownDigests = indexDigestsByUrl(
+        previousCatalog.cmakeCatalog as rc.CatalogType, previousCatalog.ninjaCatalog as rc.CatalogType);
+    console.log(`Known SHA-256 digests from the previous catalog: ${knownDigests.size}.`);
 
     const MyOctokit = Octokit.plugin(throttling, retry, restEndpointMethods, paginateRest);
     const octokit = new MyOctokit({
@@ -119,44 +245,43 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
     // Fetch SHA-256 manifests for all versioned CMake releases and populate the catalog.
     // Kitware publishes a SHA-256 manifest for every CMake release at:
     //   https://github.com/Kitware/CMake/releases/download/vX.Y.Z/cmake-X.Y.Z-SHA-256.txt
-    // CMake started publishing these manifests from version 3.4.0 onwards.
-    // Versions below this threshold are legacy and are not expected to have a manifest.
-    const SHA256_MANIFEST_MIN_VERSION = '3.4.0';
+    // Releases predating the introduction of those manifests are handled by
+    // ensureAllSha256() below.
     console.log('Fetching SHA-256 checksums for CMake releases...');
     const versionedCmakeKeys = Object.keys(cmakeReleasesMap).filter(k => semver.valid(k));
     for (const versionKey of versionedCmakeKeys) {
-        const coercedVersion = semver.coerce(versionKey);
-        const isLegacy = coercedVersion && semver.lt(coercedVersion, SHA256_MANIFEST_MIN_VERSION);
         const sha256Url = `https://github.com/Kitware/CMake/releases/download/v${versionKey}/cmake-${versionKey}-SHA-256.txt`;
         const text = await fetchText(sha256Url);
-        if (text) {
-            for (const line of text.split('\n')) {
-                const parsed = parseSha256Line(line);
-                if (!parsed) continue;
-                const [fileName, hash] = parsed;
-                for (const platform of Object.keys(cmakeReleasesMap[versionKey])) {
-                    const pkg = cmakeReleasesMap[versionKey][platform];
-                    if (pkg.fileName === fileName) {
-                        pkg.sha256 = hash;
-                    }
-                }
-            }
-            // Validate that every tracked package filename was found in the manifest.
+        if (!text) {
+            console.log(`  No SHA-256 manifest published for CMake ${versionKey}.`);
+            continue;
+        }
+
+        for (const line of text.split('\n')) {
+            const parsed = parseSha256Line(line);
+            if (!parsed) continue;
+            const [fileName, hash] = parsed;
             for (const platform of Object.keys(cmakeReleasesMap[versionKey])) {
                 const pkg = cmakeReleasesMap[versionKey][platform];
-                if (!pkg.sha256) {
-                    throw new Error(
-                        `SHA-256 manifest for CMake ${versionKey} did not contain an entry for '${pkg.fileName}' (platform: ${platform})`
-                    );
+                if (pkg.fileName === fileName) {
+                    pkg.sha256 = hash;
                 }
             }
-            console.log(`  SHA-256 fetched for CMake ${versionKey}`);
-        } else if (isLegacy) {
-            console.log(`  Skipping SHA-256 manifest for legacy CMake ${versionKey} (pre-${SHA256_MANIFEST_MIN_VERSION}, no manifest published)`);
-        } else {
-            throw new Error(`Failed to fetch SHA-256 manifest for CMake ${versionKey} from ${sha256Url}`);
         }
+        // Validate that every tracked package filename was found in the manifest: a
+        // published manifest that does not list one of the assets is suspicious.
+        for (const platform of Object.keys(cmakeReleasesMap[versionKey])) {
+            const pkg = cmakeReleasesMap[versionKey][platform];
+            if (!pkg.sha256) {
+                throw new Error(
+                    `SHA-256 manifest for CMake ${versionKey} did not contain an entry for '${pkg.fileName}' (platform: ${platform})`
+                );
+            }
+        }
+        console.log(`  SHA-256 fetched for CMake ${versionKey}`);
     }
+
+    await ensureAllSha256(cmakeReleasesMap, 'CMake', knownDigests);
 
     // Generate the CMake catalog file.
     fs.writeFileSync(
@@ -212,7 +337,7 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
                 console.log(`  SHA-256 fetched for Ninja package '${fileName}'`);
             }
         } else {
-            console.log(`  Warning: Could not fetch SHA-256 for Ninja package '${fileName}'`);
+            console.log(`  No SHA-256 file published for Ninja package '${fileName}'`);
         }
     }
 
@@ -226,6 +351,8 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
             }
         }
     }
+
+    await ensureAllSha256(ninjaReleasesMap, 'Ninja', knownDigests);
 
     console.log(`Found ${Object.keys(ninjaReleasesMap).length} releases: `);
     for (const relVersion in ninjaReleasesMap) {
