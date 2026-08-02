@@ -292,6 +292,12 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
             continue;
         }
 
+        // The platforms whose package the manifest does list. Whether 'pkg.sha256' is set
+        // cannot tell that: track() pre-populates it with the digest the GitHub API
+        // reports for the asset, hence it may well be set for a package this manifest
+        // does not mention at all, and the validation below would pass while the digest
+        // of the publisher was never obtained.
+        const manifestedPlatforms = new Set<string>();
         for (const line of text.split('\n')) {
             const parsed = parseSha256Line(line);
             if (!parsed) continue;
@@ -300,14 +306,15 @@ test('generate catalog of all CMake and Ninja releases ...', async () => {
                 const pkg = cmakeReleasesMap[versionKey][platform];
                 if (pkg.fileName === fileName) {
                     pkg.sha256 = hash;
+                    manifestedPlatforms.add(platform);
                 }
             }
         }
         // Validate that every tracked package filename was found in the manifest: a
         // published manifest that does not list one of the assets is suspicious.
         for (const platform of Object.keys(cmakeReleasesMap[versionKey])) {
-            const pkg = cmakeReleasesMap[versionKey][platform];
-            if (!pkg.sha256) {
+            if (!manifestedPlatforms.has(platform)) {
+                const pkg = cmakeReleasesMap[versionKey][platform];
                 throw new Error(
                     `SHA-256 manifest for CMake ${versionKey} did not contain an entry for '${pkg.fileName}' (platform: ${platform})`
                 );
