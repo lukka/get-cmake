@@ -20,6 +20,10 @@ jobs:
   test_user_provided_versions:
     name: '${{ matrix.os }}: functional test (${{ matrix.versions }})'
     runs-on: ${{ matrix.os }}
+    # The job only checks the repository out and runs the action under test, so
+    # read access to the contents is all its token ever needs.
+    permissions:
+      contents: read
     continue-on-error: ${{ inputs.experimental }}
     strategy:
       fail-fast: false

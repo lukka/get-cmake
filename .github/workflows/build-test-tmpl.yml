@@ -17,6 +17,12 @@ jobs:
   build_and_test:
     name: '${{ matrix.os }}: build and test'
     runs-on: ${{ matrix.os }}
+    # Without this block the job would receive whatever the repository default
+    # grants. Only the catalog run needs to write, and only to push its branch and
+    # open the automated pull request; every other scope is dropped to 'none'.
+    permissions:
+      contents: write
+      pull-requests: write
     strategy:
       fail-fast: false
       matrix:
