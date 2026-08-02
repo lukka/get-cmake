@@ -25,6 +25,10 @@ export class ToolsGetter {
   private static readonly CMakeDefaultVersion = 'latest';
   private static readonly NinjaDefaultVersion = 'latest';
   private static readonly LocalCacheName = "cmakeninja";
+  // Namespace of the cache key. It must be changed whenever the content of a cache entry,
+  // or the way its key is computed, changes in a way that makes the existing entries
+  // unsuitable for reuse.
+  private static readonly CacheKeySchema = "sha256-verified-v1";
   private requestedCMakeVersion: string;
   private requestedNinjaVersion: string;
 
@@ -108,12 +112,20 @@ export class ToolsGetter {
     let localCacheHit = false;
     let localPath: string | undefined = undefined;
 
+    // A cache hit skips downloadTools() altogether, hence the verification it performs
+    // would be bypassed: refuse an unverifiable package before any cache is looked up.
+    const cmakeSha256 = ToolsGetter.getExpectedSha256(cmakePackage, 'CMake');
+    const ninjaSha256 = ToolsGetter.getExpectedSha256(ninjaPackage, 'Ninja');
+
     try {
       core.startGroup(`Computing cache key from the downloads' URLs and checksums`);
-      // Get an unique output directory name from the URL and expected checksums.
-      // Including the checksums ensures legacy cache entries (stored without
-      // checksum verification) are invalidated when digests are present.
-      const inputHash = `${cmakePackage.url}${cmakePackage.sha256 ?? ''}${ninjaPackage.url}${ninjaPackage.sha256 ?? ''}`;
+      // Get an unique output directory name from the URLs and the expected checksums.
+      // The schema prefix keeps this key disjoint from the ones computed by the releases
+      // predating the checksum verification, so that the entries stored back then - which
+      // may hold an archive nobody ever verified - are never reused. The separators keep
+      // the fields unambiguous, so that distinct inputs cannot produce the same key.
+      const inputHash =
+        `${ToolsGetter.CacheKeySchema}|${cmakePackage.url}|${cmakeSha256}|${ninjaPackage.url}|${ninjaSha256}`;
       hashedKey = hashCode(inputHash);
       core.info(`Cache key: '${hashedKey}'.`);
       core.debug(`hash('${inputHash}') === '${hashedKey}'`);
@@ -322,25 +334,33 @@ export class ToolsGetter {
     core.info(`SHA-256 checksum verified for ${toolName}.`);
   }
 
+  /**
+   * Return the SHA-256 digest the archive of 'pkg' must be verified against.
+   * @throws when the catalog does not carry one: an archive whose integrity cannot be
+   * verified must never be installed.
+   */
+  private static getExpectedSha256(pkg: shared.PackageInfo, toolName: string): string {
+    if (!pkg.sha256) {
+      throw new Error(`SHA-256 checksum not available for ${toolName} at '${pkg.url}'; refusing to install an unverifiable archive.`);
+    }
+    return pkg.sha256;
+  }
+
   private async downloadTools(
     cmakePackage: shared.PackageInfo, ninjaPackage: shared.PackageInfo,
     outputPath: string): Promise<void> {
     await core.group("Downloading and extracting CMake", async () => {
       // Bail out before spending bandwidth on an archive that could not be verified anyway.
-      if (!cmakePackage.sha256) {
-        throw new Error(`SHA-256 checksum not available for CMake at '${cmakePackage.url}'; refusing to download an unverifiable archive.`);
-      }
+      const expectedSha256 = ToolsGetter.getExpectedSha256(cmakePackage, 'CMake');
       const downloaded = await tools.downloadTool(cmakePackage.url);
-      await this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake', cmakePackage.url);
+      await this.verifyChecksum(downloaded, expectedSha256, 'cmake', cmakePackage.url);
       await this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
     });
 
     await core.group("Downloading and extracting Ninja", async () => {
-      if (!ninjaPackage.sha256) {
-        throw new Error(`SHA-256 checksum not available for Ninja at '${ninjaPackage.url}'; refusing to download an unverifiable archive.`);
-      }
+      const expectedSha256 = ToolsGetter.getExpectedSha256(ninjaPackage, 'Ninja');
       const downloaded = await tools.downloadTool(ninjaPackage.url);
-      await this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja', ninjaPackage.url);
+      await this.verifyChecksum(downloaded, expectedSha256, 'ninja', ninjaPackage.url);
       await this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
     });
   }
