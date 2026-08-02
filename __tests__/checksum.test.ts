@@ -9,6 +9,7 @@ import * as crypto from 'crypto';
 import * as cache from '@actions/cache';
 import * as tools from '@actions/tool-cache';
 import { ToolsGetter } from '../src/get-cmake';
+import { hashCode } from '../src/utils';
 import * as catalog from '../src/releases-catalog';
 import * as shared from '../src/releases-collector';
 
@@ -102,6 +103,48 @@ test('the cache key changes when the expected checksum changes', async () => {
     expect(keys).toHaveLength(2);
     // Cache entries stored before the checksums were known must not be reused.
     expect(keys[0]).not.toEqual(keys[1]);
+});
+
+test('the cache key is namespaced to never collide with the entries of the legacy releases', async () => {
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), crypto.randomBytes(16).toString('hex'));
+    const keys: string[] = [];
+    jest.spyOn(cache, 'restoreCache').mockImplementation(async (_paths: string[], key: string) => {
+        keys.push(key);
+        return undefined;
+    });
+    jest.spyOn(cache, 'saveCache').mockResolvedValue(0);
+    jest.spyOn(ToolsGetter.prototype as any, 'downloadTools').mockResolvedValue(undefined);
+    jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(undefined);
+
+    const cmakePackage = aPackage(aValidSha256);
+    const ninjaPackage = aPackage(aValidSha256);
+    await (new ToolsGetter() as any).get(cmakePackage, ninjaPackage);
+
+    // The key the releases predating the checksum verification would have computed for the
+    // very same packages: their entries hold archives nobody ever verified, hence the key
+    // must differ no matter what the catalog carries.
+    const legacyKey = hashCode(`${cmakePackage.url}${ninjaPackage.url}`).toString();
+    expect(keys).toHaveLength(1);
+    expect(keys[0]).not.toEqual(legacyKey);
+});
+
+test('get refuses an unverifiable package before looking up any cache', async () => {
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), crypto.randomBytes(16).toString('hex'));
+    const find = jest.spyOn(tools, 'find').mockReturnValue('aLocalCacheHit');
+    const restoreCache = jest.spyOn(cache, 'restoreCache').mockResolvedValue('aCloudCacheHit');
+    const downloadTools = jest.spyOn(ToolsGetter.prototype as any, 'downloadTools').mockResolvedValue(undefined);
+    const addToolsToPath = jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(undefined);
+
+    const getter = new ToolsGetter(undefined, undefined, true, true);
+    await expect((getter as any).get(aPackage(undefined), aPackage(aValidSha256)))
+        .rejects.toThrow(/SHA-256 checksum not available for CMake/);
+
+    // Neither cache must be consulted: an entry stored for an unverifiable package would
+    // otherwise be added to the PATH without ever reaching downloadTools().
+    expect(find).toBeCalledTimes(0);
+    expect(restoreCache).toBeCalledTimes(0);
+    expect(downloadTools).toBeCalledTimes(0);
+    expect(addToolsToPath).toBeCalledTimes(0);
 });
 
 test('every catalog entry provides a SHA-256 checksum', () => {

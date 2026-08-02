@@ -111,18 +111,23 @@ class ToolsGetter {
         }
     }
     get(cmakePackage, ninjaPackage) {
-        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
             let hashedKey, outPath;
             let cloudCacheHitKey = undefined;
             let localCacheHit = false;
             let localPath = undefined;
+            // A cache hit skips downloadTools() altogether, hence the verification it performs
+            // would be bypassed: refuse an unverifiable package before any cache is looked up.
+            const cmakeSha256 = ToolsGetter.getExpectedSha256(cmakePackage, 'CMake');
+            const ninjaSha256 = ToolsGetter.getExpectedSha256(ninjaPackage, 'Ninja');
             try {
                 core.startGroup(`Computing cache key from the downloads' URLs and checksums`);
-                // Get an unique output directory name from the URL and expected checksums.
-                // Including the checksums ensures legacy cache entries (stored without
-                // checksum verification) are invalidated when digests are present.
-                const inputHash = `${cmakePackage.url}${(_a = cmakePackage.sha256) !== null && _a !== void 0 ? _a : ''}${ninjaPackage.url}${(_b = ninjaPackage.sha256) !== null && _b !== void 0 ? _b : ''}`;
+                // Get an unique output directory name from the URLs and the expected checksums.
+                // The schema prefix keeps this key disjoint from the ones computed by the releases
+                // predating the checksum verification, so that the entries stored back then - which
+                // may hold an archive nobody ever verified - are never reused. The separators keep
+                // the fields unambiguous, so that distinct inputs cannot produce the same key.
+                const inputHash = `${ToolsGetter.CacheKeySchema}|${cmakePackage.url}|${cmakeSha256}|${ninjaPackage.url}|${ninjaSha256}`;
                 hashedKey = (0, utils_1.hashCode)(inputHash);
                 core.info(`Cache key: '${hashedKey}'.`);
                 core.debug(`hash('${inputHash}') === '${hashedKey}'`);
@@ -336,23 +341,30 @@ class ToolsGetter {
             core.info(`SHA-256 checksum verified for ${toolName}.`);
         });
     }
+    /**
+     * Return the SHA-256 digest the archive of 'pkg' must be verified against.
+     * @throws when the catalog does not carry one: an archive whose integrity cannot be
+     * verified must never be installed.
+     */
+    static getExpectedSha256(pkg, toolName) {
+        if (!pkg.sha256) {
+            throw new Error(`SHA-256 checksum not available for ${toolName} at '${pkg.url}'; refusing to install an unverifiable archive.`);
+        }
+        return pkg.sha256;
+    }
     downloadTools(cmakePackage, ninjaPackage, outputPath) {
         return __awaiter(this, void 0, void 0, function* () {
             yield core.group("Downloading and extracting CMake", () => __awaiter(this, void 0, void 0, function* () {
                 // Bail out before spending bandwidth on an archive that could not be verified anyway.
-                if (!cmakePackage.sha256) {
-                    throw new Error(`SHA-256 checksum not available for CMake at '${cmakePackage.url}'; refusing to download an unverifiable archive.`);
-                }
+                const expectedSha256 = ToolsGetter.getExpectedSha256(cmakePackage, 'CMake');
                 const downloaded = yield tools.downloadTool(cmakePackage.url);
-                yield this.verifyChecksum(downloaded, cmakePackage.sha256, 'cmake', cmakePackage.url);
+                yield this.verifyChecksum(downloaded, expectedSha256, 'cmake', cmakePackage.url);
                 yield this.extract(cmakePackage.dropSuffix, downloaded, outputPath);
             }));
             yield core.group("Downloading and extracting Ninja", () => __awaiter(this, void 0, void 0, function* () {
-                if (!ninjaPackage.sha256) {
-                    throw new Error(`SHA-256 checksum not available for Ninja at '${ninjaPackage.url}'; refusing to download an unverifiable archive.`);
-                }
+                const expectedSha256 = ToolsGetter.getExpectedSha256(ninjaPackage, 'Ninja');
                 const downloaded = yield tools.downloadTool(ninjaPackage.url);
-                yield this.verifyChecksum(downloaded, ninjaPackage.sha256, 'ninja', ninjaPackage.url);
+                yield this.verifyChecksum(downloaded, expectedSha256, 'ninja', ninjaPackage.url);
                 yield this.extract(ToolsGetter.getArchiveExtension(ninjaPackage.fileName), downloaded, outputPath);
             }));
         });
@@ -383,6 +395,10 @@ exports.ToolsGetter = ToolsGetter;
 ToolsGetter.CMakeDefaultVersion = 'latest';
 ToolsGetter.NinjaDefaultVersion = 'latest';
 ToolsGetter.LocalCacheName = "cmakeninja";
+// Namespace of the cache key. It must be changed whenever the content of a cache entry,
+// or the way its key is computed, changes in a way that makes the existing entries
+// unsuitable for reuse.
+ToolsGetter.CacheKeySchema = "sha256-verified-v1";
 function forceExit(exitCode) {
     // work around for:
     //  - https://github.com/lukka/get-cmake/issues/136
