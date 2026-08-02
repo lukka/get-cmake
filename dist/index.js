@@ -31,7 +31,6 @@ const crypto = __nccwpck_require__(6113);
 const semver_1 = __nccwpck_require__(11383);
 const catalog = __nccwpck_require__(15284);
 const shared = __nccwpck_require__(26946);
-const utils_1 = __nccwpck_require__(10190);
 const extractFunction = {
     '.tar.gz': tools.extractTar,
     '.zip': tools.extractZip
@@ -112,7 +111,7 @@ class ToolsGetter {
     }
     get(cmakePackage, ninjaPackage) {
         return __awaiter(this, void 0, void 0, function* () {
-            let hashedKey, outPath;
+            let cacheKey, keyDigest, outPath;
             let cloudCacheHitKey = undefined;
             let localCacheHit = false;
             let localPath = undefined;
@@ -122,16 +121,19 @@ class ToolsGetter {
             const ninjaSha256 = ToolsGetter.getExpectedSha256(ninjaPackage, 'Ninja');
             try {
                 core.startGroup(`Computing cache key from the downloads' URLs and checksums`);
-                // Get an unique output directory name from the URLs and the expected checksums.
-                // The schema prefix keeps this key disjoint from the ones computed by the releases
-                // predating the checksum verification, so that the entries stored back then - which
-                // may hold an archive nobody ever verified - are never reused. The separators keep
-                // the fields unambiguous, so that distinct inputs cannot produce the same key.
-                const inputHash = `${ToolsGetter.CacheKeySchema}|${cmakePackage.url}|${cmakeSha256}|${ninjaPackage.url}|${ninjaSha256}`;
-                hashedKey = (0, utils_1.hashCode)(inputHash);
-                core.info(`Cache key: '${hashedKey}'.`);
-                core.debug(`hash('${inputHash}') === '${hashedKey}'`);
-                outPath = this.getOutputPath(hashedKey.toString());
+                // Get an unique key from the URLs and the expected checksums. The schema is kept
+                // verbatim in the key and the rest is a collision resistant digest, hence the keys
+                // of this schema form a namespace of their own: the entries stored by the releases
+                // predating the checksum verification - which may hold an archive nobody ever
+                // verified - can never be hit, whatever key they were stored under. The separators
+                // keep the fields unambiguous, so that distinct inputs cannot produce the same
+                // digest.
+                const keyInput = `${ToolsGetter.CacheKeySchema}|${cmakePackage.url}|${cmakeSha256}|${ninjaPackage.url}|${ninjaSha256}`;
+                keyDigest = crypto.createHash('sha256').update(keyInput).digest('hex');
+                cacheKey = `${ToolsGetter.CacheKeySchema}-${keyDigest}`;
+                core.info(`Cache key: '${cacheKey}'.`);
+                core.debug(`sha256('${keyInput}') === '${keyDigest}'`);
+                outPath = this.getOutputPath(keyDigest.slice(0, ToolsGetter.OutputPathDigestLength));
                 core.info(`Local install root: '${outPath}''.`);
             }
             finally {
@@ -139,8 +141,8 @@ class ToolsGetter {
             }
             if (this.useLocalCache) {
                 try {
-                    core.startGroup(`Restoring from local GitHub runner cache using key '${hashedKey}'`);
-                    localPath = tools.find(ToolsGetter.LocalCacheName, ToolsGetter.hashToFakeSemver(hashedKey), process.platform);
+                    core.startGroup(`Restoring from local GitHub runner cache using key '${cacheKey}'`);
+                    localPath = tools.find(ToolsGetter.LocalCacheName, ToolsGetter.digestToVersion(keyDigest), process.platform);
                     // Silly tool-cache API does return an empty string in case of cache miss.
                     localCacheHit = localPath ? true : false;
                     core.info(localCacheHit ? "Local cache hit." : "Local cache miss.");
@@ -152,8 +154,8 @@ class ToolsGetter {
             if (!localCacheHit) {
                 if (this.useCloudCache) {
                     try {
-                        core.startGroup(`Restoring from GitHub cloud cache using key '${hashedKey}' into '${outPath}'`);
-                        cloudCacheHitKey = yield this.restoreCache(outPath, hashedKey);
+                        core.startGroup(`Restoring from GitHub cloud cache using key '${cacheKey}' into '${outPath}'`);
+                        cloudCacheHitKey = yield this.restoreCache(outPath, cacheKey);
                         core.info(cloudCacheHitKey === undefined ? "Cloud cache miss." : "Cloud cache hit.");
                     }
                     finally {
@@ -171,13 +173,13 @@ class ToolsGetter {
             yield this.addToolsToPath(localPath, cmakePackage, ninjaPackage);
             if (this.useCloudCache && cloudCacheHitKey === undefined) {
                 try {
-                    core.startGroup(`Saving to GitHub cloud cache using key '${hashedKey}'`);
+                    core.startGroup(`Saving to GitHub cloud cache using key '${cacheKey}'`);
                     if (localCacheHit) {
                         core.info("Skipping saving to cloud cache since there was local cache hit for the computed key.");
                     }
                     else if (cloudCacheHitKey === undefined) {
-                        yield this.saveCache([outPath], hashedKey);
-                        core.info(`Saved '${outPath}' to the GitHub cache service with key '${hashedKey}'.`);
+                        yield this.saveCache([outPath], cacheKey);
+                        core.info(`Saved '${outPath}' to the GitHub cache service with key '${cacheKey}'.`);
                     }
                     else {
                         core.info("Skipping saving to cloud cache since there was a cache hit for the computed key.");
@@ -189,9 +191,9 @@ class ToolsGetter {
             }
             if (this.useLocalCache && !localCacheHit && localPath) {
                 try {
-                    core.startGroup(`Saving to local cache using key '${hashedKey}' from '${outPath}'`);
-                    yield tools.cacheDir(localPath, ToolsGetter.LocalCacheName, ToolsGetter.hashToFakeSemver(hashedKey), process.platform);
-                    core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${hashedKey}'.`);
+                    core.startGroup(`Saving to local cache using key '${cacheKey}' from '${outPath}'`);
+                    yield tools.cacheDir(localPath, ToolsGetter.LocalCacheName, ToolsGetter.digestToVersion(keyDigest), process.platform);
+                    core.info(`Saved '${outPath}' to the local GitHub runner cache with key '${cacheKey}'.`);
                 }
                 finally {
                     core.endGroup();
@@ -284,7 +286,7 @@ class ToolsGetter {
     saveCache(paths, key) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield cache.saveCache(paths, key.toString());
+                return yield cache.saveCache(paths, key);
             }
             catch (error) {
                 if (error.name === cache.ValidationError.name) {
@@ -300,7 +302,7 @@ class ToolsGetter {
         });
     }
     restoreCache(outPath, key) {
-        return cache.restoreCache([outPath], key.toString());
+        return cache.restoreCache([outPath], key);
     }
     extract(archiveSuffix, downloaded, outputPath) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -384,21 +386,32 @@ class ToolsGetter {
             throw new Error(`Unknown archive extension for '${archivePath}'`);
         }
     }
-    static hashToFakeSemver(hashedKey) {
-        // Since the key may be negative and needs to drop the sign to work good as 
-        // a major version number, let's ensure an unique version by switching the patch part.
-        const minorPatch = hashedKey > 0 ? ".0.0" : ".0.1";
-        return `${Math.abs(hashedKey)}${minorPatch}`;
+    static digestToVersion(keyDigest) {
+        // The tool-cache indexes a local entry by a semver version, hence the digest cannot be
+        // used as it is. Three distinct 32 bit slices of it are encoded as the numeric
+        // components, which keeps 96 bits of it: enough for distinct inputs never to share an
+        // entry. A truncation to a single 32 bit number, as done before the checksums were
+        // verified, would not be.
+        const slice = (index) => parseInt(keyDigest.slice(index * 8, (index * 8) + 8), 16);
+        return `${slice(0)}.${slice(1)}.${slice(2)}`;
     }
 }
 exports.ToolsGetter = ToolsGetter;
 ToolsGetter.CMakeDefaultVersion = 'latest';
 ToolsGetter.NinjaDefaultVersion = 'latest';
-ToolsGetter.LocalCacheName = "cmakeninja";
 // Namespace of the cache key. It must be changed whenever the content of a cache entry,
 // or the way its key is computed, changes in a way that makes the existing entries
 // unsuitable for reuse.
-ToolsGetter.CacheKeySchema = "sha256-verified-v1";
+ToolsGetter.CacheKeySchema = "get-cmake-sha256-verified-v1";
+// The name under which the tool-cache indexes the local entries. It carries the schema
+// so that the entries of this schema live in a directory tree of their own: the ones
+// stored by the releases predating the checksum verification, which hold an archive
+// nobody ever verified, are indexed under the previous name and can never be found.
+ToolsGetter.LocalCacheName = `cmakeninja-${ToolsGetter.CacheKeySchema}`;
+// Number of hexadecimal characters of the digest used to name the installation
+// directory. 128 bits are collision resistant, while keeping the path short enough not
+// to contribute to the path length limit of Windows.
+ToolsGetter.OutputPathDigestLength = 32;
 function forceExit(exitCode) {
     // work around for:
     //  - https://github.com/lukka/get-cmake/issues/136
@@ -676,36 +689,6 @@ ReleasesCollector.versionSelectors = [
 ];
 
 //# sourceMappingURL=releases-collector.js.map
-
-
-/***/ }),
-
-/***/ 10190:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.hashCode = void 0;
-/**
- * Compute an unique number given some text.
- * @param {string} text
- * @returns {number}
- */
-function hashCode(text) {
-    let hash = 0;
-    if (text.length != 0) {
-        for (let i = 0; i < text.length; i++) {
-            const char = text.charCodeAt(i);
-            hash = ((hash << 5) + hash) + char;
-            hash |= 0;
-        }
-    }
-    return hash;
-}
-exports.hashCode = hashCode;
-
-//# sourceMappingURL=utils.js.map
 
 
 /***/ }),

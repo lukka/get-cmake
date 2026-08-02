@@ -120,12 +120,43 @@ test('the cache key is namespaced to never collide with the entries of the legac
     const ninjaPackage = aPackage(aValidSha256);
     await (new ToolsGetter() as any).get(cmakePackage, ninjaPackage);
 
-    // The key the releases predating the checksum verification would have computed for the
-    // very same packages: their entries hold archives nobody ever verified, hence the key
-    // must differ no matter what the catalog carries.
-    const legacyKey = hashCode(`${cmakePackage.url}${ninjaPackage.url}`).toString();
     expect(keys).toHaveLength(1);
+    // The schema is carried verbatim by the key, and the rest of it is a collision
+    // resistant digest. Merely prefixing the input of hashCode() would not have namespaced
+    // anything: its value is truncated to a signed 32 bit integer, hence a legacy key and
+    // a new one could well be the same string.
+    expect(keys[0]).toMatch(/^get-cmake-sha256-verified-v1-[0-9a-f]{64}$/);
+    // The key the releases predating the checksum verification would have computed for the
+    // very same packages: their entries hold archives nobody ever verified. Being the
+    // decimal representation of a number, it cannot match the shape asserted above, no
+    // matter which packages it was computed from.
+    const legacyKey = hashCode(`${cmakePackage.url}${ninjaPackage.url}`).toString();
+    expect(legacyKey).toMatch(/^-?\d+$/);
     expect(keys[0]).not.toEqual(legacyKey);
+});
+
+test('the local tool-cache entries are namespaced and keyed by the whole digest', async () => {
+    process.env.RUNNER_TEMP = path.join(os.tmpdir(), crypto.randomBytes(16).toString('hex'));
+    const find = jest.spyOn(tools, 'find').mockReturnValue('');
+    const cacheDir = jest.spyOn(tools, 'cacheDir').mockResolvedValue('aCachedDir');
+    jest.spyOn(ToolsGetter.prototype as any, 'downloadTools').mockResolvedValue(undefined);
+    jest.spyOn(ToolsGetter.prototype as any, 'addToolsToPath').mockResolvedValue(undefined);
+
+    await (new ToolsGetter(undefined, undefined, false, true) as any)
+        .get(aPackage(aValidSha256), aPackage(aValidSha256));
+
+    // The tool-cache indexes an entry by name and version. The name holds the schema, so
+    // that the entries stored by the releases predating the checksum verification - which
+    // are indexed under 'cmakeninja' - can never be found.
+    expect(find).toBeCalledTimes(1);
+    const [toolName, version] = find.mock.calls[0];
+    expect(toolName).toBe('cmakeninja-get-cmake-sha256-verified-v1');
+    // The version encodes 96 bits of the digest, rather than the single 32 bit value the
+    // key used to be truncated to.
+    expect(version).toMatch(/^\d+\.\d+\.\d+$/);
+    expect(version.split('.').every(part => Number(part) <= 0xffffffff)).toBe(true);
+    // The entry is stored back under the very same name and version it is looked up by.
+    expect(cacheDir).toBeCalledWith(expect.any(String), toolName, version, process.platform);
 });
 
 test('get refuses an unverifiable package before looking up any cache', async () => {
