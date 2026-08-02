@@ -79,7 +79,7 @@ jobs:
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${{ github.repository }}/git/tags \
+            "/repos/${GITHUB_REPOSITORY}/git/tags" \
             -f tag="$TAG_NAME" \
             -f message="Release ${TAG_NAME} - CMake ${CMAKE_VERSION}" \
             -f object="$COMMIT_SHA" \
@@ -99,7 +99,7 @@ jobs:
             --method POST \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${{ github.repository }}/git/refs \
+            "/repos/${GITHUB_REPOSITORY}/git/refs" \
             -f ref="refs/tags/$TAG_NAME" \
             -f sha="$TAG_SHA" \
             --jq '.ref')

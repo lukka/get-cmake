@@ -41,11 +41,12 @@ jobs:
         cmakeVersion: ${{ fromJSON(matrix.versions).cmake }}
         ninjaVersion: ${{ fromJSON(matrix.versions).ninja }}
     - name: CMake version check ${{ fromJSON(matrix.versions).cmake }}
+      env:
+        CMAKE_REQUESTED_VER: ${{ fromJSON(matrix.versions).cmake }}
       run: |
         which cmake
         cmake --version
         CMAKE_VER="$(cmake --version)"
-        CMAKE_REQUESTED_VER="${{ fromJSON(matrix.versions).cmake }}"
         case ${CMAKE_REQUESTED_VER} in
           'latest')
             EXPECTED_CMAKE_VER=`cat .latest_cmake_version`
@@ -77,11 +78,12 @@ jobs:
         fi
       shell: bash
     - name: ninja version check ${{ fromJSON(matrix.versions).ninja }}
+      env:
+        NINJA_REQUESTED_VER: ${{ fromJSON(matrix.versions).ninja }}
       run: |
         which ninja
         ninja --version
         NINJA_VER="$(ninja --version)"
-        NINJA_REQUESTED_VER="${{ fromJSON(matrix.versions).ninja }}"
         case ${NINJA_REQUESTED_VER} in
           'latest')
             EXPECTED_NINJA_VER=`cat .latest_ninja_version`
