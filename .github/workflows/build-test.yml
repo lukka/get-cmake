@@ -9,6 +9,12 @@ on:
 
 jobs:
   generate_catalog_build_and_test:
+    # This is the only invocation that writes: it pushes the branch holding the
+    # refreshed catalog and opens the automated pull request for it. Every scope
+    # left out of this block is dropped to 'none'.
+    permissions:
+      contents: write
+      pull-requests: write
     uses: ./.github/workflows/build-test-tmpl.yml
     with:
       runs-on: "['macos-latest']"
@@ -19,6 +25,10 @@ jobs:
 
   build_and_test:
     needs: generate_catalog_build_and_test
+    # These invocations only build and test the action: reading the sources is all
+    # the token is needed for.
+    permissions:
+      contents: read
     uses: ./.github/workflows/build-test-tmpl.yml
     with:
       runs-on: "['windows-latest', 'ubuntu-latest']"
@@ -30,6 +40,8 @@ jobs:
   build_and_test_arm:
     needs: generate_catalog_build_and_test
     if: false #Disable buildjet's arm based runners usage.
+    permissions:
+      contents: read
     uses: ./.github/workflows/build-test-tmpl.yml
     with:
       runs-on: "['buildjet-2vcpu-ubuntu-2204-arm']"
