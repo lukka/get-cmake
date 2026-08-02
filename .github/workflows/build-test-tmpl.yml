@@ -17,12 +17,11 @@ jobs:
   build_and_test:
     name: '${{ matrix.os }}: build and test'
     runs-on: ${{ matrix.os }}
-    # Without this block the job would receive whatever the repository default
-    # grants. Only the catalog run needs to write, and only to push its branch and
-    # open the automated pull request; every other scope is dropped to 'none'.
-    permissions:
-      contents: write
-      pull-requests: write
+    # The token this job receives is granted by the caller, in 'build-test.yml':
+    # this workflow is invoked once with 'generate-catalog: true' and twice with
+    # 'false', and only the former needs to write. Since a job cannot vary its
+    # 'permissions' according to an input, declaring the grant here would hand the
+    # write scopes to the ordinary build and test invocations too.
     strategy:
       fail-fast: false
       matrix:
