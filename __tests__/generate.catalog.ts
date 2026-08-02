@@ -83,8 +83,15 @@ async function computeSha256ByDownloading(url: string): Promise<string | null> {
                     return null;
                 throw new Error(`GET '${url}' failed with status code ${response.message.statusCode}.`);
             }
+            // Note: the hasher is fed chunk by chunk rather than being used as the
+            // destination of the pipeline. A Hash is a Transform stream that emits its
+            // digest on the readable side when the writable side ends, and calling
+            // digest() on an already ended one is outside of the documented contract.
             const hasher = crypto.createHash('sha256');
-            await pipeline(response.message, hasher);
+            await pipeline(response.message, async function (source: AsyncIterable<Buffer>) {
+                for await (const chunk of source)
+                    hasher.update(chunk);
+            });
             return hasher.digest('hex');
         } catch (err) {
             if (attempt >= maxRetries)
