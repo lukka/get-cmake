@@ -28,7 +28,7 @@ Tag selection is deterministic:
 2. Otherwise, if Ninja changed, use `ninja-v<Ninja version>`. This also applies to combined Ninja + RC updates and avoids reusing an unchanged stable CMake tag.
 3. Otherwise, use `v<CMake RC version>` and mark the release as a GitHub prerelease.
 
-Combined updates containing stable CMake or Ninja are not marked as prereleases. An RC marker that resolves to the stable CMake version is not announced as a separate RC update. No marker changes means no release.
+Combined updates containing stable CMake or Ninja are not marked as prereleases. An RC marker that resolves to the stable CMake version is not announced as a separate RC update. Without changed markers or an explicit matching recovery tag, the publisher makes no release, tag, or `latest` branch changes.
 
 ## Release Steps
 
@@ -60,7 +60,7 @@ If you need to manually trigger a release or override the automatic process:
 4. Optionally enter the tag name (e.g., `v4.4.4`, `v4.5.0-rc1`, or `ninja-v1.13.1`) and comparison base ref
 5. Click "Run workflow" button
 
-The workflow will:
+When a release or recovery is detected, the workflow will:
 - Detect changed versions with the same shared publisher as automatic releases
 - Validate that a supplied tag name matches the detected update
 - Update the `latest` branch to match `main`
