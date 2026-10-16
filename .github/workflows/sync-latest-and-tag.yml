@@ -1,7 +1,7 @@
 name: 'Sync latest branch and create release tag'
 
 # This workflow synchronizes the 'latest' branch with 'main' and creates a version tag
-# for releases. It should be triggered manually when a new CMake version PR is merged to main.
+# and publishes a GitHub release. Trigger it manually after a new CMake version PR is merged to main.
 
 on:
   workflow_dispatch:
@@ -35,6 +35,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Validate tag name
+        id: check_tag
         env:
           TAG_NAME: ${{ inputs.tag_name }}
         run: |
@@ -45,9 +46,12 @@ jobs:
           fi
           
           # Check if tag already exists remotely
-          if git ls-remote --tags origin | grep -q "refs/tags/${TAG_NAME}$"; then
-            echo "Error: Tag $TAG_NAME already exists"
-            exit 1
+          TAG_REF=$(git ls-remote --tags origin "refs/tags/${TAG_NAME}")
+          if [[ -n "$TAG_REF" ]]; then
+            echo "Tag $TAG_NAME already exists, skipping tag creation"
+            echo "SHOULD_CREATE_TAG=false" >> $GITHUB_OUTPUT
+          else
+            echo "SHOULD_CREATE_TAG=true" >> $GITHUB_OUTPUT
           fi
           
           echo "✓ Tag name validated: $TAG_NAME"
@@ -66,6 +70,7 @@ jobs:
           echo "✓ Latest branch updated to match main"
 
       - name: Create and push tag
+        if: steps.check_tag.outputs.SHOULD_CREATE_TAG == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG_NAME: ${{ inputs.tag_name }}
@@ -111,14 +116,50 @@ jobs:
           
           echo "✓ Verified tag $TAG_NAME created and pushed"
 
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ inputs.tag_name }}
+        run: |
+          if gh release view "$TAG_NAME" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            echo "GitHub release $TAG_NAME already exists, leaving it unchanged"
+            exit 0
+          fi
+
+          RELEASE_FLAGS=()
+          if [[ "$TAG_NAME" == *-* ]]; then
+            RELEASE_FLAGS+=(--prerelease)
+          fi
+
+          gh release create "$TAG_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --title "CMake ${TAG_NAME}" \
+            "${RELEASE_FLAGS[@]}" \
+            --notes-file - <<EOF
+          The \`get-cmake\` action downloads and caches CMake and Ninja on your workflows. Versions can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning) using [\`cmakeVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L13) and [\`ninjaVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L16) inputs.
+
+          Changes:
+           - \`latest\` is now using CMake version \`${TAG_NAME}\`, use this one-liner e.g.:
+           \`uses: lukka/get-cmake@latest\`
+
+          Enjoy!
+          EOF
+
       - name: Summary
         env:
           TAG_NAME: ${{ inputs.tag_name }}
+          SHOULD_CREATE_TAG: ${{ steps.check_tag.outputs.SHOULD_CREATE_TAG }}
         run: |
           echo "## Release completed successfully! 🎉" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- ✓ Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
-          echo "- ✓ Tag \`${TAG_NAME}\` created" >> $GITHUB_STEP_SUMMARY
+          if [[ "$SHOULD_CREATE_TAG" == "true" ]]; then
+            echo "- ✓ Tag \`${TAG_NAME}\` created" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ✓ Existing tag \`${TAG_NAME}\` preserved" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "- ✓ [GitHub release](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${TAG_NAME}) published or already present" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
           echo "- \`@latest\` - for the latest stable version" >> $GITHUB_STEP_SUMMARY
