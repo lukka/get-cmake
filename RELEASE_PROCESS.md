@@ -21,6 +21,9 @@ The `auto-release.yml` workflow automatically handles releases when automated CM
    - Reads the version from `.latest_cmake_version`
    - Updates the `latest` branch to match `main`
    - Creates and pushes the version tag (if it doesn't exist)
+   - Publishes a GitHub release named `CMake vX.Y.Z`, with the same notes format as [CMake v4.4.2](https://github.com/lukka/get-cmake/releases/tag/v4.4.2)
+
+Existing tags and GitHub releases are preserved. If the tag exists but the GitHub release is missing, the workflow publishes the missing release.
 
 **No manual action needed** - the release happens automatically!
 
@@ -37,7 +40,10 @@ If you need to manually trigger a release or override the automatic process:
 The workflow will:
 - Validate the tag name format
 - Update the `latest` branch to match `main`
-- Create and push the specified version tag
+- Create and push the specified version tag, unless it already exists
+- Publish the GitHub release with the standard CMake title and notes, unless it already exists
+
+Tags with a prerelease suffix (e.g., `v4.2.3-rc1`) are published as GitHub prereleases.
 
 ### Option 3: Manual Command-Line Process (Advanced)
 
@@ -64,6 +70,8 @@ git tag -a "v${CMAKE_VERSION}" -m "Release v${CMAKE_VERSION}"
 git push origin "v${CMAKE_VERSION}"
 ```
 
+These commands only synchronize the branch and create the tag. To publish the GitHub release with the standard notes, run the manual workflow from Option 2 using the same tag name; the existing tag will be preserved.
+
 ## Verification
 
 After the release process:
@@ -81,7 +89,10 @@ After the release process:
    git ls-remote --tags origin | grep "vX.Y.Z"
    ```
 
-3. **Test the action**:
+3. **Verify the GitHub release was published**:
+   Visit `https://github.com/lukka/get-cmake/releases/tag/vX.Y.Z` and confirm the title is `CMake vX.Y.Z` and the notes describe the version used by `@latest`.
+
+4. **Test the action**:
    Create a test workflow using:
    ```yaml
    - uses: lukka/get-cmake@latest
@@ -112,17 +123,17 @@ For manual releases or verification:
 - [ ] Check the version in `.latest_cmake_version` on main branch
 - [ ] Verify `latest` branch points to same commit as `main`
 - [ ] Verify the version tag was created
+- [ ] Verify the GitHub release was published with the standard title and notes
 - [ ] Test the action using `@latest` reference
 - [ ] Update any release notes or announcements if needed
 
 ## Troubleshooting
 
 **Problem**: Tag already exists
-- **Solution**: The auto-release workflow will skip tag creation but still sync the latest branch. For manual workflow, check if release was already done. If tag is incorrect, delete it first:
-  ```bash
-  git push origin :refs/tags/vX.Y.Z
-  git tag -d vX.Y.Z
-  ```
+- **Solution**: Both workflows skip tag creation but still sync the latest branch and publish a missing GitHub release. Existing tags and release notes are not overwritten.
+
+**Problem**: Tag exists but no GitHub release is visible
+- **Solution**: Rerun the failed release workflow, or use the manual workflow with the existing tag name. Publication uses the existing tag without recreating it. The workflow requires `contents: write` permission.
 
 **Problem**: Latest branch won't update
 - **Solution**: Ensure you have write permissions to the repository. Check workflow logs in GitHub Actions.
