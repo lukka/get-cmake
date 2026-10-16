@@ -82,10 +82,11 @@ jobs:
         path: |
           .latest_ninja_version
           .latest_cmake_version
+          .latestrc_cmake_version
           src/releases-catalog.ts
       if: inputs.generate-catalog == true
 
-    - name: If there is a new CMake version, create a Git commit for the PR
+    - name: If there is a new CMake or Ninja version, create a Git commit for the PR
       id: git-check
       run: |
         # Compare the freshly generated versions against 'main', the branch the
@@ -94,35 +95,40 @@ jobs:
         # version, hence it would look like it introduces a new one and would spawn
         # a duplicate of an already merged automated pull request.
         git fetch --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+        NEW_VERSIONS=()
         if ! git diff --exit-code origin/main -- .latest_cmake_version ; then
-          export CMAKE_NEW_VERSIONS=cmake-v$(cat .latest_cmake_version)
+          NEW_VERSIONS+=("cmake-v$(cat .latest_cmake_version)")
         fi
         if ! git diff --exit-code origin/main -- .latestrc_cmake_version ; then
-          export CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS} cmake-rc-v$(cat .latestrc_cmake_version)"
+          NEW_VERSIONS+=("cmake-rc-v$(cat .latestrc_cmake_version)")
         fi
-        if [[ -n "${CMAKE_NEW_VERSIONS}" ]]; then
-          # Get rid of blank space if any
-          CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS// /}"
-          CMAKE_NEW_VERSIONS="${CMAKE_NEW_VERSIONS## }"
-          echo "CMAKE_NEW_VERSIONS=${CMAKE_NEW_VERSIONS}" >> "$GITHUB_ENV"
+        if ! git diff --exit-code origin/main -- .latest_ninja_version ; then
+          NEW_VERSIONS+=("ninja-v$(cat .latest_ninja_version)")
+        fi
+        if (( ${#NEW_VERSIONS[@]} )); then
+          NEW_VERSIONS_TEXT=$(IFS=,; echo "${NEW_VERSIONS[*]}")
+          echo "NEW_VERSIONS=${NEW_VERSIONS_TEXT}" >> "$GITHUB_ENV"
           git add -u
-          git commit -m "New CMake version(s): $CMAKE_NEW_VERSIONS"
+          git commit -m "New tool version(s): $NEW_VERSIONS_TEXT"
           echo "createpr=true" >> $GITHUB_OUTPUT
         else
-          echo "There is no new version of CMake."
+          echo "There is no new version of CMake or Ninja."
         fi
+      shell: bash
       if: ${{ inputs.generate-catalog == true && github.ref == 'refs/heads/main' }}
 
-    - name: Create the PR for new CMake version(s)
+    - name: Create the PR for new CMake or Ninja versions
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8
       with:
-        title: '[Automated] Adding ${{ env.CMAKE_NEW_VERSIONS }}'
-        body: "Add to catalog new CMake version(s): ${{ env.CMAKE_NEW_VERSIONS }}"
+        title: '[Automated] Adding ${{ env.NEW_VERSIONS }}'
+        body: "Add to catalog new tool version(s): ${{ env.NEW_VERSIONS }}"
         draft: true
-        branch: automated-pr-cmake-${{ env.CMAKE_NEW_VERSIONS}}
+        branch: automated-pr-tools-${{ env.NEW_VERSIONS }}
         base: main
         add-paths: |
             dist/*.js
             .latest_cmake_version
             .latestrc_cmake_version
+            .latest_ninja_version
+            src/releases-catalog.ts
       if: ${{ (steps.git-check.outputs.createpr == 'true') }}
