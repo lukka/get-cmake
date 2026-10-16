@@ -1,7 +1,8 @@
 name: 'Auto-release on CMake version merge'
 
 # This workflow automatically creates a release when a PR with a new CMake version
-# is merged to the main branch. It syncs the 'latest' branch and creates a version tag.
+# is merged to the main branch. It syncs the 'latest' branch, creates a version tag,
+# and publishes a GitHub release.
 
 on:
   pull_request:
@@ -36,7 +37,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Determine version and check if release needed
+      - name: Determine version and check if tag needed
         id: check_version
         run: |
           # Read the current CMake version from main
@@ -45,12 +46,13 @@ jobs:
           echo "Current CMake version: $CMAKE_VERSION"
           
           # Check if tag already exists
-          if git ls-remote --tags origin | grep -q "refs/tags/v${CMAKE_VERSION}$"; then
-            echo "Tag v${CMAKE_VERSION} already exists, skipping release"
-            echo "SHOULD_RELEASE=false" >> $GITHUB_OUTPUT
+          TAG_REF=$(git ls-remote --tags origin "refs/tags/v${CMAKE_VERSION}")
+          if [[ -n "$TAG_REF" ]]; then
+            echo "Tag v${CMAKE_VERSION} already exists, skipping tag creation"
+            echo "SHOULD_CREATE_TAG=false" >> $GITHUB_OUTPUT
           else
-            echo "Tag v${CMAKE_VERSION} does not exist, will create release"
-            echo "SHOULD_RELEASE=true" >> $GITHUB_OUTPUT
+            echo "Tag v${CMAKE_VERSION} does not exist, will create tag"
+            echo "SHOULD_CREATE_TAG=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Update latest branch to match main
@@ -65,7 +67,7 @@ jobs:
           echo "✓ Latest branch updated to match main"
 
       - name: Create and push version tag
-        if: steps.check_version.outputs.SHOULD_RELEASE == 'true'
+        if: steps.check_version.outputs.SHOULD_CREATE_TAG == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           CMAKE_VERSION: ${{ steps.check_version.outputs.CMAKE_VERSION }}
@@ -112,28 +114,51 @@ jobs:
           
           echo "✓ Verified tag $TAG_NAME created and pushed"
 
-      - name: Create release summary
+      - name: Publish GitHub release
         env:
-          SHOULD_RELEASE: ${{ steps.check_version.outputs.SHOULD_RELEASE }}
+          GH_TOKEN: ${{ github.token }}
           CMAKE_VERSION: ${{ steps.check_version.outputs.CMAKE_VERSION }}
         run: |
-          if [[ "${SHOULD_RELEASE}" == "true" ]]; then
-            echo "## 🎉 Release v${CMAKE_VERSION} created!" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Changes" >> $GITHUB_STEP_SUMMARY
-            echo "- CMake version updated to ${CMAKE_VERSION}" >> $GITHUB_STEP_SUMMARY
-            echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
+          TAG_NAME="v${CMAKE_VERSION}"
+          if gh release view "$TAG_NAME" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            echo "GitHub release $TAG_NAME already exists, leaving it unchanged"
+            exit 0
+          fi
+
+          gh release create "$TAG_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --title "CMake ${TAG_NAME}" \
+            --notes-file - <<EOF
+          The \`get-cmake\` action downloads and caches CMake and Ninja on your workflows. Versions can be specified using [semantic versioning ranges](https://docs.npmjs.com/about-semantic-versioning) using [\`cmakeVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L13) and [\`ninjaVersion\`](https://github.com/lukka/get-cmake/blob/latest/action.yml#L16) inputs.
+
+          Changes:
+           - \`latest\` is now using CMake version \`${TAG_NAME}\`, use this one-liner e.g.:
+           \`uses: lukka/get-cmake@latest\`
+
+          Enjoy!
+          EOF
+
+      - name: Create release summary
+        env:
+          SHOULD_CREATE_TAG: ${{ steps.check_version.outputs.SHOULD_CREATE_TAG }}
+          CMAKE_VERSION: ${{ steps.check_version.outputs.CMAKE_VERSION }}
+        run: |
+          echo "## 🎉 Release v${CMAKE_VERSION} available!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Changes" >> $GITHUB_STEP_SUMMARY
+          echo "- CMake version updated to ${CMAKE_VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "- Latest branch synced with main" >> $GITHUB_STEP_SUMMARY
+          if [[ "${SHOULD_CREATE_TAG}" == "true" ]]; then
             echo "- Tag \`v${CMAKE_VERSION}\` created" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Usage" >> $GITHUB_STEP_SUMMARY
-            echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
-            echo '```yaml' >> $GITHUB_STEP_SUMMARY
-            echo "- uses: lukka/get-cmake@latest" >> $GITHUB_STEP_SUMMARY
-            echo "- uses: lukka/get-cmake@v${CMAKE_VERSION}" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
           else
-            echo "## ℹ️ Latest branch synced, tag already exists" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "- Latest branch updated to match main" >> $GITHUB_STEP_SUMMARY
             echo "- Tag v${CMAKE_VERSION} already exists (not recreated)" >> $GITHUB_STEP_SUMMARY
           fi
+          echo "- [GitHub release](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/v${CMAKE_VERSION}) published or already present" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Usage" >> $GITHUB_STEP_SUMMARY
+          echo "Users can now reference this release using:" >> $GITHUB_STEP_SUMMARY
+          echo '```yaml' >> $GITHUB_STEP_SUMMARY
+          echo "- uses: lukka/get-cmake@latest" >> $GITHUB_STEP_SUMMARY
+          echo "- uses: lukka/get-cmake@v${CMAKE_VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
