@@ -1,11 +1,14 @@
-name: 'Auto-release on tool version merge'
+name: 'Auto-release on tool version update'
 
-# Version marker changes, rather than the PR title, determine release contents.
+# The full push range covers merge commits, squash merges, and rebased PRs.
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - main
+    paths:
+      - '.latest_cmake_version'
+      - '.latestrc_cmake_version'
+      - '.latest_ninja_version'
 
 concurrency:
   group: release-workflow
@@ -14,9 +17,7 @@ concurrency:
 jobs:
   auto_release:
     name: 'Publish CMake and Ninja updates'
-    if: |
-      github.event.pull_request.merged == true &&
-      startsWith(github.event.pull_request.title, '[Automated] Adding')
+    if: github.event.deleted == false
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,8 +29,9 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Publish release for merged version changes
+      - name: Publish release for pushed version changes
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_COMMIT: ${{ github.event.pull_request.merge_commit_sha }}
+          RELEASE_COMMIT: ${{ github.event.after }}
+          BASE_REF: ${{ github.event.before }}
         run: node .github/scripts/publish-release.js
