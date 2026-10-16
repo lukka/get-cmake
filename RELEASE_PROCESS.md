@@ -34,17 +34,17 @@ Combined updates containing stable CMake or Ninja are not marked as prereleases.
 
 ### Option 1: Automatic Release (Recommended)
 
-The `auto-release.yml` workflow automatically handles releases when automated tool version PRs are merged:
+The `auto-release.yml` workflow automatically handles releases when version markers change on `main`, including merged automated tool version PRs:
 
-1. When a PR with a title starting with `[Automated] Adding` is merged to main
+1. When a push to `main` changes any of the three version markers
 2. The workflow automatically:
-   - Compares all three markers at the PR's merge commit against its first parent
+   - Compares all three markers between the push's `before` and `after` commits
    - Generates the title, notes, tag, and prerelease status using the rules above
    - Updates the `latest` branch to match `main`
-   - Creates an annotated version tag at the exact merged commit (if it doesn't exist)
+   - Creates an annotated version tag at the exact pushed commit (if it doesn't exist)
    - Publishes a GitHub release with the generated title and notes
 
-The PR title only selects the workflow; it is not interpreted as release data. Using the merged commit prevents a later merge from changing the versions announced by a queued release. The moving `latest` branch still tracks current `main`.
+Detection does not depend on PR titles and covers merge commits, squash merges, multi-commit rebase merges, and direct version updates on `main`. Using the push's exact commit range prevents a later merge from changing the versions announced by a queued release. The moving `latest` branch still tracks current `main`.
 
 Existing tags and GitHub releases are preserved. If a tag exists but the GitHub release is missing, the workflow publishes the missing release after checking that the tagged versions match the planned update.
 
@@ -171,4 +171,4 @@ For manual releases or verification:
 - **Solution**: GitHub may cache action references. Users can try clearing cache or using a specific tag. Verify the latest branch is actually updated.
 
 **Problem**: Auto-release workflow didn't trigger
-- **Solution**: Check that the merged PR title starts with `[Automated] Adding` and its merge commit changes a version marker. If needed, use the manual workflow as a fallback.
+- **Solution**: Check that the push to `main` changes a version marker. Pushes made with `GITHUB_TOKEN` do not trigger another workflow, so use the manual workflow if the merge was performed using that token.

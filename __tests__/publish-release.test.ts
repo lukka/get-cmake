@@ -316,6 +316,34 @@ describe('publisher targeting, preservation and failure handling', () => {
     expect(f.run).toHaveBeenCalledWith('git', ['rev-parse', '--verify', '--end-of-options', `${BASE}^{commit}`]);
   });
 
+  test('publishes all changes across an explicit push range when the final commit changes no markers', () => {
+    const immediateParent = { ...updated };
+    const finalCommit = { ...immediateParent };
+    expect(createPlan(immediateParent, finalCommit)).toBeNull();
+    const f = fixture({
+      before, after: finalCommit,
+      env: { RELEASE_COMMIT: TARGET, BASE_REF: BASE },
+      failure: (cmd, args) => cmd === 'git' && args[0] === 'rev-parse' && args[3] === `${TARGET}^1^{commit}`
+        ? fail('must compare the full push range, not only the final commit') : undefined
+    });
+    expect(f.publish()).toMatchObject({
+      target: TARGET,
+      changed: ['cmake', 'rc', 'ninja'],
+      tag: 'v4.1.1',
+      title: 'CMake v4.1.1 and CMake v4.2.0-rc2 and Ninja v1.13.0',
+      prerelease: false
+    });
+    expect(f.run).toHaveBeenCalledWith('git', ['rev-parse', '--verify', '--end-of-options', `${BASE}^{commit}`]);
+    expect(f.run).not.toHaveBeenCalledWith('git', ['rev-parse', '--verify', '--end-of-options', `${TARGET}^1^{commit}`]);
+    expect(f.run).toHaveBeenCalledWith('git', ['merge-base', '--is-ancestor', BASE, TARGET]);
+    const create = f.run.mock.calls.find(([cmd, args]) => cmd === 'gh' && args[0] === 'release')![1];
+    expect(create[create.indexOf('--title') + 1]).toBe('CMake v4.1.1 and CMake v4.2.0-rc2 and Ninja v1.13.0');
+    const notes = create[create.indexOf('--notes') + 1];
+    expect(notes).toContain('`latest` is now using CMake version `v4.1.1`');
+    expect(notes).toContain('`latestrc` is now using CMake version `v4.2.0-rc2`');
+    expect(notes).toContain('`latest` is now using Ninja version `v1.13.0`');
+  });
+
   test('refuses a draft without publishing it or mutating any refs', () => {
     const f = fixture({ existingTag: true, release: { tag_name: 'v4.1.1', draft: true } });
     expect(f.publish).toThrow('still a draft');
