@@ -599,6 +599,14 @@ describe('GitHub Latest designation', () => {
     expect(f.run).toHaveBeenCalledWith('git', ['merge-base', '--is-ancestor', BASE, TARGET]);
   });
 
+  test('accepts an existing Latest release with a nonstandard tag name', () => {
+    const tag = 'fix-issue-165';
+    const f = fixture({ latestRelease: { ...latestRelease, tag_name: tag } });
+    f.publish();
+    expect(f.run).toHaveBeenCalledWith('git', ['ls-remote', '--tags', 'origin', `refs/tags/${tag}`]);
+    expect(createArgs(f)).toContain('--latest=true');
+  });
+
   test.each([
     { name: 'manual recovery', existingTag: true, env: { RELEASE_COMMIT: undefined, TAG_NAME: 'v4.1.1' }, commit: TAGGED },
     { name: 'automatic rerun with an existing tag', existingTag: true, env: {}, commit: TAGGED },
@@ -654,7 +662,7 @@ describe('GitHub Latest designation', () => {
 
   test.each([
     null, {}, { ...latestRelease, draft: true }, { ...latestRelease, prerelease: true },
-    { ...latestRelease, tag_name: '--help' }, { ...latestRelease, tag_name: 'v4.1.0\n' }
+    { ...latestRelease, tag_name: '' }, { ...latestRelease, tag_name: 'v4.1.0\n' }
   ])('rejects invalid Latest response %j before writes', response => {
     const f = fixture({
       failure: (cmd, args) => cmd === 'gh' && args[1].endsWith('/releases/latest')
