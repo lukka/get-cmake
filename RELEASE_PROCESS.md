@@ -30,6 +30,8 @@ Tag selection is deterministic:
 
 Combined updates containing stable CMake or Ninja are not marked as prereleases. An RC marker that resolves to the stable CMake version is not announced as a separate RC update. Without changed markers or an explicit matching recovery tag, the publisher makes no release, tag, or `latest` branch changes.
 
+Release titles and tagged catalog versions describe the release target. Usage notes for `@latest` and `cmakeVersion: latestrc` use the markers from current `main`, which is where the moving `latest` branch is synchronized. When recovering an older catalog, notes distinguish its versions from the versions currently selected by those aliases.
+
 ## Release Steps
 
 ### Option 1: Automatic Release (Recommended)
@@ -46,7 +48,11 @@ The `auto-release.yml` workflow automatically handles releases when version mark
 
 Detection does not depend on PR titles and covers merge commits, squash merges, multi-commit rebase merges, and direct version updates on `main`. Using the push's exact commit range prevents a later merge from changing the versions announced by a queued release. The moving `latest` branch still tracks current `main`.
 
+Both release workflows share a concurrency group with `queue: max` and `cancel-in-progress: false`. Up to 100 pending runs are retained instead of newer pushes replacing pending version updates; runs beyond GitHub's queue limit are canceled and require manual recovery.
+
 Existing tags and GitHub releases are preserved. If a tag exists but the GitHub release is missing, the workflow publishes the missing release after checking that the tagged versions match the planned update.
+
+New stable releases are explicitly marked Latest only if there is no current Latest release or its tagged commit is a strict ancestor of the new release's tagged commit. Older backfills, releases at the same commit, and prereleases use `--latest=false`, preserving the existing GitHub Latest designation independently of the moving `latest` branch.
 
 **No manual action needed** - the release happens automatically!
 
@@ -68,7 +74,7 @@ When a release or recovery is detected, the workflow will:
 
 Without a tag input, the release target is the checked-out `main` commit. With an existing tag, the target is that tag's commit, not today's `main`. The comparison base defaults to the target's first parent; set `base_ref` to an earlier commit when recovering a combined update spanning multiple commits. Targets must belong to `main` history.
 
-If there are no marker changes at the target but a supplied tag matches a version marker, the publisher can recover a release for that component. Existing GitHub releases are left unchanged; an existing draft requires explicit manual handling.
+If there are no marker changes at the target but a supplied tag matches a version marker, the publisher can recover a release for that component. Existing GitHub releases are left unchanged. The publisher checks all pages of the releases listing for matching drafts and fails before creating tags, publishing releases, or updating `latest` if one exists; publish or remove that draft manually before retrying. Authentication, network, and other lookup failures also stop publication rather than being treated as a missing release.
 
 ### Option 3: Manual Command-Line Process (Advanced)
 
@@ -160,6 +166,9 @@ For manual releases or verification:
 
 **Problem**: Tag exists but no GitHub release is visible
 - **Solution**: Rerun the failed release workflow, or use the manual workflow with the existing tag name. Publication uses the existing tag without recreating it. The workflow requires `contents: write` permission.
+
+**Problem**: Publisher reports a matching draft release
+- **Solution**: Publish or remove the draft manually before retrying. A draft can exist before its remote tag is created; the workflow deliberately leaves both drafts and refs unchanged.
 
 **Problem**: Requested tag or existing tagged versions do not match the detected update
 - **Solution**: Check the target commit and comparison base. Supply the correct tag and, for a multi-commit update, `base_ref`. The publisher fails instead of overwriting a tag or announcing versions absent from that tag.
