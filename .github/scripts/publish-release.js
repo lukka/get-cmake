@@ -197,7 +197,7 @@ function publishRelease(env = process.env, run = runCommand, appendSummary = app
     const latestResponse = run('gh', ['api', `repos/${repository}/releases/latest`]);
     if (latestResponse.status === 0) {
       const latest = JSON.parse(latestResponse.stdout);
-      if (!latest || typeof latest.tag_name !== 'string' || /\s/.test(latest.tag_name) || !TAG.test(latest.tag_name) ||
+      if (!latest || typeof latest.tag_name !== 'string' || !latest.tag_name || /\s/.test(latest.tag_name) ||
           latest.draft !== false || latest.prerelease !== false) {
         throw new Error('Invalid latest release response');
       }
