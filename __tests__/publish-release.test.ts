@@ -751,10 +751,11 @@ describe('publisher with real Git repositories', () => {
   });
 });
 
-describe('release workflow queuing', () => {
-  test.each(['auto-release.yml', 'sync-latest-and-tag.yml'])('%s preserves pending release runs', workflow => {
-    const source = readFileSync(join(__dirname, '..', '.github', 'workflows', workflow), 'utf8');
-    expect(source).toMatch(/^concurrency:\n  group: release-workflow\n  cancel-in-progress: false\n  queue: max$/m);
+describe.each(['auto-release.yml', 'sync-latest-and-tag.yml'])('release workflow queuing in %s', workflow => {
+  test.each(['\n', '\r\n'])('preserves pending release runs with %j line endings', newline => {
+    const source = readFileSync(join(__dirname, '..', '.github', 'workflows', workflow), 'utf8')
+      .replace(/\r?\n/g, newline);
+    expect(source).toMatch(/^concurrency:\r?\n  group: release-workflow\r?\n  cancel-in-progress: false\r?\n  queue: max$/m);
   });
 });
 export {};
