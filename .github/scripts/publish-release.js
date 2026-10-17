@@ -32,9 +32,10 @@ function validateTag(tag) {
   }
 }
 
-function createPlan(before, after, requestedTag) {
+function createPlan(before, after, requestedTag, latest = after) {
   validateVersions(before, true);
   validateVersions(after);
+  validateVersions(latest);
   if (requestedTag !== undefined) validateTag(requestedTag);
   let changed = Object.keys(MARKERS).filter(key =>
     before[key] !== after[key] && !(key === 'rc' && after.rc === after.cmake));
@@ -60,13 +61,17 @@ function createPlan(before, after, requestedTag) {
     `${key === 'ninja' ? 'Ninja' : 'CMake'} v${after[key]}`
   ).join(' and ');
   const changes = changed.map(key => {
+    const historical = after[key] !== latest[key];
+    const component = key === 'ninja' ? 'Ninja' : key === 'rc' ? 'CMake RC' : 'CMake';
+    const included = historical ? `This tagged catalog includes ${component} version \`v${after[key]}\`. ` : '';
+    const usage = historical ? 'currently uses' : 'is now using';
     if (key === 'cmake') {
-      return ` - \`latest\` is now using CMake version \`v${after.cmake}\`, use this one-liner e.g.:\n \`uses: lukka/get-cmake@latest\``;
+      return ` - ${included}\`latest\` ${usage} CMake version \`v${latest.cmake}\`, use this one-liner e.g.:\n \`uses: lukka/get-cmake@latest\``;
     }
     if (key === 'rc') {
-      return ` - \`latestrc\` is now using CMake version \`v${after.rc}\`, use e.g.:\n\n\`\`\`yaml\n- uses: lukka/get-cmake@latest\n  with:\n    cmakeVersion: latestrc\n\`\`\``;
+      return ` - ${included}\`latestrc\` ${usage} CMake version \`v${latest.rc}\`, use e.g.:\n\n\`\`\`yaml\n- uses: lukka/get-cmake@latest\n  with:\n    cmakeVersion: latestrc\n\`\`\``;
     }
-    return ` - \`latest\` is now using Ninja version \`v${after.ninja}\`.`;
+    return ` - ${included}\`latest\` ${usage} Ninja version \`v${latest.ninja}\`.`;
   });
   return {
     changed, versions: { ...after }, tag, title,
@@ -140,7 +145,7 @@ function publishRelease(env = process.env, run = runCommand, appendSummary = app
   };
 
   git(['fetch', 'origin', '+refs/heads/main:refs/remotes/origin/main']);
-  resolve('refs/remotes/origin/main');
+  const main = resolve('refs/remotes/origin/main');
   let existingTag;
   let tagCommit;
   if (!env.RELEASE_COMMIT && requestedTag) {
@@ -152,7 +157,7 @@ function publishRelease(env = process.env, run = runCommand, appendSummary = app
   const after = readVersions(target);
   const base = resolve(env.BASE_REF || `${target}^1`);
   git(['merge-base', '--is-ancestor', base, target]);
-  const plan = createPlan(readVersions(base, true), after, requestedTag);
+  const plan = createPlan(readVersions(base, true), after, requestedTag, readVersions(main));
   if (!plan) return { skipped: true, summary: summarize('No marker changes; no release, tag or latest update needed.') };
 
   if (existingTag === undefined) existingTag = remoteTag(plan.tag);
@@ -167,18 +172,49 @@ function publishRelease(env = process.env, run = runCommand, appendSummary = app
     }
   }
 
-  const endpoint = `repos/${repository}/releases/tags/${plan.tag}`;
-  const response = run('gh', ['api', endpoint]);
-  let release;
-  if (response.status === 0) {
-    release = JSON.parse(response.stdout);
-    if (!release || release.tag_name !== plan.tag || typeof release.draft !== 'boolean') {
-      throw new Error('Invalid release response');
-    }
-    if (release.draft) throw new Error(`Release ${plan.tag} is still a draft; refusing to report it published`);
-    if (!existingTag) throw new Error('Existing release has no matching remote tag');
-  } else if (!/\(HTTP 404\)/.test(response.stderr || '')) {
+  // The tag endpoint does not find drafts; inspect every page before any writes.
+  const response = run('gh', [
+    'api', `repos/${repository}/releases?per_page=100`, '--paginate',
+    '--jq', '[.[] | {tag_name, draft}] | @json'
+  ]);
+  if (response.status !== 0) {
     throw new Error(`Release lookup failed: ${response.stderr || response.stdout || response.status}`);
+  }
+  const pages = response.stdout.trim().split('\n').map(page => JSON.parse(page));
+  if (!pages.every(page => Array.isArray(page) && page.every(release =>
+    release && typeof release.tag_name === 'string' && typeof release.draft === 'boolean'))) {
+    throw new Error('Invalid release listing response');
+  }
+  const matching = pages.flat().filter(release => release.tag_name === plan.tag);
+  if (matching.some(release => release.draft)) {
+    throw new Error(`Release ${plan.tag} is still a draft; refusing to report it published`);
+  }
+  const release = matching[0];
+  if (release && !existingTag) throw new Error('Existing release has no matching remote tag');
+
+  let makeLatest = false;
+  if (!release && !plan.prerelease) {
+    const latestResponse = run('gh', ['api', `repos/${repository}/releases/latest`]);
+    if (latestResponse.status === 0) {
+      const latest = JSON.parse(latestResponse.stdout);
+      if (!latest || typeof latest.tag_name !== 'string' || /\s/.test(latest.tag_name) || !TAG.test(latest.tag_name) ||
+          latest.draft !== false || latest.prerelease !== false) {
+        throw new Error('Invalid latest release response');
+      }
+      const latestTag = remoteTag(latest.tag_name);
+      if (!latestTag) throw new Error('Latest release has no matching remote tag');
+      const latestCommit = fetchTag(latest.tag_name, latestTag);
+      const releaseCommit = tagCommit || target;
+      const ancestry = run('git', ['merge-base', '--is-ancestor', latestCommit, releaseCommit]);
+      if (ancestry.status !== 0 && ancestry.status !== 1) {
+        throw new Error(`Latest release comparison failed: ${ancestry.stderr || ancestry.stdout || ancestry.status}`);
+      }
+      makeLatest = latestCommit !== releaseCommit && ancestry.status === 0;
+    } else if (/\(HTTP 404\)/.test(latestResponse.stderr || '')) {
+      makeLatest = true;
+    } else {
+      throw new Error(`Latest release lookup failed: ${latestResponse.stderr || latestResponse.stdout || latestResponse.status}`);
+    }
   }
 
   if (!existingTag) {
@@ -197,7 +233,8 @@ function publishRelease(env = process.env, run = runCommand, appendSummary = app
   if (!release) {
     gh([
       'release', 'create', plan.tag, '--repo', repository, '--verify-tag',
-      '--title', plan.title, '--notes', plan.notes, ...(plan.prerelease ? ['--prerelease'] : [])
+      '--title', plan.title, '--notes', plan.notes, `--latest=${makeLatest}`,
+      ...(plan.prerelease ? ['--prerelease'] : [])
     ]);
   }
   git(['push', 'origin', 'refs/remotes/origin/main:refs/heads/latest', '--force']);

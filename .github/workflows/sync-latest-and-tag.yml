@@ -15,6 +15,7 @@ on:
 concurrency:
   group: release-workflow
   cancel-in-progress: false
+  queue: max
 
 jobs:
   sync_and_tag:
