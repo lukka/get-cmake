@@ -31,6 +31,7 @@ const crypto = __nccwpck_require__(6113);
 const semver_1 = __nccwpck_require__(11383);
 const catalog = __nccwpck_require__(15284);
 const shared = __nccwpck_require__(26946);
+const nightly_1 = __nccwpck_require__(26157);
 const extractFunction = {
     '.tar.gz': tools.extractTar,
     '.zip': tools.extractZip
@@ -53,16 +54,7 @@ class ToolsGetter {
     run() {
         return __awaiter(this, void 0, void 0, function* () {
             const targetArchPlat = shared.getArchitecturePlatform();
-            const cmakeVer = ToolsGetter.matchRange(catalog.cmakeCatalog, this.requestedCMakeVersion, "cmake");
-            if (!cmakeVer)
-                throw Error(`Cannot match CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
-            const cmakePackages = catalog.cmakeCatalog[cmakeVer];
-            if (!cmakePackages)
-                throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
-            const cmakePackage = cmakePackages[targetArchPlat];
-            core.debug(`cmakePackages: ${JSON.stringify(cmakePackages)}`);
-            if (!cmakePackage)
-                throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${targetArchPlat}' platform.`);
+            const cmakePackage = yield this.getCMakePackage(targetArchPlat);
             const ninjaVer = ToolsGetter.matchRange(catalog.ninjaCatalog, this.requestedNinjaVersion, "ninja");
             if (!ninjaVer)
                 throw Error(`Cannot match Ninja version:'${this.requestedNinjaVersion}' in the catalog.`);
@@ -73,6 +65,23 @@ class ToolsGetter {
             if (!ninjaPackage)
                 throw Error(`Cannot find Ninja version:'${this.requestedNinjaVersion}' in the catalog for the '${targetArchPlat}' platform.`);
             yield this.get(cmakePackage, ninjaPackage);
+        });
+    }
+    getCMakePackage(targetArchPlat) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (this.requestedCMakeVersion === 'nightly')
+                return (0, nightly_1.getNightlyCMakePackage)(targetArchPlat);
+            const cmakeVer = ToolsGetter.matchRange(catalog.cmakeCatalog, this.requestedCMakeVersion, "cmake");
+            if (!cmakeVer)
+                throw Error(`Cannot match CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
+            const cmakePackages = catalog.cmakeCatalog[cmakeVer];
+            if (!cmakePackages)
+                throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
+            const cmakePackage = cmakePackages[targetArchPlat];
+            core.debug(`cmakePackages: ${JSON.stringify(cmakePackages)}`);
+            if (!cmakePackage)
+                throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${targetArchPlat}' platform.`);
+            return cmakePackage;
         });
     }
     static matchRange(theCatalog, range, toolName) {
@@ -445,6 +454,79 @@ function main() {
 exports.main = main;
 
 //# sourceMappingURL=get-cmake.js.map
+
+
+/***/ }),
+
+/***/ 26157:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getNightlyCMakePackage = void 0;
+const tools = __nccwpck_require__(27784);
+const fs = __nccwpck_require__(73292);
+const releases_collector_1 = __nccwpck_require__(26946);
+const nightlyBaseUrl = 'https://cmake.org/files/dev/';
+function downloadText(url) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const downloaded = yield tools.downloadTool(url);
+        try {
+            return yield fs.readFile(downloaded, 'utf8');
+        }
+        finally {
+            yield fs.rm(downloaded, { force: true });
+        }
+    });
+}
+function nightlyUrl(fileName) {
+    if (!/^cmake-[a-zA-Z0-9._+-]+$/.test(fileName)) {
+        throw new Error(`Invalid CMake nightly file name: '${fileName}'.`);
+    }
+    return nightlyBaseUrl + fileName;
+}
+function getNightlyCMakePackage(platform) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const manifest = JSON.parse(yield downloadText(nightlyBaseUrl + 'cmake-latest-files-v1.json'));
+        for (const filter of releases_collector_1.CMakeFilters.allFilters) {
+            if (filter.platform !== platform)
+                continue;
+            const archive = manifest.files.find(file => file.class === 'archive' && file.name.endsWith(filter.suffix));
+            if (!archive)
+                continue;
+            const url = nightlyUrl(archive.name);
+            const hashFile = manifest.hashFiles.find(file => file.algorithm.includes('SHA-256'));
+            if (!hashFile)
+                throw new Error('SHA-256 checksum file not available for CMake nightly.');
+            const checksums = yield downloadText(nightlyUrl(hashFile.name));
+            const checksum = checksums.split(/\r?\n/).map(line => /^([0-9a-f]{64})[ \t]+\*?(.+)$/i.exec(line))
+                .find(match => (match === null || match === void 0 ? void 0 : match[2]) === archive.name);
+            if (!checksum)
+                throw new Error(`SHA-256 checksum not available for CMake nightly archive '${archive.name}'.`);
+            return {
+                url,
+                fileName: archive.name,
+                binPath: filter.binPath,
+                dropSuffix: filter.dropSuffix,
+                sha256: checksum[1].toLowerCase(),
+            };
+        }
+        throw new Error(`Cannot find CMake nightly for the '${platform}' platform.`);
+    });
+}
+exports.getNightlyCMakePackage = getNightlyCMakePackage;
+
+//# sourceMappingURL=nightly.js.map
 
 
 /***/ }),

@@ -14,6 +14,7 @@ import * as crypto from 'crypto';
 import { SemVer, maxSatisfying } from 'semver';
 import * as catalog from './releases-catalog'
 import * as shared from './releases-collector'
+import { getNightlyCMakePackage } from './nightly';
 
 const extractFunction: { [key: string]: { (url: string, outputPath: string): Promise<string> } } = {
   '.tar.gz': tools.extractTar,
@@ -56,16 +57,7 @@ export class ToolsGetter {
 
   public async run(): Promise<void> {
     const targetArchPlat = shared.getArchitecturePlatform();
-    const cmakeVer = ToolsGetter.matchRange(catalog.cmakeCatalog, this.requestedCMakeVersion, "cmake");
-    if (!cmakeVer)
-      throw Error(`Cannot match CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
-    const cmakePackages = (catalog.cmakeCatalog as shared.CatalogType)[cmakeVer];
-    if (!cmakePackages)
-      throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
-    const cmakePackage = cmakePackages[targetArchPlat];
-    core.debug(`cmakePackages: ${JSON.stringify(cmakePackages)}`);
-    if (!cmakePackage)
-      throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${targetArchPlat}' platform.`);
+    const cmakePackage = await this.getCMakePackage(targetArchPlat);
 
     const ninjaVer = ToolsGetter.matchRange(catalog.ninjaCatalog, this.requestedNinjaVersion, "ninja");
     if (!ninjaVer)
@@ -78,6 +70,24 @@ export class ToolsGetter {
       throw Error(`Cannot find Ninja version:'${this.requestedNinjaVersion}' in the catalog for the '${targetArchPlat}' platform.`);
 
     await this.get(cmakePackage, ninjaPackage);
+  }
+
+  private async getCMakePackage(targetArchPlat: string): Promise<shared.PackageInfo> {
+    if (this.requestedCMakeVersion === 'nightly')
+      return getNightlyCMakePackage(targetArchPlat);
+
+    const cmakeVer = ToolsGetter.matchRange(catalog.cmakeCatalog, this.requestedCMakeVersion, "cmake");
+    if (!cmakeVer)
+      throw Error(`Cannot match CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
+    const cmakePackages = (catalog.cmakeCatalog as shared.CatalogType)[cmakeVer];
+    if (!cmakePackages)
+      throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog.`);
+    const cmakePackage = cmakePackages[targetArchPlat];
+    core.debug(`cmakePackages: ${JSON.stringify(cmakePackages)}`);
+    if (!cmakePackage)
+      throw Error(`Cannot find CMake version:'${this.requestedCMakeVersion}' in the catalog for the '${targetArchPlat}' platform.`);
+
+    return cmakePackage;
   }
 
   private static matchRange(theCatalog: shared.CatalogType, range: string, toolName: string): string {

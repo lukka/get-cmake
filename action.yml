@@ -12,10 +12,10 @@ runs:
 inputs:
   cmakeVersion:
     required: false
-    description: "Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `ˆ3.25.0` for the most recent 3.x version, or a specific version `3.25.2'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed."
+    description: "Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `ˆ3.25.0` for the most recent 3.x version, or a specific version `3.25.2'. Or `latest`, `latestrc`, or `nightly` for the latest stable, release candidate, or nightly build. If not specified the `latest` is installed."
   ninjaVersion:
     required: false
-    description: "Optional Ninja version, same syntax as `cmakeVersion` input. If not specified, `latest` is installed"
+    description: "Optional Ninja version, same syntax as `cmakeVersion` input except `nightly`, which is only supported for CMake. If not specified, `latest` is installed"
   useCloudCache:
     required: false
     description: "Optional argument indicating whether to use the cloud based storage of the GitHub cache. Suited for the GitHub-hosted runners."
