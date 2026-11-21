@@ -5,6 +5,7 @@
 - [The **get-cmake** action installs as fast as possible your desired versions of CMake and Ninja](#the-get-cmake-action-installs-as-fast-as-possible-your-desired-versions-of-cmake-and-ninja)
   - [Quickstart](#quickstart)
     - [If you want to use  **latest stable** you can use this one-liner:](#if-you-want-to-use--latest-stable-you-can-use-this-one-liner)
+    - [If you want to use CMake nightly builds:](#if-you-want-to-use-cmake-nightly-builds)
     - [If you want to **pin** the workflow to **specific range of versions** of CMake and Ninja:](#if-you-want-to-pin-the-workflow-to-specific-range-of-versions-of-cmake-and-ninja)
     - [Outputs](#outputs)
   - [Action reference: all input/output parameters](#action-reference-all-inputoutput-parameters)
@@ -72,6 +73,19 @@ And there is a second option:
 
 <br>
 
+### If you want to use CMake nightly builds:
+```yaml
+  - uses: lukka/get-cmake@latest
+    with:
+      cmakeVersion: nightly
+```
+This installs the latest [CMake development build](https://cmake.org/download/#dev).
+The action resolves the current nightly archive and its published SHA-256 checksum on
+each run, so caches are reused only while that build is unchanged. Ninja still uses
+`ninjaVersion` (default: `latest`); `nightly` is supported only for CMake.
+
+<br>
+
 ### If you want to **pin** the workflow to **specific range of versions** of CMake and Ninja:
 ```yaml
   # Option 1: specify in a input parameter the desired version using ranges.
@@ -116,7 +130,7 @@ Example usage:
 <br>
 
 ### Integrity verification
-Every downloaded archive is verified against the SHA-256 checksum stored in the [catalog of releases](./src/releases-catalog.ts), which is generated from the checksums published by the CMake and Ninja maintainers.
+Every downloaded archive is verified against the SHA-256 checksum stored in the [catalog of releases](./src/releases-catalog.ts), which is generated from the checksums published by the CMake and Ninja maintainers. For CMake nightly builds, the checksum is fetched from CMake's published nightly SHA-256 file instead.
 If the checksum does not match, the archive is deleted and the action fails; if no checksum is known for the requested version, the archive is not downloaded at all.
 
 <br>
@@ -200,4 +214,3 @@ See [RELEASE_PROCESS.md](./RELEASE_PROCESS.md) for detailed instructions.
 All the content in this repository is licensed under the [MIT License](LICENSE.txt).
 
 Copyright (c) 2020-2021-2022-2023-2024-2025 Luca Cappa
-
